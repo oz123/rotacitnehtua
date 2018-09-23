@@ -15,6 +15,7 @@
         "--filesystem=home",
         /* Keyring */
         "--talk-name=org.freedesktop.secrets",
+        "--talk-name=org.freedesktop.Flatpak",
         /* Screenshot (used to scan QR code)*/
         "--talk-name=org.gnome.Shell.Screenshot",
         /* dconf */

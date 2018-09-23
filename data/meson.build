@@ -69,3 +69,5 @@ if appstreamcli.found()
      ]
   )
 endif
+
+subdir('icons')

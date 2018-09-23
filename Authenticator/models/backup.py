@@ -17,11 +17,12 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 import json
+from gi.repository import Gio
 
 from .account import Account
 from .accounts_manager import AccountsManager
 from .keyring import Keyring
-
+from .logger import Logger
 
 class Backup:
 
@@ -36,10 +37,11 @@ class Backup:
         for account in accounts:
             try:
                 new_account = Account.create_from_json(account)
-                accounts_widget.append(new_account)
                 accounts_manager.add(new_account)
-            except Exception:
-                pass
+                accounts_widget.append(new_account)
+            except Exception as e:
+                Logger.error("[Restore] Failed to import accounts")
+                Logger.error(str(e))
 
     @staticmethod
     def export_accounts():
@@ -58,16 +60,22 @@ class BackupJSON:
         pass
 
     @staticmethod
-    def export_file(filename):
+    def export_file(uri):
         accounts = Backup.export_accounts()
-        with open(filename, 'w') as outfile:
-            json.dump(accounts, outfile, sort_keys=True, indent=4)
+        gfile = Gio.File.new_for_uri(uri)
+        stream = gfile.replace(None,
+                               False,
+                               Gio.FileCreateFlags.REPLACE_DESTINATION,
+                               None)
+        data_stream = Gio.DataOutputStream.new(stream)
+        data_stream.put_string(json.dumps(accounts), None)
+        stream.close()
 
     @staticmethod
-    def import_file(filename):
-        with open(filename, 'r') as infile:
-            accounts = json.load(infile)
-        Backup.import_accounts(accounts)
+    def import_file(uri):
+        gfile = Gio.File.new_for_uri(uri)
+        accounts = gfile.load_contents()[1].decode("utf-8")
+        Backup.import_accounts(json.loads(accounts))
 
 
 class BackupPGPJSON:
@@ -75,10 +83,17 @@ class BackupPGPJSON:
         pass
 
     @staticmethod
-    def export_file(filename, fingerprint):
+    def export_file(uri, fingerprint):
         from .gnupg import GPG
         accounts = Backup.export_accounts()
         data = json.dumps(accounts, sort_keys=True, indent=4)
         encrypted_data = GPG.get_default().encrypt(data, fingerprint)
-        with open(filename, 'w') as outfile:
-            outfile.write(str(encrypted_data))
+
+        gfile = Gio.File.new_for_uri(uri)
+        stream = gfile.replace(None,
+                               False,
+                               Gio.FileCreateFlags.REPLACE_DESTINATION,
+                               None)
+        data_stream = Gio.DataOutputStream.new(stream)
+        data_stream.put_string(str(encrypted_data), None)
+        stream.close()
