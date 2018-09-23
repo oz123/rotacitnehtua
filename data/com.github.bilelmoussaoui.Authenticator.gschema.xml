@@ -2,30 +2,34 @@
 <schemalist>
   <schema path="/com/github/bilelmoussaoui/Authenticator/" id="com.github.bilelmoussaoui.Authenticator" gettext-domain="Authenticator">
     <key name="window-position" type="ai">
-      <default>[0,0]</default>
-      <summary>Default window postiton</summary>
-      <description>
-        Default window postiton
-      </description>
+        <default>[0,0]</default>
+        <summary>Default window position</summary>
+        <description>Default window position</description>
     </key>
     <key name="night-mode" type="b">
-      <default>false</default>
-      <summary>Night mode</summary>
-      <description>
-        Enable/disable night mode within the application
-      </description>
+        <default>false</default>
+        <summary>Night mode</summary>
+        <description>Enable/disable night mode within the application</description>
     </key>
     <key name="is-maximized" type="b">
-      <default>false</default>
-      <summary>Default window maximized behaviour</summary>
-      <description>
-      </description>
+        <default>false</default>
+        <summary>Default window maximized behaviour</summary>
+        <description></description>
     </key>
     <key name="gpg-location" type="s">
-      <default>'~/.gnupg/'</default>
-      <summary>GPG keys location</summary>
-      <description>
-      </description>
+        <default>'~/.gnupg/'</default>
+        <summary>GPG keys location</summary>
+        <description></description>
+    </key>
+    <key name="is-locked" type="b">
+        <default>false</default>
+        <summary>Whether the application is locked with a password or not</summary>
+        <description></description>
+    </key>
+    <key name="can-be-locked" type="b">
+        <default>false</default>
+        <summary>Whether the application can be locked or not</summary>
+        <description></description>
     </key>
   </schema>
 </schemalist>

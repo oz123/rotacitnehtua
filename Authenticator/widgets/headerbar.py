@@ -31,6 +31,7 @@ class HeaderBarState:
     EMPTY = 0
     NORMAL = 2
     SELECT = 3
+    LOCKED = 4
 
 
 class HeaderBarBtn:
@@ -179,6 +180,12 @@ class HeaderBar(Gtk.HeaderBar):
             self.cancel_btn.set_no_show_all(False)
             self.settings_btn.hide_()
             self.set_title(_("Click on items to select them"))
+        elif state == HeaderBarState.LOCKED:
+            self.add_btn.hide_()
+            self.select_btn.hide_()
+            self.search_btn.hide_()
+            self.cancel_btn.set_visible(False)
+            self.cancel_btn.set_no_show_all(True)
         else:
             self.search_btn.show_()
             self.add_btn.show_()

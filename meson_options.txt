@@ -1,1 +1,2 @@
-option('enable-zbar', type : 'boolean', value : true, description : 'enable QR Scanner using zbar')
+option('enable_zbar', type : 'boolean', value : true, description : 'Enable QR Scanner using zbar')
+option('is_devel', type : 'boolean', value : false, description : 'Enabled with Flatpak nightlies bundles')

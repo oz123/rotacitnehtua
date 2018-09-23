@@ -77,3 +77,9 @@ target/
 *.gresource
 *.ui~
 .vscode/
+*.py~
+*.md~
+*.css~
+*.in~
+*.gitignore~
+*.build~

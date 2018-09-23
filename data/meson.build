@@ -1,23 +1,30 @@
-
-message('TODO: Making a list of icons')
-subdir('icons')
-
-message('TODO: Compiling resources')
-
 gnome.compile_resources(
   meson.project_name(),
   meson.project_name() + '.gresource.xml',
   gresource_bundle: true,
   source_dir: '.',
-  install_dir: DATA_DIR,
+  install_dir: join_paths(get_option('datadir'), meson.project_name()),
   install: true
 )
 
-message('Compiling schemas')
 install_data(
   meson.project_name() + '.gschema.xml',
-  install_dir : join_paths(get_option('prefix'),get_option('datadir'), 'glib-2.0/schemas')
+  install_dir : join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
+
+
+configure_file(
+  input: meson.project_name() + '.SearchProvider.service.in',
+  output: meson.project_name() + '.SearchProvider.service',
+  configuration: conf,
+  install_dir: join_paths(get_option('datadir'), 'dbus-1/services')
+)
+
+install_data(
+  meson.project_name() + '.SearchProvider.ini',
+  install_dir: join_paths(get_option('datadir'), 'gnome-shell/search-providers')
+)
+
 
 i18n.merge_file(
   output: meson.project_name() + '.desktop',
@@ -25,7 +32,7 @@ i18n.merge_file(
   po_dir: join_paths(meson.source_root(), 'po'),
   type: 'desktop',
   install: true,
-  install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'applications')
+  install_dir: join_paths(get_option('datadir'), 'applications')
 )
 
 i18n.merge_file(
@@ -33,7 +40,7 @@ i18n.merge_file(
   input: meson.project_name() + '.appdata.xml.in',
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,
-  install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'appdata')
 )
 
 
@@ -44,7 +51,8 @@ if desktop_file_validate.found()
   test (
     'Validate desktop file',
     desktop_file_validate,
-    args: join_paths(meson.current_build_dir (), meson.project_name() + '.desktop')
+    args: join_paths(meson.current_build_dir (),
+                     meson.project_name() + '.desktop')
   )
 endif
 
@@ -54,6 +62,10 @@ if appstreamcli.found()
   test (
     'Validate appdata file',
     appstreamcli,
-    args: ['validate-relax', join_paths(meson.current_build_dir (), meson.project_name() + '.appdata.xml')]
+    args: [
+            'validate-relax',
+            join_paths(meson.current_build_dir(),
+                       meson.project_name() + '.appdata.xml')
+     ]
   )
 endif

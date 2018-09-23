@@ -32,6 +32,7 @@ def can_use_qrscanner():
 def load_pixbuf(icon_name, size):
     pixbuf = None
     theme = Gtk.IconTheme.get_default()
+    theme.add_resource_path("/com/github/bilelmoussaoui/Authenticator")
     if icon_name:
         try:
             icon_info = theme.lookup_icon(icon_name, size, 0)

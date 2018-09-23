@@ -1,18 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Authenticator package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-22 17:19+0200\n"
-"PO-Revision-Date: 2018-09-12 11:06+0000\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/authenticator/"
-"translation/sv/>\n"
-"Language: sv\n"
+"PO-Revision-Date: 2018-09-20 23:02+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/authenticator/"
+"translation/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,179 +26,177 @@ msgid "Authenticator"
 msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
-#, fuzzy
 msgid "Lock the application"
-msgstr "Lås programmet"
+msgstr ""
 
 #: Authenticator/application.py:101
 msgid "from a plain-text JSON file"
-msgstr ""
+msgstr "des d’un fitxer JSON de text sense format"
 
 #: Authenticator/application.py:102
 msgid "from an OpenPGP-encrypted JSON file"
-msgstr ""
+msgstr "des d’un fitxer JSON xifrat amb l’OpenPGP"
 
 #: Authenticator/application.py:103
 msgid "in a plain-text JSON file"
-msgstr ""
+msgstr "en un fitxer JSON de text sense format"
 
 #: Authenticator/application.py:104
 msgid "in an OpenPGP-encrypted JSON file"
-msgstr ""
+msgstr "en un fitxer JSON xifrat amb l’OpenPGP"
 
 #: Authenticator/application.py:106
 msgid "Restore"
-msgstr ""
+msgstr "Restaura"
 
 #: Authenticator/application.py:107 Authenticator/widgets/settings.py:258
-#, fuzzy
 msgid "Backup"
-msgstr "Bakåt"
+msgstr "Còpia de seguretat"
 
 #. Night mode action
 #: Authenticator/application.py:115 Authenticator/widgets/headerbar.py:103
 #: Authenticator/widgets/settings.py:212
 msgid "Settings"
-msgstr "Inställningar"
+msgstr "Paràmetres"
 
 #: Authenticator/application.py:116
 msgid "About"
-msgstr "Om"
+msgstr "Quant a"
 
 #: Authenticator/application.py:117
 msgid "Quit"
-msgstr "Avsluta"
+msgstr "Surt"
 
 #: Authenticator/models/account.py:72
 msgid "Default"
-msgstr "Standard"
+msgstr "Per defecte"
 
 #: Authenticator/widgets/accounts/add.py:50
 #: Authenticator/widgets/headerbar.py:101
 msgid "Add a new account"
-msgstr "Lägg till ett nytt konto"
+msgstr "Afegeix un compte nou"
 
 #: Authenticator/widgets/accounts/add.py:54
 msgid "Add"
-msgstr "Lägg till"
+msgstr "Afegeix"
 
 #: Authenticator/widgets/accounts/add.py:63
 msgid "Scan QR code"
-msgstr "Läs av QR-kod"
+msgstr "Escaneja un codi QR"
 
 #: Authenticator/widgets/accounts/add.py:70
 #: Authenticator/widgets/accounts/edit.py:58
 msgid "Close"
-msgstr "Stäng"
+msgstr "Tanca"
 
 #: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
-msgstr ""
+msgstr "Proveïdor"
 
 #: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
-msgstr "Kontonamn"
+msgstr "Nom del compte"
 
 #: Authenticator/widgets/accounts/add.py:177
-#, fuzzy
 msgid "Secret token"
-msgstr "Hemligt igenkänningstecken"
+msgstr "Testimoni secret"
 
 #: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
-msgstr "Ogiltig QR-kod"
+msgstr "El codi QR no és vàlid"
 
 #: Authenticator/widgets/accounts/add.py:264
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
+"No s’ha trobat la biblioteca zbar. S’inhabilitarà l’escàner de codis QR"
 
 #: Authenticator/widgets/accounts/edit.py:47
 msgid "Edit {} - {}"
-msgstr ""
+msgstr "Edita {} - {}"
 
 #: Authenticator/widgets/accounts/edit.py:52
 #: Authenticator/widgets/settings.py:143
 msgid "Save"
-msgstr "Spara"
+msgstr "Desa"
 
 #: Authenticator/widgets/accounts/list.py:158
 msgid "The One-Time Passwords expires in {} seconds"
-msgstr ""
+msgstr "La contrasenya d’un sol ús caducarà en {} segons"
 
 #. Label
 #: Authenticator/widgets/accounts/list.py:280
 msgid "There are no accounts yet…"
-msgstr "Det finns inga konton ännu…"
+msgstr "Encara no hi ha cap compte…"
 
 #: Authenticator/widgets/accounts/row.py:58
 msgid "Copy"
-msgstr "Kopiera"
+msgstr "Copia"
 
 #: Authenticator/widgets/accounts/row.py:59
 msgid "Edit"
-msgstr "Redigera"
+msgstr "Edita"
 
 #: Authenticator/widgets/accounts/row.py:149
 msgid "Couldn't generate the secret code"
-msgstr "Kunde inte generera den hemliga koden"
+msgstr "No s’ha pogut generar el codi secret"
 
 #: Authenticator/widgets/backup/gnupg.py:38
 #: Authenticator/widgets/backup/gnupg.py:46
 msgid "GPG paraphrase"
-msgstr ""
+msgstr "Contrasenya del GPG"
 
 #: Authenticator/widgets/backup/gnupg.py:48
 msgid "Import"
-msgstr "Importera"
+msgstr "Importa"
 
 #: Authenticator/widgets/backup/gnupg.py:55
 msgid "Paraphrase"
-msgstr ""
+msgstr "Contrasenya"
 
 #: Authenticator/widgets/backup/gnupg.py:73
 msgid "There was an error during the import of the encrypted file."
-msgstr "Ett fel uppstod under importen av den krypterade filen."
+msgstr "S’ha produït un error en importar el fitxer xifrat."
 
 #: Authenticator/widgets/backup/gnupg.py:104
 #: Authenticator/widgets/backup/gnupg.py:112
 msgid "GPG fingerprint"
-msgstr "GPG-fingeravtryck"
+msgstr "Empremta del GPG"
 
 #: Authenticator/widgets/backup/gnupg.py:117
 msgid "Public keys"
-msgstr "Öppna nycklar"
+msgstr "Claus públiques"
 
 #: Authenticator/widgets/backup/gnupg.py:118
 msgid "Private keys"
-msgstr "Privata nycklar"
+msgstr "Claus privades"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
-msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
+msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2018"
 
 #: Authenticator/widgets/about.py.in:47
 msgid "Two-factor authentication code generator."
-msgstr "Generator för tvåfaktorsautentiseringskoder."
+msgstr "Generador de codis d’autenticació amb dos components."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Suprimeix"
 
 #: Authenticator/widgets/headerbar.py:99
 msgid "Search"
-msgstr "Sök"
+msgstr "Cerca"
 
 #: Authenticator/widgets/headerbar.py:105
 msgid "Selection mode"
-msgstr "Urvalsläge"
+msgstr "Mode de selecció"
 
 #: Authenticator/widgets/headerbar.py:107
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Cancel·la"
 
 #: Authenticator/widgets/headerbar.py:182
 msgid "Click on items to select them"
-msgstr "Klicka på objekt för att välja dem"
+msgstr "Feu clic als elements per a seleccionar-los"
 
 #: Authenticator/widgets/settings.py:139
 #, fuzzy
@@ -207,35 +205,35 @@ msgstr "Authenticator"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
-msgstr "Gammalt lösenord"
+msgstr "Contrasenya anterior"
 
 #: Authenticator/widgets/settings.py:156
 msgid "Password"
-msgstr "Lösenord"
+msgstr "Contrasenya"
 
 #: Authenticator/widgets/settings.py:159
 msgid "Repeat Password"
-msgstr "Upprepa lösenord"
+msgstr "Repetiu la contrasenya"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Dark theme"
-msgstr "Mörkt tema"
+msgstr "Tema fosc"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Use a dark theme, if possible"
-msgstr "Använd om möjligt ett mörkt tema"
+msgstr "Utilitza un tema fosc si és possible"
 
 #: Authenticator/widgets/settings.py:232
 msgid "Appearance"
-msgstr "Utseende"
+msgstr "Aparença"
 
 #: Authenticator/widgets/settings.py:236
 msgid "Clear the database"
-msgstr "Rensa databasen"
+msgstr "Neteja la base de dades"
 
 #: Authenticator/widgets/settings.py:236
 msgid "Erase existing accounts"
-msgstr "Radera befintliga konton"
+msgstr "Esborra els comptes existents"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
@@ -252,12 +250,12 @@ msgstr ""
 
 #: Authenticator/widgets/settings.py:250
 msgid "Behaviour"
-msgstr "Beteende"
+msgstr "Comportament"
 
 #: Authenticator/widgets/settings.py:253
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
 msgid "GPG keys location"
-msgstr ""
+msgstr "Ubicació de les claus GPG"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
@@ -265,19 +263,19 @@ msgstr ""
 
 #: Authenticator/widgets/settings.py:303
 msgid "The existing accounts will be erased in 5 seconds"
-msgstr "De befintliga kontona kommer att raderas om 5 sekunder"
+msgstr "Els comptes existents s’esborraran en 5 segons"
 
 #: Authenticator/widgets/settings.py:307
 msgid "Undo"
-msgstr "Ångra"
+msgstr "Desfés"
 
 #: Authenticator/widgets/utils.py:26 Authenticator/widgets/utils.py:31
 msgid "JSON files"
-msgstr "JSON-filer"
+msgstr "Fitxers JSON"
 
 #: Authenticator/widgets/utils.py:36 Authenticator/widgets/utils.py:41
 msgid "Encrypted GPG files"
-msgstr "Krypterade GPG-filer"
+msgstr "Fitxers GPG xifrats"
 
 #: Authenticator/widgets/window.py:194
 msgid "An account or more were removed."
@@ -286,39 +284,39 @@ msgstr ""
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
 msgid "Two-factor authentication code generator"
-msgstr "Generator för tvåfaktorsautentiseringskoder"
+msgstr "Generador de codis d’autenticació amb dos components"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:9
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
 msgstr ""
-"Enkelt program som genererar en tvåfaktorsautentiseringskod, skapat för "
-"GNOME."
+"Aplicació senzilla que genera codis d’autenticació amb dos components, "
+"creada per al GNOME."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
 msgid "Features:"
-msgstr "Funktioner:"
+msgstr "Funcionalitats:"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:12
 msgid "QR code scanner"
-msgstr "QR-kodläsare"
+msgstr "Escàner de codis QR"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:13
 msgid "Beautiful UI"
-msgstr "Vackert användargränssnitt"
+msgstr "Una interfície bonica"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:14
 msgid "Huge database of (290+) websites/applications"
-msgstr "Enorm databas med (290+) webbplatser/program"
+msgstr "Una immensa base de dades de més de 290 llocs web i aplicacions"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:4
 msgid "Two-factor authentication"
-msgstr "Tvåfaktorsautentisering"
+msgstr "Autenticació amb dos components"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:10
 msgid "Gnome;GTK;Verification;"
-msgstr "GNOME;GTK;Bekräftelse;Verifiering;"
+msgstr "Gnome;GTK;Verificació;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:11
 msgid "com.github.bilelmoussaoui.Authenticator"
@@ -326,16 +324,17 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
+#, fuzzy
 msgid "Default window position"
-msgstr ""
+msgstr "Posició per defecte de la finestra"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
 msgid "Night mode"
-msgstr "Nattläge"
+msgstr "Mode nocturn"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
 msgid "Enable/disable night mode within the application"
-msgstr "Aktivera/inaktivera nattläge inifrån programmet"
+msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
 msgid "Default window maximized behaviour"
@@ -351,145 +350,48 @@ msgstr ""
 
 #: authenticator.py.in:50
 msgid "Start in debug mode"
-msgstr "Starta i felsökningsläge"
+msgstr ""
 
 #: authenticator.py.in:52
 msgid "Authenticator version number"
-msgstr "Versionsnummer för Authenticator"
+msgstr ""
+
+#~ msgid "Backup Password"
+#~ msgstr "Fes una còpia de seguretat de la contrasenya"
+
+#~ msgid ""
+#~ "Since I have moved the application to GOME Gitlab's World group, a "
+#~ "Flatpak build for each new commit is available to download from the "
+#~ "site's website."
+#~ msgstr ""
+#~ "Com que vaig moure l’aplicació al grup «World» del GitLab del GNOME, hi "
+#~ "ha disponible una compilació nova per cada entrega de codi nova al lloc "
+#~ "web de l’aplicació."
+
+#~ msgid "Backup and restore from a basic JSON file"
+#~ msgstr "Còpia de seguretat i restauració des de fitxers JSON bàsics"
+
+#~ msgid "Backup and restore from an encrypted-GPG JSON file"
+#~ msgstr ""
+#~ "Còpia de seguretat i restauració des de fitxers JSON xifrats amb el GPG"
+
+#~ msgid "Add andOTP support (free and open Android 2FA application)"
+#~ msgstr ""
+#~ "Compatibilitat amb l’andOTP (aplicació lliure i oberta d’autenticació amb "
+#~ "dos components per a l’Android)"
+
+#~ msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
+#~ msgstr ""
+#~ "Nova finestra de configuració amb tres seccions: Aparença, Comportament i "
+#~ "Còpia de seguretat"
+
+#~ msgid "Fix Flatpak Build with the latest GNOME Runtime"
+#~ msgstr ""
+#~ "S’ha corregit la compilació Flatpak amb l’entorn d’execució GNOME més "
+#~ "recent"
+
+#~ msgid "Flatpak package"
+#~ msgstr "Paquet Flatpak"
 
 #~ msgid "Bilal Elmoussaoui"
 #~ msgstr "Bilal Elmoussaoui"
-
-#, fuzzy
-#~ msgid "Backup Password"
-#~ msgstr "Ändra lösenord"
-
-#~ msgid "Fix the QRScanner on GNOME Shell"
-#~ msgstr "Fixa QR-läsaren i GNOME Shell"
-
-#~ msgid "Add a new entry for the account's username"
-#~ msgstr "Lägg till en ny post för kontots användarnamn"
-
-#~ msgid "Updated database of supported accounts"
-#~ msgstr "Uppdaterad databas över konton som stöds"
-
-#~ msgid "HOTFIX: App not running in DE other than GNOME"
-#~ msgstr "SNABBFIX: Programmet gick inte köra annat än i GNOME"
-
-#~ msgid "Rename project to Authenticator"
-#~ msgstr "Byt namn på projektet till Authenticator"
-
-#~ msgid "Cleaner code base"
-#~ msgstr "Renare kodbas"
-
-#~ msgid "Faster startup"
-#~ msgstr "Snabbare uppstart"
-
-#~ msgid "Remove unneeded features"
-#~ msgstr "Ta bort onödiga funktioner"
-
-#~ msgid "Switch to pyzbar instead of zbarlight"
-#~ msgstr "Växla till pyzbar istället för zbarlight"
-
-#~ msgid "Flatpak package"
-#~ msgstr "Flatpak-paket"
-
-#~ msgid "Next"
-#~ msgstr "Nästa"
-
-#~ msgid "Two Factor Authentication code generator"
-#~ msgstr "Generator för tvåfaktorsautentiseringskod"
-
-#~ msgid "Two-Factor Authentication code generator"
-#~ msgstr "Generator för tvåfaktorsautentiseringskod"
-
-#~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Allmänt"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Search"
-#~ msgstr "Sök"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add a new account"
-#~ msgstr "Lägg till ett nytt konto"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Selection mode"
-#~ msgstr "Urvalsläge"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Account list"
-#~ msgstr "Kontolista"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select next/previous account"
-#~ msgstr "Välj nästa/föregående konto"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add Account"
-#~ msgstr "Lägg till konto"
-
-#~ msgid ""
-#~ "This program comes with absolutely no warranty. See the <a href=\"http://"
-#~ "www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3 "
-#~ "or later</a> for details."
-#~ msgstr ""
-#~ "Detta program kommer helt utan garanti. Se <a href=\"http://www.gnu.org/"
-#~ "licenses/gpl-3.0.html\">GNU General Public License, version 3 eller "
-#~ "senare</a> för detaljer."
-
-#~ msgid "Github"
-#~ msgstr "Github"
-
-#~ msgid "Lock the Application"
-#~ msgstr "Lås programmet"
-
-#~ msgid "Apply"
-#~ msgstr "Verkställ"
-
-#~ msgid "New password"
-#~ msgstr "Nytt lösenord"
-
-#~ msgid "Select an application"
-#~ msgstr "Välj ett program"
-
-#~ msgid "Enter your password"
-#~ msgstr "Ange ditt lösenord"
-
-#~ msgid "Unlock"
-#~ msgstr "Lås upp"
-
-#~ msgid "Remove the account"
-#~ msgstr "Ta bort kontot"
-
-#~ msgid "Copy the generated code"
-#~ msgstr "Kopiera den genererade koden"
-
-#~ msgid "Edit the account"
-#~ msgstr "Redigera kontot"
-
-#~ msgid "Save the new account name"
-#~ msgstr "Spara det nya kontonamnet"
-
-#~ msgid "Expires in %s seconds"
-#~ msgstr "Går ut om %s sekunder"
-
-#~ msgid "Error during the generation of code"
-#~ msgstr "Fel under generering av kod"
-
-#~ msgid "Do you really want to remove \"%s\"?"
-#~ msgstr "Vill du verkligen ta bort ”%s”?"
-
-#~ msgid "Account"
-#~ msgstr "Konto"
-
-#~ msgid "Password protection"
-#~ msgstr "Lösenordsskydd"
-
-#~ msgid "Auto-lock the application (m):"
-#~ msgstr "Lås programmet automatiskt (m):"
-
-#~ msgid "Shortcuts"
-#~ msgstr "Genvägar"

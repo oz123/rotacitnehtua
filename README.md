@@ -1,4 +1,8 @@
-[![Translation status](https://hosted.weblate.org/widgets/authenticator/-/svg-badge.svg)](https://hosted.weblate.org/engage/authenticator/?utm_source=widget) [![Version](https://img.shields.io/badge/version-0.2.4-green.svg)](https://github.com/bilelmoussaoui/Authenticator/releases)
+
+<a href="https://flathub.org/apps/details/com.github.bilelmoussaoui.Authenticator">
+<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
+</a>
+
 
 # Authenticator
 <img src="https://gitlab.gnome.org/World/Authenticator/raw/master/data/icons/hicolor/256x256/apps/com.github.bilelmoussaoui.Authenticator.png" width="128" height="128" />
@@ -46,7 +50,7 @@ Those dependencies are only used if you build the application with QR code scann
 1 - Clone the repository
 
 ```bash
-git clone https://github.com/bilelmoussaoui/Authenticator && cd ./Authenticator
+git clone https://gitlab.gnome.org/World/Authenticator && cd ./Authenticator
 ```
 
 2 - Install the dependencies
