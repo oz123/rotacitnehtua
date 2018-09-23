@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-09-12 11:06+0000\n"
+"PO-Revision-Date: 2018-09-23 20:33+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/authenticator/"
 "translation/sv/>\n"
@@ -26,7 +26,6 @@ msgid "Authenticator"
 msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
-#, fuzzy
 msgid "Lock the application"
 msgstr "Lås programmet"
 
