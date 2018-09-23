@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 17:19+0200\n"
+"POT-Creation-Date: 2018-09-23 15:58+0200\n"
 "PO-Revision-Date: 2018-09-12 16:57+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
@@ -68,7 +68,7 @@ msgstr "Over"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: Authenticator/models/account.py:72
+#: Authenticator/models/account.py:73
 msgid "Default"
 msgstr "Standaard"
 
@@ -117,7 +117,7 @@ msgid "Edit {} - {}"
 msgstr "{} - {} bewerken"
 
 #: Authenticator/widgets/accounts/edit.py:52
-#: Authenticator/widgets/settings.py:143
+#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
 msgid "Save"
 msgstr "Opslaan"
 
@@ -194,7 +194,8 @@ msgstr "Zoeken"
 msgid "Selection mode"
 msgstr "Selectiemodus"
 
-#: Authenticator/widgets/headerbar.py:107
+#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
+#: Authenticator/widgets/utils.py:58
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -269,19 +270,28 @@ msgstr ""
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr "De bestaande accounts worden over 5 seconden gewist"
 
-#: Authenticator/widgets/settings.py:307
+#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: Authenticator/widgets/utils.py:26 Authenticator/widgets/utils.py:31
+#: Authenticator/widgets/utils.py:18
+msgid "Open"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
 msgstr "JSON-bestanden"
 
-#: Authenticator/widgets/utils.py:36 Authenticator/widgets/utils.py:41
+#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
 msgid "Encrypted GPG files"
 msgstr "Versleutelde GPG-bestanden"
 
-#: Authenticator/widgets/window.py:194
+#: Authenticator/widgets/utils.py:57
+#, fuzzy
+msgid "Select"
+msgstr "Selectiemodus"
+
+#: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
 msgstr ""
 

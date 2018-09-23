@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 17:19+0200\n"
+"POT-Creation-Date: 2018-09-23 15:58+0200\n"
 "PO-Revision-Date: 2018-09-14 16:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -68,7 +68,7 @@ msgstr "Om"
 msgid "Quit"
 msgstr "Avslutt"
 
-#: Authenticator/models/account.py:72
+#: Authenticator/models/account.py:73
 msgid "Default"
 msgstr "Forvalg"
 
@@ -116,7 +116,7 @@ msgid "Edit {} - {}"
 msgstr "Rediger {} - {}"
 
 #: Authenticator/widgets/accounts/edit.py:52
-#: Authenticator/widgets/settings.py:143
+#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
 msgid "Save"
 msgstr "Lagre"
 
@@ -192,7 +192,8 @@ msgstr "Søk"
 msgid "Selection mode"
 msgstr "Utvelgelsesmodus"
 
-#: Authenticator/widgets/headerbar.py:107
+#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
+#: Authenticator/widgets/utils.py:58
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -271,19 +272,28 @@ msgstr ""
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr "Eksisterende kontoer vil bli slettet om fem sekunder"
 
-#: Authenticator/widgets/settings.py:307
+#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
 msgid "Undo"
 msgstr "Angre"
 
-#: Authenticator/widgets/utils.py:26 Authenticator/widgets/utils.py:31
+#: Authenticator/widgets/utils.py:18
+msgid "Open"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
 msgstr "JSON-filer"
 
-#: Authenticator/widgets/utils.py:36 Authenticator/widgets/utils.py:41
+#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
 msgid "Encrypted GPG files"
 msgstr "Krypterte GPG-filer"
 
-#: Authenticator/widgets/window.py:194
+#: Authenticator/widgets/utils.py:57
+#, fuzzy
+msgid "Select"
+msgstr "Utvelgelsesmodus"
+
+#: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
 msgstr ""
 

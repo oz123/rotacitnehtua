@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-22 17:19+0200\n"
+"POT-Creation-Date: 2018-09-23 15:58+0200\n"
 "PO-Revision-Date: 2018-04-23 23:37+0000\n"
 "Last-Translator: Nathan Follens <nathan@email.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/authenticator/"
@@ -68,7 +68,7 @@ msgstr "Over"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: Authenticator/models/account.py:72
+#: Authenticator/models/account.py:73
 msgid "Default"
 msgstr ""
 
@@ -116,7 +116,7 @@ msgid "Edit {} - {}"
 msgstr ""
 
 #: Authenticator/widgets/accounts/edit.py:52
-#: Authenticator/widgets/settings.py:143
+#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
 msgid "Save"
 msgstr ""
 
@@ -193,7 +193,8 @@ msgstr "Zoeken"
 msgid "Selection mode"
 msgstr "Selectiemodus"
 
-#: Authenticator/widgets/headerbar.py:107
+#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
+#: Authenticator/widgets/utils.py:58
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -268,19 +269,28 @@ msgstr ""
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr ""
 
-#: Authenticator/widgets/settings.py:307
+#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: Authenticator/widgets/utils.py:26 Authenticator/widgets/utils.py:31
+#: Authenticator/widgets/utils.py:18
+msgid "Open"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
 msgstr ""
 
-#: Authenticator/widgets/utils.py:36 Authenticator/widgets/utils.py:41
+#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
 msgid "Encrypted GPG files"
 msgstr ""
 
-#: Authenticator/widgets/window.py:194
+#: Authenticator/widgets/utils.py:57
+#, fuzzy
+msgid "Select"
+msgstr "Selectiemodus"
+
+#: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
 msgstr ""
 
