@@ -42,6 +42,7 @@ class Application(Gtk.Application):
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
         Settings.get_default().bind("is-locked", self, "is_locked", Gio.SettingsBindFlags.GET)
+        self.builder = Gtk.Builder()
         self._menu = Gio.Menu()
 
     def __is_locked_changed(self, *_):
@@ -114,12 +115,14 @@ class Application(Gtk.Application):
         # Night mode action
         main_content.append_item(Gio.MenuItem.new(_("Settings"), "app.settings"))
         main_content.append_item(Gio.MenuItem.new(_("About"), "app.about"))
+        main_content.append_item(Gio.MenuItem.new(_("Keyboard Shortcuts"), "app.shortcuts"))
         main_content.append_item(Gio.MenuItem.new(_("Quit"), "app.quit"))
         help_section = Gio.MenuItem.new_section(None, main_content)
         self._menu.append_item(help_section)
 
     def __setup_actions(self):
         self.__add_action("about", self.__on_about)
+        self.__add_action("shortcuts", self.__on_shortcuts)
         self.__add_action("quit", self.__on_quit)
         self.__add_action("settings", self.__on_settings, "is_locked")
         self.__add_action("import_json", self.__on_import_json, "is_locked")
@@ -161,6 +164,10 @@ class Application(Gtk.Application):
         dialog.set_transient_for(Window.get_default())
         dialog.run()
         dialog.destroy()
+
+    def __on_shortcuts(self, *_):
+        self.builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/Shortcuts.ui")
+        self.builder.get_object("shortcuts").show()
 
     @staticmethod
     def __on_import_json(*_):
@@ -215,3 +222,4 @@ class Application(Gtk.Application):
         Clipboard.clear()
         Window.get_default().close()
         self.quit()
+
