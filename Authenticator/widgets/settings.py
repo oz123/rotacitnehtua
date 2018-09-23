@@ -25,7 +25,7 @@ require_version('Gd', '1.0')
 require_version("Gtk", "3.0")
 from gi.repository import Gd, Gtk, GObject
 from .window import Window
-from ..models import Settings
+from ..models import Settings, Keyring
 
 
 class ClickableSettingsBox(Gtk.EventBox):
@@ -136,7 +136,7 @@ class PasswordWindow(Gtk.Window):
 
     def _build_widgets(self):
         header_bar = Gtk.HeaderBar()
-        header_bar.set_title(_("Backup Password"))
+        header_bar.set_title(_("Authentication Password"))
         header_bar.set_show_close_button(True)
         self.set_titlebar(header_bar)
 
@@ -148,7 +148,7 @@ class PasswordWindow(Gtk.Window):
         header_bar.pack_end(self._apply_btn)
 
         container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        if Settings.get_default().backup_password:
+        if Keyring.has_password():
             self.old_password = SettingsBoxWithEntry(_("Old Password"), True)
             self.old_password.entry.connect("changed", self._validate)
             container.pack_start(self.old_password, False, False, 6)
@@ -185,7 +185,7 @@ class PasswordWindow(Gtk.Window):
 
         if self.old_password:
             old_password = self.old_password.entry.get_text()
-            if not old_password or old_password != Settings.get_default().backup_password:
+            if not old_password or old_password != Keyring.get_password():
                 self.old_password.entry.get_style_context().add_class("error")
                 valid_old_password = False
             else:
@@ -198,7 +198,7 @@ class PasswordWindow(Gtk.Window):
     def __on_apply_button_clicked(self, *_):
         if self._apply_btn.get_sensitive():
             password = self.password.entry.get_text()
-            Settings.get_default().backup_password = password
+            Keyring.set_password(password)
             self.destroy()
 
 
@@ -232,9 +232,21 @@ class SettingsWindow(Gtk.Window):
         self.stack.add_titled(appearance_container, "appearance", _("Appearance"))
 
         behaviour_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+
         clear_database = ClickableSettingsBox(_("Clear the database"), _("Erase existing accounts"))
         clear_database.connect("button-press-event", self.__on_clear_database_clicked)
+
+        app_can_be_locked = SwitchSettingsBox(_("Lock the application"),
+                                          _("Possibility to lock the application with a password"), "can-be-locked")
+        app_can_be_locked.connect("changed", self.__on_app_can_be_locked_changed)
+
+        app_password = ClickableSettingsBox(_("Authentication password"),
+                                            _("Set up application authentication password"))
+        app_password.connect("button-press-event", self.__on_app_set_password)
+
         behaviour_container.pack_start(clear_database, False, False, 0)
+        behaviour_container.pack_start(app_can_be_locked, False, False, 0)
+        behaviour_container.pack_start(app_password, False, False, 0)
         self.stack.add_titled(behaviour_container, "behaviour", _("Behaviour"))
 
         backup_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -246,6 +258,27 @@ class SettingsWindow(Gtk.Window):
         self.stack.add_titled(backup_container, "backup", _("Backup"))
 
         self.add(self.stack)
+
+    def __on_app_can_be_locked_changed(self, __, state):
+        notification = Gd.Notification()
+        notification.set_timeout(5)
+
+        notification_lbl = Gtk.Label()
+        notification_lbl.set_text(_("The application needs to be restarted first."))
+
+        notification.add(notification_lbl)
+        notification_parent = self.stack.get_child_by_name("behaviour")
+        notification_parent.add(notification)
+        notification_parent.reorder_child(notification, 0)
+        self.show_all()
+
+        if state and not Keyring.has_password():
+            self.__on_app_set_password()
+
+    def __on_app_set_password(self, *_):
+        password_window = PasswordWindow()
+        password_window.set_transient_for(self)
+        password_window.show_all()
 
     @staticmethod
     def __on_dark_theme_changed(_, state):
@@ -259,7 +292,6 @@ class SettingsWindow(Gtk.Window):
         if directory:
             Settings.get_default().gpg_location = directory
             gpg_location_widget.secondary_lbl.set_text(directory)
-
 
     def __on_clear_database_clicked(self, *__):
         notification = Gd.Notification()
@@ -290,5 +322,3 @@ class SettingsWindow(Gtk.Window):
         Keyring.get_default().clear()
         AccountsManager.get_default().clear()
         AccountsWidget.get_default().clear()
-
-

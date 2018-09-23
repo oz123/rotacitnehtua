@@ -9,4 +9,4 @@ if not environ.get('DESTDIR', ''):
     print('Updating icon cache...')
     call(['gtk-update-icon-cache', '-qtf', path.join(DATA_DIR, 'icons/hicolor')])
     print("compiling new schemas")
-    call(["glib-compile-schemas", path.join(DATA_DIR, 'glib-2.0/schemas/')])
+    call(["glib-compile-schemas", path.join(DATA_DIR, 'glib-2.0/schemas')])

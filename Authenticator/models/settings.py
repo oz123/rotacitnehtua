@@ -100,3 +100,20 @@ class Settings(Gio.Settings):
     @gpg_location.setter
     def gpg_location(self, new_location):
         self.set_string("gpg-location", new_location)
+
+    @property
+    def is_locked(self):
+        return self.get_boolean("is-locked")
+
+    @is_locked.setter
+    def is_locked(self, state):
+        self.set_boolean("is-locked", state)
+
+    @property
+    def can_be_locked(self):
+        return self.get_boolean("can-be-locked")
+
+    @can_be_locked.setter
+    def can_be_locked(self, state):
+        self.set_boolean("can-be-locked", state)
+

@@ -21,7 +21,7 @@ from gettext import gettext as _
 from gi import require_version
 
 require_version("Gtk", "3.0")
-from gi.repository import Gtk, GLib, Gio, Gdk
+from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 from .widgets import Window, AboutDialog, import_json, export_json, import_pgp_json, export_pgp_json
 from .models import Settings, Clipboard, Logger
 
@@ -30,6 +30,8 @@ class Application(Gtk.Application):
     """Authenticator application object."""
     instance = None
     USE_QRSCANNER = True
+    IS_DEVEL = False
+    is_locked = GObject.Property(type=bool, default=False)
 
     def __init__(self):
         Gtk.Application.__init__(self,
@@ -37,8 +39,16 @@ class Application(Gtk.Application):
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
         GLib.set_application_name(_("Authenticator"))
         GLib.set_prgname("Authenticator")
+        self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
+        Settings.get_default().bind("is-locked", self, "is_locked", Gio.SettingsBindFlags.GET)
         self._menu = Gio.Menu()
+
+    def __is_locked_changed(self, *_):
+        if self.is_locked:
+            Window.get_default().emit("locked")
+        else:
+            Window.get_default().emit("unlocked")
 
     @staticmethod
     def get_default():
@@ -52,6 +62,7 @@ class Application(Gtk.Application):
         # Unlock the keyring
         self.__generate_menu()
         self.__setup_actions()
+        self.set_property("is-locked", Settings.get_default().can_be_locked)
         Application.__setup_css()
 
         # Set the default night mode
@@ -71,10 +82,17 @@ class Application(Gtk.Application):
         provider.load_from_file(provider_file)
         context.add_provider_for_screen(screen, provider,
                                         Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        Gtk.IconTheme.get_default().add_resource_path("/com/github/bilelmoussaoui/Authenticator")
         Logger.debug("Loading CSS")
 
     def __generate_menu(self):
         """Generate application menu."""
+        # Lock/Unlock
+        if Settings.get_default().can_be_locked:
+            lock_content = Gio.Menu.new()
+            lock_content.append_item(Gio.MenuItem.new(_("Lock the application"), "app.lock"))
+            self._menu.append_item(Gio.MenuItem.new_section(None, lock_content))
+
         # Backup
         backup_content = Gio.Menu.new()
         import_menu = Gio.Menu.new()
@@ -101,37 +119,38 @@ class Application(Gtk.Application):
         self._menu.append_item(help_section)
 
     def __setup_actions(self):
-        settings = Settings.get_default()
+        self.__add_action("about", self.__on_about)
+        self.__add_action("quit", self.__on_quit)
+        self.__add_action("settings", self.__on_settings, "is_locked")
+        self.__add_action("import_json", self.__on_import_json, "is_locked")
+        self.__add_action("import_pgp_json", self.__on_import_pgp_json, "is_locked")
+        self.__add_action("export_json", self.__on_export_json, "is_locked")
+        self.__add_action("export_pgp_json", self.__on_export_pgp_json, "is_locked")
+        if Settings.get_default().can_be_locked:
+            self.__add_action("lock", self.__on_lock, "is_locked")
 
-        actions = {
-            "about": self.__on_about,
-            "quit": self.__on_quit,
-            "settings": self.__on_settings,
-            "import_json": self.__on_import_json,
-            "import_pgp_json": self.__on_import_pgp_json,
-            "export_json": self.__on_export_json,
-            "export_pgp_json": self.__on_export_pgp_json
-        }
-        for key, value in actions.items():
-            action = Gio.SimpleAction.new(key, None)
-            action.connect("activate", value)
-            self.add_action(action)
+    def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
+        action = Gio.SimpleAction.new(key, None)
+        action.connect("activate", callback)
+        if prop_bind:
+            self.bind_property(prop_bind, action, "enabled", bind_flag)
+        self.add_action(action)
 
     def do_activate(self, *_):
         """On activate signal override."""
-        resources_path = "/com/github/bilelmoussaoui/Authenticator/"
-        Gtk.IconTheme.get_default().add_resource_path(resources_path)
         window = Window.get_default()
+
         window.set_application(self)
         window.set_menu(self._menu)
         window.connect("delete-event", lambda x, y: self.__on_quit())
+        if Application.IS_DEVEL:
+            window.get_style_context().add_class("devel")
         self.add_window(window)
         window.show_all()
         window.present()
 
-    @staticmethod
-    def set_use_qrscanner(state):
-        Application.USE_QRSCANNER = state
+    def __on_lock(self, *_):
+        self.set_property("is-locked", True)
 
     @staticmethod
     def __on_about(*_):

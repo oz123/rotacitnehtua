@@ -24,6 +24,7 @@ from gi.repository import Secret
 
 class Keyring:
     ID = "com.github.bilelmoussaoui.Authenticator"
+    PasswordID = "com.github.bilelmoussaoui.Authenticator.Login"
     instance = None
 
     def __init__(self):
@@ -33,6 +34,11 @@ class Keyring:
                                             "id": Secret.SchemaAttributeType.STRING,
                                             "name": Secret.SchemaAttributeType.STRING,
                                         })
+        self.password_schema = Secret.Schema.new(Keyring.PasswordID,
+                                                 Secret.SchemaFlags.NONE,
+                                                 {
+                                                     "password": Secret.SchemaAttributeType.STRING
+                                                 })
 
     @staticmethod
     def get_default():
@@ -105,3 +111,29 @@ class Keyring:
         schema = Keyring.get_default().schema
         success = Secret.password_clear_sync(schema, {}, None)
         return success
+
+    @staticmethod
+    def get_password():
+
+        schema = Keyring.get_default().password_schema
+        password = Secret.password_lookup_sync(schema, {}, None)
+        return password
+
+    @staticmethod
+    def set_password(password):
+        schema = Keyring.get_default().password_schema
+        # Clear old password
+        Secret.password_clear_sync(schema, {}, None)
+        # Store the new one
+        Secret.password_store_sync(
+            schema,
+            {},
+            Secret.COLLECTION_DEFAULT,
+            "Authenticator password",
+            password,
+            None
+        )
+
+    @staticmethod
+    def has_password():
+        return Keyring.get_password() is not None

@@ -45,4 +45,4 @@ class AboutDialog(Gtk.AboutDialog):
         self.set_translator_credits(_("translator-credits"))
         self.set_version("@VERSION@")
         self.set_comments(_("Two-factor authentication code generator."))
-        self.set_website("https://github.com/bilelmoussaoui/Authenticator")
+        self.set_website("https://gitlab.gnome.org/World/Authenticator")
