@@ -42,7 +42,6 @@ class Application(Gtk.Application):
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
         Settings.get_default().bind("is-locked", self, "is_locked", Gio.SettingsBindFlags.GET)
-        self.builder = Gtk.Builder()
         self._menu = Gio.Menu()
 
     def __is_locked_changed(self, *_):
@@ -166,8 +165,9 @@ class Application(Gtk.Application):
         dialog.destroy()
 
     def __on_shortcuts(self, *_):
-        self.builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/Shortcuts.ui")
-        self.builder.get_object("shortcuts").show()
+        builder = Gtk.Builder()
+        builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/Shortcuts.ui")
+        builder.get_object("shortcuts").show()
 
     @staticmethod
     def __on_import_json(*_):
