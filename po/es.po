@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-09-20 23:02+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2018-09-23 20:33+0000\n"
+"Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/authenticator/"
 "translation/es/>\n"
 "Language: es\n"
@@ -27,7 +27,7 @@ msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
-msgstr ""
+msgstr "Bloquear la aplicación"
 
 #: Authenticator/application.py:101
 msgid "from a plain-text JSON file"
@@ -202,9 +202,8 @@ msgid "Click on items to select them"
 msgstr "Pulse en los elementos para seleccionarlos"
 
 #: Authenticator/widgets/settings.py:139
-#, fuzzy
 msgid "Authentication Password"
-msgstr "Authenticator"
+msgstr "Contraseña de autenticación"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
@@ -240,16 +239,15 @@ msgstr "Eliminar las cuentas existentes"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
-msgstr ""
+msgstr "Posibilidad de bloquear la aplicación con una contraseña"
 
 #: Authenticator/widgets/settings.py:243
-#, fuzzy
 msgid "Authentication password"
-msgstr "Authenticator"
+msgstr "Contraseña de autenticación"
 
 #: Authenticator/widgets/settings.py:244
 msgid "Set up application authentication password"
-msgstr ""
+msgstr "Configurar la contraseña de autenticación de la aplicación"
 
 #: Authenticator/widgets/settings.py:250
 msgid "Behaviour"
@@ -262,7 +260,7 @@ msgstr "Ubicación de las claves GPG"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
-msgstr ""
+msgstr "Se necesita reiniciar la aplicación primero."
 
 #: Authenticator/widgets/settings.py:303
 msgid "The existing accounts will be erased in 5 seconds"
@@ -274,7 +272,7 @@ msgstr "Deshacer"
 
 #: Authenticator/widgets/utils.py:18
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
@@ -285,13 +283,12 @@ msgid "Encrypted GPG files"
 msgstr "Archivos cifrados con GPG"
 
 #: Authenticator/widgets/utils.py:57
-#, fuzzy
 msgid "Select"
-msgstr "Modo de selección"
+msgstr "Seleccionar"
 
 #: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
-msgstr ""
+msgstr "Al menos una cuenta ha sido eliminada."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
@@ -336,7 +333,6 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
-#, fuzzy
 msgid "Default window position"
 msgstr "Posición predeterminada de la ventana"
 
@@ -354,11 +350,11 @@ msgstr "Comportamiento predeterminado al maximizar la ventana"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
 msgid "Whether the application is locked with a password or not"
-msgstr ""
+msgstr "Si la aplicación está bloqueada con una contraseña o no"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
 msgid "Whether the application can be locked or not"
-msgstr ""
+msgstr "Si se puede bloquear la aplicación o no"
 
 #: authenticator.py.in:50
 msgid "Start in debug mode"
