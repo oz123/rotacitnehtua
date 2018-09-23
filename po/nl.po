@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-09-12 16:57+0000\n"
+"PO-Revision-Date: 2018-09-23 20:33+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
 "translation/nl/>\n"
@@ -26,9 +26,8 @@ msgid "Authenticator"
 msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
-#, fuzzy
 msgid "Lock the application"
-msgstr "Toepassing vergrendelen"
+msgstr "Applicatie vergrendelen"
 
 #: Authenticator/application.py:101
 msgid "from a plain-text JSON file"
@@ -204,9 +203,8 @@ msgid "Click on items to select them"
 msgstr "Klik op items om ze te selecteren"
 
 #: Authenticator/widgets/settings.py:139
-#, fuzzy
 msgid "Authentication Password"
-msgstr "Authenticator"
+msgstr "Authenticatiewachtwoord"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
@@ -242,16 +240,15 @@ msgstr "Bestaande accounts wissen"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
-msgstr ""
+msgstr "Mogelijkheid om de applicatie te vergrendelen met een wachtwoord"
 
 #: Authenticator/widgets/settings.py:243
-#, fuzzy
 msgid "Authentication password"
-msgstr "Authenticator"
+msgstr "Authenticatiewachtwoord"
 
 #: Authenticator/widgets/settings.py:244
 msgid "Set up application authentication password"
-msgstr ""
+msgstr "Stel het authenticatiewachtwoord in"
 
 #: Authenticator/widgets/settings.py:250
 msgid "Behaviour"
@@ -264,7 +261,7 @@ msgstr "Locatie van GPG-sleutels"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
-msgstr ""
+msgstr "De applicatie moet worden herstart."
 
 #: Authenticator/widgets/settings.py:303
 msgid "The existing accounts will be erased in 5 seconds"
@@ -276,7 +273,7 @@ msgstr "Ongedaan maken"
 
 #: Authenticator/widgets/utils.py:18
 msgid "Open"
-msgstr ""
+msgstr "Openen"
 
 #: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
@@ -287,13 +284,12 @@ msgid "Encrypted GPG files"
 msgstr "Versleutelde GPG-bestanden"
 
 #: Authenticator/widgets/utils.py:57
-#, fuzzy
 msgid "Select"
-msgstr "Selectiemodus"
+msgstr "Kiezen"
 
 #: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
-msgstr ""
+msgstr "Eén account is of meerdere accounts zijn verwijderd."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
@@ -338,7 +334,6 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
-#, fuzzy
 msgid "Default window position"
 msgstr "Standaard vensterpositie"
 
@@ -356,11 +351,11 @@ msgstr "Standaardgedrag van gemaximaliseerd venster"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
 msgid "Whether the application is locked with a password or not"
-msgstr ""
+msgstr "Of de applicatie moet worden vergrendeld met een wachtwoord"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
 msgid "Whether the application can be locked or not"
-msgstr ""
+msgstr "Of de applicatie vergrendeld kan worden"
 
 #: authenticator.py.in:50
 msgid "Start in debug mode"
