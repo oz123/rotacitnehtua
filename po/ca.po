@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-09-20 23:02+0000\n"
+"PO-Revision-Date: 2018-09-24 11:57+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/authenticator/"
 "translation/ca/>\n"
@@ -27,7 +27,7 @@ msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
-msgstr ""
+msgstr "Bloca l’aplicació"
 
 #: Authenticator/application.py:101
 msgid "from a plain-text JSON file"
@@ -200,9 +200,8 @@ msgid "Click on items to select them"
 msgstr "Feu clic als elements per a seleccionar-los"
 
 #: Authenticator/widgets/settings.py:139
-#, fuzzy
 msgid "Authentication Password"
-msgstr "Authenticator"
+msgstr "Contrasenya d’autenticació"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
@@ -238,16 +237,15 @@ msgstr "Esborra els comptes existents"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
-msgstr ""
+msgstr "Possibilitat de blocar l’aplicació mitjançant una contrasenya"
 
 #: Authenticator/widgets/settings.py:243
-#, fuzzy
 msgid "Authentication password"
-msgstr "Authenticator"
+msgstr "Contrasenya d’autenticació"
 
 #: Authenticator/widgets/settings.py:244
 msgid "Set up application authentication password"
-msgstr ""
+msgstr "Configura la contrasenya d’autenticació de l’aplicació"
 
 #: Authenticator/widgets/settings.py:250
 msgid "Behaviour"
@@ -260,7 +258,7 @@ msgstr "Ubicació de les claus GPG"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
-msgstr ""
+msgstr "Heu de reiniciar l’aplicació primer."
 
 #: Authenticator/widgets/settings.py:303
 msgid "The existing accounts will be erased in 5 seconds"
@@ -272,7 +270,7 @@ msgstr "Desfés"
 
 #: Authenticator/widgets/utils.py:18
 msgid "Open"
-msgstr ""
+msgstr "Obre"
 
 #: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
@@ -283,13 +281,12 @@ msgid "Encrypted GPG files"
 msgstr "Fitxers GPG xifrats"
 
 #: Authenticator/widgets/utils.py:57
-#, fuzzy
 msgid "Select"
-msgstr "Mode de selecció"
+msgstr "Selecciona"
 
 #: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
-msgstr ""
+msgstr "S’ha suprimit almenys un compte."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
@@ -334,7 +331,6 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
-#, fuzzy
 msgid "Default window position"
 msgstr "Posició per defecte de la finestra"
 
@@ -344,27 +340,27 @@ msgstr "Mode nocturn"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
 msgid "Enable/disable night mode within the application"
-msgstr ""
+msgstr "Habilita/inhabilita el mode nocturn dins de l’aplicació"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
 msgid "Default window maximized behaviour"
-msgstr ""
+msgstr "Comportament per defecte de la finestra maximitzada"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
 msgid "Whether the application is locked with a password or not"
-msgstr ""
+msgstr "Si s’ha blocat l’aplicació mitjançant una contrasenya o no"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
 msgid "Whether the application can be locked or not"
-msgstr ""
+msgstr "Si l’aplicació es pot blocar o no"
 
 #: authenticator.py.in:50
 msgid "Start in debug mode"
-msgstr ""
+msgstr "Inicia en mode de depuració"
 
 #: authenticator.py.in:52
 msgid "Authenticator version number"
-msgstr ""
+msgstr "Número de versió de l’Authenticator"
 
 #~ msgid "Backup Password"
 #~ msgstr "Fes una còpia de seguretat de la contrasenya"
