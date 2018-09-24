@@ -167,7 +167,9 @@ class Application(Gtk.Application):
     def __on_shortcuts(self, *_):
         builder = Gtk.Builder()
         builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/Shortcuts.ui")
-        builder.get_object("shortcuts").show()
+        dialog = builder.get_object("shortcuts")
+        dialog.set_transient_for(Window.get_default())
+        dialog.show()
 
     @staticmethod
     def __on_import_json(*_):

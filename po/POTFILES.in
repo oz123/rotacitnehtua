@@ -15,4 +15,5 @@ Authenticator/widgets/window.py
 data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in
 data/com.github.bilelmoussaoui.Authenticator.desktop.in
 data/com.github.bilelmoussaoui.Authenticator.gschema.xml
+data/ui/Shortcuts.ui
 authenticator.py.in
