@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/bilelmoussaoui/Authenticator">
     <file alias="style.css">style.css</file>
@@ -7,6 +7,9 @@
 
     <!-- Accounts logo fallback -->
     <file alias="authenticator-fallback">icons/hicolor/48x48/apps/com.github.bilelmoussaoui.Authenticator.png</file>
+
+    <!-- UI Files -->
+    <file compressed="true" preprocess="xml-stripblanks" alias="Shortcuts.ui">ui/Shortcuts.ui</file>
 
     <!-- Default pre-shipped icons -->
     <file alias="amazon.svg">icons/hicolor/48x48/apps/amazon.svg</file>
