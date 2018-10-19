@@ -112,7 +112,7 @@ class Application(Gtk.Application):
         # Main section
         main_content = Gio.Menu.new()
         # Night mode action
-        main_content.append_item(Gio.MenuItem.new(_("Settings"), "app.settings"))
+        main_content.append_item(Gio.MenuItem.new(_("Preferences"), "app.settings"))
         main_content.append_item(Gio.MenuItem.new(_("About"), "app.about"))
         main_content.append_item(Gio.MenuItem.new(_("Keyboard Shortcuts"), "app.shortcuts"))
         help_section = Gio.MenuItem.new_section(None, main_content)
