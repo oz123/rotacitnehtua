@@ -115,7 +115,6 @@ class Application(Gtk.Application):
         main_content.append_item(Gio.MenuItem.new(_("Settings"), "app.settings"))
         main_content.append_item(Gio.MenuItem.new(_("About"), "app.about"))
         main_content.append_item(Gio.MenuItem.new(_("Keyboard Shortcuts"), "app.shortcuts"))
-        main_content.append_item(Gio.MenuItem.new(_("Quit"), "app.quit"))
         help_section = Gio.MenuItem.new_section(None, main_content)
         self._menu.append_item(help_section)
 
