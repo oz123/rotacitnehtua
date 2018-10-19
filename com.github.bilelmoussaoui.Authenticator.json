@@ -142,6 +142,19 @@
             }]
         },
         {
+            "name": "libhandy",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dtests=false",
+                "-Dexamples=false",
+                "-Dglade_catalog=false"
+            ],
+            "sources": [{
+                "type": "git",
+                "url": "https://source.puri.sm/Librem5/libhandy.git"
+            }]
+        },
+        {
             "name": "Authenticator",
             "buildsystem": "meson",
             "config-opts":[

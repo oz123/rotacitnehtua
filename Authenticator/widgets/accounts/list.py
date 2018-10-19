@@ -21,7 +21,8 @@ from gettext import gettext as _
 from gi import require_version
 
 require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject, Gio
+require_version("Handy", "0.0")
+from gi.repository import Gtk, GObject, Gio, Handy
 
 from .row import AccountRow
 from ...models import Database, Account, AccountsManager
@@ -53,8 +54,13 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
         self.accounts_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.accounts_container.get_style_context().add_class("accounts-container")
+
+        self.accounts_column = Handy.Column()
+        self.accounts_column.set_maximum_width(700)
+        self.accounts_column.add(self.accounts_container)
+
         accounts_scrolled = Gtk.ScrolledWindow()
-        accounts_scrolled.add_with_viewport(self.accounts_container)
+        accounts_scrolled.add_with_viewport(self.accounts_column)
         self.pack_start(accounts_scrolled, True, True, 0)
 
     @staticmethod
