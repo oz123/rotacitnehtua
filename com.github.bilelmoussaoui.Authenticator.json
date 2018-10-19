@@ -1,5 +1,5 @@
 {
-    "app-id": "com.github.bilelmoussaoui.Authenticator",
+    "app-id": "com.github.bilelmoussaoui.AuthenticatorDevel",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
@@ -144,12 +144,12 @@
         {
             "name": "Authenticator",
             "buildsystem": "meson",
-            "config-opts":[
-                "-Dis_devel=true"
+            "config-opts": [
+                "-Dprofile=development"
             ],
             "sources": [{
                 "type": "git",
-                "url": "git@gitlab.gnome.org:World/Authenticator.git",
+                "url": "https://gitlab.gnome.org/World/Authenticator.git",
                 "branch": "master"
             }]
         }

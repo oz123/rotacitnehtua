@@ -1,0 +1,5 @@
+[Shell Search Provider]
+DesktopId=@appid@.desktop
+BusName=@appid@.SearchProvider
+ObjectPath=/com/github/bilelmoussaoui/Authenticator@profile@/SearchProvider
+Version=2

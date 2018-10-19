@@ -73,7 +73,7 @@ if __name__ == "__main__":
             from Authenticator import Application
 
             app = Application.get_default()
-            Application.IS_DEVEL = "@IS_DEVEL@" == 'True'
+            Application.IS_DEVEL = "@PROFILE@" == 'Devel'
             Application.USE_QRSCANNER = "@ENABLE_QRSCANNER@" == 'True'
             exit_status = app.run(None)
             sys.exit(exit_status)
