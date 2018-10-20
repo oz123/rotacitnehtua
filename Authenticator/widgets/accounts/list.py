@@ -53,7 +53,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
             "counter_updated", self._on_counter_updated)
 
         self.accounts_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.accounts_container.get_style_context().add_class("accounts-container")
 
         self.accounts_column = Handy.Column()
         self.accounts_column.set_maximum_width(700)
