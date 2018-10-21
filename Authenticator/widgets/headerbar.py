@@ -126,7 +126,8 @@ class HeaderBar(Gtk.HeaderBar):
         self.set_show_close_button(True)
 
         left_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        right_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        right_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
+                            spacing=6)
 
         # Hide the search button if nothing is found
         if Database.get_default().count > 0:
@@ -139,7 +140,7 @@ class HeaderBar(Gtk.HeaderBar):
         right_box.pack_start(self.search_btn, False, False, 0)
         right_box.pack_start(self.select_btn, False, False, 0)
         right_box.pack_start(self.cancel_btn, False, False, 0)
-        right_box.pack_end(self.settings_btn, False, False, 3)
+        right_box.pack_end(self.settings_btn, False, False, 0)
 
         self.pack_start(left_box)
         self.pack_end(right_box)

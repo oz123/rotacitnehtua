@@ -50,8 +50,6 @@ class SearchBar(Gtk.SearchBar):
         """
             Build the SearchBar widgets
         """
-        self.set_show_close_button(True)
-
         self.search_entry.set_width_chars(28)
         self.search_entry.connect("search-changed",
                                   self.set_filter_func,

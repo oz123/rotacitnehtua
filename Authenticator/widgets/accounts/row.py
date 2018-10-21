@@ -54,15 +54,16 @@ class ActionsBox(Gtk.Box):
     """
 
     def __init__(self):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.HORIZONTAL)
+        Gtk.Box.__init__(self, orientation=Gtk.Orientation.HORIZONTAL,
+                         spacing=6)
         self.copy_btn = ActionButton("edit-copy-symbolic", _("Copy"))
         self.edit_btn = ActionButton("document-edit-symbolic", _("Edit"))
         self._build_widget()
 
     def _build_widget(self):
         """Build ActionsBox widgets."""
-        self.pack_start(self.copy_btn, False, False, 3)
-        self.pack_start(self.edit_btn, False, False, 3)
+        self.pack_start(self.copy_btn, False, False, 0)
+        self.pack_start(self.edit_btn, False, False, 0)
 
 
 class AccountRow(Gtk.ListBoxRow, GObject.GObject):
@@ -134,7 +135,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         actions.copy_btn.connect("clicked", self._on_copy)
         actions.edit_btn.connect("clicked", self._on_edit)
         actions.set_valign(Gtk.Align.CENTER)
-        container.pack_end(actions, False, False, 6)
+        container.pack_end(actions, False, False, 0)
 
         # Secret code
         otp_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
