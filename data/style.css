@@ -1,8 +1,13 @@
 .authenticator-window.devel headerbar {
-    background: linear-gradient(to left, #a5b1bd 0%, #a5b1bd 8%, @theme_bg_color 25%);
-    box-shadow: inset 0 1px #f1f3f5;
-    border-color: #909fae;
-    color: rgba(46, 52, 54, 0.2);
+  background: transparent -gtk-icontheme("system-run-symbolic") 80% 0/128px 128px no-repeat,
+              linear-gradient(to left,
+                              mix(@theme_fg_color, @theme_bg_color, 0.5) 0%,
+                              @theme_bg_color 25%);
+  color: alpha(@theme_fg_color, 0.2);
+}
+
+.authenticator-window.devel headerbar label {
+    color: @theme_fg_color;
 }
 
 .accounts-widget{

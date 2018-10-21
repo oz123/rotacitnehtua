@@ -7,6 +7,6 @@ Exec=authenticator
 Terminal=false
 Categories=GNOME;GTK;Security;Network;
 Keywords=Gnome;GTK;Verification;
-Icon=com.github.bilelmoussaoui.Authenticator
+Icon=@icon@
 StartupNotify=true
 StartupWMClass=com.github.bilelmoussaoui.Authenticator

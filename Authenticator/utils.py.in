@@ -41,7 +41,7 @@ def load_pixbuf(icon_name, size):
         except GLib.Error:
             pass
     if not pixbuf:
-        pixbuf = theme.load_icon("com.github.bilelmoussaoui.Authenticator",
+        pixbuf = theme.load_icon("@APP_ID@",
                                  size, 0)
 
     if pixbuf and (pixbuf.props.width != size or pixbuf.props.height != size):

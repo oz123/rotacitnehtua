@@ -129,9 +129,9 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
     </interface>
     </node>
     '''
-    __AUTHENTICATOR_BUS = 'com.github.bilelmoussaoui.Authenticator.SearchProvider'
+    __AUTHENTICATOR_BUS = '@APP_ID@.SearchProvider'
     __SEARCH_BUS = 'org.gnome.Shell.SearchProvider2'
-    __PATH_BUS = '/com/github/bilelmoussaoui/Authenticator/SearchProvider'
+    __PATH_BUS = '/com/github/bilelmoussaoui/Authenticator@PROFILE@/SearchProvider'
 
     def __init__(self):
         Gio.Application.__init__(
