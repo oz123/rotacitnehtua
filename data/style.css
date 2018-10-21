@@ -75,3 +75,12 @@
   font-size: 18px;
 
 }
+
+.progress-bar trough progress {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.progress-bar trough {
+  border-radius: 0px
+}

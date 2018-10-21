@@ -47,6 +47,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
     def _build_widgets(self):
         self.otp_progress_bar = Gtk.ProgressBar()
+        self.otp_progress_bar.get_style_context().add_class("progress-bar")
         self.add(self.otp_progress_bar)
         AccountsManager.get_default().connect(
             "counter_updated", self._on_counter_updated)
