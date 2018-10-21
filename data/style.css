@@ -13,10 +13,6 @@
 .accounts-widget{
   margin-top: 0px;
 }
-.accounts-container {
-    margin-left: 32px;
-    margin-right: 32px;
-}
 
 .accounts-list{
   background-color: @theme_bg_color;
