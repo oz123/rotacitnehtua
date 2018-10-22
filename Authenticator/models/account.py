@@ -69,8 +69,12 @@ class Account(GObject.GObject):
 
     @staticmethod
     def create_from_json(json_obj):
+        tags = json_obj["tags"]
+        if not tags:
+            provider = _("Default")
+        else:
+            provider = tags[0]
 
-        provider = json_obj.get("tags", [_("Default")])[0].strip()
         return Account.create(json_obj["label"], provider, json_obj["secret"])
 
     @staticmethod
