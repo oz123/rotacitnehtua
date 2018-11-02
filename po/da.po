@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2017-09-14 19:54+0000\n"
-"Last-Translator: Jakob Bo Kristensen <jakobbo@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/gnome-"
-"Authenticator/translation/da/>\n"
+"PO-Revision-Date: 2018-11-03 21:23+0000\n"
+"Last-Translator: Jack Fredericksen <jack.a.fredericksen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/authenticator/"
+"translation/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
@@ -26,7 +26,6 @@ msgid "Authenticator"
 msgstr "TofaktorAutentifikation"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
-#, fuzzy
 msgid "Lock the application"
 msgstr "Lås applikationen"
 
