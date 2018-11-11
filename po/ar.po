@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-08-21 09:34+0000\n"
-"Last-Translator: ButterflyOfFire <ButterflyOfFire@protonmail.com>\n"
+"PO-Revision-Date: 2018-11-12 12:07+0000\n"
+"Last-Translator: alaazghoul <a.z9@live.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/authenticator/"
 "translation/ar/>\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
@@ -28,7 +28,7 @@ msgstr "الموثق"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
-msgstr ""
+msgstr "اقفل التطبيق"
 
 #: Authenticator/application.py:101
 msgid "from a plain-text JSON file"
@@ -48,12 +48,11 @@ msgstr ""
 
 #: Authenticator/application.py:106
 msgid "Restore"
-msgstr ""
+msgstr "استرجاع"
 
 #: Authenticator/application.py:107 Authenticator/widgets/settings.py:258
-#, fuzzy
 msgid "Backup"
-msgstr "رجوع"
+msgstr "نسخة احتياطية"
 
 #. Night mode action
 #: Authenticator/application.py:115 Authenticator/widgets/headerbar.py:103
@@ -71,7 +70,7 @@ msgstr "خروج"
 
 #: Authenticator/models/account.py:73
 msgid "Default"
-msgstr ""
+msgstr "الافتراضي"
 
 #: Authenticator/widgets/accounts/add.py:50
 #: Authenticator/widgets/headerbar.py:101
@@ -93,7 +92,7 @@ msgstr "اغلاق"
 
 #: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
-msgstr ""
+msgstr "المزود"
 
 #: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
@@ -110,20 +109,20 @@ msgstr "رمز QR خاطئ"
 
 #: Authenticator/widgets/accounts/add.py:264
 msgid "zbar library is not found. QRCode scanner will be disabled"
-msgstr ""
+msgstr "مكتبة zbar غير موجودة. سيتم تعطيل ماسح كود QR"
 
 #: Authenticator/widgets/accounts/edit.py:47
 msgid "Edit {} - {}"
-msgstr ""
+msgstr "تحرير {} - {}"
 
 #: Authenticator/widgets/accounts/edit.py:52
 #: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
 msgid "Save"
-msgstr ""
+msgstr "احفظ"
 
 #: Authenticator/widgets/accounts/list.py:158
 msgid "The One-Time Passwords expires in {} seconds"
-msgstr ""
+msgstr "رقم سري المرة الواحدة سينتهي في {} ثانية"
 
 #. Label
 #: Authenticator/widgets/accounts/list.py:280
@@ -137,48 +136,47 @@ msgstr "نسخ"
 
 #: Authenticator/widgets/accounts/row.py:59
 msgid "Edit"
-msgstr ""
+msgstr "تحرير"
 
 #: Authenticator/widgets/accounts/row.py:149
 msgid "Couldn't generate the secret code"
-msgstr "لم يتم توليد المفتاح السري"
+msgstr "لم يتكمن من توليد المفتاح السري"
 
 #: Authenticator/widgets/backup/gnupg.py:38
 #: Authenticator/widgets/backup/gnupg.py:46
 msgid "GPG paraphrase"
-msgstr ""
+msgstr "جملة سر GPG"
 
 #: Authenticator/widgets/backup/gnupg.py:48
 msgid "Import"
-msgstr ""
+msgstr "استيراد"
 
 #: Authenticator/widgets/backup/gnupg.py:55
 msgid "Paraphrase"
-msgstr ""
+msgstr "جملة سر"
 
 #: Authenticator/widgets/backup/gnupg.py:73
 msgid "There was an error during the import of the encrypted file."
-msgstr ""
+msgstr "هناك خطأ خلال استيراد الملف المشفر."
 
 #: Authenticator/widgets/backup/gnupg.py:104
 #: Authenticator/widgets/backup/gnupg.py:112
 msgid "GPG fingerprint"
-msgstr ""
+msgstr "بصمة اصبع GPG"
 
 #: Authenticator/widgets/backup/gnupg.py:117
 msgid "Public keys"
-msgstr ""
+msgstr "المفاتيح العلنية"
 
 #: Authenticator/widgets/backup/gnupg.py:118
 msgid "Private keys"
-msgstr ""
+msgstr "المفاتيح السرية"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
-msgstr "translator-credits"
+msgstr "فضل-المترجم"
 
 #: Authenticator/widgets/about.py.in:47
-#, fuzzy
 msgid "Two-factor authentication code generator."
 msgstr "كود توليد التوثيق الثنائي."
 
@@ -201,74 +199,73 @@ msgstr "الغاء"
 
 #: Authenticator/widgets/headerbar.py:182
 msgid "Click on items to select them"
-msgstr "اضغط على العتاصر ليتم اختيارهم"
+msgstr "اضغط على العناصر ليتم اختيارهم"
 
 #: Authenticator/widgets/settings.py:139
-#, fuzzy
 msgid "Authentication Password"
-msgstr "الموثق"
+msgstr "رقم سر الموثق"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
-msgstr ""
+msgstr "الرقم السري القديم"
 
 #: Authenticator/widgets/settings.py:156
 msgid "Password"
-msgstr ""
+msgstr "الرقم السري"
 
 #: Authenticator/widgets/settings.py:159
 msgid "Repeat Password"
-msgstr ""
+msgstr "اعادة الرقم السري"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Dark theme"
-msgstr ""
+msgstr "الوضع المعتم"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Use a dark theme, if possible"
-msgstr ""
+msgstr "استخدام الوضع المعتم، ان امكن."
 
 #: Authenticator/widgets/settings.py:232
 msgid "Appearance"
-msgstr ""
+msgstr "المظهر"
 
 #: Authenticator/widgets/settings.py:236
 msgid "Clear the database"
-msgstr ""
+msgstr "تنظيف قاعدة البيانات"
 
 #: Authenticator/widgets/settings.py:236
 msgid "Erase existing accounts"
-msgstr ""
+msgstr "مسح حسابات موجودة"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
-msgstr ""
+msgstr "امكانية غلق التطبيق باستخدام رقم سري"
 
 #: Authenticator/widgets/settings.py:243
-#, fuzzy
 msgid "Authentication password"
-msgstr "الموثق"
+msgstr "رقم سر الموثق"
 
 #: Authenticator/widgets/settings.py:244
 msgid "Set up application authentication password"
-msgstr ""
+msgstr "تثبيت رقم سري تطبيق الموثق"
 
 #: Authenticator/widgets/settings.py:250
+#, fuzzy
 msgid "Behaviour"
-msgstr ""
+msgstr "السلوك"
 
 #: Authenticator/widgets/settings.py:253
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
 msgid "GPG keys location"
-msgstr ""
+msgstr "موقع مفاتيح GPG"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
-msgstr ""
+msgstr "يحتاج التطبيق لإعادة التشغيل أولاً."
 
 #: Authenticator/widgets/settings.py:303
 msgid "The existing accounts will be erased in 5 seconds"
-msgstr ""
+msgstr "الحسابات الحالية ستحذف في ٥ ثوان"
 
 #: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
 msgid "Undo"
@@ -276,24 +273,23 @@ msgstr "تراجع"
 
 #: Authenticator/widgets/utils.py:18
 msgid "Open"
-msgstr ""
+msgstr "فتح"
 
 #: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
 msgid "JSON files"
-msgstr ""
+msgstr "ملف JSON"
 
 #: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
 msgid "Encrypted GPG files"
-msgstr ""
+msgstr "ملفات GPG مشفرة"
 
 #: Authenticator/widgets/utils.py:57
-#, fuzzy
 msgid "Select"
-msgstr "وضع الاختيار"
+msgstr "اختيار"
 
 #: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
-msgstr ""
+msgstr "حساب أو أكثر تم ازالتهم."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
@@ -302,7 +298,6 @@ msgid "Two-factor authentication code generator"
 msgstr "كود توليد التوثيق الثنائي."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:9
-#, fuzzy
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
@@ -310,28 +305,27 @@ msgstr "برنامج بسيط يولد كود توثيق ثنائي، صمم ل�
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
 msgid "Features:"
-msgstr ""
+msgstr "اضافات:"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:12
 msgid "QR code scanner"
-msgstr ""
+msgstr "ماسح كود QR"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:13
 msgid "Beautiful UI"
-msgstr ""
+msgstr "واجهة مستخدم جميلة"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:14
 msgid "Huge database of (290+) websites/applications"
-msgstr ""
+msgstr "قاعدة بيانات ضخمة مكونة من (أكثر من ٢٩٠) موقع/تطبيق"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:4
-#, fuzzy
 msgid "Two-factor authentication"
 msgstr "التوثيق الثنائي"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:10
 msgid "Gnome;GTK;Verification;"
-msgstr ""
+msgstr "Gnome; GTK; توثيق;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in:11
 msgid "com.github.bilelmoussaoui.Authenticator"
@@ -339,8 +333,9 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
+#, fuzzy
 msgid "Default window position"
-msgstr ""
+msgstr "وضع النافذة الافتراضي"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
 #, fuzzy
@@ -349,19 +344,19 @@ msgstr "الوضع الليلي"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
 msgid "Enable/disable night mode within the application"
-msgstr ""
+msgstr "تفعيل/تعطيل الوضع الليلي في التطبيق"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
 msgid "Default window maximized behaviour"
-msgstr ""
+msgstr "السلوك الأقصى للنافذة الافتراضية"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
 msgid "Whether the application is locked with a password or not"
-msgstr ""
+msgstr "سواء أكان التطبيق مغلق برقم سري أو لا"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
 msgid "Whether the application can be locked or not"
-msgstr ""
+msgstr "سواء أكان التطبيق يمكن اغلاقه أو لا"
 
 #: authenticator.py.in:50
 msgid "Start in debug mode"
