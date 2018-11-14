@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-11-12 12:07+0000\n"
+"PO-Revision-Date: 2018-11-15 08:07+0000\n"
 "Last-Translator: alaazghoul <a.z9@live.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/authenticator/"
 "translation/ar/>\n"
@@ -31,20 +31,22 @@ msgid "Lock the application"
 msgstr "اقفل التطبيق"
 
 #: Authenticator/application.py:101
+#, fuzzy
 msgid "from a plain-text JSON file"
-msgstr ""
+msgstr "من ملف نص عادي Json"
 
 #: Authenticator/application.py:102
 msgid "from an OpenPGP-encrypted JSON file"
-msgstr ""
+msgstr "من OpenPGP مشفر ملف JSON"
 
 #: Authenticator/application.py:103
+#, fuzzy
 msgid "in a plain-text JSON file"
-msgstr ""
+msgstr "في نص عادي ملف JSON"
 
 #: Authenticator/application.py:104
 msgid "in an OpenPGP-encrypted JSON file"
-msgstr ""
+msgstr "في OpenPGP مشفر ملف JSON"
 
 #: Authenticator/application.py:106
 msgid "Restore"
@@ -223,7 +225,7 @@ msgstr "الوضع المعتم"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Use a dark theme, if possible"
-msgstr "استخدام الوضع المعتم، ان امكن."
+msgstr "استخدم الوضع المعتم، ان امكن."
 
 #: Authenticator/widgets/settings.py:232
 msgid "Appearance"
@@ -301,7 +303,7 @@ msgstr "كود توليد التوثيق الثنائي."
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
-msgstr "برنامج بسيط يولد كود توثيق ثنائي، صمم لنظام Gnome"
+msgstr "تطبيق بسيط يولد كود توثيق ثنائي، صمم لنظام Gnome"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
 msgid "Features:"
