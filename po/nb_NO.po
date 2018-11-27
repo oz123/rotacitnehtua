@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-23 15:58+0200\n"
-"PO-Revision-Date: 2018-09-24 11:57+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-11-28 18:07+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "authenticator/translation/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
@@ -26,7 +26,6 @@ msgid "Authenticator"
 msgstr "Authenticator"
 
 #: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
-#, fuzzy
 msgid "Lock the application"
 msgstr "Lås programmet"
 
@@ -107,7 +106,6 @@ msgid "Invalid QR code"
 msgstr "Ugyldig QR-kode"
 
 #: Authenticator/widgets/accounts/add.py:264
-#, fuzzy
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr "zbar-bibliotek ble ikke funnet. QRkodeskanneren vil skrus av"
 
@@ -121,7 +119,6 @@ msgid "Save"
 msgstr "Lagre"
 
 #: Authenticator/widgets/accounts/list.py:158
-#, fuzzy
 msgid "The One-Time Passwords expires in {} seconds"
 msgstr "Engangspassordet utløper om {} sekunder"
 
@@ -202,9 +199,8 @@ msgid "Click on items to select them"
 msgstr "Klikk på elementene for å velge dem"
 
 #: Authenticator/widgets/settings.py:139
-#, fuzzy
 msgid "Authentication Password"
-msgstr "Authenticator"
+msgstr "Autentiserings passord"
 
 #: Authenticator/widgets/settings.py:152
 msgid "Old Password"
@@ -231,7 +227,6 @@ msgid "Appearance"
 msgstr "Utseende"
 
 #: Authenticator/widgets/settings.py:236
-#, fuzzy
 msgid "Clear the database"
 msgstr "Tøm databasen"
 
@@ -244,33 +239,29 @@ msgid "Possibility to lock the application with a password"
 msgstr "Mulighet for å låse programmet med et passord"
 
 #: Authenticator/widgets/settings.py:243
-#, fuzzy
 msgid "Authentication password"
-msgstr "Authenticator"
+msgstr "Autentiserings passord"
 
 #: Authenticator/widgets/settings.py:244
 msgid "Set up application authentication password"
 msgstr "Sett opp identitetbekreftelsespassord for programmet"
 
 #: Authenticator/widgets/settings.py:250
-#, fuzzy
 msgid "Behaviour"
 msgstr "Oppførsel"
 
 #: Authenticator/widgets/settings.py:253
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
-#, fuzzy
 msgid "GPG keys location"
 msgstr "Mappe for GPG-nøkler"
 
 #: Authenticator/widgets/settings.py:267
 msgid "The application needs to be restarted first."
-msgstr "Programmet må startes på nytt først"
+msgstr "Programmet må startes på nytt først."
 
 #: Authenticator/widgets/settings.py:303
-#, fuzzy
 msgid "The existing accounts will be erased in 5 seconds"
-msgstr "Eksisterende kontoer vil bli slettet om fem sekunder"
+msgstr "Eksisterende kontoer vil bli slettet om 5 sekunder"
 
 #: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
 msgid "Undo"
@@ -289,9 +280,8 @@ msgid "Encrypted GPG files"
 msgstr "Krypterte GPG-filer"
 
 #: Authenticator/widgets/utils.py:57
-#, fuzzy
 msgid "Select"
-msgstr "Utvelgelsesmodus"
+msgstr "Velg"
 
 #: Authenticator/widgets/window.py:198
 msgid "An account or more were removed."
@@ -339,22 +329,18 @@ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
-#, fuzzy
 msgid "Default window position"
 msgstr "Forvalgt vindusposisjon"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
-#, fuzzy
 msgid "Night mode"
 msgstr "Nattmodus"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
-#, fuzzy
 msgid "Enable/disable night mode within the application"
 msgstr "Skru på/av nattmodus fra programmet"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
-#, fuzzy
 msgid "Default window maximized behaviour"
 msgstr "Forvalgt oppførsel for oppblåste vinduer"
 
