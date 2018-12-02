@@ -1,4 +1,3 @@
-
 <a href="https://flathub.org/apps/details/com.github.bilelmoussaoui.Authenticator">
 <img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
 </a>
@@ -28,6 +27,9 @@ You can install the `flatpak` package of the application from Flathub using
 flatpak install flathub com.github.bilelmoussaoui.Authenticator
 ```
 
+### Distribution packaging
+
+- Pop!\_OS (18.10+): `gnome-authenticator`
 
 ### Building from source code
 #### Dependecies
