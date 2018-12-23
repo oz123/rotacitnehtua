@@ -36,16 +36,21 @@ LIB_DIR = join_paths(get_option('prefix'), get_option('libdir'), meson.project_n
 LOCALE_DIR = join_paths(get_option('prefix'), get_option('localedir'))
 DATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 
+libgd_dep = dependency('gdlib', required : false)
 
-subproject('libgd',
-  default_options: [
-    'with-introspection=true',
-    'with-notification=true',
-    'static=false',
-    'pkgdatadir=' + DATA_DIR,
-    'pkglibdir=' + LIB_DIR
-  ]
-)
+if not libgd_dep.found()
+  libgd_proj = subproject('libgd',
+    default_options: [
+      'with-introspection=true',
+      'with-notification=true',
+      'static=false',
+      'pkgdatadir=' + DATA_DIR,
+      'pkglibdir=' + LIB_DIR
+    ]
+  )
+
+  libgd_dep = libgd_proj.get_variable('libgd_dep')
+endif
 
 # Configuration params
 conf = configuration_data()
