@@ -21,7 +21,7 @@ from gettext import gettext as _
 from gi import require_version
 require_version('Gd', '1.0')
 require_version("Gtk", "3.0")
-from gi.repository import Gd, Gtk, GObject
+from gi.repository import Gd, Gtk, GObject, Gio
 from ..models import Logger, Settings, Database, AccountsManager
 from .headerbar import HeaderBar, HeaderBarState
 from .accounts import AccountsWidget, AccountsListState, AddAccountWindow, EmptyAccountsList
@@ -40,6 +40,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     # Default Window instance
     instance = None
+
+    is_empty = GObject.Property(type=bool, default=False)
 
     def __init__(self):
         Gtk.ApplicationWindow.__init__(self, type=Gtk.WindowType.TOPLEVEL)
@@ -71,15 +73,17 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         HeaderBar.get_default().generate_popover_menu(gio_menu)
 
     def add_account(self, *_):
-        add_window = AddAccountWindow()
-        add_window.set_transient_for(self)
-        add_window.show_all()
-        add_window.present()
+        if not self.get_application().is_locked:
+            add_window = AddAccountWindow()
+            add_window.set_transient_for(self)
+            add_window.show_all()
+            add_window.present()
 
     def update_view(self, *_):
         header_bar = HeaderBar.get_default()
         count = Database.get_default().count
-        if count != 0:
+        self.set_property("is-empty", count == 0)
+        if not self.is_empty:
             child_name = "accounts-list"
             header_bar.set_state(HeaderBarState.NORMAL)
         else:
@@ -99,9 +103,14 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         if header_bar.state == HeaderBarState.NORMAL:
             header_bar.set_state(HeaderBarState.SELECT)
             accounts_widget.set_state(AccountsListState.SELECT)
-        else:
+        elif header_bar.state != HeaderBarState.LOCKED:
             header_bar.set_state(HeaderBarState.NORMAL)
             accounts_widget.set_state(AccountsListState.NORMAL)
+
+    def toggle_search(self, *_):
+        if not self.get_application().is_locked:
+            toggled = not self.search_bar.get_property("search_mode_enabled")
+            self.search_bar.set_property("search_mode_enabled", toggled)
 
     def save_state(self):
         """Save window position & size."""
@@ -127,11 +136,17 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     def _build_widgets(self):
         """Build main window widgets."""
+
+        # Actions
+        self.__add_action("toggle-select", Window.toggle_select, "is_empty")
+        self.__add_action("add-account", self.add_account)
+        self.__add_action("toggle-searchbar", self.toggle_search)
+
         # HeaderBar
         header_bar = HeaderBar.get_default()
-        header_bar.select_btn.connect("clicked", Window.toggle_select)
-        header_bar.add_btn.connect("clicked", self.add_account)
-        header_bar.cancel_btn.connect("clicked", Window.toggle_select)
+        header_bar.select_btn.set_action_name("win.toggle-select")
+        header_bar.add_btn.set_action_name("win.add-account")
+        header_bar.cancel_btn.set_action_name("win.toggle-select")
         self.set_titlebar(header_bar)
 
         # Main Container
@@ -232,3 +247,10 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             self.update_view()
         else:
             login_widget.set_has_error(True)
+
+    def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
+        action = Gio.SimpleAction.new(key, None)
+        action.connect("activate", callback)
+        if prop_bind:
+            self.bind_property(prop_bind, action, "enabled", bind_flag)
+        self.add_action(action)
