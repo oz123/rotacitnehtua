@@ -130,6 +130,14 @@ class Application(Gtk.Application):
         if Settings.get_default().can_be_locked:
             self.__add_action("lock", self.__on_lock, "is_locked")
 
+        # Keyboard shortcuts. This includes actions defined in window.py.in
+        self.set_accels_for_action("app.shortcuts", ["<Ctrl>question"])
+        self.set_accels_for_action("app.quit", ["<Ctrl>Q"])
+        self.set_accels_for_action("app.settings", ["<Ctrl>comma"])
+        self.set_accels_for_action("win.toggle-select", ["<Ctrl>S"])
+        self.set_accels_for_action("win.add-account", ["<Ctrl>N"])
+        self.set_accels_for_action("win.toggle-searchbar", ["<Ctrl>F"])
+
     def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
         action.connect("activate", callback)
