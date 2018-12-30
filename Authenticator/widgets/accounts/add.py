@@ -155,16 +155,16 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         self.provider_combo.set_entry_text_column(0)
         self.provider_combo.connect("changed", self._on_provider_changed)
         # Set up auto completion
-        provider_entry = self.provider_combo.get_child()
-        provider_entry.set_placeholder_text(_("Provider"))
+        self.provider_entry = self.provider_combo.get_child()
+        self.provider_entry.set_placeholder_text(_("Provider"))
 
         completion = Gtk.EntryCompletion()
         completion.set_model(self._providers_store)
         completion.set_text_column(0)
 
-        provider_entry.set_completion(completion)
+        self.provider_entry.set_completion(completion)
         if self._account:
-            provider_entry.set_text(self._account.provider)
+            self.provider_entry.set_text(self._account.provider)
 
         self.username_entry.set_placeholder_text(_("Account name"))
         self.username_entry.connect("changed", self._validate)
@@ -258,6 +258,10 @@ class AccountConfig(Gtk.Box, GObject.GObject):
                     self.__send_notification(_("Invalid QR code"))
                 else:
                     self.token_entry.set_text(secret)
+                    if qr_reader.provider is not None:
+                        self.provider_entry.set_text(qr_reader.provider)
+                    if qr_reader.username is not None:
+                        self.username_entry.set_text(qr_reader.username)
             else:
                 self.__send_notification(_("zbar library is not found. "
                                            "QRCode scanner will be disabled"))
