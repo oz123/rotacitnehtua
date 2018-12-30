@@ -20,7 +20,9 @@
         "--talk-name=org.gnome.Shell.Screenshot",
         /* dconf */
         "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        /* Pyzbar library path */
+        "--env=ZBAR_PATH=/app/lib/libzbar.so"
     ],
     "modules": [{
             "name": "zbar",
@@ -120,6 +122,10 @@
                 "type": "archive",
                 "url": "https://github.com/NaturalHistoryMuseum/pyzbar/archive/v0.1.7.tar.gz",
                 "sha256": "4dbbece533650f2aeb6c8d1f41cf424614d2877d7331c48a9eed35ae9f949626"
+            },
+            {
+                "type": "patch",
+                "path": "pyzbar.patch"
             }]
         },
         {
