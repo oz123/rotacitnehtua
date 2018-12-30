@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 15:06+0100\n"
-"PO-Revision-Date: 2018-09-23 20:33+0000\n"
+"PO-Revision-Date: 2019-01-01 10:42+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
 "translation/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
@@ -35,7 +35,7 @@ msgstr "uit een JSON-bestand met platte tekst"
 
 #: Authenticator/application.py.in:100
 msgid "in a plain-text JSON file"
-msgstr "in een JOSN-bestand met platte tekst"
+msgstr "naar een JSON-bestand met platte tekst"
 
 #: Authenticator/application.py.in:102
 msgid "Restore"
@@ -48,21 +48,19 @@ msgstr "Back-uppen"
 #. Night mode action
 #: Authenticator/application.py.in:111
 msgid "Preferences"
-msgstr ""
+msgstr "Voorkeuren"
 
 #: Authenticator/application.py.in:112
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 #: Authenticator/application.py.in:113
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "Sneltoetsen"
 
 #: Authenticator/application.py.in:114
-#, fuzzy
 msgid "About Authenticator"
-msgstr "Authenticator"
+msgstr "Over Authenticator"
 
 #: Authenticator/models/account.py:74
 msgid "Default"
@@ -105,8 +103,7 @@ msgstr "Ongeldige QR-code"
 #: Authenticator/widgets/accounts/add.py:266
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
-"De zbar-bibliotheek kan niet worden gevonden; de QR-codescanner is "
-"uitgeschakeld"
+"De zbar-bibliotheek kan niet worden gevonden; QR-codescanner is uitgeschakeld"
 
 #: Authenticator/widgets/accounts/edit.py:47
 msgid "Edit {} - {}"
@@ -119,7 +116,7 @@ msgstr "Opslaan"
 
 #: Authenticator/widgets/accounts/list.py:164
 msgid "The One-Time Passwords expires in {} seconds"
-msgstr "Het eenmalige wachtwoord vervalt over {} seconden"
+msgstr "Het eenmalige wachtwoord verloopt over {} seconden"
 
 #. Label
 #: Authenticator/widgets/accounts/list.py:286
@@ -136,7 +133,7 @@ msgstr "Bewerken"
 
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
-msgstr "Aanmaken van geheime code mislukt"
+msgstr "Kan geen geheime sleutel genereren"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
@@ -290,7 +287,7 @@ msgstr "Gnome;GTK;Verification;Verificatie;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
 msgid "@appid@"
-msgstr ""
+msgstr "@appid@"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
@@ -323,39 +320,34 @@ msgid "General"
 msgstr "Algemeen"
 
 #: data/ui/Shortcuts.ui:17
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Sneltoetsen"
+msgstr "Sneltoetsen tonen"
 
 #: data/ui/Shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr ""
+msgstr "Voorkeuren"
 
 #: data/ui/Shortcuts.ui:31
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Afsluiten"
 
 #: data/ui/Shortcuts.ui:40
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Account"
+msgstr "Accounts"
 
 #: data/ui/Shortcuts.ui:44
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Toevoegen"
 
 #: data/ui/Shortcuts.ui:51
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
-msgstr "Kiezen"
+msgstr "Selecteren"
 
 #: data/ui/Shortcuts.ui:58
 msgctxt "shortcut window"
@@ -364,7 +356,7 @@ msgstr "Zoeken"
 
 #: authenticator.py.in:54
 msgid "Start in debug mode"
-msgstr "Starten in debugmodus"
+msgstr "Starten in foutopsporingsmodus"
 
 #: authenticator.py.in:56
 msgid "Authenticator version number"
