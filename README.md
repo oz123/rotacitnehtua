@@ -40,8 +40,6 @@ flatpak install flathub com.github.bilelmoussaoui.Authenticator
 - `ninja`
 - `pyotp`
 - `libsecret`
-- `python-gnupg`
-- `gnupg`
 
 Those dependencies are only used if you build the application with QR code scanner support
 - `Pillow`

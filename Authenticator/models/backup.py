@@ -76,24 +76,3 @@ class BackupJSON:
         gfile = Gio.File.new_for_uri(uri)
         accounts = gfile.load_contents()[1].decode("utf-8")
         Backup.import_accounts(json.loads(accounts))
-
-
-class BackupPGPJSON:
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def export_file(uri, fingerprint):
-        from .gnupg import GPG
-        accounts = Backup.export_accounts()
-        data = json.dumps(accounts, sort_keys=True, indent=4)
-        encrypted_data = GPG.get_default().encrypt(data, fingerprint)
-
-        gfile = Gio.File.new_for_uri(uri)
-        stream = gfile.replace(None,
-                               False,
-                               Gio.FileCreateFlags.REPLACE_DESTINATION,
-                               None)
-        data_stream = Gio.DataOutputStream.new(stream)
-        data_stream.put_string(str(encrypted_data), None)
-        stream.close()

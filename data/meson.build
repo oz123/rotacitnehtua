@@ -1,41 +1,52 @@
 gnome.compile_resources(
-  meson.project_name(),
+  application_id,
   meson.project_name() + '.gresource.xml',
   gresource_bundle: true,
   source_dir: '.',
-  install_dir: join_paths(datadir, meson.project_name()),
+  install_dir: join_paths(get_option('datadir'), meson.project_name()),
   install: true
 )
 
-install_data(
-  meson.project_name() + '.gschema.xml',
-  install_dir : join_paths(datadir, 'glib-2.0/schemas')
+# Install gschema
+gschema_conf = configuration_data()
+gschema_conf.set('app-id', application_id)
+if get_option('profile') == 'development'
+  gschema_conf.set('schema-path', '/com/github/bilelmoussaoui/Authenticator/')
+else
+  gschema_conf.set('schema-path', '/com/github/bilelmoussaoui/AuthenticatorDevel/')
+endif
+configure_file(
+  configuration: gschema_conf,
+  input: files(meson.project_name() + '.gschema.xml.in'),
+  install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
+  output: '@0@.gschema.xml'.format(application_id)
 )
 
+# GNOME Shell Search Provider Service
 search_service_provider_conf = configuration_data()
 search_service_provider_conf.set('appid', application_id)
 search_service_provider_conf.set('profile', profile)
 configure_file(
   configuration: search_service_provider_conf,
   input: files(meson.project_name() + '.SearchProvider.service.in'),
-  install_dir: join_paths(datadir, 'gnome-shell', 'search-providers'),
+  install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'search-providers'),
   output: '@0@.SearchProvider.service'.format(application_id)
 )
-
+# GNOME Shell Search Provider
 search_provider_conf = configuration_data()
 search_provider_conf.set('appid', application_id)
 search_provider_conf.set('profile', profile)
 configure_file(
   configuration: search_provider_conf,
   input: files(meson.project_name() + '.SearchProvider.ini.in'),
-  install_dir: join_paths(datadir, 'gnome-shell', 'search-providers'),
+  install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'search-providers'),
   output: '@0@.SearchProvider.ini'.format(application_id)
 )
 
-
+# FreeDesktop Desktop File
 desktop_conf = configuration_data()
-desktop_conf.set('icon', application_id)
-desktop = i18n.merge_file(
+desktop_conf.set('appid', application_id)
+desktop_file = i18n.merge_file(
   'desktop',
   input: configure_file(
     input: files(meson.project_name() + '.desktop.in.in'),
@@ -46,12 +57,22 @@ desktop = i18n.merge_file(
   po_dir: join_paths(meson.source_root(), 'po'),
   type: 'desktop',
   install: true,
-  install_dir: join_paths(datadir, 'applications')
+  install_dir: join_paths(get_option('datadir'), 'applications')
 )
+# Validate Desktop File
+desktop_file_validate = find_program('desktop-file-validate', required: false)
+if desktop_file_validate.found()
+  test (
+    'Validate desktop file',
+    desktop_file_validate,
+    args: desktop_file.full_path()
+  )
+endif
 
+# Freedesktop AppData File
 appdata_conf = configuration_data()
 appdata_conf.set('appid', application_id)
-appdata = i18n.merge_file(
+appdata_file = i18n.merge_file(
   'appdata',
   input: configure_file(
     input: files(meson.project_name() + '.appdata.xml.in.in'),
@@ -61,30 +82,15 @@ appdata = i18n.merge_file(
   output: '@0@.appdata.xml'.format(application_id),
   po_dir: join_paths(meson.source_root(), 'po'),
   install: true,
-  install_dir: join_paths(datadir, 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
-
-
-desktop_file_validate = find_program('desktop-file-validate', required:false)
-
-if desktop_file_validate.found()
-  test (
-    'Validate desktop file',
-    desktop_file_validate,
-    args: join_paths(meson.current_build_dir(), '@0@.desktop'.format(application_id))
-  )
-endif
-
+# Validate AppData File
 appstreamcli = find_program('appstream-util', required:false)
-
 if appstreamcli.found()
   test (
     'Validate appdata file',
     appstreamcli,
-    args: [
-            'validate-relax',
-            join_paths(meson.current_build_dir(), '@0@.appdata.xml'.format(application_id))
-     ]
+    args: ['validate-relax', appdata_file.full_path()]
   )
 endif
 

@@ -45,8 +45,6 @@ class QRReader:
                 Logger.error("Invalid QR image")
                 return None
         except ImportError:
-            from ..application import Application
-            Application.USE_QRSCANNER = False
             QRReader.ZBAR_FOUND = False
 
     def is_valid(self):

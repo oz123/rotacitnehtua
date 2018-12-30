@@ -18,7 +18,7 @@
 """
 from .account import Account
 from .accounts_manager import AccountsManager
-from .backup import BackupJSON, BackupPGPJSON
+from .backup import BackupJSON
 from .clipboard import Clipboard
 from .database import Database
 from .keyring import Keyring
@@ -27,5 +27,3 @@ from .otp import OTP
 from .qr_reader import QRReader
 from .screenshot import GNOMEScreenshot
 from .settings import Settings
-from .gnupg import GPG
-

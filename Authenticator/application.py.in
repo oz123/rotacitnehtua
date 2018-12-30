@@ -22,14 +22,13 @@ from gi import require_version
 
 require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
-from .widgets import Window, AboutDialog, import_json, export_json, import_pgp_json, export_pgp_json
+from .widgets import Window, AboutDialog, import_json, export_json
 from .models import Settings, Clipboard, Logger
 
 
 class Application(Gtk.Application):
     """Authenticator application object."""
     instance = None
-    USE_QRSCANNER = True
     IS_DEVEL = False
     is_locked = GObject.Property(type=bool, default=False)
 
@@ -59,7 +58,6 @@ class Application(Gtk.Application):
     def do_startup(self):
         """Startup the application."""
         Gtk.Application.do_startup(self)
-        # Unlock the keyring
         self.__generate_menu()
         self.__setup_actions()
         self.set_property("is-locked", Settings.get_default().can_be_locked)
@@ -99,9 +97,7 @@ class Application(Gtk.Application):
         export_menu = Gio.Menu.new()
 
         import_menu.append_item(Gio.MenuItem.new(_("from a plain-text JSON file"), "app.import_json"))
-        import_menu.append_item(Gio.MenuItem.new(_("from an OpenPGP-encrypted JSON file"), "app.import_pgp_json"))
         export_menu.append_item(Gio.MenuItem.new(_("in a plain-text JSON file"), "app.export_json"))
-        export_menu.append_item(Gio.MenuItem.new(_("in an OpenPGP-encrypted JSON file"), "app.export_pgp_json"))
 
         backup_content.insert_submenu(0, _("Restore"), import_menu)
         backup_content.insert_submenu(1, _("Backup"), export_menu)
@@ -113,20 +109,20 @@ class Application(Gtk.Application):
         main_content = Gio.Menu.new()
         # Night mode action
         main_content.append_item(Gio.MenuItem.new(_("Preferences"), "app.settings"))
-        main_content.append_item(Gio.MenuItem.new(_("About Authenticator"), "app.about"))
+        main_content.append_item(Gio.MenuItem.new(_("Donate"), "app.donate"))
         main_content.append_item(Gio.MenuItem.new(_("Keyboard Shortcuts"), "app.shortcuts"))
+        main_content.append_item(Gio.MenuItem.new(_("About Authenticator"), "app.about"))
         help_section = Gio.MenuItem.new_section(None, main_content)
         self._menu.append_item(help_section)
 
     def __setup_actions(self):
         self.__add_action("about", self.__on_about)
         self.__add_action("shortcuts", self.__on_shortcuts)
+        self.__add_action("donate", self.__on_donate)
         self.__add_action("quit", self.__on_quit)
         self.__add_action("settings", self.__on_settings, "is_locked")
         self.__add_action("import_json", self.__on_import_json, "is_locked")
-        self.__add_action("import_pgp_json", self.__on_import_pgp_json, "is_locked")
         self.__add_action("export_json", self.__on_export_json, "is_locked")
-        self.__add_action("export_pgp_json", self.__on_export_pgp_json, "is_locked")
         if Settings.get_default().can_be_locked:
             self.__add_action("lock", self.__on_lock, "is_locked")
 
@@ -161,6 +157,10 @@ class Application(Gtk.Application):
     def __on_lock(self, *_):
         self.set_property("is-locked", True)
 
+    def __on_donate(self, *_):
+        paypal_url = "https://www.paypal.me/BilalELMoussaoui"
+        Gio.app_info_launch_default_for_uri(paypal_url)
+
     @staticmethod
     def __on_about(*_):
         """
@@ -192,29 +192,6 @@ class Application(Gtk.Application):
         filename = export_json(Window.get_default())
         if filename:
             BackupJSON.export_file(filename)
-
-    @staticmethod
-    def __on_import_pgp_json(*_):
-        from .widgets import GPGRestoreWindow
-        filename = import_pgp_json(Window.get_default())
-        if filename:
-            gpg_window = GPGRestoreWindow(filename)
-            gpg_window.set_transient_for(Window.get_default())
-            gpg_window.show_all()
-
-    @staticmethod
-    def __on_export_pgp_json(*_):
-        from .models import BackupPGPJSON
-        filename = export_pgp_json(Window.get_default())
-        if filename:
-            def export_pgp(_, fingerprint):
-                BackupPGPJSON.export_file(filename, fingerprint)
-
-            from .widgets.backup import FingprintPGPWindow
-            fingerprint_window = FingprintPGPWindow(filename)
-            fingerprint_window.set_transient_for(Window.get_default())
-            fingerprint_window.connect("selected", export_pgp)
-            fingerprint_window.show_all()
 
     @staticmethod
     def __on_settings(*_):

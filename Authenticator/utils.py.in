@@ -24,11 +24,6 @@ require_version('Gtk', '3.0')
 from gi.repository import Gtk, GdkPixbuf, GLib, Gio
 
 
-def can_use_qrscanner():
-    desktop = environ.get("XDG_CURRENT_DESKTOP", "").lower()
-    return desktop == "gnome"
-
-
 def load_pixbuf(icon_name, size):
     pixbuf = None
     theme = Gtk.IconTheme.get_default()

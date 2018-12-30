@@ -15,6 +15,7 @@ foreach theme : icon_themes
   symbolic_icon = join_paths(symbolic_dir, meson.project_name() + '-symbolic.svg')
   dest_symbolic = join_paths(get_option('prefix'), 'share/icons', symbolic_dir)
   install_data(symbolic_icon,
-              install_dir: dest_symbolic, rename: '@0@'.format(application_id) + '-symbolic.svg')
+              install_dir: dest_symbolic,
+              rename: '@0@'.format(application_id) + '-symbolic.svg')
 endforeach
 

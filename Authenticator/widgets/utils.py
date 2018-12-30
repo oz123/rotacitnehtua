@@ -38,16 +38,6 @@ def export_json(parent):
     return __open_file_chooser(parent, mimetype, Gtk.FileChooserAction.SAVE)
 
 
-def import_pgp_json(parent):
-    mimetype = {'type': "application/pgp-encrypted", 'name': _("Encrypted GPG files")}
-    return __open_file_chooser(parent, mimetype)
-
-
-def export_pgp_json(parent):
-    mimetype = {'type': "application/pgp-encrypted", 'name': _("Encrypted GPG files")}
-    return __open_file_chooser(parent, mimetype, Gtk.FileChooserAction.SAVE)
-
-
 def open_directory(parent):
     file_chooser = Gtk.FileChooserDialog()
     file_chooser.set_action(Gtk.FileChooserAction.SELECT_FOLDER)

@@ -24,7 +24,7 @@ import gettext
 import locale
 import sys
 from os import path
-
+from gettext import gettext as _
 from gi import require_version
 
 require_version('GIRepository', '2.0')
@@ -33,17 +33,21 @@ from gi.repository import Gio, GIRepository
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 
-_ = gettext.gettext
-
-if __name__ == "__main__":
+def prepare_locale():
     locale.bindtextdomain('Authenticator', '@LOCALE_DIR@')
     locale.textdomain('Authenticator')
     gettext.bindtextdomain('Authenticator', '@LOCALE_DIR@')
     gettext.textdomain('Authenticator')
-    VERSION = "@VERSION@"
-    GIRepository.Repository.prepend_search_path(
-        path.join('@LIB_DIR@', 'girepository-1.0'))
+
+
+def prepare_gir():
+    gir_repository_path = path.join('@LIB_DIR@', 'girepository-1.0')
+    GIRepository.Repository.prepend_search_path(gir_repository_path)
     GIRepository.Repository.prepend_library_path('@LIB_DIR@')
+
+if __name__ == "__main__":
+    prepare_locale()
+    prepare_gir()
 
     parser = argparse.ArgumentParser(prog="Authenticator")
     parser.add_argument("--debug", "-d", action="store_true",
@@ -52,12 +56,11 @@ if __name__ == "__main__":
                         help=_("Authenticator version number"))
     args = parser.parse_args()
 
-    resource = Gio.resource_load(path.join('@DATA_DIR@',
-                                           'com.github.bilelmoussaoui.Authenticator.gresource'))
+    resource = Gio.resource_load(path.join('@DATA_DIR@', '@APP_ID@.gresource'))
     Gio.Resource._register(resource)
 
-    from Authenticator.models import Logger
 
+    from Authenticator.models import Logger
     level = Logger.ERROR
     if args.debug:
         level = Logger.DEBUG
@@ -66,15 +69,12 @@ if __name__ == "__main__":
 
     Logger.set_level(level)
     if args.version:
-        sys.exit("Version : " + str(VERSION))
+        sys.exit("Version : @VERSION@")
     else:
         try:
-
             from Authenticator import Application
-
             app = Application.get_default()
             Application.IS_DEVEL = "@PROFILE@" == 'Devel'
-            Application.USE_QRSCANNER = "@ENABLE_QRSCANNER@" == 'True'
             exit_status = app.run(None)
             sys.exit(exit_status)
         except KeyboardInterrupt:

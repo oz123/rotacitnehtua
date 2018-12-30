@@ -12,8 +12,8 @@ Authenticator/widgets/search_bar.py
 Authenticator/widgets/settings.py
 Authenticator/widgets/utils.py
 Authenticator/widgets/window.py
-data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in
-data/com.github.bilelmoussaoui.Authenticator.desktop.in
-data/com.github.bilelmoussaoui.Authenticator.gschema.xml
+data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in
+data/com.github.bilelmoussaoui.Authenticator.desktop.in.in
+data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in
 data/ui/Shortcuts.ui
 authenticator.py.in

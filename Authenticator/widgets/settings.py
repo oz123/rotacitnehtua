@@ -249,14 +249,6 @@ class SettingsWindow(Gtk.Window):
         behaviour_container.pack_start(app_password, False, False, 0)
         self.stack.add_titled(behaviour_container, "behaviour", _("Behaviour"))
 
-        backup_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        gpg_location = ClickableSettingsBox(_("GPG keys location"),
-                                            Settings.get_default().gpg_location)
-        gpg_location.connect("button-press-event", self.__on_gpg_location_clicked)
-
-        backup_container.pack_start(gpg_location, False, False, 0)
-        self.stack.add_titled(backup_container, "backup", _("Backup"))
-
         self.add(self.stack)
 
     def __on_app_can_be_locked_changed(self, __, state):
@@ -285,13 +277,6 @@ class SettingsWindow(Gtk.Window):
         gtk_settings = Gtk.Settings.get_default()
         gtk_settings.set_property("gtk-application-prefer-dark-theme",
                                   state)
-
-    def __on_gpg_location_clicked(self, gpg_location_widget, _):
-        from .utils import open_directory
-        directory = open_directory(self)
-        if directory:
-            Settings.get_default().gpg_location = directory
-            gpg_location_widget.secondary_lbl.set_text(directory)
 
     def __on_clear_database_clicked(self, *__):
         notification = Gd.Notification()

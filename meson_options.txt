@@ -1,4 +1,3 @@
-option('enable_zbar', type : 'boolean', value : true, description : 'Enable QR Scanner using zbar')
 option(
         'profile',
         type: 'combo',

@@ -28,7 +28,7 @@ from gi.repository import Gd, Gio, Gtk, GObject, Gdk
 
 from ..headerbar import HeaderBarButton
 from ...models import OTP
-from ...utils import can_use_qrscanner, load_pixbuf_from_provider
+from ...utils import load_pixbuf_from_provider
 
 
 class AddAccountWindow(Gtk.Window):
@@ -58,12 +58,10 @@ class AddAccountWindow(Gtk.Window):
         header_bar.pack_end(self.add_btn)
 
         # QR code scan btn
-        from ...application import Application
         self.scan_btn = HeaderBarButton("qrscanner-symbolic",
                                         _("Scan QR code"))
-        if Application.USE_QRSCANNER and can_use_qrscanner():
-            self.scan_btn.connect("clicked", self._on_scan)
-            header_bar.pack_end(self.scan_btn)
+        self.scan_btn.connect("clicked", self._on_scan)
+        header_bar.pack_end(self.scan_btn)
 
         # Back btn
         self.close_btn = Gtk.Button()
