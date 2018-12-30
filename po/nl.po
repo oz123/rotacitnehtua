@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-23 15:58+0200\n"
+"POT-Creation-Date: 2018-12-30 15:06+0100\n"
 "PO-Revision-Date: 2018-09-23 20:33+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
@@ -19,55 +19,52 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
-#: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:3
+#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
 msgstr "Authenticator"
 
-#: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
+#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
 msgstr "Applicatie vergrendelen"
 
-#: Authenticator/application.py:101
+#: Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
 msgstr "uit een JSON-bestand met platte tekst"
 
-#: Authenticator/application.py:102
-msgid "from an OpenPGP-encrypted JSON file"
-msgstr "uit een JSON-bestand met OpenPGP-versleuteling"
-
-#: Authenticator/application.py:103
+#: Authenticator/application.py.in:100
 msgid "in a plain-text JSON file"
 msgstr "in een JOSN-bestand met platte tekst"
 
-#: Authenticator/application.py:104
-msgid "in an OpenPGP-encrypted JSON file"
-msgstr "in een JSON-bestand met OpenPGP-versleuteling"
-
-#: Authenticator/application.py:106
+#: Authenticator/application.py.in:102
 msgid "Restore"
 msgstr "Herstellen"
 
-#: Authenticator/application.py:107 Authenticator/widgets/settings.py:258
+#: Authenticator/application.py.in:103
 msgid "Backup"
 msgstr "Back-uppen"
 
 #. Night mode action
-#: Authenticator/application.py:115 Authenticator/widgets/headerbar.py:103
-#: Authenticator/widgets/settings.py:212
-msgid "Settings"
-msgstr "Instellingen"
+#: Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr ""
 
-#: Authenticator/application.py:116
-msgid "About"
-msgstr "Over"
+#: Authenticator/application.py.in:112
+msgid "Donate"
+msgstr ""
 
-#: Authenticator/application.py:117
-msgid "Quit"
-msgstr "Afsluiten"
+#: Authenticator/application.py.in:113
+#, fuzzy
+msgid "Keyboard Shortcuts"
+msgstr "Sneltoetsen"
 
-#: Authenticator/models/account.py:73
+#: Authenticator/application.py.in:114
+#, fuzzy
+msgid "About Authenticator"
+msgstr "Authenticator"
+
+#: Authenticator/models/account.py:74
 msgid "Default"
 msgstr "Standaard"
 
@@ -80,32 +77,32 @@ msgstr "Nieuw account toevoegen"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: Authenticator/widgets/accounts/add.py:63
+#: Authenticator/widgets/accounts/add.py:62
 msgid "Scan QR code"
 msgstr "QR-code scannen"
 
-#: Authenticator/widgets/accounts/add.py:70
+#: Authenticator/widgets/accounts/add.py:68
 #: Authenticator/widgets/accounts/edit.py:58
 msgid "Close"
 msgstr "Sluiten"
 
-#: Authenticator/widgets/accounts/add.py:161
+#: Authenticator/widgets/accounts/add.py:159
 msgid "Provider"
 msgstr "Dienst"
 
-#: Authenticator/widgets/accounts/add.py:171
+#: Authenticator/widgets/accounts/add.py:169
 msgid "Account name"
 msgstr "Accountnaam"
 
-#: Authenticator/widgets/accounts/add.py:177
+#: Authenticator/widgets/accounts/add.py:175
 msgid "Secret token"
 msgstr "Geheime toegangssleutel"
 
-#: Authenticator/widgets/accounts/add.py:260
+#: Authenticator/widgets/accounts/add.py:258
 msgid "Invalid QR code"
 msgstr "Ongeldige QR-code"
 
-#: Authenticator/widgets/accounts/add.py:264
+#: Authenticator/widgets/accounts/add.py:266
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "De zbar-bibliotheek kan niet worden gevonden; de QR-codescanner is "
@@ -120,58 +117,26 @@ msgstr "{} - {} bewerken"
 msgid "Save"
 msgstr "Opslaan"
 
-#: Authenticator/widgets/accounts/list.py:158
+#: Authenticator/widgets/accounts/list.py:164
 msgid "The One-Time Passwords expires in {} seconds"
 msgstr "Het eenmalige wachtwoord vervalt over {} seconden"
 
 #. Label
-#: Authenticator/widgets/accounts/list.py:280
+#: Authenticator/widgets/accounts/list.py:286
 msgid "There are no accounts yet…"
 msgstr "Je hebt nog geen accounts toegevoegd…"
 
-#: Authenticator/widgets/accounts/row.py:58
+#: Authenticator/widgets/accounts/row.py:59
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: Authenticator/widgets/accounts/row.py:59
+#: Authenticator/widgets/accounts/row.py:60
 msgid "Edit"
 msgstr "Bewerken"
 
-#: Authenticator/widgets/accounts/row.py:149
+#: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Aanmaken van geheime code mislukt"
-
-#: Authenticator/widgets/backup/gnupg.py:38
-#: Authenticator/widgets/backup/gnupg.py:46
-msgid "GPG paraphrase"
-msgstr "GPG-wachtwoordzin"
-
-#: Authenticator/widgets/backup/gnupg.py:48
-msgid "Import"
-msgstr "Importeren"
-
-#: Authenticator/widgets/backup/gnupg.py:55
-msgid "Paraphrase"
-msgstr "Wachtwoordzin"
-
-#: Authenticator/widgets/backup/gnupg.py:73
-msgid "There was an error during the import of the encrypted file."
-msgstr ""
-"Er is een fout opgetreden tijdens het importeren van het versleutelde "
-"bestand."
-
-#: Authenticator/widgets/backup/gnupg.py:104
-#: Authenticator/widgets/backup/gnupg.py:112
-msgid "GPG fingerprint"
-msgstr "GPG-vingerafdruk"
-
-#: Authenticator/widgets/backup/gnupg.py:117
-msgid "Public keys"
-msgstr "Openbare sleutels"
-
-#: Authenticator/widgets/backup/gnupg.py:118
-msgid "Private keys"
-msgstr "Privésleutels"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
@@ -189,16 +154,20 @@ msgstr "Verwijderen"
 msgid "Search"
 msgstr "Zoeken"
 
+#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
+msgid "Settings"
+msgstr "Instellingen"
+
 #: Authenticator/widgets/headerbar.py:105
 msgid "Selection mode"
 msgstr "Selectiemodus"
 
 #: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
-#: Authenticator/widgets/utils.py:58
+#: Authenticator/widgets/utils.py:48
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: Authenticator/widgets/headerbar.py:182
+#: Authenticator/widgets/headerbar.py:183
 msgid "Click on items to select them"
 msgstr "Klik op items om ze te selecteren"
 
@@ -254,20 +223,15 @@ msgstr "Stel het authenticatiewachtwoord in"
 msgid "Behaviour"
 msgstr "Gedrag"
 
-#: Authenticator/widgets/settings.py:253
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
-msgid "GPG keys location"
-msgstr "Locatie van GPG-sleutels"
-
-#: Authenticator/widgets/settings.py:267
+#: Authenticator/widgets/settings.py:259
 msgid "The application needs to be restarted first."
 msgstr "De applicatie moet worden herstart."
 
-#: Authenticator/widgets/settings.py:303
+#: Authenticator/widgets/settings.py:288
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr "De bestaande accounts worden over 5 seconden gewist"
 
-#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
+#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
 msgid "Undo"
 msgstr "Ongedaan maken"
 
@@ -279,24 +243,20 @@ msgstr "Openen"
 msgid "JSON files"
 msgstr "JSON-bestanden"
 
-#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
-msgid "Encrypted GPG files"
-msgstr "Versleutelde GPG-bestanden"
-
-#: Authenticator/widgets/utils.py:57
+#: Authenticator/widgets/utils.py:47
 msgid "Select"
 msgstr "Kiezen"
 
-#: Authenticator/widgets/window.py:198
+#: Authenticator/widgets/window.py.in:213
 msgid "An account or more were removed."
 msgstr "Eén account is of meerdere accounts zijn verwijderd."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
 msgid "Two-factor authentication code generator"
 msgstr "Code-generator voor authenticatie in twee stappen"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:9
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
@@ -304,66 +264,156 @@ msgstr ""
 "Eenvoudige applicatie voor het genereren van codes voor authenticatie in "
 "twee stappen, gemaakt voor GNOME."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
 msgstr "Functies:"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:12
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
 msgid "QR code scanner"
 msgstr "QR-codescanner"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:13
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
 msgstr "Prachtige vormgeving"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:14
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
 msgstr "Enorme databank met (meer dan 290) websites/applicaties"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:4
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
 msgstr "Authenticatie in twee stappen"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
 msgstr "Gnome;GTK;Verification;Verificatie;"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:11
-msgid "com.github.bilelmoussaoui.Authenticator"
-msgstr "com.github.bilelmoussaoui.Authenticator"
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
+msgid "@appid@"
+msgstr ""
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
 msgstr "Standaard vensterpositie"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
 msgid "Night mode"
 msgstr "Nachtmodus"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
 msgstr "Nachtmodus in de app inschakelen/uitschakelen"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Standaardgedrag van gemaximaliseerd venster"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Whether the application is locked with a password or not"
 msgstr "Of de applicatie moet worden vergrendeld met een wachtwoord"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
 msgid "Whether the application can be locked or not"
 msgstr "Of de applicatie vergrendeld kan worden"
 
-#: authenticator.py.in:50
+#: data/ui/Shortcuts.ui:13
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: data/ui/Shortcuts.ui:17
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Sneltoetsen"
+
+#: data/ui/Shortcuts.ui:24
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:31
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: data/ui/Shortcuts.ui:40
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Accounts"
+msgstr "Account"
+
+#: data/ui/Shortcuts.ui:44
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Add"
+msgstr "Toevoegen"
+
+#: data/ui/Shortcuts.ui:51
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Select"
+msgstr "Kiezen"
+
+#: data/ui/Shortcuts.ui:58
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Zoeken"
+
+#: authenticator.py.in:54
 msgid "Start in debug mode"
 msgstr "Starten in debugmodus"
 
-#: authenticator.py.in:52
+#: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Versienummer van Authenticator"
+
+#, fuzzy
+#~ msgid "Authenticator@NAME_SUFFIX@"
+#~ msgstr "Authenticator"
+
+#~ msgid "from an OpenPGP-encrypted JSON file"
+#~ msgstr "uit een JSON-bestand met OpenPGP-versleuteling"
+
+#~ msgid "in an OpenPGP-encrypted JSON file"
+#~ msgstr "in een JSON-bestand met OpenPGP-versleuteling"
+
+#~ msgid "About"
+#~ msgstr "Over"
+
+#~ msgid "GPG paraphrase"
+#~ msgstr "GPG-wachtwoordzin"
+
+#~ msgid "Import"
+#~ msgstr "Importeren"
+
+#~ msgid "Paraphrase"
+#~ msgstr "Wachtwoordzin"
+
+#~ msgid "There was an error during the import of the encrypted file."
+#~ msgstr ""
+#~ "Er is een fout opgetreden tijdens het importeren van het versleutelde "
+#~ "bestand."
+
+#~ msgid "GPG fingerprint"
+#~ msgstr "GPG-vingerafdruk"
+
+#~ msgid "Public keys"
+#~ msgstr "Openbare sleutels"
+
+#~ msgid "Private keys"
+#~ msgstr "Privésleutels"
+
+#~ msgid "GPG keys location"
+#~ msgstr "Locatie van GPG-sleutels"
+
+#~ msgid "Encrypted GPG files"
+#~ msgstr "Versleutelde GPG-bestanden"
+
+#~ msgid "com.github.bilelmoussaoui.Authenticator"
+#~ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #~ msgid "Bilal Elmoussaoui"
 #~ msgstr "Bilal Elmoussaoui"
@@ -469,14 +519,6 @@ msgstr "Versienummer van Authenticator"
 #~ msgstr "Generator voor tweefactorauthenticatiecodes"
 
 #~ msgctxt "shortcut window"
-#~ msgid "General"
-#~ msgstr "Algemeen"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Search"
-#~ msgstr "Zoeken"
-
-#~ msgctxt "shortcut window"
 #~ msgid "Add a new account"
 #~ msgstr "Nieuwe account toevoegen"
 
@@ -547,14 +589,8 @@ msgstr "Versienummer van Authenticator"
 #~ msgid "Do you really want to remove \"%s\"?"
 #~ msgstr "Wil je \"%s\" echt verwijderen?"
 
-#~ msgid "Account"
-#~ msgstr "Account"
-
 #~ msgid "Password protection"
 #~ msgstr "Wachtwoordbescherming"
 
 #~ msgid "Auto-lock the application (m):"
 #~ msgstr "Vergrendel de toepassing automatisch (m):"
-
-#~ msgid "Shortcuts"
-#~ msgstr "Sneltoetsen"

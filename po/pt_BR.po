@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-23 15:58+0200\n"
+"POT-Creation-Date: 2018-12-30 15:06+0100\n"
 "PO-Revision-Date: 2018-10-23 23:35+0000\n"
 "Last-Translator: Fúlvio Alves <fga.fulvio@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -19,55 +19,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
-#: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:3
+#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
 msgstr "Autenticador"
 
-#: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
+#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
 msgstr "Bloquear o aplicativo"
 
-#: Authenticator/application.py:101
+#: Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
 msgstr "de um arquivo JSON de texto simples"
 
-#: Authenticator/application.py:102
-msgid "from an OpenPGP-encrypted JSON file"
-msgstr "de um arquivo JSON criptografado com OpenPGP"
-
-#: Authenticator/application.py:103
+#: Authenticator/application.py.in:100
 msgid "in a plain-text JSON file"
 msgstr "em um arquivo JSON em texto simples"
 
-#: Authenticator/application.py:104
-msgid "in an OpenPGP-encrypted JSON file"
-msgstr "em um arquivo JSON encriptado com OpenPGP"
-
-#: Authenticator/application.py:106
+#: Authenticator/application.py.in:102
 msgid "Restore"
 msgstr "Restaurar"
 
-#: Authenticator/application.py:107 Authenticator/widgets/settings.py:258
+#: Authenticator/application.py.in:103
 msgid "Backup"
 msgstr "Cópia de segurança"
 
 #. Night mode action
-#: Authenticator/application.py:115 Authenticator/widgets/headerbar.py:103
-#: Authenticator/widgets/settings.py:212
-msgid "Settings"
-msgstr "Configurações"
+#: Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr ""
 
-#: Authenticator/application.py:116
-msgid "About"
-msgstr "Sobre"
+#: Authenticator/application.py.in:112
+msgid "Donate"
+msgstr ""
 
-#: Authenticator/application.py:117
-msgid "Quit"
-msgstr "Sair"
+#: Authenticator/application.py.in:113
+msgid "Keyboard Shortcuts"
+msgstr ""
 
-#: Authenticator/models/account.py:73
+#: Authenticator/application.py.in:114
+#, fuzzy
+msgid "About Authenticator"
+msgstr "Autenticador"
+
+#: Authenticator/models/account.py:74
 msgid "Default"
 msgstr "Padrão"
 
@@ -80,32 +76,32 @@ msgstr "Adicionar uma nova conta"
 msgid "Add"
 msgstr "Adicionar"
 
-#: Authenticator/widgets/accounts/add.py:63
+#: Authenticator/widgets/accounts/add.py:62
 msgid "Scan QR code"
 msgstr "Escanear código QR"
 
-#: Authenticator/widgets/accounts/add.py:70
+#: Authenticator/widgets/accounts/add.py:68
 #: Authenticator/widgets/accounts/edit.py:58
 msgid "Close"
 msgstr "Fechar"
 
-#: Authenticator/widgets/accounts/add.py:161
+#: Authenticator/widgets/accounts/add.py:159
 msgid "Provider"
 msgstr "Provedor"
 
-#: Authenticator/widgets/accounts/add.py:171
+#: Authenticator/widgets/accounts/add.py:169
 msgid "Account name"
 msgstr "Nome da conta"
 
-#: Authenticator/widgets/accounts/add.py:177
+#: Authenticator/widgets/accounts/add.py:175
 msgid "Secret token"
 msgstr "Token secreto"
 
-#: Authenticator/widgets/accounts/add.py:260
+#: Authenticator/widgets/accounts/add.py:258
 msgid "Invalid QR code"
 msgstr "Código QR inválido"
 
-#: Authenticator/widgets/accounts/add.py:264
+#: Authenticator/widgets/accounts/add.py:266
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "A biblioteca zbar não foi encontrada. O escaneador QRCode será desativado"
@@ -119,58 +115,26 @@ msgstr "Editar {} - {}"
 msgid "Save"
 msgstr "Salvar"
 
-#: Authenticator/widgets/accounts/list.py:158
+#: Authenticator/widgets/accounts/list.py:164
 msgid "The One-Time Passwords expires in {} seconds"
 msgstr "As senhas de uso único expiram em {} segundos"
 
 #. Label
-#: Authenticator/widgets/accounts/list.py:280
+#: Authenticator/widgets/accounts/list.py:286
 msgid "There are no accounts yet…"
 msgstr "Ainda não há contas…"
 
-#: Authenticator/widgets/accounts/row.py:58
+#: Authenticator/widgets/accounts/row.py:59
 msgid "Copy"
 msgstr "Copiar"
 
-#: Authenticator/widgets/accounts/row.py:59
+#: Authenticator/widgets/accounts/row.py:60
 msgid "Edit"
 msgstr "Editar"
 
-#: Authenticator/widgets/accounts/row.py:149
+#: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Não foi possível gerar o código secreto"
-
-#: Authenticator/widgets/backup/gnupg.py:38
-#: Authenticator/widgets/backup/gnupg.py:46
-#, fuzzy
-msgid "GPG paraphrase"
-msgstr "Senha GPG"
-
-#: Authenticator/widgets/backup/gnupg.py:48
-msgid "Import"
-msgstr "Importar"
-
-#: Authenticator/widgets/backup/gnupg.py:55
-#, fuzzy
-msgid "Paraphrase"
-msgstr "Paráfrase"
-
-#: Authenticator/widgets/backup/gnupg.py:73
-msgid "There was an error during the import of the encrypted file."
-msgstr "Houve um erro durante a importação do arquivo criptografado."
-
-#: Authenticator/widgets/backup/gnupg.py:104
-#: Authenticator/widgets/backup/gnupg.py:112
-msgid "GPG fingerprint"
-msgstr "Impressão digital GPG"
-
-#: Authenticator/widgets/backup/gnupg.py:117
-msgid "Public keys"
-msgstr "Chaves públicas"
-
-#: Authenticator/widgets/backup/gnupg.py:118
-msgid "Private keys"
-msgstr "Chaves privadas"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
@@ -188,16 +152,20 @@ msgstr "Excluir"
 msgid "Search"
 msgstr "Procurar"
 
+#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
+msgid "Settings"
+msgstr "Configurações"
+
 #: Authenticator/widgets/headerbar.py:105
 msgid "Selection mode"
 msgstr "Modo de seleção"
 
 #: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
-#: Authenticator/widgets/utils.py:58
+#: Authenticator/widgets/utils.py:48
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: Authenticator/widgets/headerbar.py:182
+#: Authenticator/widgets/headerbar.py:183
 msgid "Click on items to select them"
 msgstr "Clique nos itens para selecioná-los"
 
@@ -253,20 +221,15 @@ msgstr "Configurar senha de autenticação do aplicativo"
 msgid "Behaviour"
 msgstr "Comportamento"
 
-#: Authenticator/widgets/settings.py:253
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
-msgid "GPG keys location"
-msgstr "Localização das chaves GPG"
-
-#: Authenticator/widgets/settings.py:267
+#: Authenticator/widgets/settings.py:259
 msgid "The application needs to be restarted first."
 msgstr "O aplicativo precisa ser reiniciado antes."
 
-#: Authenticator/widgets/settings.py:303
+#: Authenticator/widgets/settings.py:288
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr "As contas existentes serão apagadas em 5 segundos"
 
-#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
+#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
 msgid "Undo"
 msgstr "Desfazer"
 
@@ -278,24 +241,20 @@ msgstr "Abrir"
 msgid "JSON files"
 msgstr "Arquivos JSON"
 
-#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
-msgid "Encrypted GPG files"
-msgstr "Arquivos encriptados com GPG"
-
-#: Authenticator/widgets/utils.py:57
+#: Authenticator/widgets/utils.py:47
 msgid "Select"
 msgstr "Selecionar"
 
-#: Authenticator/widgets/window.py:198
+#: Authenticator/widgets/window.py.in:213
 msgid "An account or more were removed."
 msgstr "Uma conta ou mais foi removida."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
 msgid "Two-factor authentication code generator"
 msgstr "Gerador de código de autenticação de dois fatores"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:9
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
@@ -303,63 +262,153 @@ msgstr ""
 "Aplicativo simples que gera um código de autenticação de dois fatores, "
 "criado para o GNOME."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
 msgstr "Características:"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:12
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
 msgid "QR code scanner"
 msgstr "Escaneador de código QR"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:13
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
 msgstr "Uma interface de usuário bonita"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:14
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
 msgstr "Enorme banco de dados (290+) de web sites e aplicativos"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:4
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
 msgstr "Autenticação de dois fatores"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
 msgstr "Gnome;GTK;Autenticação;"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:11
-msgid "com.github.bilelmoussaoui.Authenticator"
-msgstr "com.github.bilelmoussaoui.Authenticator"
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
+msgid "@appid@"
+msgstr ""
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
 msgstr "Posição padrão da janela"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
 msgid "Night mode"
 msgstr "Modo noturno"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
 msgstr "Ativar/desativar o modo noturno dentro do aplicativo"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Comportamento padrão da janela maximizada"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Whether the application is locked with a password or not"
 msgstr "Se o aplicativo está ou não bloqueado com uma senha"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
 msgid "Whether the application can be locked or not"
 msgstr "Se o aplicativo pode ou não ser bloqueado"
 
-#: authenticator.py.in:50
+#: data/ui/Shortcuts.ui:13
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:17
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:24
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:31
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sair"
+
+#: data/ui/Shortcuts.ui:40
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Accounts"
+msgstr "Nome da conta"
+
+#: data/ui/Shortcuts.ui:44
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Add"
+msgstr "Adicionar"
+
+#: data/ui/Shortcuts.ui:51
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Select"
+msgstr "Selecionar"
+
+#: data/ui/Shortcuts.ui:58
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Procurar"
+
+#: authenticator.py.in:54
 msgid "Start in debug mode"
 msgstr "Iniciar no modo de depuração"
 
-#: authenticator.py.in:52
+#: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Número da versão do Autenticador"
+
+#, fuzzy
+#~ msgid "Authenticator@NAME_SUFFIX@"
+#~ msgstr "Autenticador"
+
+#~ msgid "from an OpenPGP-encrypted JSON file"
+#~ msgstr "de um arquivo JSON criptografado com OpenPGP"
+
+#~ msgid "in an OpenPGP-encrypted JSON file"
+#~ msgstr "em um arquivo JSON encriptado com OpenPGP"
+
+#~ msgid "About"
+#~ msgstr "Sobre"
+
+#, fuzzy
+#~ msgid "GPG paraphrase"
+#~ msgstr "Senha GPG"
+
+#~ msgid "Import"
+#~ msgstr "Importar"
+
+#, fuzzy
+#~ msgid "Paraphrase"
+#~ msgstr "Paráfrase"
+
+#~ msgid "There was an error during the import of the encrypted file."
+#~ msgstr "Houve um erro durante a importação do arquivo criptografado."
+
+#~ msgid "GPG fingerprint"
+#~ msgstr "Impressão digital GPG"
+
+#~ msgid "Public keys"
+#~ msgstr "Chaves públicas"
+
+#~ msgid "Private keys"
+#~ msgstr "Chaves privadas"
+
+#~ msgid "GPG keys location"
+#~ msgstr "Localização das chaves GPG"
+
+#~ msgid "Encrypted GPG files"
+#~ msgstr "Arquivos encriptados com GPG"
+
+#~ msgid "com.github.bilelmoussaoui.Authenticator"
+#~ msgstr "com.github.bilelmoussaoui.Authenticator"

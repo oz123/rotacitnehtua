@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-23 15:58+0200\n"
+"POT-Creation-Date: 2018-12-30 15:06+0100\n"
 "PO-Revision-Date: 2018-09-24 11:57+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/authenticator/"
@@ -19,55 +19,51 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
-#: Authenticator/application.py:40 Authenticator/widgets/about.py.in:44
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:6
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:3
+#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
 msgstr "Authenticator"
 
-#: Authenticator/application.py:93 Authenticator/widgets/settings.py:239
+#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
 msgstr "Bloca l’aplicació"
 
-#: Authenticator/application.py:101
+#: Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
 msgstr "des d’un fitxer JSON de text sense format"
 
-#: Authenticator/application.py:102
-msgid "from an OpenPGP-encrypted JSON file"
-msgstr "des d’un fitxer JSON xifrat amb l’OpenPGP"
-
-#: Authenticator/application.py:103
+#: Authenticator/application.py.in:100
 msgid "in a plain-text JSON file"
 msgstr "en un fitxer JSON de text sense format"
 
-#: Authenticator/application.py:104
-msgid "in an OpenPGP-encrypted JSON file"
-msgstr "en un fitxer JSON xifrat amb l’OpenPGP"
-
-#: Authenticator/application.py:106
+#: Authenticator/application.py.in:102
 msgid "Restore"
 msgstr "Restaura"
 
-#: Authenticator/application.py:107 Authenticator/widgets/settings.py:258
+#: Authenticator/application.py.in:103
 msgid "Backup"
 msgstr "Còpia de seguretat"
 
 #. Night mode action
-#: Authenticator/application.py:115 Authenticator/widgets/headerbar.py:103
-#: Authenticator/widgets/settings.py:212
-msgid "Settings"
-msgstr "Paràmetres"
+#: Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr ""
 
-#: Authenticator/application.py:116
-msgid "About"
-msgstr "Quant a"
+#: Authenticator/application.py.in:112
+msgid "Donate"
+msgstr ""
 
-#: Authenticator/application.py:117
-msgid "Quit"
-msgstr "Surt"
+#: Authenticator/application.py.in:113
+msgid "Keyboard Shortcuts"
+msgstr ""
 
-#: Authenticator/models/account.py:73
+#: Authenticator/application.py.in:114
+#, fuzzy
+msgid "About Authenticator"
+msgstr "Authenticator"
+
+#: Authenticator/models/account.py:74
 msgid "Default"
 msgstr "Per defecte"
 
@@ -80,32 +76,32 @@ msgstr "Afegeix un compte nou"
 msgid "Add"
 msgstr "Afegeix"
 
-#: Authenticator/widgets/accounts/add.py:63
+#: Authenticator/widgets/accounts/add.py:62
 msgid "Scan QR code"
 msgstr "Escaneja un codi QR"
 
-#: Authenticator/widgets/accounts/add.py:70
+#: Authenticator/widgets/accounts/add.py:68
 #: Authenticator/widgets/accounts/edit.py:58
 msgid "Close"
 msgstr "Tanca"
 
-#: Authenticator/widgets/accounts/add.py:161
+#: Authenticator/widgets/accounts/add.py:159
 msgid "Provider"
 msgstr "Proveïdor"
 
-#: Authenticator/widgets/accounts/add.py:171
+#: Authenticator/widgets/accounts/add.py:169
 msgid "Account name"
 msgstr "Nom del compte"
 
-#: Authenticator/widgets/accounts/add.py:177
+#: Authenticator/widgets/accounts/add.py:175
 msgid "Secret token"
 msgstr "Testimoni secret"
 
-#: Authenticator/widgets/accounts/add.py:260
+#: Authenticator/widgets/accounts/add.py:258
 msgid "Invalid QR code"
 msgstr "El codi QR no és vàlid"
 
-#: Authenticator/widgets/accounts/add.py:264
+#: Authenticator/widgets/accounts/add.py:266
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "No s’ha trobat la biblioteca zbar. S’inhabilitarà l’escàner de codis QR"
@@ -119,56 +115,26 @@ msgstr "Edita {} - {}"
 msgid "Save"
 msgstr "Desa"
 
-#: Authenticator/widgets/accounts/list.py:158
+#: Authenticator/widgets/accounts/list.py:164
 msgid "The One-Time Passwords expires in {} seconds"
 msgstr "La contrasenya d’un sol ús caducarà en {} segons"
 
 #. Label
-#: Authenticator/widgets/accounts/list.py:280
+#: Authenticator/widgets/accounts/list.py:286
 msgid "There are no accounts yet…"
 msgstr "Encara no hi ha cap compte…"
 
-#: Authenticator/widgets/accounts/row.py:58
+#: Authenticator/widgets/accounts/row.py:59
 msgid "Copy"
 msgstr "Copia"
 
-#: Authenticator/widgets/accounts/row.py:59
+#: Authenticator/widgets/accounts/row.py:60
 msgid "Edit"
 msgstr "Edita"
 
-#: Authenticator/widgets/accounts/row.py:149
+#: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "No s’ha pogut generar el codi secret"
-
-#: Authenticator/widgets/backup/gnupg.py:38
-#: Authenticator/widgets/backup/gnupg.py:46
-msgid "GPG paraphrase"
-msgstr "Contrasenya del GPG"
-
-#: Authenticator/widgets/backup/gnupg.py:48
-msgid "Import"
-msgstr "Importa"
-
-#: Authenticator/widgets/backup/gnupg.py:55
-msgid "Paraphrase"
-msgstr "Contrasenya"
-
-#: Authenticator/widgets/backup/gnupg.py:73
-msgid "There was an error during the import of the encrypted file."
-msgstr "S’ha produït un error en importar el fitxer xifrat."
-
-#: Authenticator/widgets/backup/gnupg.py:104
-#: Authenticator/widgets/backup/gnupg.py:112
-msgid "GPG fingerprint"
-msgstr "Empremta del GPG"
-
-#: Authenticator/widgets/backup/gnupg.py:117
-msgid "Public keys"
-msgstr "Claus públiques"
-
-#: Authenticator/widgets/backup/gnupg.py:118
-msgid "Private keys"
-msgstr "Claus privades"
 
 #: Authenticator/widgets/about.py.in:45
 msgid "translator-credits"
@@ -186,16 +152,20 @@ msgstr "Suprimeix"
 msgid "Search"
 msgstr "Cerca"
 
+#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
+msgid "Settings"
+msgstr "Paràmetres"
+
 #: Authenticator/widgets/headerbar.py:105
 msgid "Selection mode"
 msgstr "Mode de selecció"
 
 #: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
-#: Authenticator/widgets/utils.py:58
+#: Authenticator/widgets/utils.py:48
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: Authenticator/widgets/headerbar.py:182
+#: Authenticator/widgets/headerbar.py:183
 msgid "Click on items to select them"
 msgstr "Feu clic als elements per a seleccionar-los"
 
@@ -251,20 +221,15 @@ msgstr "Configura la contrasenya d’autenticació de l’aplicació"
 msgid "Behaviour"
 msgstr "Comportament"
 
-#: Authenticator/widgets/settings.py:253
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:21
-msgid "GPG keys location"
-msgstr "Ubicació de les claus GPG"
-
-#: Authenticator/widgets/settings.py:267
+#: Authenticator/widgets/settings.py:259
 msgid "The application needs to be restarted first."
 msgstr "Heu de reiniciar l’aplicació primer."
 
-#: Authenticator/widgets/settings.py:303
+#: Authenticator/widgets/settings.py:288
 msgid "The existing accounts will be erased in 5 seconds"
 msgstr "Els comptes existents s’esborraran en 5 segons"
 
-#: Authenticator/widgets/settings.py:307 Authenticator/widgets/window.py:202
+#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
 msgid "Undo"
 msgstr "Desfés"
 
@@ -276,24 +241,20 @@ msgstr "Obre"
 msgid "JSON files"
 msgstr "Fitxers JSON"
 
-#: Authenticator/widgets/utils.py:42 Authenticator/widgets/utils.py:47
-msgid "Encrypted GPG files"
-msgstr "Fitxers GPG xifrats"
-
-#: Authenticator/widgets/utils.py:57
+#: Authenticator/widgets/utils.py:47
 msgid "Select"
 msgstr "Selecciona"
 
-#: Authenticator/widgets/window.py:198
+#: Authenticator/widgets/window.py.in:213
 msgid "An account or more were removed."
 msgstr "S’ha suprimit almenys un compte."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:7
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:5
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
 msgid "Two-factor authentication code generator"
 msgstr "Generador de codis d’autenticació amb dos components"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:9
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
@@ -301,66 +262,154 @@ msgstr ""
 "Aplicació senzilla que genera codis d’autenticació amb dos components, "
 "creada per al GNOME."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
 msgstr "Funcionalitats:"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:12
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
 msgid "QR code scanner"
 msgstr "Escàner de codis QR"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:13
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
 msgstr "Una interfície bonica"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in:14
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
 msgstr "Una immensa base de dades de més de 290 llocs web i aplicacions"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:4
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
 msgstr "Autenticació amb dos components"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
 msgstr "Gnome;GTK;Verificació;"
 
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in:11
-msgid "com.github.bilelmoussaoui.Authenticator"
-msgstr "com.github.bilelmoussaoui.Authenticator"
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
+msgid "@appid@"
+msgstr ""
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:6
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:7
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
 msgstr "Posició per defecte de la finestra"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:11
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
 msgid "Night mode"
 msgstr "Mode nocturn"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:12
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
 msgstr "Habilita/inhabilita el mode nocturn dins de l’aplicació"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:16
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
 msgid "Default window maximized behaviour"
 msgstr "Comportament per defecte de la finestra maximitzada"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:26
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Whether the application is locked with a password or not"
 msgstr "Si s’ha blocat l’aplicació mitjançant una contrasenya o no"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml:31
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
 msgid "Whether the application can be locked or not"
 msgstr "Si l’aplicació es pot blocar o no"
 
-#: authenticator.py.in:50
+#: data/ui/Shortcuts.ui:13
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:17
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:24
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: data/ui/Shortcuts.ui:31
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Surt"
+
+#: data/ui/Shortcuts.ui:40
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Accounts"
+msgstr "Nom del compte"
+
+#: data/ui/Shortcuts.ui:44
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Add"
+msgstr "Afegeix"
+
+#: data/ui/Shortcuts.ui:51
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Select"
+msgstr "Selecciona"
+
+#: data/ui/Shortcuts.ui:58
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Cerca"
+
+#: authenticator.py.in:54
 msgid "Start in debug mode"
 msgstr "Inicia en mode de depuració"
 
-#: authenticator.py.in:52
+#: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Número de versió de l’Authenticator"
+
+#, fuzzy
+#~ msgid "Authenticator@NAME_SUFFIX@"
+#~ msgstr "Authenticator"
+
+#~ msgid "from an OpenPGP-encrypted JSON file"
+#~ msgstr "des d’un fitxer JSON xifrat amb l’OpenPGP"
+
+#~ msgid "in an OpenPGP-encrypted JSON file"
+#~ msgstr "en un fitxer JSON xifrat amb l’OpenPGP"
+
+#~ msgid "About"
+#~ msgstr "Quant a"
+
+#~ msgid "GPG paraphrase"
+#~ msgstr "Contrasenya del GPG"
+
+#~ msgid "Import"
+#~ msgstr "Importa"
+
+#~ msgid "Paraphrase"
+#~ msgstr "Contrasenya"
+
+#~ msgid "There was an error during the import of the encrypted file."
+#~ msgstr "S’ha produït un error en importar el fitxer xifrat."
+
+#~ msgid "GPG fingerprint"
+#~ msgstr "Empremta del GPG"
+
+#~ msgid "Public keys"
+#~ msgstr "Claus públiques"
+
+#~ msgid "Private keys"
+#~ msgstr "Claus privades"
+
+#~ msgid "GPG keys location"
+#~ msgstr "Ubicació de les claus GPG"
+
+#~ msgid "Encrypted GPG files"
+#~ msgstr "Fitxers GPG xifrats"
+
+#~ msgid "com.github.bilelmoussaoui.Authenticator"
+#~ msgstr "com.github.bilelmoussaoui.Authenticator"
 
 #~ msgid "Backup Password"
 #~ msgstr "Fes una còpia de seguretat de la contrasenya"

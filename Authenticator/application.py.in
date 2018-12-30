@@ -36,7 +36,7 @@ class Application(Gtk.Application):
         Gtk.Application.__init__(self,
                                  application_id="@APP_ID@",
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
-        GLib.set_application_name(_("Authenticator@NAME_SUFFIX@"))
+        GLib.set_application_name(_("Authenticator") + " @NAME_SUFFIX@")
         GLib.set_prgname("Authenticator")
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
