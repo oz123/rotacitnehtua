@@ -108,7 +108,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             accounts_widget.set_state(AccountsListState.NORMAL)
 
     def toggle_search(self, *_):
-        if not self.get_application().is_locked:
+        if not (self.get_application().is_locked or self.is_empty):
             toggled = not self.search_bar.get_property("search_mode_enabled")
             self.search_bar.set_property("search_mode_enabled", toggled)
 
