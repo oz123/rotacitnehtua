@@ -43,7 +43,6 @@ class Keyring:
     @staticmethod
     def get_default():
         if Keyring.instance is None:
-            Secret.Service.unlock_sync()
             Keyring.instance = Keyring()
         return Keyring.instance
 
