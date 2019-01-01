@@ -144,7 +144,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         }
 
         if not self.is_edit:
-            account["token"] = self.token_entry.get_text()
+            # remove spaces
+            token = self.token_entry.get_text()
+            account["token"] = "".join(token.split())
         return account
 
     def _build_widgets(self):
@@ -219,7 +221,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         """Validate the username and the token."""
         provider = self.provider_combo.get_child().get_text()
         username = self.username_entry.get_text()
-        token = self.token_entry.get_text()
+        token = "".join(self.token_entry.get_text().split())
 
         if not username:
             self.username_entry.get_style_context().add_class("error")
