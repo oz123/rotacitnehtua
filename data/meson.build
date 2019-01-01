@@ -26,6 +26,7 @@ configure_file(
 search_service_provider_conf = configuration_data()
 search_service_provider_conf.set('appid', application_id)
 search_service_provider_conf.set('profile', profile)
+search_service_provider_conf.set('libexecdir', LIBEXEC_DIR)
 configure_file(
   configuration: search_service_provider_conf,
   input: files(meson.project_name() + '.SearchProvider.service.in'),
@@ -85,7 +86,7 @@ appdata_file = i18n.merge_file(
   install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 # Validate AppData File
-appstreamcli = find_program('appstream-util', required:false)
+appstreamcli = find_program('appstream-util', required: false)
 if appstreamcli.found()
   test (
     'Validate appdata file',

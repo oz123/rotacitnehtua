@@ -1,4 +1,4 @@
-project('com.github.bilelmoussaoui.Authenticator',
+project('com.github.bilelmoussaoui.Authenticator', 'c',
 	version: '3.31',
   meson_version: '>= 0.48',
   license: 'GPL+-3.0',
@@ -23,6 +23,12 @@ dependency('glib-2.0')
 dependency('gobject-2.0')
 dependency('gobject-introspection-1.0')
 dependency('gtk+-3.0', version: '>=3.16')
+dependency('libsecret-1')
+dependency('zbar', version: '>= 0.20.1')
+
+find_program('glib-compile-schemas', required: true)
+find_program('gtk-update-icon-cache', required: false)
+find_program('update-desktop-database', required: false)
 
 python3 = python.find_python()
 if not python3.found()
@@ -34,7 +40,7 @@ endif
 LIB_DIR = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name())
 LOCALE_DIR = join_paths(get_option('prefix'), get_option('localedir'))
 DATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
-
+LIBEXEC_DIR = join_paths(get_option('prefix'), get_option('libexecdir'))
 libgd_dep = dependency('gdlib', required: false)
 if not libgd_dep.found()
   libgd_proj = subproject('libgd',
@@ -59,7 +65,7 @@ conf.set('VERSION', meson.project_version())
 conf.set('LIB_DIR', LIB_DIR)
 conf.set('PROFILE', profile)
 conf.set('NAME_SUFFIX', name_suffix)
-conf.set('libexecdir', join_paths(get_option('prefix'), get_option('libexecdir')))
+conf.set('libexecdir', LIBEXEC_DIR)
 conf.set('PYTHON', python3.path())
 
 subdir('data')
