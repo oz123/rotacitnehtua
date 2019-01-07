@@ -1,5 +1,5 @@
 icon_themes = ['hicolor']
-sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256', 'scalable']
+sizes = ['48x48', 'scalable']
 foreach theme : icon_themes
   foreach size: sizes
     extension = '.png'
