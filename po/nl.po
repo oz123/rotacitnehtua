@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 15:06+0100\n"
-"PO-Revision-Date: 2019-01-01 10:42+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"PO-Revision-Date: 2019-01-14 07:19+0000\n"
+"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
 "translation/nl/>\n"
 "Language: nl\n"
@@ -27,7 +27,7 @@ msgstr "Authenticator"
 
 #: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
-msgstr "Applicatie vergrendelen"
+msgstr "Toepassing vergrendelen"
 
 #: Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
@@ -206,7 +206,7 @@ msgstr "Bestaande accounts wissen"
 
 #: Authenticator/widgets/settings.py:240
 msgid "Possibility to lock the application with a password"
-msgstr "Mogelijkheid om de applicatie te vergrendelen met een wachtwoord"
+msgstr "Mogelijkheid om de toepassing te vergrendelen met een wachtwoord"
 
 #: Authenticator/widgets/settings.py:243
 msgid "Authentication password"
@@ -246,7 +246,7 @@ msgstr "Kiezen"
 
 #: Authenticator/widgets/window.py.in:213
 msgid "An account or more were removed."
-msgstr "Eén account is of meerdere accounts zijn verwijderd."
+msgstr "Eén of meerdere accounts zijn verwijderd."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
@@ -258,7 +258,7 @@ msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
 msgstr ""
-"Eenvoudige applicatie voor het genereren van codes voor authenticatie in "
+"Eenvoudige toepassing voor het genereren van codes voor authenticatie in "
 "twee stappen, gemaakt voor GNOME."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
@@ -275,7 +275,7 @@ msgstr "Prachtige vormgeving"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
-msgstr "Enorme databank met (meer dan 290) websites/applicaties"
+msgstr "Enorme databank met (meer dan 290) websites/toepassingen"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
@@ -300,7 +300,7 @@ msgstr "Nachtmodus"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
-msgstr "Nachtmodus in de app inschakelen/uitschakelen"
+msgstr "Schakelt de nachtmodus in de toepassing in/uit"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
 msgid "Default window maximized behaviour"
@@ -308,11 +308,11 @@ msgstr "Standaardgedrag van gemaximaliseerd venster"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Whether the application is locked with a password or not"
-msgstr "Of de applicatie moet worden vergrendeld met een wachtwoord"
+msgstr "Of de toepassing moet worden vergrendeld met een wachtwoord"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
 msgid "Whether the application can be locked or not"
-msgstr "Of de applicatie vergrendeld kan worden"
+msgstr "Of de toepassing vergrendeld kan worden"
 
 #: data/ui/Shortcuts.ui:13
 msgctxt "shortcut window"
