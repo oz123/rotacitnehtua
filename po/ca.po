@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-30 15:06+0100\n"
-"PO-Revision-Date: 2018-09-24 11:57+0000\n"
+"PO-Revision-Date: 2019-01-14 07:19+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/authenticator/"
 "translation/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
@@ -48,20 +48,19 @@ msgstr "Còpia de seguretat"
 #. Night mode action
 #: Authenticator/application.py.in:111
 msgid "Preferences"
-msgstr ""
+msgstr "Preferències"
 
 #: Authenticator/application.py.in:112
 msgid "Donate"
-msgstr ""
+msgstr "Fes un donatiu"
 
 #: Authenticator/application.py.in:113
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Dreceres de teclat"
 
 #: Authenticator/application.py.in:114
-#, fuzzy
 msgid "About Authenticator"
-msgstr "Authenticator"
+msgstr "Quant a l’Authenticator"
 
 #: Authenticator/models/account.py:74
 msgid "Default"
@@ -288,7 +287,7 @@ msgstr "Gnome;GTK;Verificació;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
 msgid "@appid@"
-msgstr ""
+msgstr "@appid@"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
@@ -318,44 +317,39 @@ msgstr "Si l’aplicació es pot blocar o no"
 #: data/ui/Shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: data/ui/Shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Mostra les dreceres"
 
 #: data/ui/Shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr ""
+msgstr "Preferències"
 
 #: data/ui/Shortcuts.ui:31
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Surt"
 
 #: data/ui/Shortcuts.ui:40
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Nom del compte"
+msgstr "Comptes"
 
 #: data/ui/Shortcuts.ui:44
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Afegeix"
 
 #: data/ui/Shortcuts.ui:51
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Selecciona"
 
 #: data/ui/Shortcuts.ui:58
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cerca"
