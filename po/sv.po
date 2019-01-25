@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-01 16:01+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -84,23 +84,23 @@ msgstr "Läs av QR-kod"
 msgid "Close"
 msgstr "Stäng"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Leverantör"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Kontonamn"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "Hemlig token"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "Ogiltig QR-kod"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr "zbar-bibliotek hittades inte. QR-kodskanner inaktiveras."
 
@@ -133,14 +133,6 @@ msgstr "Redigera"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Kunde inte generera den hemliga koden"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Generator för tvåfaktorsautentiseringskoder."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -313,42 +305,46 @@ msgstr "Om programmet är låst med lösenord eller inte"
 msgid "Whether the application can be locked or not"
 msgstr "Om programmet kan låsas eller inte"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Generator för tvåfaktorsautentiseringskoder."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Allmänt"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Visa genvägar"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "Inställningar"
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Konton"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Lägg till"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Välj"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Sök"
@@ -360,6 +356,9 @@ msgstr "Starta i felsökningsläge"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Versionsnummer för Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

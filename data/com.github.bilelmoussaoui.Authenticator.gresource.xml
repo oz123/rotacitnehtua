@@ -9,7 +9,8 @@
     <file alias="authenticator-fallback">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
 
     <!-- UI Files -->
-    <file compressed="true" preprocess="xml-stripblanks" alias="Shortcuts.ui">ui/Shortcuts.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="about_dialog.ui">about_dialog.ui</file>
 
     <!-- Default pre-shipped icons -->
     <file alias="amazon.svg">icons/hicolor/48x48/apps/amazon.svg</file>

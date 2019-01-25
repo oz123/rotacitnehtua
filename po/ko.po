@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-01 10:42+0000\n"
 "Last-Translator: Minori Hiraoka (미노리) <minori@mnetwork.co.kr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -84,25 +84,27 @@ msgstr "QR 코드 스캔"
 msgid "Close"
 msgstr "닫기"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "제공자"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "계정 이름"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "비밀 토큰"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "올바르지 않은 QR 코드"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
-msgstr "설치된 zbar 라이브러리가 발견되지 않았습니다. QR 코드 스캐너가 비활성화 됩니다"
+msgstr ""
+"설치된 zbar 라이브러리가 발견되지 않았습니다. QR 코드 스캐너가 비활성화 됩니"
+"다"
 
 #: Authenticator/widgets/accounts/edit.py:47
 msgid "Edit {} - {}"
@@ -133,14 +135,6 @@ msgstr "편집"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "비밀 코드를 생성할 수 없었습니다"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Minori Hiraoka <minori@mnetwork.co.kr>"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "2차 인증 비밀번호 생성기."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -311,42 +305,46 @@ msgstr "애플리케이션 암호 설정 여부"
 msgid "Whether the application can be locked or not"
 msgstr "애플리케이션 암호 설정 가능 여부"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "2차 인증 비밀번호 생성기."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "일반"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "단축키 보이기"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "설정"
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "종료"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "계정"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "추가"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "선택"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "검색"
@@ -358,3 +356,6 @@ msgstr "디버그 모드로 시작"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "인증기 버전"
+
+#~ msgid "translator-credits"
+#~ msgstr "Minori Hiraoka <minori@mnetwork.co.kr>"

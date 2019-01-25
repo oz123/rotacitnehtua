@@ -1,10 +1,17 @@
+about_dialog_conf = configuration_data()
+about_dialog_conf.set('APP_ID', application_id)
+about_dialog_conf.set('VERSION', meson.project_version())
 gnome.compile_resources(
   application_id,
   meson.project_name() + '.gresource.xml',
   gresource_bundle: true,
-  source_dir: '.',
   install_dir: join_paths(get_option('datadir'), meson.project_name()),
-  install: true
+  install: true,
+  dependencies: configure_file(
+    input: 'ui/about_dialog.ui.in',
+    output: 'about_dialog.ui',
+    configuration: about_dialog_conf
+  )
 )
 
 # Install gschema
@@ -91,7 +98,7 @@ if appstreamcli.found()
   test (
     'Validate appdata file',
     appstreamcli,
-    args: ['validate-relax', appdata_file.full_path()]
+    args: ['validate-relax', '--nonet', appdata_file.full_path()]
   )
 endif
 

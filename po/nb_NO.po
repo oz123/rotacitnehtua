@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-01 06:20+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -86,23 +86,23 @@ msgstr "Skann QR-kode"
 msgid "Close"
 msgstr "Lukk"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Tilbyder"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Kontonavn"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "Hemmelig symbol"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "Ugyldig QR-kode"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr "zbar-bibliotek ble ikke funnet. QRkodeskanneren vil skrus av"
 
@@ -135,14 +135,6 @@ msgstr "Rediger"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Kunne ikke generere hemmelig kode"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Allan Nordhøy <epost@anotheragency.no>"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Kodegenerator for to-faktorbekreftelse."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -314,47 +306,51 @@ msgstr "Hvorvidt programmet låses med et passord eller ei"
 msgid "Whether the application can be locked or not"
 msgstr "Hvorvidt programmet kan låses eller ei"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Kodegenerator for to-faktorbekreftelse."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Generelt"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Snarveier"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "Innstillinger"
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avslutt"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Konto"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Legg til"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Velg"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Search"
@@ -367,6 +363,9 @@ msgstr "Start i feilrettingsmodus"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Versjonsnummer for Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "Allan Nordhøy <epost@anotheragency.no>"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

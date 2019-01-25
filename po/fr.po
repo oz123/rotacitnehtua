@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-08 00:59+0000\n"
 "Last-Translator: Vladislav <vladislavp@pm.me>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/authenticator/"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -89,24 +89,24 @@ msgstr "Scanner un QR code"
 msgid "Close"
 msgstr "Fermer"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Prestataire"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Compte"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 #, fuzzy
 msgid "Secret token"
 msgstr "Code secret"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "QR Code invalide"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 
@@ -140,14 +140,6 @@ msgstr ""
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Le code secret n'a pas pu être généré"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr ""
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Générateur de code d'authentification à deux facteurs."
 
 #: Authenticator/widgets/actions_bar.py:52
 #, fuzzy
@@ -328,47 +320,51 @@ msgstr ""
 msgid "Whether the application can be locked or not"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Générateur de code d'authentification à deux facteurs."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Généralité"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Raccourcis clavier"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Quitter"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Compte"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Ajouter"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Mode de séléction"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Rechercher"

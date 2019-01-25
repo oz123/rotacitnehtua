@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-14 07:19+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -84,23 +84,23 @@ msgstr "Escaneja un codi QR"
 msgid "Close"
 msgstr "Tanca"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Proveïdor"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Nom del compte"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "Testimoni secret"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "El codi QR no és vàlid"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "No s’ha trobat la biblioteca zbar. S’inhabilitarà l’escàner de codis QR"
@@ -134,14 +134,6 @@ msgstr "Edita"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "No s’ha pogut generar el codi secret"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2018"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Generador de codis d’autenticació amb dos components."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -314,42 +306,46 @@ msgstr "Si s’ha blocat l’aplicació mitjançant una contrasenya o no"
 msgid "Whether the application can be locked or not"
 msgstr "Si l’aplicació es pot blocar o no"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Generador de codis d’autenticació amb dos components."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "General"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Mostra les dreceres"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "Preferències"
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Surt"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Afegeix"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Selecciona"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cerca"
@@ -361,6 +357,9 @@ msgstr "Inicia en mode de depuració"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Número de versió de l’Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2018"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

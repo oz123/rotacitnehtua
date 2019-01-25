@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2018-09-30 08:52+0000\n"
 "Last-Translator: Cedric Bolleter <cedric.bolleter@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -86,23 +86,23 @@ msgstr "QR-Code einlesen"
 msgid "Close"
 msgstr "schließen"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Anbieter"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Kontoname"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "Geheimschlüssel"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "Ungültiger QR Code"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "zbar-Bibliothek wurde nicht gefunden. Der QRCode-Scanner wird deaktiviert"
@@ -136,14 +136,6 @@ msgstr "Bearbeiten"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Der geheime Code konnte nicht erzeugt werden"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Danksagungen an Übersetzer"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Codegenerator für Zweifaktor-Authentifizierung."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -316,47 +308,51 @@ msgstr "Ob die Anwendung mit einem Passwort gesperrt ist oder nicht"
 msgid "Whether the application can be locked or not"
 msgstr "Ob die Anwendung gesperrt werden kann oder nicht"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Codegenerator für Zweifaktor-Authentifizierung."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Tastenkürzel"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Beenden"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Konto"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Auswählen"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Search"
@@ -369,6 +365,9 @@ msgstr "Starte im Fehlersuch-Modus"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Versions des Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "Danksagungen an Übersetzer"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

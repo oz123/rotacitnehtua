@@ -4,7 +4,6 @@ Authenticator/widgets/accounts/add.py
 Authenticator/widgets/accounts/edit.py
 Authenticator/widgets/accounts/list.py
 Authenticator/widgets/accounts/row.py
-Authenticator/widgets/about.py.in
 Authenticator/widgets/actions_bar.py
 Authenticator/widgets/headerbar.py
 Authenticator/widgets/search_bar.py
@@ -14,5 +13,6 @@ Authenticator/widgets/window.py.in
 data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in
 data/com.github.bilelmoussaoui.Authenticator.desktop.in.in
 data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in
-data/ui/Shortcuts.ui
+data/ui/about_dialog.ui.in
+data/ui/shortcuts.ui
 authenticator.py.in
