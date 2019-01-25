@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2018-05-14 15:02+0000\n"
 "Last-Translator: ditokp <ditokpl@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.0-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -88,24 +88,24 @@ msgstr "Pindai kode QR"
 msgid "Close"
 msgstr "Tutup"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr ""
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Nama Akun"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 #, fuzzy
 msgid "Secret token"
 msgstr "Token Rahasia"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "Kode QR tidak valid"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 
@@ -139,15 +139,6 @@ msgstr ""
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Tidak dapat menghasilkan kode rahasia"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "kredit-penerjemah"
-
-#: Authenticator/widgets/about.py.in:47
-#, fuzzy
-msgid "Two-factor authentication code generator."
-msgstr "Pembuat kode autentikasi dua faktor."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -331,47 +322,52 @@ msgstr ""
 msgid "Whether the application can be locked or not"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+#, fuzzy
+msgid "Two-factor authentication code generator."
+msgstr "Pembuat kode autentikasi dua faktor."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Umum"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Jalan pintas"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr ""
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Keluar"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Akun"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Tambah"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Mode seleksi"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cari"
@@ -383,6 +379,9 @@ msgstr "Mulai dengan mode debud"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Nomor versi Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "kredit-penerjemah"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

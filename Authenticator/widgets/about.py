@@ -23,26 +23,15 @@ require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
 
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/about_dialog.ui')
 class AboutDialog(Gtk.AboutDialog):
     """
         AboutDialog Widget.
     """
+    __gtype_name__ ="AboutDialog"
 
     def __init__(self):
-        Gtk.AboutDialog.__init__(self)
-        self.set_modal(True)
-        self._build_widgets()
+        super().__init__(self)
 
-    def _build_widgets(self):
-        """
-            Build the AboutDialog widget.
-        """
-        self.set_authors(["Bilal Elmoussaoui"])
-        self.set_artists(["Alexandros Felekidis", "Tobias Bernard"])
-        self.set_logo_icon_name("@APP_ID@")
-        self.set_license_type(Gtk.License.GPL_3_0)
-        self.set_program_name(_("Authenticator"))
-        self.set_translator_credits(_("translator-credits"))
-        self.set_version("@VERSION@")
-        self.set_comments(_("Two-factor authentication code generator."))
-        self.set_website("https://gitlab.gnome.org/World/Authenticator")
+    def __repr__(self):
+        return '<AboutDialog>'

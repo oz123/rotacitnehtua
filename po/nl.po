@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 15:06+0100\n"
+"POT-Creation-Date: 2019-01-25 19:56+0100\n"
 "PO-Revision-Date: 2019-01-14 07:19+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39 Authenticator/widgets/about.py.in:44
+#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 msgid "Authenticator"
@@ -84,23 +84,23 @@ msgstr "QR-code scannen"
 msgid "Close"
 msgstr "Sluiten"
 
-#: Authenticator/widgets/accounts/add.py:159
+#: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
 msgstr "Dienst"
 
-#: Authenticator/widgets/accounts/add.py:169
+#: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
 msgstr "Accountnaam"
 
-#: Authenticator/widgets/accounts/add.py:175
+#: Authenticator/widgets/accounts/add.py:177
 msgid "Secret token"
 msgstr "Geheime toegangssleutel"
 
-#: Authenticator/widgets/accounts/add.py:258
+#: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
 msgstr "Ongeldige QR-code"
 
-#: Authenticator/widgets/accounts/add.py:266
+#: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
 msgstr ""
 "De zbar-bibliotheek kan niet worden gevonden; QR-codescanner is uitgeschakeld"
@@ -134,14 +134,6 @@ msgstr "Bewerken"
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
 msgstr "Kan geen geheime sleutel genereren"
-
-#: Authenticator/widgets/about.py.in:45
-msgid "translator-credits"
-msgstr "Nathan Follens, Heimen Stoffels"
-
-#: Authenticator/widgets/about.py.in:47
-msgid "Two-factor authentication code generator."
-msgstr "Code-generator voor authenticatie in twee stappen."
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
@@ -314,42 +306,46 @@ msgstr "Of de toepassing moet worden vergrendeld met een wachtwoord"
 msgid "Whether the application can be locked or not"
 msgstr "Of de toepassing vergrendeld kan worden"
 
-#: data/ui/Shortcuts.ui:13
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr "Code-generator voor authenticatie in twee stappen."
+
+#: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Algemeen"
 
-#: data/ui/Shortcuts.ui:17
+#: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Sneltoetsen tonen"
 
-#: data/ui/Shortcuts.ui:24
+#: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
 msgstr "Voorkeuren"
 
-#: data/ui/Shortcuts.ui:31
+#: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: data/ui/Shortcuts.ui:40
+#: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: data/ui/Shortcuts.ui:44
+#: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: data/ui/Shortcuts.ui:51
+#: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Select"
 msgstr "Selecteren"
 
-#: data/ui/Shortcuts.ui:58
+#: data/ui/shortcuts.ui:58
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Zoeken"
@@ -361,6 +357,9 @@ msgstr "Starten in foutopsporingsmodus"
 #: authenticator.py.in:56
 msgid "Authenticator version number"
 msgstr "Versienummer van Authenticator"
+
+#~ msgid "translator-credits"
+#~ msgstr "Nathan Follens, Heimen Stoffels"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"

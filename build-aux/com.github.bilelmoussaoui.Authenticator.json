@@ -134,7 +134,8 @@
             "config-opts": [
                 "-Dtests=false",
                 "-Dexamples=false",
-                "-Dglade_catalog=false"
+                "-Dglade_catalog=disabled",
+                "-Dvapi=false"
             ],
             "sources": [{
                 "type": "git",

@@ -12,7 +12,7 @@ test/
 .auth/
 auth/
 _build/
-
+*.ui#
 # Distribution / packaging
 builddir/
 .Python
