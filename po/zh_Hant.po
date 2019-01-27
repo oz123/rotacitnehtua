@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-25 19:56+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-01-29 03:08+0000\n"
+"Last-Translator: Louies <louies0623@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"authenticator/translation/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
@@ -24,7 +27,7 @@ msgstr ""
 
 #: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
 msgid "Lock the application"
-msgstr ""
+msgstr "鎖定應用程式"
 
 #: Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
@@ -36,24 +39,24 @@ msgstr ""
 
 #: Authenticator/application.py.in:102
 msgid "Restore"
-msgstr ""
+msgstr "還原"
 
 #: Authenticator/application.py.in:103
 msgid "Backup"
-msgstr ""
+msgstr "備份"
 
 #. Night mode action
 #: Authenticator/application.py.in:111
 msgid "Preferences"
-msgstr ""
+msgstr "偏好設定"
 
 #: Authenticator/application.py.in:112
 msgid "Donate"
-msgstr ""
+msgstr "贊助"
 
 #: Authenticator/application.py.in:113
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "鍵盤快速鍵"
 
 #: Authenticator/application.py.in:114
 msgid "About Authenticator"
@@ -70,20 +73,20 @@ msgstr ""
 
 #: Authenticator/widgets/accounts/add.py:54
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: Authenticator/widgets/accounts/add.py:62
 msgid "Scan QR code"
-msgstr ""
+msgstr "掃描 QR Code"
 
 #: Authenticator/widgets/accounts/add.py:68
 #: Authenticator/widgets/accounts/edit.py:58
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: Authenticator/widgets/accounts/add.py:161
 msgid "Provider"
-msgstr ""
+msgstr "供應商"
 
 #: Authenticator/widgets/accounts/add.py:171
 msgid "Account name"
@@ -95,7 +98,7 @@ msgstr ""
 
 #: Authenticator/widgets/accounts/add.py:260
 msgid "Invalid QR code"
-msgstr ""
+msgstr "無效的 QR code"
 
 #: Authenticator/widgets/accounts/add.py:268
 msgid "zbar library is not found. QRCode scanner will be disabled"
@@ -108,7 +111,7 @@ msgstr ""
 #: Authenticator/widgets/accounts/edit.py:52
 #: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: Authenticator/widgets/accounts/list.py:164
 msgid "The One-Time Passwords expires in {} seconds"
@@ -121,11 +124,11 @@ msgstr ""
 
 #: Authenticator/widgets/accounts/row.py:59
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: Authenticator/widgets/accounts/row.py:60
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: Authenticator/widgets/accounts/row.py:150
 msgid "Couldn't generate the secret code"
@@ -133,24 +136,24 @@ msgstr ""
 
 #: Authenticator/widgets/actions_bar.py:52
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: Authenticator/widgets/headerbar.py:99
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: Authenticator/widgets/headerbar.py:105
 msgid "Selection mode"
-msgstr ""
+msgstr "選擇模式"
 
 #: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
 #: Authenticator/widgets/utils.py:48
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: Authenticator/widgets/headerbar.py:183
 msgid "Click on items to select them"
@@ -166,15 +169,15 @@ msgstr ""
 
 #: Authenticator/widgets/settings.py:156
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: Authenticator/widgets/settings.py:159
 msgid "Repeat Password"
-msgstr ""
+msgstr "再次輸入密碼"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Dark theme"
-msgstr ""
+msgstr "黑暗主題"
 
 #: Authenticator/widgets/settings.py:229
 msgid "Use a dark theme, if possible"
@@ -182,7 +185,7 @@ msgstr ""
 
 #: Authenticator/widgets/settings.py:232
 msgid "Appearance"
-msgstr ""
+msgstr "外觀"
 
 #: Authenticator/widgets/settings.py:236
 msgid "Clear the database"
