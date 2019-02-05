@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Authenticator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Authenticator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-25 19:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Authenticator/application.py.in:39
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
+msgid "Authenticator"
+msgstr ""
+
+#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
+msgid "Lock the application"
+msgstr ""
+
+#: Authenticator/application.py.in:99
+msgid "from a plain-text JSON file"
+msgstr ""
+
+#: Authenticator/application.py.in:100
+msgid "in a plain-text JSON file"
+msgstr ""
+
+#: Authenticator/application.py.in:102
+msgid "Restore"
+msgstr ""
+
+#: Authenticator/application.py.in:103
+msgid "Backup"
+msgstr ""
+
+#. Night mode action
+#: Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr ""
+
+#: Authenticator/application.py.in:112
+msgid "Donate"
+msgstr ""
+
+#: Authenticator/application.py.in:113
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: Authenticator/application.py.in:114
+msgid "About Authenticator"
+msgstr ""
+
+#: Authenticator/models/account.py:74
+msgid "Default"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:50
+#: Authenticator/widgets/headerbar.py:101
+msgid "Add a new account"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:54
+msgid "Add"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:62
+msgid "Scan QR code"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:68
+#: Authenticator/widgets/accounts/edit.py:58
+msgid "Close"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:161
+msgid "Provider"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:171
+msgid "Account name"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:177
+msgid "Secret token"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:260
+msgid "Invalid QR code"
+msgstr ""
+
+#: Authenticator/widgets/accounts/add.py:268
+msgid "zbar library is not found. QRCode scanner will be disabled"
+msgstr ""
+
+#: Authenticator/widgets/accounts/edit.py:47
+msgid "Edit {} - {}"
+msgstr ""
+
+#: Authenticator/widgets/accounts/edit.py:52
+#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
+msgid "Save"
+msgstr ""
+
+#: Authenticator/widgets/accounts/list.py:164
+msgid "The One-Time Passwords expires in {} seconds"
+msgstr ""
+
+#. Label
+#: Authenticator/widgets/accounts/list.py:286
+msgid "There are no accounts yet…"
+msgstr ""
+
+#: Authenticator/widgets/accounts/row.py:59
+msgid "Copy"
+msgstr ""
+
+#: Authenticator/widgets/accounts/row.py:60
+msgid "Edit"
+msgstr ""
+
+#: Authenticator/widgets/accounts/row.py:150
+msgid "Couldn't generate the secret code"
+msgstr ""
+
+#: Authenticator/widgets/actions_bar.py:52
+msgid "Delete"
+msgstr ""
+
+#: Authenticator/widgets/headerbar.py:99
+msgid "Search"
+msgstr ""
+
+#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
+msgid "Settings"
+msgstr ""
+
+#: Authenticator/widgets/headerbar.py:105
+msgid "Selection mode"
+msgstr ""
+
+#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
+#: Authenticator/widgets/utils.py:48
+msgid "Cancel"
+msgstr ""
+
+#: Authenticator/widgets/headerbar.py:183
+msgid "Click on items to select them"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:139
+msgid "Authentication Password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:152
+msgid "Old Password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:156
+msgid "Password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:159
+msgid "Repeat Password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:229
+msgid "Dark theme"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:229
+msgid "Use a dark theme, if possible"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:232
+msgid "Appearance"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:236
+msgid "Clear the database"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:236
+msgid "Erase existing accounts"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:240
+msgid "Possibility to lock the application with a password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:243
+msgid "Authentication password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:244
+msgid "Set up application authentication password"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:250
+msgid "Behaviour"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:259
+msgid "The application needs to be restarted first."
+msgstr ""
+
+#: Authenticator/widgets/settings.py:288
+msgid "The existing accounts will be erased in 5 seconds"
+msgstr ""
+
+#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
+msgid "Undo"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:18
+msgid "Open"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
+msgid "JSON files"
+msgstr ""
+
+#: Authenticator/widgets/utils.py:47
+msgid "Select"
+msgstr ""
+
+#: Authenticator/widgets/window.py.in:213
+msgid "An account or more were removed."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
+msgid "Two-factor authentication code generator"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
+msgid ""
+"Simple application that generates a two-factor authentication code, created "
+"for GNOME."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
+msgid "Features:"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
+msgid "QR code scanner"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
+msgid "Beautiful UI"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
+msgid "Huge database of (290+) websites/applications"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
+msgid "Two-factor authentication"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
+msgid "Gnome;GTK;Verification;"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
+msgid "@appid@"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
+msgid "Default window position"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
+msgid "Night mode"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
+msgid "Enable/disable night mode within the application"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
+msgid "Whether the application is locked with a password or not"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
+msgid "Whether the application can be locked or not"
+msgstr ""
+
+#: data/ui/about_dialog.ui.in:10
+msgid "Two-factor authentication code generator."
+msgstr ""
+
+#: data/ui/about_dialog.ui.in:13
+msgid "translator-credits"
+msgstr ""
+
+#: data/ui/shortcuts.ui:13
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/ui/shortcuts.ui:17
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: data/ui/shortcuts.ui:24
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr ""
+
+#: data/ui/shortcuts.ui:31
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/shortcuts.ui:40
+msgctxt "shortcut window"
+msgid "Accounts"
+msgstr ""
+
+#: data/ui/shortcuts.ui:44
+msgctxt "shortcut window"
+msgid "Add"
+msgstr ""
+
+#: data/ui/shortcuts.ui:51
+msgctxt "shortcut window"
+msgid "Select"
+msgstr ""
+
+#: data/ui/shortcuts.ui:58
+msgctxt "shortcut window"
+msgid "Search"
+msgstr ""
+
+#: authenticator.py.in:54
+msgid "Start in debug mode"
+msgstr ""
+
+#: authenticator.py.in:56
+msgid "Authenticator version number"
+msgstr ""
