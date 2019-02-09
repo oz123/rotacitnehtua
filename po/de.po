@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-25 19:56+0100\n"
-"PO-Revision-Date: 2019-02-07 19:09+0000\n"
-"Last-Translator: Hendrik Michaelsen <weblate@cryck.me>\n"
+"PO-Revision-Date: 2019-02-10 22:09+0000\n"
+"Last-Translator: HenRy <helge1o1o1@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/authenticator/"
 "translation/de/>\n"
 "Language: de\n"
@@ -55,7 +55,6 @@ msgid "Donate"
 msgstr "Spenden"
 
 #: Authenticator/application.py.in:113
-#, fuzzy
 msgid "Keyboard Shortcuts"
 msgstr "Tastenkürzel"
 
@@ -317,10 +316,9 @@ msgid "General"
 msgstr "Allgemein"
 
 #: data/ui/shortcuts.ui:17
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Tastenkürzel"
+msgstr "Verknüpfungen anzeigen"
 
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
@@ -333,10 +331,9 @@ msgid "Quit"
 msgstr "Beenden"
 
 #: data/ui/shortcuts.ui:40
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Konto"
+msgstr "Kontos"
 
 #: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
@@ -349,10 +346,9 @@ msgid "Select"
 msgstr "Auswählen"
 
 #: data/ui/shortcuts.ui:58
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Search"
-msgstr "Suche"
+msgstr "Suchen"
 
 #: authenticator.py.in:54
 msgid "Start in debug mode"
