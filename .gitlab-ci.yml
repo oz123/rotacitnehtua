@@ -9,6 +9,7 @@ flatpak:
     variables:
         MANIFEST_PATH: "build-aux/com.github.bilelmoussaoui.Authenticator.json"
         FLATPAK_MODULE: "Authenticator"
+        MESON_ARGS: "-Dprofile=development"
         RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
         APP_ID: "com.github.bilelmoussaoui.Authenticator"
     extends: .flatpak
