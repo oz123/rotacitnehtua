@@ -1,10 +1,3 @@
-.accounts-widget{
-  margin-top: 0px;
-}
-
-.accounts-list{
-  background-color: @theme_bg_color;
-}
 .account-row,
  .settings-box{
 	padding: 6px;
@@ -16,16 +9,24 @@
   color: mix(@theme_base_color,@theme_fg_color,0.3);
 }
 
-.account-row-checkbtn{
-  padding-left: 6px;
+/* AccountsList */
+.accounts-list{
+  background-color: @theme_bg_color;
 }
 
-.provider-lbl,
-.gpg-key-lbl{
-  font-size: 18px;
-  font-weight: bold;
+/* AccountRow */
+.account-row {
+  padding:0;
+}
+.account-row .account-name-label{
+  font-size: 13px;
   padding: 3px 6px;
 }
+.account-row .pin-label{
+  font-size: 12px;
+}
+
+
 .application-name {
   font-size: 14px;
   color: @theme_fg_color;
@@ -37,9 +38,6 @@
   font-size: 16px;
 }
 
-.token-label{
-  font-size: 14px;
-}
 .settings-box-main-label{
     font-size: 14px;
     padding: 3px 6px;
