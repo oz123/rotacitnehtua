@@ -110,28 +110,34 @@ class AddAccountWindow(Gtk.Window):
             if key_val == Gdk.KEY_q:
                 self._on_scan()
 
-
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_config.ui')
 class AccountConfig(Gtk.Box, GObject.GObject):
     __gsignals__ = {
         'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
     }
 
+    __gtype_name__ = 'AccountConfig'
+
+    provider_img = Gtk.Template.Child()
+    account_name_entry = Gtk.Template.Child()
+    token_entry = Gtk.Template.Child()
+    provider_combobox = Gtk.Template.Child()
+    provider_entry = Gtk.Template.Child()
+
+    providers_store = Gtk.Template.Child()
+
+    notification = Gtk.Template.Child()
+    notification_label = Gtk.Template.Child()
+
     def __init__(self, **kwargs):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        super(AccountConfig, self).__init__()
+        self.init_template('AccountConfig')
         GObject.GObject.__init__(self)
 
         self.is_edit = kwargs.get("edit", False)
         self._account = kwargs.get("account", None)
 
-        self._providers_store = Gtk.ListStore(str, str)
-
-        self.logo_img = Gtk.Image()
-        self.username_entry = Gtk.Entry()
-        self.provider_combo = Gtk.ComboBox.new_with_model_and_entry(
-            self._providers_store)
-        self.token_entry = Gtk.Entry()
-        self._build_widgets()
-        self._fill_data()
+        self.init_widgets()
 
     @property
     def account(self):
@@ -139,8 +145,8 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             Return an instance of Account for the new account.
         """
         account = {
-            "username": self.username_entry.get_text(),
-            "provider": self.provider_combo.get_child().get_text()
+            "username": self.account_name_entry.get_text(),
+            "provider": self.provider_entry.get_text()
         }
 
         if not self.is_edit:
@@ -149,52 +155,26 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             account["token"] = "".join(token.split())
         return account
 
-    def _build_widgets(self):
-
-        container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        container.set_border_width(36)
-
-        self.provider_combo.set_entry_text_column(0)
-        self.provider_combo.connect("changed", self._on_provider_changed)
+    def init_widgets(self):
         # Set up auto completion
-        self.provider_entry = self.provider_combo.get_child()
-        self.provider_entry.set_placeholder_text(_("Provider"))
-
-        completion = Gtk.EntryCompletion()
-        completion.set_model(self._providers_store)
-        completion.set_text_column(0)
-
-        self.provider_entry.set_completion(completion)
         if self._account:
             self.provider_entry.set_text(self._account.provider)
 
-        self.username_entry.set_placeholder_text(_("Account name"))
-        self.username_entry.connect("changed", self._validate)
         if self._account:
-            self.username_entry.set_text(self._account.username)
+            self.account_name_entry.set_text(self._account.username)
 
         if not self.is_edit:
-            self.token_entry.set_placeholder_text(_("Secret token"))
-            self.token_entry.set_visibility(False)
-            self.token_entry.connect("changed", self._validate)
-
+            self.token_entry.set_no_show_all(False)
+            self.token_entry.show()
         # To set the empty logo
-
         if self._account:
             pixbuf = load_pixbuf_from_provider(self._account.provider, 96)
         else:
             pixbuf = load_pixbuf_from_provider(None, 96)
 
-        self.logo_img.set_from_pixbuf(pixbuf)
+        self.provider_img.set_from_pixbuf(pixbuf)
 
-        container.pack_start(self.logo_img, False, False, 6)
-        if not self.is_edit:
-            container.pack_end(self.token_entry, False, False, 6)
-        container.pack_end(self.username_entry, False, False, 6)
-        container.pack_end(self.provider_combo, False, False, 6)
-
-        self.pack_start(container, False, False, 6)
-
+    @Gtk.Template.Callback('provider_changed')
     def _on_provider_changed(self, combo):
         tree_iter = combo.get_active_iter()
         if tree_iter is not None:
@@ -204,7 +184,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             entry = combo.get_child()
             logo = entry.get_text()
         self._validate()
-        self.logo_img.set_from_pixbuf(load_pixbuf_from_provider(logo, 96))
+        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(logo, 96))
 
     def _fill_data(self):
         uri = 'resource:///com/github/bilelmoussaoui/Authenticator/data.json'
@@ -215,26 +195,27 @@ class AccountConfig(Gtk.Box, GObject.GObject):
                       key=lambda account: account[0].lower())
         for entry in data:
             name, logo = entry
-            self._providers_store.append([name, logo])
+            self.providers_store.append([name, logo])
 
+    @Gtk.Template.Callback('account_edited')
     def _validate(self, *_):
         """Validate the username and the token."""
-        provider = self.provider_combo.get_child().get_text()
-        username = self.username_entry.get_text()
+        provider = self.provider_entry.get_text()
+        username = self.account_name_entry.get_text()
         token = "".join(self.token_entry.get_text().split())
 
         if not username:
-            self.username_entry.get_style_context().add_class("error")
+            self.account_name_entry.get_style_context().add_class("error")
             valid_name = False
         else:
-            self.username_entry.get_style_context().remove_class("error")
+            self.account_name_entry.get_style_context().remove_class("error")
             valid_name = True
 
         if not provider:
-            self.provider_combo.get_style_context().add_class("error")
+            self.provider_combobox.get_style_context().add_class("error")
             valid_provider = False
         else:
-            self.provider_combo.get_style_context().remove_class("error")
+            self.provider_combobox.get_style_context().remove_class("error")
             valid_provider = True
 
         if (not token or not OTP.is_valid(token)) and not self.is_edit:
@@ -255,18 +236,14 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         if filename:
             qr_reader = QRReader(filename)
             secret = qr_reader.read()
-            if qr_reader.ZBAR_FOUND:
-                if not qr_reader.is_valid():
-                    self.__send_notification(_("Invalid QR code"))
-                else:
-                    self.token_entry.set_text(secret)
-                    if qr_reader.provider is not None:
-                        self.provider_entry.set_text(qr_reader.provider)
-                    if qr_reader.username is not None:
-                        self.username_entry.set_text(qr_reader.username)
+            if not qr_reader.is_valid():
+                self.__send_notification(_("Invalid QR code"))
             else:
-                self.__send_notification(_("zbar library is not found. "
-                                           "QRCode scanner will be disabled"))
+                self.token_entry.set_text(secret)
+                if qr_reader.provider is not None:
+                    self.provider_entry.set_text(qr_reader.provider)
+                if qr_reader.username is not None:
+                    self.account_name_entry.set_text(qr_reader.username)
 
     def __send_notification(self, message):
         """
@@ -274,15 +251,6 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             :param message: the notification message
             :type message: str
         """
-        notification = Gd.Notification()
-        notification.set_show_close_button(True)
-        notification.set_timeout(5)
+        self.notification_label.set_text(message)
+        self.notification.set_reveal_child(True)
 
-        notification_lbl = Gtk.Label()
-        notification_lbl.set_text(message)
-
-        notification.add(notification_lbl)
-
-        self.add(notification)
-        self.reorder_child(notification, 0)
-        self.show_all()

@@ -19,12 +19,15 @@
 from os import remove, path
 from urllib.parse import urlparse, parse_qsl, unquote
 
+from PIL import Image
+from pyzbar.pyzbar import decode
+
 from .logger import Logger
 from .otp import OTP
 
 
 class QRReader:
-    ZBAR_FOUND = True
+
     def __init__(self, filename):
         self.filename = filename
         self._codes = None
@@ -32,33 +35,28 @@ class QRReader:
         self.username = None
 
     def read(self):
+        decoded_data = decode(Image.open(self.filename))
+        if path.isfile(self.filename):
+            remove(self.filename)
         try:
-            from PIL import Image
-            from pyzbar.pyzbar import decode
-            decoded_data = decode(Image.open(self.filename))
-            if path.isfile(self.filename):
-                remove(self.filename)
-            try:
-                # See https://github.com/google/google-authenticator/wiki/Key-Uri-Format
-                # for a description of the URL format
-                url = urlparse(decoded_data[0].data.decode())
-                query_params = parse_qsl(url.query)
-                self._codes = dict(query_params)
+            # See https://github.com/google/google-authenticator/wiki/Key-Uri-Format
+            # for a description of the URL format
+            url = urlparse(decoded_data[0].data.decode())
+            query_params = parse_qsl(url.query)
+            self._codes = dict(query_params)
 
-                label = unquote(url.path.lstrip("/"))
-                if ":" in label:
-                    self.provider, self.username = label.split(":", maxsplit=1)
-                else:
-                    self.provider = label
-                # provider information could also be in the query params
-                self.provider = self._codes.get("issuer", self.provider)
+            label = unquote(url.path.lstrip("/"))
+            if ":" in label:
+                self.provider, self.username = label.split(":", maxsplit=1)
+            else:
+                self.provider = label
+            # provider information could also be in the query params
+            self.provider = self._codes.get("issuer", self.provider)
 
-                return self._codes.get("secret")
-            except (KeyError, IndexError):
-                Logger.error("Invalid QR image")
-                return None
-        except ImportError:
-            QRReader.ZBAR_FOUND = False
+            return self._codes.get("secret")
+        except (KeyError, IndexError):
+            Logger.error("Invalid QR image")
+            return None
 
     def is_valid(self):
         """
