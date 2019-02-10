@@ -46,8 +46,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     def __init__(self):
         Gtk.ApplicationWindow.__init__(self, type=Gtk.WindowType.TOPLEVEL)
         self.set_icon_name("@APP_ID@")
-        self.get_style_context().add_class("authenticator-window")
-        self.resize(550, 600)
+        self.resize(350, 500)
         self.connect("locked", self.__on_locked)
         self.connect("unlocked", self.__on_unlocked)
         self.key_press_signal = None

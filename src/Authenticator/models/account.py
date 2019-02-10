@@ -88,6 +88,8 @@ class Account(GObject.GObject):
         :param username: the account's username
         :param provider: the account's provider
         """
+        self.username = username
+        self.provider = provider
         Database.get_default().update(username, provider, self.id)
 
     def remove(self):

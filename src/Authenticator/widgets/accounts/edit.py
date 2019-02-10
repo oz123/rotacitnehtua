@@ -25,40 +25,31 @@ from gi.repository import Gtk, Gdk, GObject
 
 from .add import AccountConfig
 
-
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
 class EditAccountWindow(Gtk.Window, GObject.GObject):
     __gsignals__ = {
         'updated': (GObject.SignalFlags.RUN_LAST, None, (str, str,)),
     }
 
-    def __init__(self, account):
-        Gtk.Window.__init__(self)
-        GObject.GObject.__init__(self)
-        self._account = account
-        self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
-        self.set_size_request(400, 600)
-        self.resize(400, 600)
-        self.connect('key_press_event', self._on_key_press)
-        self._build_widgets()
+    __gtype_name__ = 'EditAccountWindow'
 
-    def _build_widgets(self):
+    headerbar = Gtk.Template.Child()
+    save_btn = Gtk.Template.Child()
+
+    def __init__(self, account):
+        super(EditAccountWindow, self).__init__()
+        self.init_template('EditAccountWindow')
+        GObject.GObject.__init__(self)
+
+        self._account = account
+
+        self.__init_widgets()
+
+    def __init_widgets(self):
         header_bar = Gtk.HeaderBar()
         header_bar.set_show_close_button(False)
-        header_bar.set_title(_("Edit {} - {}".format(self._account.username,
-                                                     self._account.provider)))
-        self.set_titlebar(header_bar)
-        # Save btn
-        self.save_btn = Gtk.Button()
-        self.save_btn.set_label(_("Save"))
-        self.save_btn.connect("clicked", self._on_save)
-        self.save_btn.get_style_context().add_class("suggested-action")
-        header_bar.pack_end(self.save_btn)
-
-        self.close_btn = Gtk.Button()
-        self.close_btn.set_label(_("Close"))
-        self.close_btn.connect("clicked", self._on_quit)
-
-        header_bar.pack_start(self.close_btn)
+        self.headerbar.set_title(_("Edit {} - {}".format(self._account.username,
+                                                         self._account.provider)))
 
         self.account_config = AccountConfig(edit=True, account=self._account)
         self.account_config.connect("changed", self._on_account_config_changed)
@@ -75,6 +66,7 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         """
         self.save_btn.set_sensitive(state)
 
+    @Gtk.Template.Callback('save_btn_clicked')
     def _on_save(self, *_):
         """
             Save Button clicked signal handler.
@@ -92,16 +84,9 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
             ac_widget.update_provider(self._account, provider)
         self._on_quit()
 
+    @Gtk.Template.Callback('close_btn_clicked')
     def _on_quit(self, *_):
         """
             Close the window.
         """
         self.destroy()
-
-    def _on_key_press(self, _, event):
-        """
-            KeyPress event handler.
-        """
-        _, key_val = event.get_keyval()
-        if key_val == Gdk.KEY_Escape:
-            self._on_quit()
