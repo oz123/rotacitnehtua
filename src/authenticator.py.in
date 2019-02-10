@@ -34,16 +34,16 @@ sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 
 def prepare_locale():
-    locale.bindtextdomain('Authenticator', '@LOCALE_DIR@')
-    locale.textdomain('Authenticator')
-    gettext.bindtextdomain('Authenticator', '@LOCALE_DIR@')
-    gettext.textdomain('Authenticator')
+    locale.bindtextdomain('@GETTEXT_PACKAGE@', '@LOCALE_DIR@')
+    locale.textdomain('@GETTEXT_PACKAGE@')
+    gettext.bindtextdomain('@GETTEXT_PACKAGE@', '@LOCALE_DIR@')
+    gettext.textdomain('@GETTEXT_PACKAGE@')
 
 
 def prepare_gir():
-    gir_repository_path = path.join('@LIB_DIR@', 'girepository-1.0')
+    gir_repository_path = path.join('@PKGLIB_DIR@', 'girepository-1.0')
     GIRepository.Repository.prepend_search_path(gir_repository_path)
-    GIRepository.Repository.prepend_library_path('@LIB_DIR@')
+    GIRepository.Repository.prepend_library_path('@PKGLIB_DIR@')
 
 if __name__ == "__main__":
     prepare_locale()
@@ -56,7 +56,7 @@ if __name__ == "__main__":
                         help=_("Authenticator version number"))
     args = parser.parse_args()
 
-    resource = Gio.resource_load(path.join('@DATA_DIR@', '@APP_ID@.gresource'))
+    resource = Gio.resource_load(path.join('@PKGDATA_DIR@', '@APP_ID@.gresource'))
     Gio.Resource._register(resource)
 
 

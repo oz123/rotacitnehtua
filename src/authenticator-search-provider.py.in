@@ -30,8 +30,8 @@ gi.require_version('GIRepository', '2.0')
 from gi.repository import Gio, GIRepository, GLib
 
 GIRepository.Repository.prepend_search_path(
-    path.join('@LIB_DIR@', 'girepository-1.0'))
-GIRepository.Repository.prepend_library_path('@LIB_DIR@')
+    path.join('@PKGLIB_DIR@', 'girepository-1.0'))
+GIRepository.Repository.prepend_library_path('@PKGLIB_DIR@')
 
 
 from Authenticator.models.database import Database
