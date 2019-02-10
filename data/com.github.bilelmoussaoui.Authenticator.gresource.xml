@@ -12,6 +12,7 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="about_dialog.ui">about_dialog.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="account_config.ui">ui/account_config.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_add.ui">ui/account_add.ui</file>
 
     <!-- Default pre-shipped icons -->
     <file alias="amazon.svg">icons/hicolor/48x48/apps/amazon.svg</file>

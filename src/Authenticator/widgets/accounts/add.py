@@ -24,57 +24,33 @@ from gi import require_version
 require_version("Gtk", "3.0")
 require_version('Gd', '1.0')
 
-from gi.repository import Gd, Gio, Gtk, GObject, Gdk
+from gi.repository import Gd, Gio, Gtk, GObject, Gdk, GLib
 
 from ..headerbar import HeaderBarButton
 from ...models import OTP
 from ...utils import load_pixbuf_from_provider
 
-
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
 class AddAccountWindow(Gtk.Window):
     """Add Account Window."""
 
+    __gtype_name__ = "AddAccountWindow"
+
+    add_btn = Gtk.Template.Child()
+
     def __init__(self):
-        Gtk.Window.__init__(self)
-        self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
-        self.set_size_request(400, 600)
-        self.resize(400, 600)
-        self._build_widgets()
-        self.connect('key_press_event', self._on_key_press)
+        super(AddAccountWindow, self).__init__()
+        self.init_template('AddAccountWindow')
+        self.__init_widgets()
 
-    def _build_widgets(self):
+    def __init_widgets(self):
         """Create the Add Account widgets."""
-        # Header Bar
-        header_bar = Gtk.HeaderBar()
-        header_bar.set_show_close_button(False)
-        header_bar.set_title(_("Add a new account"))
-        self.set_titlebar(header_bar)
-        # Next btn
-        self.add_btn = Gtk.Button()
-        self.add_btn.set_label(_("Add"))
-        self.add_btn.connect("clicked", self._on_add)
-        self.add_btn.get_style_context().add_class("suggested-action")
-        self.add_btn.set_sensitive(False)
-        header_bar.pack_end(self.add_btn)
-
-        # QR code scan btn
-        self.scan_btn = HeaderBarButton("qrscanner-symbolic",
-                                        _("Scan QR code"))
-        self.scan_btn.connect("clicked", self._on_scan)
-        header_bar.pack_end(self.scan_btn)
-
-        # Back btn
-        self.close_btn = Gtk.Button()
-        self.close_btn.set_label(_("Close"))
-        self.close_btn.connect("clicked", self._on_quit)
-
-        header_bar.pack_start(self.close_btn)
-
         self.account_config = AccountConfig()
         self.account_config.connect("changed", self._on_account_config_changed)
 
         self.add(self.account_config)
 
+    @Gtk.Template.Callback('scan_btn_clicked')
     def _on_scan(self, *_):
         """
             QR Scan button clicked signal handler.
@@ -84,31 +60,26 @@ class AddAccountWindow(Gtk.Window):
 
     def _on_account_config_changed(self, _, state):
         """Set the sensitivity of the AddButton depends on the AccountConfig."""
+        print(state)
         self.add_btn.set_sensitive(state)
 
+    @Gtk.Template.Callback('close_btn_clicked')
     def _on_quit(self, *_):
         self.destroy()
 
+    @Gtk.Template.Callback('add_btn_clicked')
     def _on_add(self, *_):
         from .list import AccountsWidget
         from ...models import AccountsManager, Account
         account_obj = self.account_config.account
-        account = Account.create(account_obj["username"], account_obj["provider"], account_obj["token"])
+        # Create a new account
+        account = Account.create(account_obj["username"],
+                                 account_obj["provider"],
+                                 account_obj["token"])
+        # Add it to the AccountsManager
         AccountsManager.get_default().add(account)
         AccountsWidget.get_default().append(account)
         self._on_quit()
-
-    def _on_key_press(self, _, event):
-        _, key_val = event.get_keyval()
-        modifiers = event.get_state()
-
-        if key_val == Gdk.KEY_Escape:
-            self._on_quit()
-
-        # CTRL + Q
-        if modifiers == Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD2_MASK:
-            if key_val == Gdk.KEY_q:
-                self._on_scan()
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_config.ui')
 class AccountConfig(Gtk.Box, GObject.GObject):
@@ -253,4 +224,5 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         """
         self.notification_label.set_text(message)
         self.notification.set_reveal_child(True)
-
+        GLib.timeout_add_seconds(5,
+                                lambda _: self.notification.set_reveal_child(False), None)
