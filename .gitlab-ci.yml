@@ -11,7 +11,7 @@ flatpak:
         FLATPAK_MODULE: "Authenticator"
         MESON_ARGS: "-Dprofile=development"
         RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
-        APP_ID: "com.github.bilelmoussaoui.Authenticator"
+        APP_ID: "com.github.bilelmoussaoui.AuthenticatorDevel"
     extends: .flatpak
 
 review:
