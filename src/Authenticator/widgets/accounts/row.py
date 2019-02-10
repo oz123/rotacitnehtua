@@ -36,10 +36,6 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         @signals: None
         @properties: account
     """
-    __gsignals__ = {
-        'on_selected': (GObject.SignalFlags.RUN_LAST, None, ()),
-    }
-
     __gtype_name__ = 'AccountRow'
 
     account_name_label = Gtk.Template.Child()
@@ -100,19 +96,19 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         edit_window.show_all()
         edit_window.present()
 
-    def _on_update(self, _, username, provider):
+    def _on_update(self, _, account_name, provider):
         """
             On account update signal handler.
-            Updates the account username and provider
+            Updates the account name and provider
 
-            :param username: the new account's username
-            :type username: str
+            :param account_name: the new account's name
+            :type account_name: str
 
             :param provider: the new account's provider
             :type provider: str
         """
-        self.username_lbl.set_text(username)
-        self.account.update(username, provider)
+        self.account_name_label.set_text(account_name)
+        self.account.update(account_name, provider)
 
     def _on_pin_updated(self, _, pin):
         """

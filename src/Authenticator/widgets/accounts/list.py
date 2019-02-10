@@ -31,8 +31,7 @@ from ...utils import load_pixbuf_from_provider
 
 class AccountsWidget(Gtk.Box, GObject.GObject):
     __gsignals__ = {
-        'changed': (GObject.SignalFlags.RUN_LAST, None, ()),
-        'selected-rows-changed': (GObject.SignalFlags.RUN_LAST, None, (int,)),
+        'changed': (GObject.SignalFlags.RUN_LAST, None, ())
     }
     instance = None
 
@@ -74,8 +73,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         accounts_list = self._providers.get(account.provider)
         if not accounts_list:
             accounts_list = AccountsList()
-            accounts_list.connect("selected-count-rows-changed",
-                                  self._on_selected_count_changed)
             accounts_list.connect("account-deleted", self._on_account_deleted)
             self._providers[account.provider] = accounts_list
             provider_widget = ProviderWidget(accounts_list, account.provider)
@@ -97,12 +94,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
     def set_state(self, state):
         for account_list in self._providers.values():
             account_list.set_state(state)
-
-    def delete_selected(self, *_):
-        for account_list in self._providers.values():
-            account_list.delete_selected()
-        self._clean_unneeded_providers_widgets()
-        self.emit("changed")
 
     def update_provider(self, account, new_provider):
         current_account_list = None
@@ -129,12 +120,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         for account in accounts:
             self.append(account)
 
-    def _on_selected_count_changed(self, *_):
-        total_selected_rows = 0
-        for account_list in self._providers.values():
-            total_selected_rows += account_list.selected_rows_count
-        self.emit("selected-rows-changed", total_selected_rows)
-
     def _on_account_deleted(self, account_list):
         if len(account_list.get_children()) == 0:
             self._to_delete.append(account_list)
@@ -150,11 +135,11 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         """
             Re-order the ProviderWidget on AccountsWidget.
         """
-        childes = self.accounts_container.get_children()
-        ordered_childes = sorted(
-            childes, key=lambda children: children.provider.lower())
-        for i in range(len(ordered_childes)):
-            self.accounts_container.reorder_child(ordered_childes[i], i)
+        childs = self.accounts_container.get_children()
+        ordered_childs = sorted(
+            childs, key=lambda children: children.provider.lower())
+        for i in range(len(ordered_childs)):
+            self.accounts_container.reorder_child(ordered_childs[i], i)
         self.show_all()
 
     def _on_counter_updated(self, accounts_manager, counter):
@@ -177,7 +162,7 @@ class ProviderWidget(Gtk.Box):
         provider_lbl = Gtk.Label()
         provider_lbl.set_text(provider)
         provider_lbl.set_halign(Gtk.Align.START)
-        provider_lbl.get_style_context().add_class("provider-lbl")
+        provider_lbl.get_style_context().add_class("provider-label")
 
         provider_img = Gtk.Image()
         pixbuf = load_pixbuf_from_provider(provider)
@@ -190,16 +175,10 @@ class ProviderWidget(Gtk.Box):
         self.pack_start(accounts_list, False, False, 3)
 
 
-class AccountsListState:
-    NORMAL = 0
-    SELECT = 1
-
-
 class AccountsList(Gtk.ListBox, GObject.GObject):
     """Accounts List."""
 
     __gsignals__ = {
-        'selected-count-rows-changed': (GObject.SignalFlags.RUN_LAST, None, (int,)),
         'account-deleted': (GObject.SignalFlags.RUN_LAST, None, ()),
     }
     # Default instance of accounts list
@@ -210,8 +189,6 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         Gtk.ListBox.__init__(self)
         self.set_selection_mode(Gtk.SelectionMode.NONE)
         self.get_style_context().add_class("accounts-list")
-        self.state = AccountsListState.NORMAL
-        self.selected_rows_count = 0
 
     def append_new(self, name, provider, token):
         account = Account.create(name, provider, token)
@@ -225,32 +202,9 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         # Remove an account from the list
         self.emit("changed", False)
 
-    def set_state(self, state):
-        show_check_btn = (state == AccountsListState.SELECT)
-        for child in self.get_children():
-            child.check_btn.set_visible(show_check_btn)
-            child.check_btn.set_no_show_all(not show_check_btn)
-
-    def delete_selected(self, *_):
-        for child in self.get_children():
-            check_btn = child.check_btn
-            if check_btn.props.active:
-                child.account.remove()
-                self.remove(child)
-        self.emit("account-deleted")
-        self.set_state(AccountsListState.NORMAL)
-
     def add_row(self, account):
         row = AccountRow(account)
-        row.connect("on_selected", self._on_row_checked)
         self.add(row)
-
-    def _on_row_checked(self, _):
-        self.selected_rows_count = 0
-        for _row in self.get_children():
-            if _row.check_btn.props.active:
-                self.selected_rows_count += 1
-        self.emit("selected-count-rows-changed", self.selected_rows_count)
 
 
 class EmptyAccountsList(Gtk.Box):

@@ -17,8 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from .about import AboutDialog
-from .accounts import AccountsList, AccountRow, AccountsListState
-from .actions_bar import ActionsBar
+from .accounts import AccountsList, AccountRow
 from .headerbar import HeaderBar
 from .login import LoginWidget
 from .search_bar import SearchBar

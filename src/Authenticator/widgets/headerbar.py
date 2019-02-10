@@ -101,10 +101,6 @@ class HeaderBar(Gtk.HeaderBar):
                                        _("Add a new account"))
         self.settings_btn = HeaderBarButton("open-menu-symbolic",
                                             _("Settings"))
-        self.select_btn = HeaderBarButton("object-select-symbolic",
-                                          _("Selection mode"))
-
-        self.cancel_btn = Gtk.Button(label=_("Cancel"))
 
         self.popover = None
 
@@ -138,8 +134,6 @@ class HeaderBar(Gtk.HeaderBar):
         left_box.add(self.add_btn)
 
         right_box.pack_start(self.search_btn, False, False, 0)
-        right_box.pack_start(self.select_btn, False, False, 0)
-        right_box.pack_start(self.cancel_btn, False, False, 0)
         right_box.pack_end(self.settings_btn, False, False, 0)
 
         self.pack_start(left_box)
@@ -163,37 +157,13 @@ class HeaderBar(Gtk.HeaderBar):
         self.settings_button.set_no_show_all(not visible)
 
     def set_state(self, state):
-        if state != HeaderBarState.SELECT:
-            self.cancel_btn.set_visible(False)
-            self.cancel_btn.set_no_show_all(True)
         if state == HeaderBarState.EMPTY:
             self.add_btn.show_()
             self.search_btn.hide_()
-            self.select_btn.hide_()
-            self.settings_btn.show_()
-        elif state == HeaderBarState.SELECT:
-            self.search_btn.show_()
-            self.add_btn.hide_()
-            self.select_btn.hide_()
-            self.set_show_close_button(False)
-            self.get_style_context().add_class("selection-mode")
-            self.cancel_btn.set_visible(True)
-            self.cancel_btn.set_no_show_all(False)
-            self.settings_btn.hide_()
-            self.set_title(_("Click on items to select them"))
         elif state == HeaderBarState.LOCKED:
             self.add_btn.hide_()
-            self.select_btn.hide_()
             self.search_btn.hide_()
-            self.cancel_btn.set_visible(False)
-            self.cancel_btn.set_no_show_all(True)
         else:
             self.search_btn.show_()
             self.add_btn.show_()
-            self.select_btn.show_()
-            self.settings_btn.show_()
-        if self.state == HeaderBarState.SELECT:
-            self.get_style_context().remove_class("selection-mode")
-            self.set_show_close_button(True)
-            self.set_title("")
         self.state = state
