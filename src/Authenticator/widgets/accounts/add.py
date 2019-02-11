@@ -91,7 +91,8 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     token_entry = Gtk.Template.Child()
     provider_combobox = Gtk.Template.Child()
     provider_entry = Gtk.Template.Child()
-
+    providers_store = Gtk.Template.Child()  
+    
     provider_completion = Gtk.Template.Child()
     notification = Gtk.Template.Child()
     notification_label = Gtk.Template.Child()
@@ -124,13 +125,10 @@ class AccountConfig(Gtk.Box, GObject.GObject):
 
     def __init_widgets(self):
         # Set up auto completion
-        self.providers_store = Gtk.ListStore(str, str)
-        self.provider_completion.set_model(self.providers_store)
-        self.provider_combobox.set_model(self.providers_store)
-        if self._account:
+        if self._account and self._account.provider:
             self.provider_entry.set_text(self._account.provider)
 
-        if self._account:
+        if self._account and self._account.username:
             self.account_name_entry.set_text(self._account.username)
 
         if not self.is_edit:
@@ -164,8 +162,10 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         data = json.loads(content)
         data = sorted([(name, logo) for name, logo in data.items()],
                       key=lambda account: account[0].lower())
+
         for name, logo in data:
             self.providers_store.append([name, logo])
+
 
     @Gtk.Template.Callback('account_edited')
     def _validate(self, *_):
