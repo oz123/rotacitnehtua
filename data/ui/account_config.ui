@@ -2,17 +2,10 @@
 <!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <object class="GtkListStore" id="providers_store">
-    <columns>
-      <!-- column-name gchar1 -->
-      <column type="gchar"/>
-      <!-- column-name gchar2 -->
-      <column type="gchar"/>
-    </columns>
-  </object>
   <object class="GtkEntryCompletion" id="provider_completion">
-    <property name="model">providers_store</property>
     <property name="text_column">0</property>
+    <property name="inline_completion">True</property>
+    <property name="inline_selection">True</property>
   </object>
   <template class="AccountConfig" parent="GtkBox">
     <property name="visible">True</property>
@@ -114,7 +107,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
-                <property name="model">providers_store</property>
                 <property name="row_span_column">0</property>
                 <property name="column_span_column">0</property>
                 <property name="active">0</property>

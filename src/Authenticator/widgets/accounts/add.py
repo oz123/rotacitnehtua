@@ -92,8 +92,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     provider_combobox = Gtk.Template.Child()
     provider_entry = Gtk.Template.Child()
 
-    providers_store = Gtk.Template.Child()
-
+    provider_completion = Gtk.Template.Child()
     notification = Gtk.Template.Child()
     notification_label = Gtk.Template.Child()
 
@@ -105,7 +104,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         self.is_edit = kwargs.get("edit", False)
         self._account = kwargs.get("account", None)
 
-        self.init_widgets()
+        self.__init_widgets()
 
     @property
     def account(self):
@@ -123,8 +122,11 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             account["token"] = "".join(token.split())
         return account
 
-    def init_widgets(self):
+    def __init_widgets(self):
         # Set up auto completion
+        self.providers_store = Gtk.ListStore(str, str)
+        self.provider_completion.set_model(self.providers_store)
+        self.provider_combobox.set_model(self.providers_store)
         if self._account:
             self.provider_entry.set_text(self._account.provider)
 
@@ -141,6 +143,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             pixbuf = load_pixbuf_from_provider(None, 96)
 
         self.provider_img.set_from_pixbuf(pixbuf)
+        self._fill_data()
 
     @Gtk.Template.Callback('provider_changed')
     def _on_provider_changed(self, combo):
@@ -161,8 +164,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         data = json.loads(content)
         data = sorted([(name, logo) for name, logo in data.items()],
                       key=lambda account: account[0].lower())
-        for entry in data:
-            name, logo = entry
+        for name, logo in data:
             self.providers_store.append([name, logo])
 
     @Gtk.Template.Callback('account_edited')
