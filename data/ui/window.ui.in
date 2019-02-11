@@ -168,6 +168,8 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="hexpand">True</property>
                 <property name="resource">/com/github/bilelmoussaoui/Authenticator/authenticator-symbolic.svg</property>
                 <property name="icon_size">6</property>
               </object>
@@ -179,13 +181,10 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="password_entry">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="halign">center</property>
-                <property name="visibility">False</property>
-                <property name="text" translatable="yes">1656656</property>
-                <property name="input_purpose">password</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Authenticator is locked</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -195,18 +194,49 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="unlock_btn">
-                <property name="label" translatable="yes">Unlock</property>
+              <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <signal name="clicked" handler="unlock_btn_clicked" swapped="no"/>
+                <property name="valign">center</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkEntry" id="password_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="halign">center</property>
+                    <property name="visibility">False</property>
+                    <property name="input_purpose">password</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="padding">6</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="unlock_btn">
+                    <property name="label" translatable="yes">Unlock</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <signal name="clicked" handler="unlock_btn_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="padding">6</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="padding">6</property>
                 <property name="position">2</property>
               </packing>
             </child>
