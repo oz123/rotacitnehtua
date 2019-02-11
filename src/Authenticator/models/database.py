@@ -19,10 +19,9 @@
 import sqlite3
 from collections import OrderedDict
 from os import path, makedirs
-
 from gi.repository import GLib
 
-from .logger import Logger
+from Authenticator.models import Logger
 
 
 class Database:

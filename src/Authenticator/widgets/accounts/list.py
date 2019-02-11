@@ -17,16 +17,11 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
+from gi.repository import Gtk, GObject, Handy
 
-from gi import require_version
-
-require_version("Gtk", "3.0")
-require_version("Handy", "0.0")
-from gi.repository import Gtk, GObject, Gio, Handy
-
-from .row import AccountRow
-from ...models import Database, Account, AccountsManager
-from ...utils import load_pixbuf_from_provider
+from Authenticator.widgets.accounts.row import AccountRow
+from Authenticator.models import Account, AccountsManager
+from Authenticator.utils import load_pixbuf_from_provider
 
 
 class AccountsWidget(Gtk.Box, GObject.GObject):

@@ -8,12 +8,15 @@ python = import('python3')
 gnome  = import('gnome')
 i18n   = import('i18n')
 
+gettext_package = 'Authenticator'
+
 if get_option('profile') == 'development'
   profile = 'Devel'
   name_suffix = ' (Development)'
 else
   profile = ''
   name_suffix = ''
+  gettext_package += '-devel'
 endif
 
 application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile)
@@ -45,7 +48,7 @@ LIBEXEC_DIR = join_paths(get_option('prefix'), get_option('libexecdir'))
 # Configuration params
 conf = configuration_data()
 conf.set('APP_ID', application_id)
-conf.set('GETTEXT_PACKAGE', meson.project_name())
+conf.set('GETTEXT_PACKAGE', gettext_package)
 conf.set('PKGDATA_DIR', PKGDATA_DIR)
 conf.set('LOCALE_DIR', LOCALE_DIR)
 conf.set('PYTHON_DIR', join_paths(get_option('prefix'), python.sysconfig_path('purelib')))

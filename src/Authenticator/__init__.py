@@ -18,3 +18,5 @@
 """
 from .application import Application
 from .utils import load_pixbuf, load_pixbuf_from_provider
+from .models import *
+from .widgets import *

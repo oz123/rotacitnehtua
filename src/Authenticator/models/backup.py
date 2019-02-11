@@ -19,10 +19,7 @@
 import json
 from gi.repository import Gio
 
-from .account import Account
-from .accounts_manager import AccountsManager
-from .keyring import Keyring
-from .logger import Logger
+from Authenticator.models import Account, AccountsManager, Logger, Keyring
 
 class Backup:
 

@@ -17,13 +17,10 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
-
-from gi import require_version
-
-require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
-from .widgets import Window, WindowState, AboutDialog, import_json, export_json
-from .models import Database, Settings, Clipboard, Logger, Keyring
+
+from Authenticator.widgets import Window, WindowState, AboutDialog, import_json, export_json
+from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 
 
 class Application(Gtk.Application):

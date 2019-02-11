@@ -17,13 +17,9 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
+from gi.repository import Gtk, GObject
 
-from gi import require_version
-
-require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk, GObject
-
-from .add import AccountConfig
+from Authenticator.widgets.accounts.add import AccountConfig
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
 class EditAccountWindow(Gtk.Window, GObject.GObject):

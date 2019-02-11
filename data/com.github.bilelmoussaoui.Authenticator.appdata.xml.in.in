@@ -103,6 +103,6 @@
   </releases>
   <developer_name>Bilal Elmoussaoui</developer_name>
   <update_contact>bil.elmoussaoui@gmail.com</update_contact>
-  <translation type="gettext">Authenticator</translation>
+  <translation type="gettext">@gettext-package@</translation>
   <launchable type="desktop-id">@appid@.desktop</launchable>
 </component>

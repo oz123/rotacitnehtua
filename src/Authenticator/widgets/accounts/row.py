@@ -17,13 +17,9 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
-
-from gi import require_version
-
-require_version("Gtk", "3.0")
 from gi.repository import Gtk, GObject
 
-from .edit import EditAccountWindow
+from Authenticator.widgets.accounts.edit import EditAccountWindow
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_row.ui')
 class AccountRow(Gtk.ListBoxRow, GObject.GObject):

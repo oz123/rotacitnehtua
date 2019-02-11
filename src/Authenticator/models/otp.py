@@ -18,7 +18,7 @@
 """
 import binascii
 
-from .logger import Logger
+from Authenticator.models import Logger
 
 try:
     from pyotp import TOTP

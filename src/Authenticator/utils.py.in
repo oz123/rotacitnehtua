@@ -17,11 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from os import environ
-
-from gi import require_version
-
-require_version('Gtk', '3.0')
-from gi.repository import Gtk, GdkPixbuf, GLib, Gio
+from gi.repository import Gtk, GdkPixbuf, GLib
 
 
 def load_pixbuf(icon_name, size):

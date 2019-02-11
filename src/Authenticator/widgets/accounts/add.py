@@ -18,15 +18,10 @@
 """
 import json
 from gettext import gettext as _
+from gi.repository import Gio, Gtk, GObject, GLib
 
-from gi import require_version
-
-require_version("Gtk", "3.0")
-
-from gi.repository import Gio, Gtk, GObject, Gdk, GLib
-
-from ...models import OTP
-from ...utils import load_pixbuf_from_provider
+from Authenticator.models import OTP
+from Authenticator.utils import load_pixbuf_from_provider
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
 class AddAccountWindow(Gtk.Window):
@@ -91,8 +86,8 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     token_entry = Gtk.Template.Child()
     provider_combobox = Gtk.Template.Child()
     provider_entry = Gtk.Template.Child()
-    providers_store = Gtk.Template.Child()  
-    
+    providers_store = Gtk.Template.Child()
+
     provider_completion = Gtk.Template.Child()
     notification = Gtk.Template.Child()
     notification_label = Gtk.Template.Child()

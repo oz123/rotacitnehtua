@@ -16,9 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gi import require_version
-
-require_version('Secret', '1')
 from gi.repository import Secret
 
 

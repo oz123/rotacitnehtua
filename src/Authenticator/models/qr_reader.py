@@ -22,8 +22,7 @@ from urllib.parse import urlparse, parse_qsl, unquote
 from PIL import Image
 from pyzbar.pyzbar import decode
 
-from .logger import Logger
-from .otp import OTP
+from Authenticator.models import Logger, OTP
 
 
 class QRReader:

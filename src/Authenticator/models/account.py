@@ -20,11 +20,7 @@ from hashlib import sha256
 from gettext import  gettext as _
 from gi.repository import GObject
 
-from .clipboard import Clipboard
-from .database import Database
-from .keyring import Keyring
-from .logger import Logger
-from .otp import OTP
+from Authenticator.models import Clipboard, Database, Keyring, Logger, OTP
 
 
 class Account(GObject.GObject):

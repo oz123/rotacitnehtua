@@ -16,8 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gettext import gettext as _
-
 from gi.repository import Gtk, GObject, Gio, GLib
 from ..models import Logger, Settings, AccountsManager
 from .accounts import AccountsWidget, AddAccountWindow

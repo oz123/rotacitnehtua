@@ -1,1 +1,1 @@
-i18n.gettext('Authenticator', preset: 'glib')
+i18n.gettext(gettext_package, preset: 'glib')
