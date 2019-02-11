@@ -1,23 +1,28 @@
-about_dialog_conf = configuration_data()
-about_dialog_conf.set('APP_ID', application_id)
-about_dialog_conf.set('VERSION', meson.project_version())
+ui_config = configuration_data()
+ui_config.set('APP_ID', application_id)
+ui_config.set('VERSION', meson.project_version())
+
+ui_preconfigured_files = files(
+  'ui/about_dialog.ui.in',
+  'ui/settings.ui.in',
+  'ui/window.ui.in',
+)
+ui_dependencies = []
+foreach ui_file: ui_preconfigured_files
+  ui_dependencies += configure_file(
+    input:  ui_file,
+    output: '@BASENAME@',
+    configuration: ui_config
+  )
+endforeach
+
 gnome.compile_resources(
   application_id,
   meson.project_name() + '.gresource.xml',
   gresource_bundle: true,
   install_dir: join_paths(get_option('datadir'), meson.project_name()),
   install: true,
-  dependencies: [configure_file(
-    input: 'ui/about_dialog.ui.in',
-    output: 'about_dialog.ui',
-    configuration: about_dialog_conf
-  ),
-  configure_file(
-    input: 'ui/window.ui.in',
-    output: 'window.ui',
-    configuration: about_dialog_conf
-  )
-  ]
+  dependencies: ui_dependencies
 )
 
 # Install gschema

@@ -13,11 +13,10 @@
     <property name="icon_name">document-edit-symbolic</property>
   </object>
   <template class="AccountRow" parent="GtkListBoxRow">
-    <property name="width_request">100</property>
-    <property name="height_request">80</property>
     <property name="visible">True</property>
     <property name="can_focus">True</property>
-    <property name="valign">start</property>
+    <property name="valign">center</property>
+    <property name="selectable">False</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>

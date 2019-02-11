@@ -137,3 +137,8 @@ class Keyring:
     @staticmethod
     def has_password():
         return Keyring.get_password() is not None
+
+    @staticmethod
+    def clear_password():
+        schema = Keyring.get_default().password_schema
+        Secret.password_clear_sync(schema, {}, None)

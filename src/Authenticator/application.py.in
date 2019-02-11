@@ -23,7 +23,7 @@ from gi import require_version
 require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 from .widgets import Window, WindowState, AboutDialog, import_json, export_json
-from .models import Database, Settings, Clipboard, Logger
+from .models import Database, Settings, Clipboard, Logger, Keyring
 
 
 class Application(Gtk.Application):
@@ -40,7 +40,7 @@ class Application(Gtk.Application):
         GLib.set_prgname("Authenticator")
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
-        Settings.get_default().bind("is-locked", self, "is_locked", Gio.SettingsBindFlags.GET)
+
         self._menu = Gio.Menu()
 
     def __is_locked_changed(self, *_):
@@ -63,7 +63,7 @@ class Application(Gtk.Application):
         Gtk.Application.do_startup(self)
         self.__generate_menu()
         self.__setup_actions()
-        self.set_property("is-locked", Settings.get_default().can_be_locked)
+        self.props.is_locked = Keyring.get_default().has_password()
         Application.__setup_css()
 
         # Set the default night mode
@@ -126,7 +126,7 @@ class Application(Gtk.Application):
         self.__add_action("settings", self.__on_settings, "is_locked")
         self.__add_action("import_json", self.__on_import_json, "is_locked")
         self.__add_action("export_json", self.__on_export_json, "is_locked")
-        if Settings.get_default().can_be_locked:
+        if Keyring.get_default().has_password():
             self.__add_action("lock", self.__on_lock, "is_locked")
 
         # Keyboard shortcuts. This includes actions defined in window.py.in

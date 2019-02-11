@@ -29,7 +29,7 @@ class Settings(Gio.Settings):
     instance = None
     # Settings schema
     SCHEMA = "@APP_ID@"
-
+    
     def __init__(self):
         Gio.Settings.__init__(self)
 
