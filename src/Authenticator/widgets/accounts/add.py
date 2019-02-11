@@ -22,9 +22,8 @@ from gettext import gettext as _
 from gi import require_version
 
 require_version("Gtk", "3.0")
-require_version('Gd', '1.0')
 
-from gi.repository import Gd, Gio, Gtk, GObject, Gdk, GLib
+from gi.repository import Gio, Gtk, GObject, Gdk, GLib
 
 from ..headerbar import HeaderBarButton
 from ...models import OTP
@@ -195,7 +194,6 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         else:
             self.token_entry.get_style_context().remove_class("error")
             valid_token = True
-
         self.emit("changed", all([valid_name, valid_provider, valid_token]))
 
     def scan_qr(self):

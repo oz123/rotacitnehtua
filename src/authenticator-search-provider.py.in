@@ -23,16 +23,7 @@ import sy
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 from os import path
-import gi
-gi.require_version('Gtk', '3.0')
-gi.require_version('GIRepository', '2.0')
-
-from gi.repository import Gio, GIRepository, GLib
-
-GIRepository.Repository.prepend_search_path(
-    path.join('@PKGLIB_DIR@', 'girepository-1.0'))
-GIRepository.Repository.prepend_library_path('@PKGLIB_DIR@')
-
+from gi.repository import Gio, GLib
 
 from Authenticator.models.database import Database
 from Authenticator.models.account import Account

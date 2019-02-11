@@ -19,13 +19,10 @@
 from gettext import gettext as _
 
 from gi import require_version
-require_version('Gd', '1.0')
 require_version("Gtk", "3.0")
-from gi.repository import Gd, Gtk, GObject, Gio, GLib
+from gi.repository import Gtk, GObject, Gio, GLib
 from ..models import Logger, Settings, Database, AccountsManager
-from .headerbar import HeaderBar, HeaderBarState
 from .accounts import AccountsWidget, AddAccountWindow
-from .search_bar import SearchBar
 from . import LoginWidget
 
 class WindowState:

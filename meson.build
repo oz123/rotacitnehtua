@@ -37,22 +37,10 @@ else
     message('Found python3 binary')
 endif
 
-PKGLIB_DIR = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name())
 LOCALE_DIR = join_paths(get_option('prefix'), get_option('localedir'))
 PKGDATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 LIBEXEC_DIR = join_paths(get_option('prefix'), get_option('libexecdir'))
-libgd_dep = dependency('gdlib', required: false)
-if not libgd_dep.found()
-  libgd_proj = subproject('libgd',
-    default_options: [
-      'with-introspection=true',
-      'with-notification=true',
-      'static=false',
-      'pkgdatadir=' + PKGDATA_DIR,
-      'pkglibdir=' + PKGLIB_DIR
-    ]
-  )
-endif
+
 
 # Configuration params
 conf = configuration_data()
@@ -63,7 +51,6 @@ conf.set('LOCALE_DIR', LOCALE_DIR)
 conf.set('PYTHON_DIR', join_paths(get_option('prefix'), python.sysconfig_path('purelib')))
 conf.set('PYTHON_EXEC_DIR', join_paths(get_option('prefix'), python.sysconfig_path('stdlib')))
 conf.set('VERSION', meson.project_version())
-conf.set('PKGLIB_DIR', PKGLIB_DIR)
 conf.set('PROFILE', profile)
 conf.set('NAME_SUFFIX', name_suffix)
 conf.set('libexecdir', LIBEXEC_DIR)

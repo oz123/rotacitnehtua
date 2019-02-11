@@ -27,8 +27,7 @@ from os import path
 from gettext import gettext as _
 from gi import require_version
 
-require_version('GIRepository', '2.0')
-from gi.repository import Gio, GIRepository
+from gi.repository import Gio
 
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
@@ -40,14 +39,8 @@ def prepare_locale():
     gettext.textdomain('@GETTEXT_PACKAGE@')
 
 
-def prepare_gir():
-    gir_repository_path = path.join('@PKGLIB_DIR@', 'girepository-1.0')
-    GIRepository.Repository.prepend_search_path(gir_repository_path)
-    GIRepository.Repository.prepend_library_path('@PKGLIB_DIR@')
-
 if __name__ == "__main__":
     prepare_locale()
-    prepare_gir()
 
     parser = argparse.ArgumentParser(prog="Authenticator")
     parser.add_argument("--debug", "-d", action="store_true",

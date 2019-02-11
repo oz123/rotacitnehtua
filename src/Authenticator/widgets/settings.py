@@ -21,9 +21,8 @@ from gettext import gettext as _
 
 from gi import require_version
 
-require_version('Gd', '1.0')
 require_version("Gtk", "3.0")
-from gi.repository import Gd, Gtk, GObject
+from gi.repository import Gtk, GObject
 from .window import Window
 from ..models import Settings, Keyring
 
@@ -252,7 +251,7 @@ class SettingsWindow(Gtk.Window):
         self.add(self.stack)
 
     def __on_app_can_be_locked_changed(self, __, state):
-        notification = Gd.Notification()
+        """notification = Gd.Notification()
         notification.set_timeout(5)
 
         notification_lbl = Gtk.Label()
@@ -262,6 +261,7 @@ class SettingsWindow(Gtk.Window):
         notification_parent = self.stack.get_child_by_name("behaviour")
         notification_parent.add(notification)
         notification_parent.reorder_child(notification, 0)
+        """
         self.show_all()
 
         if state and not Keyring.has_password():
@@ -279,6 +279,7 @@ class SettingsWindow(Gtk.Window):
                                   state)
 
     def __on_clear_database_clicked(self, *__):
+        """
         notification = Gd.Notification()
         notification.set_timeout(5)
         notification.connect("dismissed", self.__clear_database)
@@ -297,6 +298,7 @@ class SettingsWindow(Gtk.Window):
         notification_parent = self.stack.get_child_by_name("behaviour")
         notification_parent.add(notification)
         notification_parent.reorder_child(notification, 0)
+        """
         self.show_all()
 
     @staticmethod
