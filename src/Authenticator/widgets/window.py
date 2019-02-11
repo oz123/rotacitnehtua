@@ -52,6 +52,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     add_btn = Gtk.Template.Child()
     search_btn = Gtk.Template.Child()
+    primary_menu_btn = Gtk.Template.Child()
 
     main_stack = Gtk.Template.Child()
 
@@ -95,9 +96,16 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             add_window.show_all()
             add_window.present()
 
+    def set_menu(self, menu):
+        popover = Gtk.Popover.new_from_model(self.primary_menu_btn, menu)
+        def primary_menu_btn_handler(_, popover):
+            popover.set_visible(not popover.get_visible())
+        self.primary_menu_btn.connect('clicked', primary_menu_btn_handler, popover)
+
     def update_view(self, *_):
         count = Database.get_default().count
         self.set_property("is-empty", count == 0)
+        print("hey")
         if not self.is_empty:
             self.main_stack.set_visible_child_name("normal_state")
             child_name = "normal_state"
@@ -204,3 +212,28 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         if prop_bind:
             self.bind_property(prop_bind, action, "enabled", bind_flag)
         self.add_action(action)
+
+    @Gtk.Template.Callback('search_changed')
+    def __search_changed(self, entry):
+        """
+            Handles search-changed signal.
+        """
+        def filter_func(row, data, *_):
+            """
+                Filter function
+            """
+            data = data.lower()
+            if len(data) > 0:
+                return (
+                    data in row.account.username.lower()
+                    or
+                    data in row.account.provider.lower()
+                )
+            else:
+                return True
+        data = entry.get_text().strip()
+        search_lists = AccountsWidget.get_default().accounts_lists
+        for search_list in search_lists:
+            search_list.set_filter_func(filter_func,
+                                        data, False)
+

@@ -25,7 +25,6 @@ require_version("Gtk", "3.0")
 
 from gi.repository import Gio, Gtk, GObject, Gdk, GLib
 
-from ..headerbar import HeaderBarButton
 from ...models import OTP
 from ...utils import load_pixbuf_from_provider
 

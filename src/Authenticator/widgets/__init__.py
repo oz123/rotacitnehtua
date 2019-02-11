@@ -18,9 +18,7 @@
 """
 from .about import AboutDialog
 from .accounts import AccountsList, AccountRow
-from .headerbar import HeaderBar
 from .login import LoginWidget
-from .search_bar import SearchBar
 from .window import Window
 from .settings import SettingsWindow
 from .utils import import_json, export_json

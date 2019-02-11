@@ -46,8 +46,6 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         self.__init_widgets()
 
     def __init_widgets(self):
-        header_bar = Gtk.HeaderBar()
-        header_bar.set_show_close_button(False)
         self.headerbar.set_title(_("Edit {} - {}".format(self._account.username,
                                                          self._account.provider)))
 
