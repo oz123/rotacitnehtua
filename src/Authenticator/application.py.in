@@ -145,7 +145,6 @@ class Application(Gtk.Application):
         window = Window.get_default()
 
         window.set_application(self)
-        window.set_menu(self._menu)
         window.connect("delete-event", lambda x, y: self.__on_quit())
         if Application.IS_DEVEL:
             window.get_style_context().add_class("devel")

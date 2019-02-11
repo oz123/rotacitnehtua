@@ -206,38 +206,3 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         row = AccountRow(account)
         self.add(row)
 
-
-class EmptyAccountsList(Gtk.Box):
-    """
-        Empty accounts list widget.
-    """
-    # Default instance
-    instance = None
-
-    def __init__(self):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
-        self._build_widgets()
-
-    @staticmethod
-    def get_default():
-        if not EmptyAccountsList.instance:
-            EmptyAccountsList.instance = EmptyAccountsList()
-        return EmptyAccountsList.instance
-
-    def _build_widgets(self):
-        """
-            Build EmptyAccountList widget.
-        """
-        self.set_border_width(36)
-        self.set_valign(Gtk.Align.CENTER)
-        self.set_halign(Gtk.Align.CENTER)
-
-        # Image
-        g_icon = Gio.ThemedIcon(name="dialog-information-symbolic.symbolic")
-        img = Gtk.Image.new_from_gicon(g_icon, Gtk.IconSize.DIALOG)
-
-        # Label
-        label = Gtk.Label(label=_("There are no accounts yet…"))
-
-        self.pack_start(img, False, False, 6)
-        self.pack_start(label, False, False, 6)

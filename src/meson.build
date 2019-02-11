@@ -24,14 +24,6 @@ configure_file(
 )
 
 configure_file(
-  input: 'Authenticator/widgets/window.py.in',
-  output: 'window.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator/widgets')
-)
-
-configure_file(
   input: 'Authenticator/utils.py.in',
   output: 'utils.py',
   configuration: conf,

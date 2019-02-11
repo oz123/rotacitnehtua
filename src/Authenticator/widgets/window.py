@@ -21,14 +21,20 @@ from gettext import gettext as _
 from gi import require_version
 require_version('Gd', '1.0')
 require_version("Gtk", "3.0")
-from gi.repository import Gd, Gtk, GObject, Gio
+from gi.repository import Gd, Gtk, GObject, Gio, GLib
 from ..models import Logger, Settings, Database, AccountsManager
 from .headerbar import HeaderBar, HeaderBarState
-from .accounts import AccountsWidget, AddAccountWindow, EmptyAccountsList
+from .accounts import AccountsWidget, AddAccountWindow
 from .search_bar import SearchBar
 from . import LoginWidget
 
+class WindowState:
+    NORMAL = 0
+    LOCKED = 1
+    EMPTY  = 2
 
+
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/window.ui')
 class Window(Gtk.ApplicationWindow, GObject.GObject):
     """Main Window object."""
     __gsignals__ = {
@@ -37,22 +43,41 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         'unlocked': (GObject.SignalFlags.RUN_LAST, None, ())
     }
 
+    __gtype_name__ = 'Window'
+
     # Default Window instance
     instance = None
 
     is_empty = GObject.Property(type=bool, default=False)
+    state = GObject.Property(type=int, default=0)
+
+    headerbar = Gtk.Template.Child()
+
+    add_btn = Gtk.Template.Child()
+    search_btn = Gtk.Template.Child()
+
+    main_stack = Gtk.Template.Child()
+
+    search_bar = Gtk.Template.Child()
+
+    notification = Gtk.Template.Child()
+    notification_label = Gtk.Template.Child()
+
+    accounts_viewport = Gtk.Template.Child()
 
     def __init__(self):
-        Gtk.ApplicationWindow.__init__(self, type=Gtk.WindowType.TOPLEVEL)
-        self.set_icon_name("@APP_ID@")
-        self.resize(350, 500)
+        super(Window, self).__init__()
+        self.init_template('Window')
+
         self.connect("locked", self.__on_locked)
         self.connect("unlocked", self.__on_unlocked)
+
         self.key_press_signal = None
         self.restore_state()
+        # Start the Account Manager
         AccountsManager.get_default()
-        self._build_widgets()
-        self.show_all()
+
+        self.__init_widgets()
 
     @staticmethod
     def get_default():
@@ -66,10 +91,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         AccountsManager.get_default().kill()
         self.destroy()
 
-    def set_menu(self, gio_menu):
-        """Set Headerbar popover menu."""
-        HeaderBar.get_default().generate_popover_menu(gio_menu)
-
     def add_account(self, *_):
         if not self.get_application().is_locked:
             add_window = AddAccountWindow()
@@ -78,43 +99,42 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             add_window.present()
 
     def update_view(self, *_):
-        header_bar = HeaderBar.get_default()
         count = Database.get_default().count
         self.set_property("is-empty", count == 0)
         if not self.is_empty:
-            child_name = "accounts-list"
-            header_bar.set_state(HeaderBarState.NORMAL)
+            self.main_stack.set_visible_child_name("normal_state")
+            child_name = "normal_state"
+            self.props.state = WindowState.NORMAL
         else:
-            header_bar.set_state(HeaderBarState.EMPTY)
-            child_name = "empty-accounts-list"
-        child = self.main_stack.get_child_by_name(child_name)
-        child.show_all()
-        self.main_stack.set_visible_child(child)
-
-    @staticmethod
-    def toggle_select(*_):
-        """
-            Toggle select mode
-        """
-        header_bar = HeaderBar.get_default()
-        if header_bar.state == HeaderBarState.NORMAL:
-            header_bar.set_state(HeaderBarState.SELECT)
-        elif header_bar.state != HeaderBarState.LOCKED:
-            header_bar.set_state(HeaderBarState.NORMAL)
+            self.main_stack.set_visible_child_name("empty_state")
+            child_name = "empty_state"
+            self.props.state = WindowState.EMPTY
 
     def toggle_search(self, *_):
+        """
+            Switch the state of the search mode
+
+            Switches the state of the search mode if:
+                - The application is not locked
+                - There are at least one account in the database
+            return: None
+        """
         if not (self.get_application().is_locked or self.is_empty):
             toggled = not self.search_bar.get_property("search_mode_enabled")
             self.search_bar.set_property("search_mode_enabled", toggled)
 
     def save_state(self):
-        """Save window position & size."""
+        """
+            Save window position and maximized state.
+        """
         settings = Settings.get_default()
         settings.window_position = self.get_position()
         settings.window_maximized = self.is_maximized()
 
     def restore_state(self):
-        """Restore the window's state."""
+        """
+            Restore the window's state.
+        """
         settings = Settings.get_default()
         # Restore the window position
         position_x, position_y = settings.window_position
@@ -129,85 +149,40 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         if settings.window_maximized:
             self.maximize()
 
-    def _build_widgets(self):
+    def __init_widgets(self):
         """Build main window widgets."""
 
-        # Actions
+        # Register Actions
         self.__add_action("add-account", self.add_account)
         self.__add_action("toggle-searchbar", self.toggle_search)
 
-        # HeaderBar
-        header_bar = HeaderBar.get_default()
-        header_bar.add_btn.set_action_name("win.add-account")
-        self.set_titlebar(header_bar)
-
-        # Main Container
-        self.main_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
-        # Main Stack
-        self.main_stack = Gtk.Stack()
-
-        # Accounts List
-        account_list_cntr = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
+        # Set up accounts Widget
         accounts_widget = AccountsWidget.get_default()
         accounts_widget.connect("changed", self.update_view)
+        self.accounts_viewport.add(accounts_widget)
 
-        # Search Bar
-        self.search_bar = SearchBar()
-        self.search_bar.search_button = header_bar.search_btn
-        self.search_bar.search_list = accounts_widget.accounts_lists
-
-
-        account_list_cntr.pack_start(self.search_bar, False, False, 0)
-        account_list_cntr.pack_start(accounts_widget, True, True, 0)
-
-        self.main_stack.add_named(account_list_cntr,
-                                  "accounts-list")
-
-        # Empty accounts list
-        self.main_stack.add_named(EmptyAccountsList.get_default(),
-                                  "empty-accounts-list")
+        # Login Widget
         login_widget = LoginWidget.get_default()
         login_widget.login_btn.connect("clicked", self.__on_unlock)
         self.main_stack.add_named(login_widget, "login")
 
-        self.main_container.pack_start(self.main_stack, True, True, 0)
-        self.add(self.main_container)
         self.update_view()
 
     def _on_account_delete(self, *_):
-        Window.toggle_select()
         self.update_view()
 
     def __on_delete_clicked(self, *__):
-        notification = Gd.Notification()
-        accounts_widget = AccountsWidget.get_default()
-        # notification.connect("dismissed", accounts_widget.delete_selected)
-        notification.set_timeout(5)
-        container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        self.notification_label.set_text(_("An account or more were removed."))
+        self.notification.set_reveal_child(True)
+        GLib.timeout_add_seconds(5,
+                                lambda _: self.notification.set_reveal_child(False), None)
 
-        notification_lbl = Gtk.Label()
-        notification_lbl.set_text(_("An account or more were removed."))
-        container.pack_start(notification_lbl, False, False, 3)
-
-        undo_btn = Gtk.Button()
-        undo_btn.set_label(_("Undo"))
-        undo_btn.connect("clicked", lambda widget: notification.hide())
-        container.pack_end(undo_btn, False, False, 3)
-
-        notification.add(container)
-        accounts_widget.add(notification)
-        accounts_widget.reorder_child(notification, 1)
-        accounts_widget.show_all()
 
     def __on_locked(self, *_):
         if self.key_press_signal:
             self.disconnect(self.key_press_signal)
-        HeaderBar.get_default().set_state(HeaderBarState.LOCKED)
-        child = self.main_stack.get_child_by_name("login")
-        child.show_all()
-        self.main_stack.set_visible_child(child)
+        self.props.state = WindowState.LOCKED
+        self.main_stack.set_visible_child_name("login")
 
     def __on_unlocked(self, *_):
         self.update_view()
