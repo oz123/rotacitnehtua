@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-01-01 06:20+0000\n"
+"PO-Revision-Date: 2019-02-13 11:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "authenticator/translation/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -59,9 +59,9 @@ msgid ""
 "Since I have moved the application to GOME Gitlab's World group, a Flatpak "
 "build for each new commit is available to download from the site's website."
 msgstr ""
-"Siden jeg har flyttet programmet til GNOME sin Gitlab-verdensgruppe, finnes "
-"et Flatpak-bygg tilgjengelig for hver nye innsendelse som er tilgjengelig "
-"fornedlasting fra sidens nettside."
+"Siden jeg har flyttet programmet til GNOME sin GitLab-verdensgruppe, finnes "
+"et Flatpak-bygg tilgjengelig for hver nye innsendelse tilgjengelig for "
+"nedlasting fra sidens nettside."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
 msgid "Backup and restore from a basic JSON file"
@@ -271,8 +271,9 @@ msgid "Lock the application with a password"
 msgstr "Mulighet for å låse programmet med et passord"
 
 #: data/ui/settings.ui.in:279
+#, fuzzy
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Gjør kontoene dine tryggere "
 
 #: data/ui/settings.ui.in:303
 msgid "Password"
@@ -409,11 +410,11 @@ msgstr "Kunne ikke generere hemmelig kode"
 
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
-msgstr ""
+msgstr "Identitetsbekreftelsespassordet ble slettet. Start programmet på nytt."
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
-msgstr ""
+msgstr "Identitetsbekreftelsespassordet er påslått. Start programmet på nytt."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
