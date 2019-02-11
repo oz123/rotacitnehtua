@@ -16,15 +16,5 @@
         <summary>Default window maximized behaviour</summary>
         <description></description>
     </key>
-    <key name="is-locked" type="b">
-        <default>false</default>
-        <summary>Whether the application is locked with a password or not</summary>
-        <description></description>
-    </key>
-    <key name="can-be-locked" type="b">
-        <default>false</default>
-        <summary>Whether the application can be locked or not</summary>
-        <description></description>
-    </key>
   </schema>
 </schemalist>

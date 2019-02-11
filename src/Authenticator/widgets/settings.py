@@ -69,7 +69,7 @@ class SettingsWindow(Gtk.Window):
     def __on_app_set_password(self, __, state):
         if state and not Keyring.get_default().has_password():
             self.props.view = SettingsView.PASSWORD
-        else:
+        elif Keyring.get_default().has_password():
             Keyring.get_default().clear_password()
             self.__send_notification(_("Authentication password was unset. Please restart the application"))
 

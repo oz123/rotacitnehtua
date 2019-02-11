@@ -89,7 +89,7 @@ class Application(Gtk.Application):
     def __generate_menu(self):
         """Generate application menu."""
         # Lock/Unlock
-        if Settings.get_default().can_be_locked:
+        if Keyring.get_default().has_password():
             lock_content = Gio.Menu.new()
             lock_content.append_item(Gio.MenuItem.new(_("Lock the application"), "app.lock"))
             self._menu.append_item(Gio.MenuItem.new_section(None, lock_content))
