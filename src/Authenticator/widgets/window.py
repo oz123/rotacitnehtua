@@ -17,14 +17,15 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gi.repository import Gtk, GObject, Gio, GLib
-from ..models import Logger, Settings, AccountsManager
-from .accounts import AccountsWidget, AddAccountWindow
+
+from Authenticator.models import Logger, Settings, AccountsManager
+from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
+
 
 class WindowState:
     NORMAL = 0
     LOCKED = 1
     EMPTY  = 2
-
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/window.ui')
 class Window(Gtk.ApplicationWindow, GObject.GObject):
@@ -107,8 +108,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             return: None
         """
         if self.props.state == WindowState.NORMAL:
-            toggled = not self.search_bar.get_property("search_mode_enabled")
-            self.search_bar.set_property("search_mode_enabled", toggled)
+            toggled = not self.search_btn.props.active
+            self.search_btn.set_property("toggled", toggled)
 
     def save_state(self):
         """
@@ -146,21 +147,21 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         accounts_widget = AccountsWidget.get_default()
         self.accounts_viewport.add(accounts_widget)
 
+        self.search_bar.bind_property("search-mode-enabled", self.search_btn,
+                                      "active", GObject.BindingFlags.BIDIRECTIONAL)
+
     def _on_account_delete(self, *_):
         self.notify("state")
 
     @Gtk.Template.Callback('unlock_btn_clicked')
     def __unlock_btn_clicked(self, *_):
-        from ..models import Keyring
+        from Authenticator.models import Keyring
         typed_password = self.password_entry.get_text()
         if typed_password == Keyring.get_password():
             self.get_application().set_property("is-locked", False)
             # Reset password entry
             self.password_entry.get_style_context().remove_class("error")
             self.password_entry.set_text("")
-            # Connect on type search bar
-            self.key_press_signal = self.connect("key-press-event", lambda x,
-                                                y: self.search_bar.handle_event(y))
         else:
             self.password_entry.get_style_context().add_class("error")
 
@@ -181,6 +182,9 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             if self.key_press_signal:
                 self.disconnect(self.key_press_signal)
         else:
+            # Connect on type search bar
+            self.key_press_signal = self.connect("key-press-event", lambda x,
+                                                y: self.search_bar.handle_event(y))
             if self.props.state == WindowState.EMPTY:
                 visible_child = "empty_state"
                 self.search_btn.set_visible(False)
