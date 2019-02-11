@@ -27,7 +27,7 @@ class AboutDialog(Gtk.AboutDialog):
     __gtype_name__ ="AboutDialog"
 
     def __init__(self):
-        super().__init__(self)
+        super(AboutDialog, self).__init__()
 
     def __repr__(self):
         return '<AboutDialog>'

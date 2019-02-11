@@ -58,7 +58,6 @@ class AddAccountWindow(Gtk.Window):
 
     def _on_account_config_changed(self, _, state):
         """Set the sensitivity of the AddButton depends on the AccountConfig."""
-        print(state)
         self.add_btn.set_sensitive(state)
 
     @Gtk.Template.Callback('close_btn_clicked')
