@@ -286,10 +286,9 @@ msgid "General"
 msgstr "Allgemein"
 
 #: data/ui/shortcuts.ui:17
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Tastenkürzel"
+msgstr "Verknüpfungen anzeigen"
 
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
@@ -302,10 +301,9 @@ msgid "Quit"
 msgstr "Beenden"
 
 #: data/ui/shortcuts.ui:40
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Konto"
+msgstr "Kontos"
 
 #: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
@@ -316,7 +314,7 @@ msgstr "Hinzufügen"
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Search"
-msgstr "Suche"
+msgstr "Suchen"
 
 #: data/ui/window.ui.in:60
 msgid "There are no accounts yet…"
