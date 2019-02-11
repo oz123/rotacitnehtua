@@ -6,7 +6,7 @@
     <file alias="qrscanner-symbolic.svg">icons/hicolor/symbolic/actions/qrscanner-symbolic.svg</file>
 
     <!-- Accounts logo fallback -->
-    <file alias="authenticator-fallback">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
+    <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
 
     <!-- UI Files -->
     <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>

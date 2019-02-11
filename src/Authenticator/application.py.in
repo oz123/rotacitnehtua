@@ -22,8 +22,8 @@ from gi import require_version
 
 require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
-from .widgets import Window, AboutDialog, import_json, export_json
-from .models import Settings, Clipboard, Logger
+from .widgets import Window, WindowState, AboutDialog, import_json, export_json
+from .models import Database, Settings, Clipboard, Logger
 
 
 class Application(Gtk.Application):
@@ -45,10 +45,13 @@ class Application(Gtk.Application):
 
     def __is_locked_changed(self, *_):
         if self.is_locked:
-            Window.get_default().emit("locked")
+            Window.get_default().state = WindowState.LOCKED
         else:
-            Window.get_default().emit("unlocked")
-
+            count = Database.get_default().count
+            if count == 0:
+                Window.get_default().state = WindowState.EMPTY
+            else:
+                Window.get_default().state = WindowState.NORMAL
     @staticmethod
     def get_default():
         if Application.instance is None:

@@ -30,9 +30,6 @@ from ...utils import load_pixbuf_from_provider
 
 
 class AccountsWidget(Gtk.Box, GObject.GObject):
-    __gsignals__ = {
-        'changed': (GObject.SignalFlags.RUN_LAST, None, ())
-    }
     instance = None
 
     def __init__(self):
@@ -79,7 +76,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
             self.accounts_container.pack_start(provider_widget, False, False, 0)
         accounts_list.add_row(account)
         self._reorder()
-        self.emit("changed")
 
     @property
     def accounts_lists(self):
@@ -89,7 +85,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         for account_list in self._providers.values():
             self.accounts_container.remove(account_list.get_parent())
         self._providers = {}
-        self.emit("changed")
 
     def set_state(self, state):
         for account_list in self._providers.values():

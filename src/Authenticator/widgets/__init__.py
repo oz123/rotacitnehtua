@@ -18,7 +18,6 @@
 """
 from .about import AboutDialog
 from .accounts import AccountsList, AccountRow
-from .login import LoginWidget
-from .window import Window
+from .window import Window, WindowState
 from .settings import SettingsWindow
 from .utils import import_json, export_json

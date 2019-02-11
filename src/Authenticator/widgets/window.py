@@ -18,12 +18,9 @@
 """
 from gettext import gettext as _
 
-from gi import require_version
-require_version("Gtk", "3.0")
 from gi.repository import Gtk, GObject, Gio, GLib
-from ..models import Logger, Settings, Database, AccountsManager
+from ..models import Logger, Settings, AccountsManager
 from .accounts import AccountsWidget, AddAccountWindow
-from . import LoginWidget
 
 class WindowState:
     NORMAL = 0
@@ -35,9 +32,7 @@ class WindowState:
 class Window(Gtk.ApplicationWindow, GObject.GObject):
     """Main Window object."""
     __gsignals__ = {
-        'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
-        'locked': (GObject.SignalFlags.RUN_LAST, None, ()),
-        'unlocked': (GObject.SignalFlags.RUN_LAST, None, ())
+        'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,))
     }
 
     __gtype_name__ = 'Window'
@@ -45,7 +40,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     # Default Window instance
     instance = None
 
-    is_empty = GObject.Property(type=bool, default=False)
+
     state = GObject.Property(type=int, default=0)
 
     headerbar = Gtk.Template.Child()
@@ -63,12 +58,14 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     accounts_viewport = Gtk.Template.Child()
 
+    unlock_btn = Gtk.Template.Child()
+    password_entry = Gtk.Template.Child()
+
     def __init__(self):
         super(Window, self).__init__()
         self.init_template('Window')
 
-        self.connect("locked", self.__on_locked)
-        self.connect("unlocked", self.__on_unlocked)
+        self.connect("notify::state", self.__state_changed)
 
         self.key_press_signal = None
         self.restore_state()
@@ -102,19 +99,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             popover.set_visible(not popover.get_visible())
         self.primary_menu_btn.connect('clicked', primary_menu_btn_handler, popover)
 
-    def update_view(self, *_):
-        count = Database.get_default().count
-        self.set_property("is-empty", count == 0)
-        print("hey")
-        if not self.is_empty:
-            self.main_stack.set_visible_child_name("normal_state")
-            child_name = "normal_state"
-            self.props.state = WindowState.NORMAL
-        else:
-            self.main_stack.set_visible_child_name("empty_state")
-            child_name = "empty_state"
-            self.props.state = WindowState.EMPTY
-
     def toggle_search(self, *_):
         """
             Switch the state of the search mode
@@ -124,7 +108,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 - There are at least one account in the database
             return: None
         """
-        if not (self.get_application().is_locked or self.is_empty):
+        if self.props.state == WindowState.NORMAL:
             toggled = not self.search_bar.get_property("search_mode_enabled")
             self.search_bar.set_property("search_mode_enabled", toggled)
 
@@ -156,55 +140,31 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     def __init_widgets(self):
         """Build main window widgets."""
-
         # Register Actions
         self.__add_action("add-account", self.add_account)
         self.__add_action("toggle-searchbar", self.toggle_search)
 
         # Set up accounts Widget
         accounts_widget = AccountsWidget.get_default()
-        accounts_widget.connect("changed", self.update_view)
         self.accounts_viewport.add(accounts_widget)
 
-        # Login Widget
-        login_widget = LoginWidget.get_default()
-        login_widget.login_btn.connect("clicked", self.__on_unlock)
-        self.main_stack.add_named(login_widget, "login")
-
-        self.update_view()
-
     def _on_account_delete(self, *_):
-        self.update_view()
+        self.notify("state")
 
-    def __on_delete_clicked(self, *__):
-        self.notification_label.set_text(_("An account or more were removed."))
-        self.notification.set_reveal_child(True)
-        GLib.timeout_add_seconds(5,
-                                lambda _: self.notification.set_reveal_child(False), None)
-
-
-    def __on_locked(self, *_):
-        if self.key_press_signal:
-            self.disconnect(self.key_press_signal)
-        self.props.state = WindowState.LOCKED
-        self.main_stack.set_visible_child_name("login")
-
-    def __on_unlocked(self, *_):
-        self.update_view()
-
-    def __on_unlock(self, *_):
+    @Gtk.Template.Callback('unlock_btn_clicked')
+    def __unlock_btn_clicked(self, *_):
         from ..models import Keyring
-        login_widget = LoginWidget.get_default()
-        typed_password = login_widget.password
+        typed_password = self.password_entry.get_text()
         if typed_password == Keyring.get_password():
             self.get_application().set_property("is-locked", False)
-            login_widget.set_has_error(False)
-            login_widget.password = ""
+            # Reset password entry
+            self.password_entry.get_style_context().remove_class("error")
+            self.password_entry.set_text("")
+            # Connect on type search bar
             self.key_press_signal = self.connect("key-press-event", lambda x,
                                                 y: self.search_bar.handle_event(y))
-            self.update_view()
         else:
-            login_widget.set_has_error(True)
+            self.password_entry.get_style_context().add_class("error")
 
     def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
@@ -212,6 +172,28 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         if prop_bind:
             self.bind_property(prop_bind, action, "enabled", bind_flag)
         self.add_action(action)
+
+    def __state_changed(self, *_):
+        if self.props.state == WindowState.LOCKED:
+            visible_child = "locked_state"
+            self.add_btn.set_visible(False)
+            self.add_btn.set_no_show_all(True)
+            self.search_btn.set_visible(False)
+            self.search_btn.set_no_show_all(True)
+            if self.key_press_signal:
+                self.disconnect(self.key_press_signal)
+        else:
+            if self.props.state == WindowState.EMPTY:
+                visible_child = "empty_state"
+                self.search_btn.set_visible(False)
+                self.search_btn.set_no_show_all(True)
+            else:
+                visible_child = "normal_state"
+                self.search_btn.set_visible(True)
+                self.search_btn.set_no_show_all(False)
+            self.add_btn.set_visible(True)
+            self.add_btn.set_no_show_all(False)
+        self.main_stack.set_visible_child_name(visible_child)
 
     @Gtk.Template.Callback('search_changed')
     def __search_changed(self, entry):
