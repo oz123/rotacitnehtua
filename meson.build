@@ -13,10 +13,10 @@ gettext_package = 'Authenticator'
 if get_option('profile') == 'development'
   profile = 'Devel'
   name_suffix = ' (Development)'
+  gettext_package += '-devel'
 else
   profile = ''
   name_suffix = ''
-  gettext_package += '-devel'
 endif
 
 application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile)

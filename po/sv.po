@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 19:56+0100\n"
+"POT-Creation-Date: 2019-02-11 22:35+0100\n"
 "PO-Revision-Date: 2019-01-01 16:01+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/authenticator/"
@@ -19,225 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
+#: data/ui/window.ui.in:255 src/Authenticator/application.py.in:36
 msgid "Authenticator"
 msgstr "Authenticator"
-
-#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
-msgid "Lock the application"
-msgstr "Lås programmet"
-
-#: Authenticator/application.py.in:99
-msgid "from a plain-text JSON file"
-msgstr "från en oformaterad JSON-fil"
-
-#: Authenticator/application.py.in:100
-msgid "in a plain-text JSON file"
-msgstr "i en oformaterad JSON-fil"
-
-#: Authenticator/application.py.in:102
-msgid "Restore"
-msgstr "Återställ"
-
-#: Authenticator/application.py.in:103
-msgid "Backup"
-msgstr "Säkerhetskopiera"
-
-#. Night mode action
-#: Authenticator/application.py.in:111
-msgid "Preferences"
-msgstr "Inställningar"
-
-#: Authenticator/application.py.in:112
-msgid "Donate"
-msgstr "Donera"
-
-#: Authenticator/application.py.in:113
-msgid "Keyboard Shortcuts"
-msgstr "Tangentbordsgenvägar"
-
-#: Authenticator/application.py.in:114
-msgid "About Authenticator"
-msgstr "Om Authenticator"
-
-#: Authenticator/models/account.py:74
-msgid "Default"
-msgstr "Standard"
-
-#: Authenticator/widgets/accounts/add.py:50
-#: Authenticator/widgets/headerbar.py:101
-msgid "Add a new account"
-msgstr "Lägg till ett nytt konto"
-
-#: Authenticator/widgets/accounts/add.py:54
-msgid "Add"
-msgstr "Lägg till"
-
-#: Authenticator/widgets/accounts/add.py:62
-msgid "Scan QR code"
-msgstr "Läs av QR-kod"
-
-#: Authenticator/widgets/accounts/add.py:68
-#: Authenticator/widgets/accounts/edit.py:58
-msgid "Close"
-msgstr "Stäng"
-
-#: Authenticator/widgets/accounts/add.py:161
-msgid "Provider"
-msgstr "Leverantör"
-
-#: Authenticator/widgets/accounts/add.py:171
-msgid "Account name"
-msgstr "Kontonamn"
-
-#: Authenticator/widgets/accounts/add.py:177
-msgid "Secret token"
-msgstr "Hemlig token"
-
-#: Authenticator/widgets/accounts/add.py:260
-msgid "Invalid QR code"
-msgstr "Ogiltig QR-kod"
-
-#: Authenticator/widgets/accounts/add.py:268
-msgid "zbar library is not found. QRCode scanner will be disabled"
-msgstr "zbar-bibliotek hittades inte. QR-kodskanner inaktiveras."
-
-#: Authenticator/widgets/accounts/edit.py:47
-msgid "Edit {} - {}"
-msgstr "Redigera {} - {}"
-
-#: Authenticator/widgets/accounts/edit.py:52
-#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
-msgid "Save"
-msgstr "Spara"
-
-#: Authenticator/widgets/accounts/list.py:164
-msgid "The One-Time Passwords expires in {} seconds"
-msgstr "Engångslösenordet upphör att gälla om {} sekunder"
-
-#. Label
-#: Authenticator/widgets/accounts/list.py:286
-msgid "There are no accounts yet…"
-msgstr "Det finns inga konton ännu…"
-
-#: Authenticator/widgets/accounts/row.py:59
-msgid "Copy"
-msgstr "Kopiera"
-
-#: Authenticator/widgets/accounts/row.py:60
-msgid "Edit"
-msgstr "Redigera"
-
-#: Authenticator/widgets/accounts/row.py:150
-msgid "Couldn't generate the secret code"
-msgstr "Kunde inte generera den hemliga koden"
-
-#: Authenticator/widgets/actions_bar.py:52
-msgid "Delete"
-msgstr "Ta bort"
-
-#: Authenticator/widgets/headerbar.py:99
-msgid "Search"
-msgstr "Sök"
-
-#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
-msgid "Settings"
-msgstr "Inställningar"
-
-#: Authenticator/widgets/headerbar.py:105
-msgid "Selection mode"
-msgstr "Urvalsläge"
-
-#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
-#: Authenticator/widgets/utils.py:48
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: Authenticator/widgets/headerbar.py:183
-msgid "Click on items to select them"
-msgstr "Klicka på objekt för att välja dem"
-
-#: Authenticator/widgets/settings.py:139
-msgid "Authentication Password"
-msgstr "Autentiseringslösenord"
-
-#: Authenticator/widgets/settings.py:152
-msgid "Old Password"
-msgstr "Gammalt lösenord"
-
-#: Authenticator/widgets/settings.py:156
-msgid "Password"
-msgstr "Lösenord"
-
-#: Authenticator/widgets/settings.py:159
-msgid "Repeat Password"
-msgstr "Upprepa lösenord"
-
-#: Authenticator/widgets/settings.py:229
-msgid "Dark theme"
-msgstr "Mörkt tema"
-
-#: Authenticator/widgets/settings.py:229
-msgid "Use a dark theme, if possible"
-msgstr "Använd om möjligt ett mörkt tema"
-
-#: Authenticator/widgets/settings.py:232
-msgid "Appearance"
-msgstr "Utseende"
-
-#: Authenticator/widgets/settings.py:236
-msgid "Clear the database"
-msgstr "Rensa databasen"
-
-#: Authenticator/widgets/settings.py:236
-msgid "Erase existing accounts"
-msgstr "Radera befintliga konton"
-
-#: Authenticator/widgets/settings.py:240
-msgid "Possibility to lock the application with a password"
-msgstr "Möjlighet att låsa programmet med ett lösenord"
-
-#: Authenticator/widgets/settings.py:243
-msgid "Authentication password"
-msgstr "Autentiseringslösenord"
-
-#: Authenticator/widgets/settings.py:244
-msgid "Set up application authentication password"
-msgstr "Konfigurera autentiseringslösenord"
-
-#: Authenticator/widgets/settings.py:250
-msgid "Behaviour"
-msgstr "Beteende"
-
-#: Authenticator/widgets/settings.py:259
-msgid "The application needs to be restarted first."
-msgstr "Programmet måste startas om först."
-
-#: Authenticator/widgets/settings.py:288
-msgid "The existing accounts will be erased in 5 seconds"
-msgstr "De befintliga kontona kommer att raderas om 5 sekunder"
-
-#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
-msgid "Undo"
-msgstr "Ångra"
-
-#: Authenticator/widgets/utils.py:18
-msgid "Open"
-msgstr "Öppna"
-
-#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
-msgid "JSON files"
-msgstr "JSON-filer"
-
-#: Authenticator/widgets/utils.py:47
-msgid "Select"
-msgstr "Välj"
-
-#: Authenticator/widgets/window.py.in:213
-msgid "An account or more were removed."
-msgstr "Ett konto eller fler, togs bort."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
@@ -268,6 +54,115 @@ msgstr "Vackert användargränssnitt"
 msgid "Huge database of (290+) websites/applications"
 msgstr "Enorm databas med (290+) webbplatser/program"
 
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:34
+msgid ""
+"Since I have moved the application to GOME Gitlab's World group, a Flatpak "
+"build for each new commit is available to download from the site's website."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
+msgid "Backup and restore from a basic JSON file"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
+#, fuzzy
+msgid "Backup and restore from an encrypted-GPG JSON file"
+msgstr "från en OpenPGP-krypterad JSON-fil"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
+msgid "Add andOTP support (free and open Android 2FA application)"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
+msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
+msgid "Fix Flatpak Build with the latest GNOME Runtime"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
+msgid "Move the project to GOME Gitlab's World group"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:50
+msgid "GNOME Shell Search provider"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:51
+msgid "Codes expire simultaneously #91"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:58
+msgid "Revamped main window to more closely follow the GNOME HIG"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
+msgid "Revamped add a new account window to make it easier to use"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
+msgid ""
+"Possibility to add an account from a provider not listed in the shipped "
+"database"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
+msgid "Possibilty to edit an account"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
+msgid "One Time Password now visible by default"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
+msgid "Fix python-dbus by using GDbus instead"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
+msgid "Fix the QRScanner on GNOME Shell"
+msgstr "Fixa QR-läsaren i GNOME Shell"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
+msgid "Add a new entry for the account's username"
+msgstr "Lägg till en ny post för kontots användarnamn"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:78
+msgid "Updated database of supported accounts"
+msgstr "Uppdaterad databas över konton som stöds"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
+msgid "HOTFIX: App not running in DE other than GNOME"
+msgstr "SNABBFIX: Programmet gick inte köra annat än i GNOME"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
+msgid "Rename project to Authenticator"
+msgstr "Byt namn på projektet till Authenticator"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
+msgid "Cleaner code base"
+msgstr "Renare kodbas"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:94
+msgid "Faster startup"
+msgstr "Snabbare uppstart"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:95
+msgid "Remove unneeded features"
+msgstr "Ta bort onödiga funktioner"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:96
+msgid "Switch to pyzbar instead of zbarlight"
+msgstr "Växla till pyzbar istället för zbarlight"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
+msgid "Flatpak package"
+msgstr "Flatpak-paket"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
+msgid "Bilal Elmoussaoui"
+msgstr "Bilal Elmoussaoui"
+
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
 msgstr "Tvåfaktorsautentisering"
@@ -297,17 +192,89 @@ msgstr "Aktivera/inaktivera nattläge inifrån programmet"
 msgid "Default window maximized behaviour"
 msgstr "Standardfönstrets maximeringsbeteende"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
-msgid "Whether the application is locked with a password or not"
-msgstr "Om programmet är låst med lösenord eller inte"
-
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
-msgid "Whether the application can be locked or not"
-msgstr "Om programmet kan låsas eller inte"
-
 #: data/ui/about_dialog.ui.in:10
 msgid "Two-factor authentication code generator."
 msgstr "Generator för tvåfaktorsautentiseringskoder."
+
+#: data/ui/about_dialog.ui.in:13
+msgid "translator-credits"
+msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
+
+#: data/ui/account_add.ui:24
+msgid "Add a new account"
+msgstr "Lägg till ett nytt konto"
+
+#: data/ui/account_add.ui:27 data/ui/account_edit.ui:21
+msgid "Close"
+msgstr "Stäng"
+
+#: data/ui/account_add.ui:36
+msgid "Add"
+msgstr "Lägg till"
+
+#: data/ui/account_add.ui:56
+#, fuzzy
+msgid "Scan QR Code"
+msgstr "Läs av QR-kod"
+
+#: data/ui/account_edit.ui:30 data/ui/settings.ui.in:454
+#: src/Authenticator/widgets/utils.py:34
+msgid "Save"
+msgstr "Spara"
+
+#: data/ui/account_row.ui:23
+msgid "Edit"
+msgstr "Redigera"
+
+#: data/ui/account_row.ui:37
+msgid "Delete"
+msgstr "Ta bort"
+
+#: data/ui/account_row.ui:92
+msgid "Copy PIN to clipboard"
+msgstr ""
+
+#: data/ui/settings.ui.in:66
+msgid "Behaviour"
+msgstr "Beteende"
+
+#: data/ui/settings.ui.in:100
+msgid "Dark theme"
+msgstr "Mörkt tema"
+
+#: data/ui/settings.ui.in:117
+msgid "Use a dark theme, if possible"
+msgstr "Använd om möjligt ett mörkt tema"
+
+#: data/ui/settings.ui.in:179 src/Authenticator/application.py.in:91
+msgid "Lock the application"
+msgstr "Lås programmet"
+
+#: data/ui/settings.ui.in:196
+#, fuzzy
+msgid "Lock the application with a password"
+msgstr "Möjlighet att låsa programmet med ett lösenord"
+
+#: data/ui/settings.ui.in:279
+msgid "Keep your accounts safer "
+msgstr ""
+
+#: data/ui/settings.ui.in:303
+msgid "Password"
+msgstr "Lösenord"
+
+#: data/ui/settings.ui.in:348
+msgid "Repeat Password"
+msgstr "Upprepa lösenord"
+
+#: data/ui/settings.ui.in:410
+msgid "Settings"
+msgstr "Inställningar"
+
+#: data/ui/settings.ui.in:427
+#, fuzzy
+msgid "Authenticator Password"
+msgstr "Autentiseringslösenord"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -341,31 +308,174 @@ msgstr "Lägg till"
 
 #: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
-msgid "Select"
-msgstr "Välj"
-
-#: data/ui/shortcuts.ui:58
-msgctxt "shortcut window"
 msgid "Search"
 msgstr "Sök"
 
-#: authenticator.py.in:54
+#: data/ui/window.ui.in:60
+msgid "There are no accounts yet…"
+msgstr "Det finns inga konton ännu…"
+
+#: data/ui/window.ui.in:187
+#, fuzzy
+msgid "Authenticator is locked"
+msgstr "Authenticator"
+
+#: data/ui/window.ui.in:222
+msgid "Unlock"
+msgstr "Lås upp"
+
+#: src/authenticator.py.in:49
 msgid "Start in debug mode"
 msgstr "Starta i felsökningsläge"
 
-#: authenticator.py.in:56
+#: src/authenticator.py.in:51
 msgid "Authenticator version number"
 msgstr "Versionsnummer för Authenticator"
 
-#~ msgid "translator-credits"
-#~ msgstr "Anders Jonsson <anders.jonsson@norsjovallen.se>"
+#: src/Authenticator/application.py.in:99
+msgid "from a plain-text JSON file"
+msgstr "från en oformaterad JSON-fil"
+
+#: src/Authenticator/application.py.in:100
+msgid "in a plain-text JSON file"
+msgstr "i en oformaterad JSON-fil"
+
+#: src/Authenticator/application.py.in:102
+msgid "Restore"
+msgstr "Återställ"
+
+#: src/Authenticator/application.py.in:103
+msgid "Backup"
+msgstr "Säkerhetskopiera"
+
+#. Night mode action
+#: src/Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: src/Authenticator/application.py.in:112
+msgid "Donate"
+msgstr "Donera"
+
+#: src/Authenticator/application.py.in:113
+msgid "Keyboard Shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: src/Authenticator/application.py.in:114
+msgid "About Authenticator"
+msgstr "Om Authenticator"
+
+#: src/Authenticator/models/account.py:70
+msgid "Default"
+msgstr "Standard"
+
+#: src/Authenticator/widgets/accounts/add.py:204
+msgid "Invalid QR code"
+msgstr "Ogiltig QR-kod"
+
+#: src/Authenticator/widgets/accounts/edit.py:45
+msgid "Edit {} - {}"
+msgstr "Redigera {} - {}"
+
+#: src/Authenticator/widgets/accounts/list.py:144
+msgid "The One-Time Passwords expires in {} seconds"
+msgstr "Engångslösenordet upphör att gälla om {} sekunder"
+
+#: src/Authenticator/widgets/accounts/row.py:75
+msgid "Couldn't generate the secret code"
+msgstr "Kunde inte generera den hemliga koden"
+
+#: src/Authenticator/widgets/settings.py:73
+msgid "Authentication password was unset. Please restart the application"
+msgstr ""
+
+#: src/Authenticator/widgets/settings.py:81
+msgid "Authentication password is now enabled. Please restart the application."
+msgstr ""
+
+#: src/Authenticator/widgets/utils.py:32
+msgid "Open"
+msgstr "Öppna"
+
+#: src/Authenticator/widgets/utils.py:36 src/Authenticator/widgets/utils.py:62
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/Authenticator/widgets/utils.py:46 src/Authenticator/widgets/utils.py:51
+msgid "JSON files"
+msgstr "JSON-filer"
+
+#: src/Authenticator/widgets/utils.py:61
+msgid "Select"
+msgstr "Välj"
+
+#~ msgid "Provider"
+#~ msgstr "Leverantör"
+
+#~ msgid "Account name"
+#~ msgstr "Kontonamn"
+
+#~ msgid "Secret token"
+#~ msgstr "Hemlig token"
+
+#~ msgid "zbar library is not found. QRCode scanner will be disabled"
+#~ msgstr "zbar-bibliotek hittades inte. QR-kodskanner inaktiveras."
+
+#~ msgid "Copy"
+#~ msgstr "Kopiera"
+
+#~ msgid "Search"
+#~ msgstr "Sök"
+
+#~ msgid "Selection mode"
+#~ msgstr "Urvalsläge"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Klicka på objekt för att välja dem"
+
+#~ msgid "Old Password"
+#~ msgstr "Gammalt lösenord"
+
+#~ msgid "Appearance"
+#~ msgstr "Utseende"
+
+#~ msgid "Clear the database"
+#~ msgstr "Rensa databasen"
+
+#~ msgid "Erase existing accounts"
+#~ msgstr "Radera befintliga konton"
+
+#~ msgid "Authentication password"
+#~ msgstr "Autentiseringslösenord"
+
+#~ msgid "Set up application authentication password"
+#~ msgstr "Konfigurera autentiseringslösenord"
+
+#~ msgid "The application needs to be restarted first."
+#~ msgstr "Programmet måste startas om först."
+
+#~ msgid "The existing accounts will be erased in 5 seconds"
+#~ msgstr "De befintliga kontona kommer att raderas om 5 sekunder"
+
+#~ msgid "Undo"
+#~ msgstr "Ångra"
+
+#~ msgid "An account or more were removed."
+#~ msgstr "Ett konto eller fler, togs bort."
+
+#~ msgid "Whether the application is locked with a password or not"
+#~ msgstr "Om programmet är låst med lösenord eller inte"
+
+#~ msgid "Whether the application can be locked or not"
+#~ msgstr "Om programmet kan låsas eller inte"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select"
+#~ msgstr "Välj"
 
 #, fuzzy
 #~ msgid "Authenticator@NAME_SUFFIX@"
 #~ msgstr "Authenticator"
-
-#~ msgid "from an OpenPGP-encrypted JSON file"
-#~ msgstr "från en OpenPGP-krypterad JSON-fil"
 
 #~ msgid "in an OpenPGP-encrypted JSON file"
 #~ msgstr "i en OpenPGP-krypterad JSON-fil"
@@ -403,42 +513,9 @@ msgstr "Versionsnummer för Authenticator"
 #~ msgid "com.github.bilelmoussaoui.Authenticator"
 #~ msgstr "com.github.bilelmoussaoui.Authenticator"
 
-#~ msgid "Bilal Elmoussaoui"
-#~ msgstr "Bilal Elmoussaoui"
-
 #, fuzzy
 #~ msgid "Backup Password"
 #~ msgstr "Ändra lösenord"
-
-#~ msgid "Fix the QRScanner on GNOME Shell"
-#~ msgstr "Fixa QR-läsaren i GNOME Shell"
-
-#~ msgid "Add a new entry for the account's username"
-#~ msgstr "Lägg till en ny post för kontots användarnamn"
-
-#~ msgid "Updated database of supported accounts"
-#~ msgstr "Uppdaterad databas över konton som stöds"
-
-#~ msgid "HOTFIX: App not running in DE other than GNOME"
-#~ msgstr "SNABBFIX: Programmet gick inte köra annat än i GNOME"
-
-#~ msgid "Rename project to Authenticator"
-#~ msgstr "Byt namn på projektet till Authenticator"
-
-#~ msgid "Cleaner code base"
-#~ msgstr "Renare kodbas"
-
-#~ msgid "Faster startup"
-#~ msgstr "Snabbare uppstart"
-
-#~ msgid "Remove unneeded features"
-#~ msgstr "Ta bort onödiga funktioner"
-
-#~ msgid "Switch to pyzbar instead of zbarlight"
-#~ msgstr "Växla till pyzbar istället för zbarlight"
-
-#~ msgid "Flatpak package"
-#~ msgstr "Flatpak-paket"
 
 #~ msgid "Next"
 #~ msgstr "Nästa"
@@ -495,9 +572,6 @@ msgstr "Versionsnummer för Authenticator"
 
 #~ msgid "Enter your password"
 #~ msgstr "Ange ditt lösenord"
-
-#~ msgid "Unlock"
-#~ msgstr "Lås upp"
 
 #~ msgid "Remove the account"
 #~ msgstr "Ta bort kontot"
