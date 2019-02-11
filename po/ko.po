@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 19:56+0100\n"
+"POT-Creation-Date: 2019-02-11 22:35+0100\n"
 "PO-Revision-Date: 2019-01-01 10:42+0000\n"
 "Last-Translator: Minori Hiraoka (미노리) <minori@mnetwork.co.kr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/authenticator/"
@@ -19,227 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: Authenticator/application.py.in:39
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
+#: data/ui/window.ui.in:255 src/Authenticator/application.py.in:36
 msgid "Authenticator"
 msgstr "인증기"
-
-#: Authenticator/application.py.in:91 Authenticator/widgets/settings.py:239
-msgid "Lock the application"
-msgstr "애플리케이션을 잠그기"
-
-#: Authenticator/application.py.in:99
-msgid "from a plain-text JSON file"
-msgstr "JSON 파일에서 가져오기"
-
-#: Authenticator/application.py.in:100
-msgid "in a plain-text JSON file"
-msgstr "JSON 파일로 내보내기"
-
-#: Authenticator/application.py.in:102
-msgid "Restore"
-msgstr "복원"
-
-#: Authenticator/application.py.in:103
-msgid "Backup"
-msgstr "백업"
-
-#. Night mode action
-#: Authenticator/application.py.in:111
-msgid "Preferences"
-msgstr "설정"
-
-#: Authenticator/application.py.in:112
-msgid "Donate"
-msgstr "기부"
-
-#: Authenticator/application.py.in:113
-msgid "Keyboard Shortcuts"
-msgstr "키보드 단축키"
-
-#: Authenticator/application.py.in:114
-msgid "About Authenticator"
-msgstr "인증기에 대하여"
-
-#: Authenticator/models/account.py:74
-msgid "Default"
-msgstr "기본값"
-
-#: Authenticator/widgets/accounts/add.py:50
-#: Authenticator/widgets/headerbar.py:101
-msgid "Add a new account"
-msgstr "새로운 계정 추가"
-
-#: Authenticator/widgets/accounts/add.py:54
-msgid "Add"
-msgstr "추가"
-
-#: Authenticator/widgets/accounts/add.py:62
-msgid "Scan QR code"
-msgstr "QR 코드 스캔"
-
-#: Authenticator/widgets/accounts/add.py:68
-#: Authenticator/widgets/accounts/edit.py:58
-msgid "Close"
-msgstr "닫기"
-
-#: Authenticator/widgets/accounts/add.py:161
-msgid "Provider"
-msgstr "제공자"
-
-#: Authenticator/widgets/accounts/add.py:171
-msgid "Account name"
-msgstr "계정 이름"
-
-#: Authenticator/widgets/accounts/add.py:177
-msgid "Secret token"
-msgstr "비밀 토큰"
-
-#: Authenticator/widgets/accounts/add.py:260
-msgid "Invalid QR code"
-msgstr "올바르지 않은 QR 코드"
-
-#: Authenticator/widgets/accounts/add.py:268
-msgid "zbar library is not found. QRCode scanner will be disabled"
-msgstr ""
-"설치된 zbar 라이브러리가 발견되지 않았습니다. QR 코드 스캐너가 비활성화 됩니"
-"다"
-
-#: Authenticator/widgets/accounts/edit.py:47
-msgid "Edit {} - {}"
-msgstr "{} - {} 편집"
-
-#: Authenticator/widgets/accounts/edit.py:52
-#: Authenticator/widgets/settings.py:143 Authenticator/widgets/utils.py:20
-msgid "Save"
-msgstr "저장"
-
-#: Authenticator/widgets/accounts/list.py:164
-msgid "The One-Time Passwords expires in {} seconds"
-msgstr "일회용 비밀번호가 {} 초 후에 만료됩니다"
-
-#. Label
-#: Authenticator/widgets/accounts/list.py:286
-msgid "There are no accounts yet…"
-msgstr "아직 계정이 없습니다…"
-
-#: Authenticator/widgets/accounts/row.py:59
-msgid "Copy"
-msgstr "복사"
-
-#: Authenticator/widgets/accounts/row.py:60
-msgid "Edit"
-msgstr "편집"
-
-#: Authenticator/widgets/accounts/row.py:150
-msgid "Couldn't generate the secret code"
-msgstr "비밀 코드를 생성할 수 없었습니다"
-
-#: Authenticator/widgets/actions_bar.py:52
-msgid "Delete"
-msgstr "삭제"
-
-#: Authenticator/widgets/headerbar.py:99
-msgid "Search"
-msgstr "검색"
-
-#: Authenticator/widgets/headerbar.py:103 Authenticator/widgets/settings.py:212
-msgid "Settings"
-msgstr "설정"
-
-#: Authenticator/widgets/headerbar.py:105
-msgid "Selection mode"
-msgstr "선택 모드"
-
-#: Authenticator/widgets/headerbar.py:107 Authenticator/widgets/utils.py:22
-#: Authenticator/widgets/utils.py:48
-msgid "Cancel"
-msgstr "취소"
-
-#: Authenticator/widgets/headerbar.py:183
-msgid "Click on items to select them"
-msgstr "항목을 눌러 선택하세요"
-
-#: Authenticator/widgets/settings.py:139
-msgid "Authentication Password"
-msgstr "인증 암호"
-
-#: Authenticator/widgets/settings.py:152
-msgid "Old Password"
-msgstr "기존 암호"
-
-#: Authenticator/widgets/settings.py:156
-msgid "Password"
-msgstr "암호"
-
-#: Authenticator/widgets/settings.py:159
-msgid "Repeat Password"
-msgstr "암호 확인"
-
-#: Authenticator/widgets/settings.py:229
-msgid "Dark theme"
-msgstr "어두운 테마"
-
-#: Authenticator/widgets/settings.py:229
-msgid "Use a dark theme, if possible"
-msgstr "가능하다면 어두운 테마를 사용합니다"
-
-#: Authenticator/widgets/settings.py:232
-msgid "Appearance"
-msgstr "표시 형식"
-
-#: Authenticator/widgets/settings.py:236
-msgid "Clear the database"
-msgstr "데이터베이스 지우기"
-
-#: Authenticator/widgets/settings.py:236
-msgid "Erase existing accounts"
-msgstr "존재하는 계정 삭제"
-
-#: Authenticator/widgets/settings.py:240
-msgid "Possibility to lock the application with a password"
-msgstr "애플리케이션을 암호로 잠글 수 있는 가능성"
-
-#: Authenticator/widgets/settings.py:243
-msgid "Authentication password"
-msgstr "인증 암호"
-
-#: Authenticator/widgets/settings.py:244
-msgid "Set up application authentication password"
-msgstr "애플리케이션 인증 암호 설정"
-
-#: Authenticator/widgets/settings.py:250
-msgid "Behaviour"
-msgstr "동작"
-
-#: Authenticator/widgets/settings.py:259
-msgid "The application needs to be restarted first."
-msgstr "애플리케이션이 우선 다시 시작 되어야 합니다."
-
-#: Authenticator/widgets/settings.py:288
-msgid "The existing accounts will be erased in 5 seconds"
-msgstr "존재하는 계정들이 5초 후에 삭제됩니다"
-
-#: Authenticator/widgets/settings.py:292 Authenticator/widgets/window.py.in:217
-msgid "Undo"
-msgstr "되돌리기"
-
-#: Authenticator/widgets/utils.py:18
-msgid "Open"
-msgstr "열기"
-
-#: Authenticator/widgets/utils.py:32 Authenticator/widgets/utils.py:37
-msgid "JSON files"
-msgstr "JSON 파일"
-
-#: Authenticator/widgets/utils.py:47
-msgid "Select"
-msgstr "선택"
-
-#: Authenticator/widgets/window.py.in:213
-msgid "An account or more were removed."
-msgstr "한개 혹은 여러개의 계정이 제거되었습니다."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
@@ -267,6 +51,116 @@ msgstr "아름다운 UI"
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
 msgstr "290개 이상의 웹 사이트/애플리케이션을 지원"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:34
+msgid ""
+"Since I have moved the application to GOME Gitlab's World group, a Flatpak "
+"build for each new commit is available to download from the site's website."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
+msgid "Backup and restore from a basic JSON file"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
+msgid "Backup and restore from an encrypted-GPG JSON file"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
+msgid "Add andOTP support (free and open Android 2FA application)"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
+msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
+msgid "Fix Flatpak Build with the latest GNOME Runtime"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
+msgid "Move the project to GOME Gitlab's World group"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:50
+msgid "GNOME Shell Search provider"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:51
+msgid "Codes expire simultaneously #91"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:58
+msgid "Revamped main window to more closely follow the GNOME HIG"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
+msgid "Revamped add a new account window to make it easier to use"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
+msgid ""
+"Possibility to add an account from a provider not listed in the shipped "
+"database"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
+msgid "Possibilty to edit an account"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
+msgid "One Time Password now visible by default"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
+msgid "Fix python-dbus by using GDbus instead"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
+msgid "Fix the QRScanner on GNOME Shell"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
+msgid "Add a new entry for the account's username"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:78
+msgid "Updated database of supported accounts"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
+msgid "HOTFIX: App not running in DE other than GNOME"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
+#, fuzzy
+msgid "Rename project to Authenticator"
+msgstr "인증기에 대하여"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
+#, fuzzy
+msgid "Cleaner code base"
+msgstr "데이터베이스 지우기"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:94
+msgid "Faster startup"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:95
+msgid "Remove unneeded features"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:96
+msgid "Switch to pyzbar instead of zbarlight"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
+msgid "Flatpak package"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
+msgid "Bilal Elmoussaoui"
+msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
@@ -297,17 +191,89 @@ msgstr "애플리케이션 안에서 야간 모드를 활성화/비활성화"
 msgid "Default window maximized behaviour"
 msgstr "기본 창 최대화 행동"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
-msgid "Whether the application is locked with a password or not"
-msgstr "애플리케이션 암호 설정 여부"
-
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
-msgid "Whether the application can be locked or not"
-msgstr "애플리케이션 암호 설정 가능 여부"
-
 #: data/ui/about_dialog.ui.in:10
 msgid "Two-factor authentication code generator."
 msgstr "2차 인증 비밀번호 생성기."
+
+#: data/ui/about_dialog.ui.in:13
+msgid "translator-credits"
+msgstr "Minori Hiraoka <minori@mnetwork.co.kr>"
+
+#: data/ui/account_add.ui:24
+msgid "Add a new account"
+msgstr "새로운 계정 추가"
+
+#: data/ui/account_add.ui:27 data/ui/account_edit.ui:21
+msgid "Close"
+msgstr "닫기"
+
+#: data/ui/account_add.ui:36
+msgid "Add"
+msgstr "추가"
+
+#: data/ui/account_add.ui:56
+#, fuzzy
+msgid "Scan QR Code"
+msgstr "QR 코드 스캔"
+
+#: data/ui/account_edit.ui:30 data/ui/settings.ui.in:454
+#: src/Authenticator/widgets/utils.py:34
+msgid "Save"
+msgstr "저장"
+
+#: data/ui/account_row.ui:23
+msgid "Edit"
+msgstr "편집"
+
+#: data/ui/account_row.ui:37
+msgid "Delete"
+msgstr "삭제"
+
+#: data/ui/account_row.ui:92
+msgid "Copy PIN to clipboard"
+msgstr ""
+
+#: data/ui/settings.ui.in:66
+msgid "Behaviour"
+msgstr "동작"
+
+#: data/ui/settings.ui.in:100
+msgid "Dark theme"
+msgstr "어두운 테마"
+
+#: data/ui/settings.ui.in:117
+msgid "Use a dark theme, if possible"
+msgstr "가능하다면 어두운 테마를 사용합니다"
+
+#: data/ui/settings.ui.in:179 src/Authenticator/application.py.in:91
+msgid "Lock the application"
+msgstr "애플리케이션을 잠그기"
+
+#: data/ui/settings.ui.in:196
+#, fuzzy
+msgid "Lock the application with a password"
+msgstr "애플리케이션을 암호로 잠글 수 있는 가능성"
+
+#: data/ui/settings.ui.in:279
+msgid "Keep your accounts safer "
+msgstr ""
+
+#: data/ui/settings.ui.in:303
+msgid "Password"
+msgstr "암호"
+
+#: data/ui/settings.ui.in:348
+msgid "Repeat Password"
+msgstr "암호 확인"
+
+#: data/ui/settings.ui.in:410
+msgid "Settings"
+msgstr "설정"
+
+#: data/ui/settings.ui.in:427
+#, fuzzy
+msgid "Authenticator Password"
+msgstr "인증 암호"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -341,21 +307,166 @@ msgstr "추가"
 
 #: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
-msgid "Select"
-msgstr "선택"
-
-#: data/ui/shortcuts.ui:58
-msgctxt "shortcut window"
 msgid "Search"
 msgstr "검색"
 
-#: authenticator.py.in:54
+#: data/ui/window.ui.in:60
+msgid "There are no accounts yet…"
+msgstr "아직 계정이 없습니다…"
+
+#: data/ui/window.ui.in:187
+#, fuzzy
+msgid "Authenticator is locked"
+msgstr "인증기"
+
+#: data/ui/window.ui.in:222
+msgid "Unlock"
+msgstr ""
+
+#: src/authenticator.py.in:49
 msgid "Start in debug mode"
 msgstr "디버그 모드로 시작"
 
-#: authenticator.py.in:56
+#: src/authenticator.py.in:51
 msgid "Authenticator version number"
 msgstr "인증기 버전"
 
-#~ msgid "translator-credits"
-#~ msgstr "Minori Hiraoka <minori@mnetwork.co.kr>"
+#: src/Authenticator/application.py.in:99
+msgid "from a plain-text JSON file"
+msgstr "JSON 파일에서 가져오기"
+
+#: src/Authenticator/application.py.in:100
+msgid "in a plain-text JSON file"
+msgstr "JSON 파일로 내보내기"
+
+#: src/Authenticator/application.py.in:102
+msgid "Restore"
+msgstr "복원"
+
+#: src/Authenticator/application.py.in:103
+msgid "Backup"
+msgstr "백업"
+
+#. Night mode action
+#: src/Authenticator/application.py.in:111
+msgid "Preferences"
+msgstr "설정"
+
+#: src/Authenticator/application.py.in:112
+msgid "Donate"
+msgstr "기부"
+
+#: src/Authenticator/application.py.in:113
+msgid "Keyboard Shortcuts"
+msgstr "키보드 단축키"
+
+#: src/Authenticator/application.py.in:114
+msgid "About Authenticator"
+msgstr "인증기에 대하여"
+
+#: src/Authenticator/models/account.py:70
+msgid "Default"
+msgstr "기본값"
+
+#: src/Authenticator/widgets/accounts/add.py:204
+msgid "Invalid QR code"
+msgstr "올바르지 않은 QR 코드"
+
+#: src/Authenticator/widgets/accounts/edit.py:45
+msgid "Edit {} - {}"
+msgstr "{} - {} 편집"
+
+#: src/Authenticator/widgets/accounts/list.py:144
+msgid "The One-Time Passwords expires in {} seconds"
+msgstr "일회용 비밀번호가 {} 초 후에 만료됩니다"
+
+#: src/Authenticator/widgets/accounts/row.py:75
+msgid "Couldn't generate the secret code"
+msgstr "비밀 코드를 생성할 수 없었습니다"
+
+#: src/Authenticator/widgets/settings.py:73
+msgid "Authentication password was unset. Please restart the application"
+msgstr ""
+
+#: src/Authenticator/widgets/settings.py:81
+msgid "Authentication password is now enabled. Please restart the application."
+msgstr ""
+
+#: src/Authenticator/widgets/utils.py:32
+msgid "Open"
+msgstr "열기"
+
+#: src/Authenticator/widgets/utils.py:36 src/Authenticator/widgets/utils.py:62
+msgid "Cancel"
+msgstr "취소"
+
+#: src/Authenticator/widgets/utils.py:46 src/Authenticator/widgets/utils.py:51
+msgid "JSON files"
+msgstr "JSON 파일"
+
+#: src/Authenticator/widgets/utils.py:61
+msgid "Select"
+msgstr "선택"
+
+#~ msgid "Provider"
+#~ msgstr "제공자"
+
+#~ msgid "Account name"
+#~ msgstr "계정 이름"
+
+#~ msgid "Secret token"
+#~ msgstr "비밀 토큰"
+
+#~ msgid "zbar library is not found. QRCode scanner will be disabled"
+#~ msgstr ""
+#~ "설치된 zbar 라이브러리가 발견되지 않았습니다. QR 코드 스캐너가 비활성화 됩"
+#~ "니다"
+
+#~ msgid "Copy"
+#~ msgstr "복사"
+
+#~ msgid "Search"
+#~ msgstr "검색"
+
+#~ msgid "Selection mode"
+#~ msgstr "선택 모드"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "항목을 눌러 선택하세요"
+
+#~ msgid "Old Password"
+#~ msgstr "기존 암호"
+
+#~ msgid "Appearance"
+#~ msgstr "표시 형식"
+
+#~ msgid "Erase existing accounts"
+#~ msgstr "존재하는 계정 삭제"
+
+#~ msgid "Authentication password"
+#~ msgstr "인증 암호"
+
+#~ msgid "Set up application authentication password"
+#~ msgstr "애플리케이션 인증 암호 설정"
+
+#~ msgid "The application needs to be restarted first."
+#~ msgstr "애플리케이션이 우선 다시 시작 되어야 합니다."
+
+#~ msgid "The existing accounts will be erased in 5 seconds"
+#~ msgstr "존재하는 계정들이 5초 후에 삭제됩니다"
+
+#~ msgid "Undo"
+#~ msgstr "되돌리기"
+
+#~ msgid "An account or more were removed."
+#~ msgstr "한개 혹은 여러개의 계정이 제거되었습니다."
+
+#~ msgid "Whether the application is locked with a password or not"
+#~ msgstr "애플리케이션 암호 설정 여부"
+
+#~ msgid "Whether the application can be locked or not"
+#~ msgstr "애플리케이션 암호 설정 가능 여부"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select"
+#~ msgstr "선택"

@@ -150,8 +150,7 @@
             ],
             "sources": [{
                 "type": "git",
-                "url": "https://gitlab.gnome.org/World/Authenticator.git",
-                "branch": "master"
+                "url": "https://gitlab.gnome.org/World/Authenticator.git"
             }]
         }
     ]

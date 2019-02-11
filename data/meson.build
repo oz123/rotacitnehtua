@@ -1,22 +1,34 @@
-about_dialog_conf = configuration_data()
-about_dialog_conf.set('APP_ID', application_id)
-about_dialog_conf.set('VERSION', meson.project_version())
+ui_config = configuration_data()
+ui_config.set('APP_ID', application_id)
+ui_config.set('VERSION', meson.project_version())
+
+ui_preconfigured_files = files(
+  'ui/about_dialog.ui.in',
+  'ui/settings.ui.in',
+  'ui/window.ui.in',
+)
+ui_dependencies = []
+foreach ui_file: ui_preconfigured_files
+  ui_dependencies += configure_file(
+    input:  ui_file,
+    output: '@BASENAME@',
+    configuration: ui_config
+  )
+endforeach
+
 gnome.compile_resources(
   application_id,
   meson.project_name() + '.gresource.xml',
   gresource_bundle: true,
   install_dir: join_paths(get_option('datadir'), meson.project_name()),
   install: true,
-  dependencies: configure_file(
-    input: 'ui/about_dialog.ui.in',
-    output: 'about_dialog.ui',
-    configuration: about_dialog_conf
-  )
+  dependencies: ui_dependencies
 )
 
 # Install gschema
 gschema_conf = configuration_data()
 gschema_conf.set('app-id', application_id)
+gschema_conf.set('gettext_package', gettext_package)
 if get_option('profile') == 'development'
   gschema_conf.set('schema-path', '/com/github/bilelmoussaoui/Authenticator/')
 else
@@ -80,6 +92,7 @@ endif
 # Freedesktop AppData File
 appdata_conf = configuration_data()
 appdata_conf.set('appid', application_id)
+appdata_conf.set('gettext_package', gettext_package)
 appdata_file = i18n.merge_file(
   'appdata',
   input: configure_file(
@@ -93,11 +106,11 @@ appdata_file = i18n.merge_file(
   install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 # Validate AppData File
-appstreamcli = find_program('appstream-util', required: false)
-if appstreamcli.found()
+appstream_util = find_program('appstream-util', required: false)
+if appstream_util.found()
   test (
     'Validate appdata file',
-    appstreamcli,
+    appstream_util,
     args: ['validate-relax', '--nonet', appdata_file.full_path()]
   )
 endif

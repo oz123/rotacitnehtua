@@ -6,11 +6,17 @@
     <file alias="qrscanner-symbolic.svg">icons/hicolor/symbolic/actions/qrscanner-symbolic.svg</file>
 
     <!-- Accounts logo fallback -->
-    <file alias="authenticator-fallback">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
+    <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
 
     <!-- UI Files -->
     <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="about_dialog.ui">about_dialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_config.ui">ui/account_config.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_add.ui">ui/account_add.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_edit.ui">ui/account_edit.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_row.ui">ui/account_row.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="window.ui">window.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="settings.ui">settings.ui</file>
 
     <!-- Default pre-shipped icons -->
     <file alias="amazon.svg">icons/hicolor/48x48/apps/amazon.svg</file>

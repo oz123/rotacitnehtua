@@ -8,9 +8,12 @@ python = import('python3')
 gnome  = import('gnome')
 i18n   = import('i18n')
 
+gettext_package = 'Authenticator'
+
 if get_option('profile') == 'development'
   profile = 'Devel'
   name_suffix = ' (Development)'
+  gettext_package += '-devel'
 else
   profile = ''
   name_suffix = ''
@@ -37,32 +40,20 @@ else
     message('Found python3 binary')
 endif
 
-LIB_DIR = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name())
 LOCALE_DIR = join_paths(get_option('prefix'), get_option('localedir'))
-DATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
+PKGDATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
 LIBEXEC_DIR = join_paths(get_option('prefix'), get_option('libexecdir'))
-libgd_dep = dependency('gdlib', required: false)
-if not libgd_dep.found()
-  libgd_proj = subproject('libgd',
-    default_options: [
-      'with-introspection=true',
-      'with-notification=true',
-      'static=false',
-      'pkgdatadir=' + DATA_DIR,
-      'pkglibdir=' + LIB_DIR
-    ]
-  )
-endif
+
 
 # Configuration params
 conf = configuration_data()
 conf.set('APP_ID', application_id)
-conf.set('DATA_DIR', DATA_DIR)
+conf.set('GETTEXT_PACKAGE', gettext_package)
+conf.set('PKGDATA_DIR', PKGDATA_DIR)
 conf.set('LOCALE_DIR', LOCALE_DIR)
 conf.set('PYTHON_DIR', join_paths(get_option('prefix'), python.sysconfig_path('purelib')))
 conf.set('PYTHON_EXEC_DIR', join_paths(get_option('prefix'), python.sysconfig_path('stdlib')))
 conf.set('VERSION', meson.project_version())
-conf.set('LIB_DIR', LIB_DIR)
 conf.set('PROFILE', profile)
 conf.set('NAME_SUFFIX', name_suffix)
 conf.set('libexecdir', LIBEXEC_DIR)
@@ -70,64 +61,6 @@ conf.set('PYTHON', python3.path())
 
 subdir('data')
 subdir('po')
-
-
-configure_file(
-  input: 'authenticator.py.in',
-  output: 'authenticator',
-  configuration: conf,
-  install_dir: get_option('bindir')
-)
-
-configure_file(
-  input: 'authenticator-search-provider.py.in',
-  output: 'authenticator-search-provider',
-  configuration: conf,
-  install_dir: get_option('libexecdir')
-)
-
-
-configure_file(
-  input: 'Authenticator/models/settings.py.in',
-  output: 'settings.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator/models')
-)
-
-configure_file(
-  input: 'Authenticator/widgets/window.py.in',
-  output: 'window.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator/widgets')
-)
-
-configure_file(
-  input: 'Authenticator/utils.py.in',
-  output: 'utils.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator')
-)
-
-configure_file(
-  input: 'Authenticator/application.py.in',
-  output: 'application.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator')
-)
-
-install_subdir(
-  'Authenticator',
-  install_dir: python.sysconfig_path('purelib'),
-  exclude_files: [
-    'models/settings.py.in',
-    'widgets/window.py.in',
-    'utils.py.in',
-    'application.py.in'
-  ]
-)
+subdir('src')
 
 meson.add_install_script('build-aux/meson_post_install.py')

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-  <id>@appid@.desktop</id>
+<component type="desktop-application">
+  <id>@appid@</id>
   <metadata_license>CC0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Authenticator</name>
@@ -27,9 +27,6 @@
   <url type="bugtracker">https://gitlab.gnome.org/World/Authenticator/issues</url>
   <url type="translate">https://hosted.weblate.org/projects/authenticator/translation/</url>
   <url type="donation">https://www.paypal.me/BilalELMoussaoui</url>
-  <categories>
-    <category>Utility</category>
-  </categories>
   <content_rating type="oars-1.0" />
   <releases>
     <release version="0.2.5" date="2018-09-11">
@@ -106,5 +103,6 @@
   </releases>
   <developer_name>Bilal Elmoussaoui</developer_name>
   <update_contact>bil.elmoussaoui@gmail.com</update_contact>
-  <translation type="gettext">Authenticator</translation>
+  <translation type="gettext">@gettext-package@</translation>
+  <launchable type="desktop-id">@appid@.desktop</launchable>
 </component>

@@ -1,30 +1,24 @@
-stages:
-  - flatpak
+include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
 
 variables:
-  BUNDLE: "authenticator-git.flatpak"
-  GIT_SUBMODULE_STRATEGY: normal
-
+    BUNDLE: "authenticator-dev.flatpak"
 
 flatpak:
-    image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
-    stage: flatpak
+    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
         MANIFEST_PATH: "build-aux/com.github.bilelmoussaoui.Authenticator.json"
-        RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
         FLATPAK_MODULE: "Authenticator"
-    script:
-        - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
-        - flatpak build app meson -Dprofile=development --prefix=/app ${MESON_ARGS} _build
-        - flatpak build app ninja -C _build install
-        - flatpak-builder --finish-only --repo=repo app ${MANIFEST_PATH}
-        - flatpak build-export repo app
-        - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} com.github.bilelmoussaoui.AuthenticatorDevel
-    artifacts:
-        paths:
-            - ${BUNDLE}
-            - _build/meson-logs/meson-log.txt
-        expire_in: 30 days
-    cache:
-        paths:
-             - .flatpak-builder/cache
+        MESON_ARGS: "-Dprofile=development"
+        RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+        APP_ID: "com.github.bilelmoussaoui.AuthenticatorDevel"
+    extends: .flatpak
+
+review:
+    stage: deploy
+    dependencies:
+        - 'flatpak'
+    extends: '.review'
+
+stop_review:
+    stage: deploy
+    extends: '.stop_review'

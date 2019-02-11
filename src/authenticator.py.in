@@ -1,0 +1,76 @@
+#!@PYTHON@
+# -*- coding: utf-8 -*-
+"""
+ Copyright © 2017 Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>
+
+ This file is part of Authenticator.
+
+ Authenticator is free software: you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as published
+ by the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Authenticator is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
+"""
+
+import argparse
+import gettext
+import locale
+import sys
+from os import path
+from gettext import gettext as _
+from gi import require_version
+require_version('Gtk', '3.0')
+require_version("Handy", "0.0")
+require_version('Secret', '1')
+from gi.repository import Gio
+
+sys.path.insert(1, '@PYTHON_EXEC_DIR@')
+sys.path.insert(1, '@PYTHON_DIR@')
+
+def prepare_locale():
+    locale.bindtextdomain('@GETTEXT_PACKAGE@', '@LOCALE_DIR@')
+    locale.textdomain('@GETTEXT_PACKAGE@')
+    gettext.bindtextdomain('@GETTEXT_PACKAGE@', '@LOCALE_DIR@')
+    gettext.textdomain('@GETTEXT_PACKAGE@')
+
+
+if __name__ == "__main__":
+    prepare_locale()
+
+    parser = argparse.ArgumentParser(prog="Authenticator")
+    parser.add_argument("--debug", "-d", action="store_true",
+                        help=_("Start in debug mode"))
+    parser.add_argument("--version", "-v", action="store_true",
+                        help=_("Authenticator version number"))
+    args = parser.parse_args()
+
+    resource = Gio.resource_load(path.join('@PKGDATA_DIR@', '@APP_ID@.gresource'))
+    Gio.Resource._register(resource)
+
+
+    from Authenticator.models import Logger
+    level = Logger.ERROR
+    if args.debug:
+        level = Logger.DEBUG
+        import faulthandler
+        faulthandler.enable()
+
+    Logger.set_level(level)
+    if args.version:
+        sys.exit("Version : @VERSION@")
+    else:
+        try:
+            from Authenticator import Application
+            app = Application.get_default()
+            Application.IS_DEVEL = "@PROFILE@" == 'Devel'
+            exit_status = app.run(None)
+            sys.exit(exit_status)
+        except KeyboardInterrupt:
+            exit()
