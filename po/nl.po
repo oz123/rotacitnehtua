@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-01-14 07:19+0000\n"
-"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
+"PO-Revision-Date: 2019-02-11 23:40+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
 "translation/nl/>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -219,7 +219,6 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #: data/ui/account_add.ui:56
-#, fuzzy
 msgid "Scan QR Code"
 msgstr "QR-code scannen"
 
@@ -238,7 +237,7 @@ msgstr "Verwijderen"
 
 #: data/ui/account_row.ui:92
 msgid "Copy PIN to clipboard"
-msgstr ""
+msgstr "Pincode kopiëren naar klembord"
 
 #: data/ui/settings.ui.in:66
 msgid "Behaviour"
@@ -257,13 +256,12 @@ msgid "Lock the application"
 msgstr "Toepassing vergrendelen"
 
 #: data/ui/settings.ui.in:196
-#, fuzzy
 msgid "Lock the application with a password"
-msgstr "Mogelijkheid om de toepassing te vergrendelen met een wachtwoord"
+msgstr "Vergrendel de toepassing met een wachtwoord"
 
 #: data/ui/settings.ui.in:279
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Houdt je accounts veilig "
 
 #: data/ui/settings.ui.in:303
 msgid "Password"
@@ -278,7 +276,6 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: data/ui/settings.ui.in:427
-#, fuzzy
 msgid "Authenticator Password"
 msgstr "Authenticatiewachtwoord"
 
@@ -322,9 +319,8 @@ msgid "There are no accounts yet…"
 msgstr "Je hebt nog geen accounts toegevoegd…"
 
 #: data/ui/window.ui.in:187
-#, fuzzy
 msgid "Authenticator is locked"
-msgstr "Authenticator"
+msgstr "Authenticator is vergreneld"
 
 #: data/ui/window.ui.in:222
 msgid "Unlock"
@@ -393,11 +389,11 @@ msgstr "Kan geen geheime sleutel genereren"
 
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
-msgstr ""
+msgstr "Authenticatiewachtwoord is niet ingesteld. Herstart de toepassing."
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
-msgstr ""
+msgstr "Authenticatiewachtwoord is ingeschakeld. Herstart de toepassing."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
