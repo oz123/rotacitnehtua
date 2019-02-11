@@ -37,6 +37,9 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
     account_name_label = Gtk.Template.Child()
     pin_label = Gtk.Template.Child()
 
+    more_actions_btn = Gtk.Template.Child()
+    delete_btn = Gtk.Template.Child()
+
     def __init__(self, account):
         """
         :param account: Account
@@ -77,6 +80,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             Copy button clicked signal handler.
             Copies the OTP pin to the clipboard
         """
+        print(self._account.otp.pin)
         self._account.copy_pin()
 
     @Gtk.Template.Callback('edit_btn_clicked')

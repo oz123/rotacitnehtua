@@ -27,6 +27,11 @@ from Authenticator.utils import load_pixbuf_from_provider
 class AccountsWidget(Gtk.Box, GObject.GObject):
     instance = None
 
+    __gsignals__ = {
+        'account-removed': (GObject.SignalFlags.RUN_LAST, None, ()),
+        'account-added': (GObject.SignalFlags.RUN_LAST, None, ()),
+    }
+
     def __init__(self):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         GObject.GObject.__init__(self)
@@ -41,8 +46,8 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self.otp_progress_bar = Gtk.ProgressBar()
         self.otp_progress_bar.get_style_context().add_class("progress-bar")
         self.add(self.otp_progress_bar)
-        AccountsManager.get_default().connect(
-            "counter_updated", self._on_counter_updated)
+        AccountsManager.get_default().connect("counter_updated",
+                                               self._on_counter_updated)
 
         self.accounts_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
@@ -71,6 +76,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
             self.accounts_container.pack_start(provider_widget, False, False, 0)
         accounts_list.add_row(account)
         self._reorder()
+        self.emit("account-added")
 
     @property
     def accounts_lists(self):
@@ -80,10 +86,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         for account_list in self._providers.values():
             self.accounts_container.remove(account_list.get_parent())
         self._providers = {}
-
-    def set_state(self, state):
-        for account_list in self._providers.values():
-            account_list.set_state(state)
 
     def update_provider(self, account, new_provider):
         current_account_list = None
@@ -113,7 +115,10 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
     def _on_account_deleted(self, account_list):
         if len(account_list.get_children()) == 0:
             self._to_delete.append(account_list)
-
+        self._reorder()
+        self._clean_unneeded_providers_widgets()
+        self.emit("account-removed")
+        
     def _clean_unneeded_providers_widgets(self):
         for account_list in self._to_delete:
             provider_widget = account_list.get_parent()
@@ -188,11 +193,13 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         account = Account(_id, name, provider, secret_id)
         self.add_row(account)
 
-    def delete(self, _):
-        # Remove an account from the list
-        self.emit("changed", False)
-
     def add_row(self, account):
         row = AccountRow(account)
+        row.delete_btn.connect("clicked", self.__on_delete_child, row)
         self.add(row)
+
+    def __on_delete_child(self, model_btn, account_row):
+        self.remove(account_row)
+        account_row.account.remove()
+        self.emit("account-deleted")
 

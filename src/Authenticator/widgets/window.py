@@ -18,7 +18,7 @@
 """
 from gi.repository import Gtk, GObject, Gio, GLib
 
-from Authenticator.models import Logger, Settings, AccountsManager
+from Authenticator.models import Database, Logger, Settings, AccountsManager
 from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
 
 
@@ -109,7 +109,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         """
         if self.props.state == WindowState.NORMAL:
             toggled = not self.search_btn.props.active
-            self.search_btn.set_property("toggled", toggled)
+            self.search_btn.set_property("active", toggled)
 
     def save_state(self):
         """
@@ -145,13 +145,18 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
         # Set up accounts Widget
         accounts_widget = AccountsWidget.get_default()
+        accounts_widget.connect("account-removed", self.__on_accounts_changed)
+        accounts_widget.connect("account-added", self.__on_accounts_changed)
         self.accounts_viewport.add(accounts_widget)
 
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
                                       "active", GObject.BindingFlags.BIDIRECTIONAL)
 
-    def _on_account_delete(self, *_):
-        self.notify("state")
+    def __on_accounts_changed(self, *_):
+        if Database.get_default().count == 0:
+            self.props.state = WindowState.EMPTY
+        else:
+            self.props.state = WindowState.NORMAL
 
     @Gtk.Template.Callback('unlock_btn_clicked')
     def __unlock_btn_clicked(self, *_):
