@@ -27,6 +27,7 @@ from os import path
 from gettext import gettext as _
 from gi import require_version
 require_version('Gtk', '3.0')
+require_version('Gdk', '3.0')
 require_version("Handy", "0.0")
 require_version('Secret', '1')
 from gi.repository import Gio
@@ -67,7 +68,7 @@ if __name__ == "__main__":
         sys.exit("Version : @VERSION@")
     else:
         try:
-            from Authenticator import Application
+            from Authenticator.application import Application
             app = Application.get_default()
             Application.IS_DEVEL = "@PROFILE@" == 'Devel'
             exit_status = app.run(None)

@@ -24,14 +24,6 @@ configure_file(
 )
 
 configure_file(
-  input: 'Authenticator/utils.py.in',
-  output: 'utils.py',
-  configuration: conf,
-  install_dir: join_paths(python.sysconfig_path('purelib'),
-                            'Authenticator')
-)
-
-configure_file(
   input: 'Authenticator/application.py.in',
   output: 'application.py',
   configuration: conf,
@@ -44,8 +36,6 @@ install_subdir(
   install_dir: python.sysconfig_path('purelib'),
   exclude_files: [
     'models/settings.py.in',
-    'widgets/window.py.in',
-    'utils.py.in',
     'application.py.in'
   ]
 )

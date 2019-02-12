@@ -16,34 +16,21 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from os import environ
+from os import environ, path
 from gi.repository import Gtk, GdkPixbuf, GLib
 
-
-def load_pixbuf(icon_name, size):
-    pixbuf = None
-    theme = Gtk.IconTheme.get_default()
-    theme.add_resource_path("/com/github/bilelmoussaoui/Authenticator")
-    if icon_name:
+def load_pixbuf_from_provider(provider_logo, size=48):
+    if provider_logo and path.exists(provider_logo):
         try:
-            icon_info = theme.lookup_icon(icon_name, size, 0)
-            if icon_info:
-                pixbuf = icon_info.load_icon()
+            return GdkPixbuf.Pixbuf.new_from_file_at_size(provider_logo, size, size)
         except GLib.Error:
             pass
-    if not pixbuf:
-        pixbuf = theme.load_icon("@APP_ID@",
-                                 size, 0)
 
+    theme = Gtk.IconTheme.get_default()
+    theme.add_resource_path("/com/github/bilelmoussaoui/Authenticator")
+    pixbuf = theme.load_icon("authenticator-symbolic", size, 0)
     if pixbuf and (pixbuf.props.width != size or pixbuf.props.height != size):
         pixbuf = pixbuf.scale_simple(size, size,
-                                     GdkPixbuf.InterpType.BILINEAR)
+                                        GdkPixbuf.InterpType.BILINEAR)
     return pixbuf
 
-
-def load_pixbuf_from_provider(provider_name, icon_size=48):
-    if provider_name:
-        provider_name = provider_name.lower().strip().replace(" ", "-")
-        return load_pixbuf(provider_name, icon_size)
-    else:
-        return load_pixbuf(None, icon_size)

@@ -42,8 +42,11 @@ for db_file in glob(DATA_DIR + "/*.yml"):
             providers = yaml.load(file_data)["websites"]
             for provider in providers:
                 if is_valid(provider):
-                    output[provider.get("name")] = path.splitext(
-                        provider.get("img"))[0]
+                     output[provider.get("name")] = {
+                        "img": provider.get("img"),
+                        "url": provider.get("url", ""),
+                        "doc": provider.get("doc", "")
+                    }
         except (yaml.YAMLError, TypeError, KeyError) as error:
             pass
 output = OrderedDict(sorted(output.items(), key=lambda x: x[0].lower()))

@@ -29,7 +29,6 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
 
     __gtype_name__ = 'EditAccountWindow'
 
-    headerbar = Gtk.Template.Child()
     save_btn = Gtk.Template.Child()
 
     def __init__(self, account):
@@ -42,9 +41,6 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         self.__init_widgets()
 
     def __init_widgets(self):
-        self.headerbar.set_title(_("Edit {} - {}".format(self._account.username,
-                                                         self._account.provider)))
-
         self.account_config = AccountConfig(edit=True, account=self._account)
         self.account_config.connect("changed", self._on_account_config_changed)
 

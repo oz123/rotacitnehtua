@@ -18,7 +18,6 @@
 """
 from gettext import gettext as _
 from gi.repository import Gtk, GObject
-
 from Authenticator.widgets.accounts.edit import EditAccountWindow
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_row.ui')
@@ -80,7 +79,6 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             Copy button clicked signal handler.
             Copies the OTP pin to the clipboard
         """
-        print(self._account.otp.pin)
         self._account.copy_pin()
 
     @Gtk.Template.Callback('edit_btn_clicked')

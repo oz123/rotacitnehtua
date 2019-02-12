@@ -16,17 +16,18 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from Authenticator.models.logger import Logger
-from Authenticator.models.otp import OTP
-from Authenticator.models.clipboard import Clipboard
-from Authenticator.models.database import Database
-from Authenticator.models.keyring import Keyring
+from .logger import Logger
+from .otp import OTP
+from .clipboard import Clipboard
+from .database import Database
+from .keyring import Keyring
+from .favicon import FaviconManager
+from .provider import ProviderManager
+from .account import Account
+from .accounts_manager import AccountsManager
+from .backup import BackupJSON
 
-from Authenticator.models.account import Account
-from Authenticator.models.accounts_manager import AccountsManager
-from Authenticator.models.backup import BackupJSON
 
-
-from Authenticator.models.qr_reader import QRReader
-from Authenticator.models.screenshot import GNOMEScreenshot
-from Authenticator.models.settings import Settings
+from .qr_reader import QRReader
+from .screenshot import GNOMEScreenshot
+from .settings import Settings

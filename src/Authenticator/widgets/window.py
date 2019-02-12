@@ -18,7 +18,7 @@
 """
 from gi.repository import Gtk, GObject, Gio, GLib
 
-from Authenticator.models import Database, Logger, Settings, AccountsManager
+from Authenticator.models import Database, Logger, Settings, AccountsManager, ProviderManager
 from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
 
 
@@ -70,7 +70,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.restore_state()
         # Start the Account Manager
         AccountsManager.get_default()
-
+        ProviderManager.get_default()
+        
         self.__init_widgets()
 
     @staticmethod

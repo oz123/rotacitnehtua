@@ -6,8 +6,6 @@
     <columns>
       <!-- column-name name -->
       <column type="gchararray"/>
-      <!-- column-name logo -->
-      <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkEntryCompletion" id="provider_completion">
@@ -57,19 +55,39 @@
         <property name="border_width">36</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkImage" id="provider_img">
+          <object class="GtkStack" id="provider_img_stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="hexpand">True</property>
-            <property name="icon_name">com.github.bilelmoussaoui.Authenticator-symbolic</property>
-            <property name="icon_size">6</property>
+            <child>
+              <object class="GtkImage" id="provider_img">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="icon_name">authenticator-symbolic</property>
+                <property name="icon_size">6</property>
+              </object>
+              <packing>
+                <property name="name">image</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinner" id="provider_spinner">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="name">spinner</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="padding">12</property>
-            <property name="position">1</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>

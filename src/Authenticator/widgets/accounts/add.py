@@ -16,11 +16,11 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-import json
+import asyncio
 from gettext import gettext as _
-from gi.repository import Gio, Gtk, GObject, GLib
+from gi.repository import Gtk, GObject, GLib
 
-from Authenticator.models import OTP
+from Authenticator.models import OTP, ProviderManager, FaviconManager
 from Authenticator.utils import load_pixbuf_from_provider
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
@@ -81,6 +81,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
 
     __gtype_name__ = 'AccountConfig'
 
+    provider_img_stack = Gtk.Template.Child()
+    provider_spinner = Gtk.Template.Child()
+
     provider_img = Gtk.Template.Child()
     account_name_entry = Gtk.Template.Child()
     token_entry = Gtk.Template.Child()
@@ -129,13 +132,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         if not self.is_edit:
             self.token_entry.set_no_show_all(False)
             self.token_entry.show()
-        # To set the empty logo
-        if self._account:
-            pixbuf = load_pixbuf_from_provider(self._account.provider, 96)
-        else:
-            pixbuf = load_pixbuf_from_provider(None, 96)
 
-        self.provider_img.set_from_pixbuf(pixbuf)
         self._fill_data()
 
     @Gtk.Template.Callback('provider_changed')
@@ -143,24 +140,28 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         tree_iter = combo.get_active_iter()
         if tree_iter is not None:
             model = combo.get_model()
-            logo = model[tree_iter][-1]
+            provider_name = model[tree_iter][0]
         else:
             entry = combo.get_child()
-            logo = entry.get_text()
+            provider_name = entry.get_text()
+        provider = ProviderManager.get_default().get_provider_by_name(provider_name)
         self._validate()
-        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(logo, 96))
+        if provider:
+            self.provider_img_stack.set_visible_child_name("spinner")
+            self.provider_spinner.start()
+            asyncio.run(FaviconManager.get_default().grab_favicon(provider.img, provider.url,
+                                                      self.__on_favicon_downloaded,
+                                                      None))
+
+    def __on_favicon_downloaded(self, img_path, callback_data=None):
+        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(img_path, 96))
+        self.provider_img_stack.set_visible_child_name("image")
+        self.provider_spinner.stop()
 
     def _fill_data(self):
-        uri = 'resource:///com/github/bilelmoussaoui/Authenticator/data.json'
-        g_file = Gio.File.new_for_uri(uri)
-        content = str(g_file.load_contents(None)[1].decode("utf-8"))
-        data = json.loads(content)
-        data = sorted([(name, logo) for name, logo in data.items()],
-                      key=lambda account: account[0].lower())
-
-        for name, logo in data:
-            self.providers_store.append([name, logo])
-
+        providers = ProviderManager.get_default().providers
+        for provider in providers:
+            self.providers_store.append([provider.name])
 
     @Gtk.Template.Callback('account_edited')
     def _validate(self, *_):

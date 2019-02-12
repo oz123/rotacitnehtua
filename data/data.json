@@ -1,551 +1,2812 @@
 {
-    "007Names": "007names",
-    "101domain": "101domain",
-    "1and1": "1and1",
-    "1Password": "1password",
-    "20i": "20i",
-    "34SP.com": "34sp",
-    "500px": "500px",
-    "A2 Hosting": "a2hosting",
-    "Above.com": "above",
-    "Acquia": "acquia",
-    "Action Network": "actionnetwork",
-    "Addiko Bank": "addikobank",
-    "Adobe ID": "adobe",
-    "AeroFS": "aerofs",
-    "Aha!": "aha",
-    "AirBank": "airbank",
-    "Airbrake": "airbrake",
-    "Airtable": "airtable",
-    "Algolia": "algolia",
-    "Allegro": "allegro",
-    "AltoIRA": "altoira",
-    "Amazon": "amazon",
-    "Amazon AWS WorkSpaces": "awsworkspaces",
-    "Amazon Pay": "amazonpay",
-    "Amazon Web Services": "aws",
-    "Andrews &amp; Arnold": "aaisp",
-    "AngelList": "angellist",
-    "Ankama": "ankama",
-    "ANXPRO Bitcoin Exchange": "anxpro",
-    "AnycoinDirect": "anycoindirect",
-    "Apple": "apple",
-    "Apple iCloud": "icloud",
-    "aTech Media": "atechmedia",
-    "Aternos": "aternos",
-    "Atlassian Cloud": "atlassian",
-    "Autodesk": "autodesk",
-    "Automater": "automater",
-    "Avanza": "avanza",
-    "AwardWallet": "awardwallet",
-    "Backblaze": "backblaze",
-    "Barclays UK": "barclays",
-    "Betterment": "betterment",
-    "Binance": "binance",
-    "Binary Lane": "binarylane",
-    "Binero": "binero",
-    "BitBay": "bitbay",
-    "Bitbond": "bitbond",
-    "Bitbucket": "bitbucket",
-    "Bitcoin.de": "bitcoinde",
-    "Bitcoins Norway": "bitcoinsnorway",
-    "BitcoinTrade": "bitcointrade",
-    "Bitfinex": "bitfinex",
-    "Bitflyer": "bitflyer",
-    "BitGo": "bitgo",
-    "Bithumb": "bithumb",
-    "Bitium": "bitium",
-    "Bitlish": "bitlish",
-    "Bitpay": "bitpay",
-    "Bitstamp": "bitstamp",
-    "Bittrex": "bittrex",
-    "bitwarden": "bitwarden",
-    "Blade & Soul": "bladeandsoul",
-    "Blizzard": "blizzard",
-    "Blockchain": "blockchain",
-    "Bluehost": "bluehost",
-    "Blur": "blur",
-    "Boxcryptor": "boxcryptor",
-    "Braintree": "braintree",
-    "Braziliex": "braziliex",
-    "BTC BOX": "btcbox",
-    "BTC Markets": "btcmarkets",
-    "BTCPOP": "btcpop",
-    "Buddy": "buddy",
-    "Buffer": "bufferapp",
-    "bugcrowd": "bugcrowd",
-    "Bugsnag": "bugsnag",
-    "Bugzilla@Mozilla": "bugzilla",
-    "Buildkite": "buildkite",
-    "BuiltWith": "builtwith",
-    "Buycraft": "buycraft",
-    "BX Thailand": "bxthailand",
-    "California Institute of Technology (CalTech)": "caltech",
-    "Capital One": "capitalone",
-    "Capsule": "capsule",
-    "Carta": "carta",
-    "CDNsun": "cdnsun",
-    "Centrify": "centrify",
-    "CEX.IO": "cex",
-    "Changelly": "changelly",
-    "Charles Schwab": "charlesschwab",
-    "Chartbeat": "chartbeat",
-    "ChunkHost": "chunkhost",
-    "Circle": "circle",
-    "Cisco Meraki": "meraki",
-    "Clemson University": "clemson",
-    "Clever": "clever",
-    "Clio": "clio",
-    "Cloud 66": "cloud66",
-    "cloud.ca": "cloudca",
-    "Cloudflare": "cloudflare",
-    "Cloudinary": "cloudinary",
-    "ClouDNS": "cloudns",
-    "Cloudways": "cloudways",
-    "CM Telecom": "cmtelecom",
-    "Cobalt": "cobalt",
-    "Code Climate": "codeclimate",
-    "Codeanywhere": "codeanywhere",
-    "Codeship": "codeship",
-    "Coin Cafe": "coincafe",
-    "Coinapult": "coinapult",
-    "Coinbase": "coinbase",
-    "CoinDeal": "coindeal",
-    "CoinFalcon": "coinfalcon",
-    "Coinfloor": "coinfloor",
-    "CoinGate": "coingate",
-    "Coinify (Merchants)": "coinify",
-    "Coinjar": "coinjar",
-    "CoinOne": "coinone",
-    "Coins.ph": "coinsph",
-    "Coinspot": "coinspot",
-    "Coinut": "coinut",
-    "Compose.io": "composeio",
-    "Con Edison": "coned",
-    "ConnectWise Control (ScreenConnect)": "connectwisecontrol",
-    "Context.IO": "contextio",
-    "Crowdin": "crowdin",
-    "Cryptopia": "cryptopia",
-    "CSN": "csn",
-    "Customer.io": "customerio",
-    "cyon": "cyon",
-    "Dashlane": "dashlane",
-    "Datov\u00e9 schr\u00e1nky": "cz_datovky",
-    "DEGIRO": "degiro",
-    "DeployHQ": "deployhq",
-    "DigiCert": "digicert",
-    "DigiD": "digid",
-    "DigitalOcean": "digitalocean",
-    "Digitec": "digitec",
-    "Direct Mail": "directmail",
-    "DirectAdmin": "directadmin",
-    "Directnic": "directnic",
-    "Discord": "discord",
-    "DNB": "dnb",
-    "DNS Made Easy": "dnsmadeeasy",
-    "DNSimple": "dnsimple",
-    "Docusign": "docusign",
-    "Dome9 Security": "dome9",
-    "Domeneshop": "domeneshop",
-    "Domeny.tv": "domenytv",
-    "Domino Data Lab": "domino",
-    "drchrono": "drchrono",
-    "Dreamhost": "dreamhost",
-    "Dropbox": "dropbox",
-    "DSX": "dsx",
-    "Duke University": "duke",
-    "Dwolla": "dwolla",
-    "Dyn": "dyn",
-    "Dynadot": "dynadot",
-    "Dynu": "dynu",
-    "E*Trade": "etrade",
-    "East Carolina University": "ecu",
-    "Eastern Michigan University": "emu",
-    "Easy": "easy",
-    "easyDNS": "easydns",
-    "Electronic Arts (Origin)": "ea",
-    "EngineYard": "engineyard",
-    "Enjin": "enjin",
-    "eNom": "enom",
-    "Entrust": "entrust",
-    "Envato": "envato",
-    "Epic Games": "epicgames",
-    "Erste Bank Hrvatska": "erstehr",
-    "Esri": "esri",
-    "Etsy": "etsy",
-    "EuroDNS": "eurodns",
-    "EVE Online": "eveonline",
-    "Everlaw": "everlaw",
-    "Evernote": "evernote",
-    "Exact Online": "exact",
-    "Fabulous": "fabulous",
-    "Facebook": "facebook",
-    "FaceIT": "faceit",
-    "Fastly": "fastly",
-    "FastMail": "fastmail",
-    "Fidelity Investments": "fidelity",
-    "Figma": "figma",
-    "Findmyshift": "findmyshift",
-    "Firefox": "firefox",
-    "First Direct": "firstdirect",
-    "First Tech Federal Credit Union": "firsttechfcu",
-    "FogBugz & Kiln": "fogbugz",
-    "FollowMyHealth": "followmyhealth",
-    "Formstack": "formstack",
-    "fortrabbit": "fortrabbit",
-    "FreeAgent": "freeagent",
-    "Front App": "front_app",
-    "Gaijin Entertainment": "gaijin",
-    "Gandi": "gandi",
-    "Garena Online": "garena",
-    "Gatehub": "gatehub",
-    "Gemini": "gemini",
-    "Georgia Institute of Technology": "gatech",
-    "GitHub": "github",
-    "GitLab": "gitlab",
-    "Glesys": "glesys",
-    "Gmail": "gmail",
-    "GoDaddy": "godaddy",
-    "Google Cloud Platform": "googlecloud",
-    "Google Domains": "googledomains",
-    "Google Drive": "drive",
-    "Google Fiber": "googlefiber",
-    "Google Fit": "googlefit",
-    "Google Play": "googleplay",
-    "Google Wallet": "googlewallet",
-    "Google+": "g+",
-    "Grape": "grape",
-    "GREE": "gree",
-    "Greenhost": "greenhost",
-    "Guild Wars 2": "guildwars2",
-    "HackerOne": "hackerone",
-    "Halebop": "halebop",
-    "Handelsbanken": "handelsbanken",
-    "Hangouts": "hangouts",
-    "Harvard University": "harvard",
-    "Hashicorp Atlas": "hashicorp-atlas",
-    "HealthVault (w/Microsoft Account)": "healthvault",
-    "Heroku": "heroku",
-    "Hetzner Online": "hetzner",
-    "Hexonet": "hexonet",
-    "HitBTC": "hitbtc",
-    "HMRC": "hmrc",
-    "HootSuite": "hootsuite",
-    "Hostens": "hostens",
-    "HostHatch": "hosthatch",
-    "Hostiso": "hostiso",
-    "Hostnet": "hostnet",
-    "HostUS": "hostus",
-    "Hover.com": "hover",
-    "HSBC": "hsbc",
-    "HubSpot": "hubspot",
-    "Humble Bundle": "humble",
-    "Hurricane Electric": "hurricane",
-    "Hushmail": "hushmail",
-    "ICUK": "icuk",
-    "IFTTT": "ifttt",
-    "ImmobilienScout24": "immobilienscout24",
-    "Incapsula": "incapsula",
-    "Infomaniak": "infomaniak",
-    "INIZ": "iniz",
-    "Instagram": "instagram",
-    "Interactive Brokers": "interactivebrokers",
-    "Internet.bs": "internetbs",
-    "Intuit TurboTax": "turbotax",
-    "Invoiced": "invoiced",
-    "INWX": "internetworx",
-    "IO Zoom": "iozoom",
-    "IT Glue": "itglue",
-    "itch.io": "itchio",
-    "iWantMyName": "iwantmyname",
-    "Jitbit Helpdesk": "jitbit",
-    "join.me (w/ LogMeIn account)": "joinme",
-    "Joker.com": "joker",
-    "Joyent": "joyent",
-    "Justworks": "justworks",
-    "Kayako": "kayako",
-    "Keeper": "keeper",
-    "Kickstarter": "kickstarter",
-    "Kinsta": "kinsta",
-    "Klarna": "klarna",
-    "KnowBe4": "knowbe4",
-    "KnownHost": "knownhost",
-    "Koding": "koding",
-    "Koofr": "koofr",
-    "Korbit": "korbit",
-    "Kraken": "kraken",
-    "Laravel Forge": "forge",
-    "LastPass": "lastpass",
-    "Launchpad": "launchpad",
-    "Leaseweb": "leaseweb",
-    "lichess.org": "lichess",
-    "Linode": "linode",
-    "Liquid Web": "liquidweb",
-    "LiteBit": "litebit",
-    "Lobsters": "lobsters",
-    "LocalBitcoins": "localbitcoins",
-    "localethereum": "localethereum",
-    "login.gov": "login-gov",
-    "LogMeIn": "logmein",
-    "Looker": "looker",
-    "Loopia": "loopia",
-    "Luno": "luno",
-    "L\u00e4nsf\u00f6rs\u00e4kringar": "lansforsakringar",
-    "mail.de": "mailde",
-    "Mail.Ru": "mailru",
-    "mailbox.org": "mailbox",
-    "MailChimp": "mailchimp",
-    "Mailfence": "mailfence",
-    "Mailgun": "mailgun",
-    "Mammoth Networks": "mammothnetworks",
-    "Mapbox": "mapbox",
-    "MarkMonitor": "markmonitor",
-    "Massachusetts Institute of Technology": "mit",
-    "MathWorks": "mathworks",
-    "MaxCDN": "maxcdn",
-    "MB Connect Line": "mbconnectline",
-    "Mega": "mega",
-    "Mercado Bitcoin": "mercadobitcoin",
-    "Mercado Libre": "mercado-libre",
-    "Metorik": "metorik",
-    "Metrological": "metrological",
-    "Microsoft Azure": "microsoftazure",
-    "Microsoft To-Do": "microsofttodo",
-    "Mimecast": "mimecast",
-    "Mint": "mint",
-    "Mixer": "mixer",
-    "Mixpanel": "mixpanel",
-    "mLab": "mlab",
-    "Moneybird": "moneybird",
-    "MongoDB Cloud Manager": "mongodbmms",
-    "MXroute": "mxroute",
-    "MyDigipass.com": "mydigipass",
-    "Name.com": "namecom",
-    "Namecheap": "namecheap",
-    "NameSilo.com": "namesilo",
-    "Navy Federal Credit Union": "navyfederal",
-    "NearlyFreeSpeech.NET": "nfsn",
-    "NearlyFreeSpeech.net": "nfsn",
-    "Netcup": "netcup",
-    "NETELLER": "neteller",
-    "Nextcloud": "nextcloud",
-    "Newegg": "newegg",
-    "Nimbox": "nimbox",
-    "Nintendo Account": "nintendo-account",
-    "Nitrado": "nitrado",
-    "No Starch Press": "nostarchpress",
-    "Noez": "noez",
-    "Nominet": "nominet",
-    "Nordea Sverige": "nordea",
-    "Nordnet Sverige": "nordnet",
-    "Norton": "norton",
-    "npm": "npm",
-    "NS1": "ns1",
-    "Nutmeg": "nutmeg",
-    "O&amp;O Syspectr": "oosyspectr",
-    "Oderland": "oderland",
-    "Office 365": "office365",
-    "Okta": "okta",
-    "OneDrive": "onedrive",
-    "Online": "online",
-    "Onshape": "onshape",
-    "OpenDNS": "opendns",
-    "Openprovider": "openprovider",
-    "OpenSRS": "opensrs",
-    "Outlook.com": "outlook",
-    "OVH": "ovh",
-    "Packet": "packet",
-    "pair Domains": "pairdomains",
-    "Panic Sync": "panic",
-    "PassHub": "passhub",
-    "Paycor": "paycor",
-    "PAYEER": "payeer",
-    "PayPal": "paypal",
-    "Paysafecard": "paysafecard",
-    "Payza": "payza",
-    "Peerio": "peerio",
-    "Pennsylvania State University": "psu",
-    "Phacility": "phacility",
-    "PhraseApp": "phraseapp",
-    "Pinterest": "pinterest",
-    "PlanetHoster": "planethoster",
-    "Planio": "planio",
-    "Plurk": "plurk",
-    "Pobox": "pobox",
-    "Pocketsmith": "pocketsmith",
-    "Podravska banka": "podravska",
-    "Poloniex": "poloniex",
-    "porkbun": "porkbun",
-    "Posteo": "posteo",
-    "Prey": "prey",
-    "Privacy": "privacy",
-    "ProfitBricks": "profitbricks",
-    "Project Fi": "projectfi",
-    "ProtonMail": "protonmail",
-    "ProtonVPN": "protonvpn",
-    "Purdue University": "purdue",
-    "Purse": "purse",
-    "Pushover": "pushover",
-    "Pwnie Express Pwn Pulse": "pwnieexpress",
-    "PythonAnywhere": "pythonanywhere",
-    "QNAP": "qnap",
-    "Quickbooks Online": "quickbooks",
-    "QuickFile": "quickfile",
-    "Rackspace": "rackspace",
-    "RamNode": "ramnode",
-    "Ravelin": "ravelin",
-    "Raygun": "raygun",
-    "RBCommons": "rbcommons",
-    "RBLTracker": "rbltracker",
-    "RealMe": "realme",
-    "RealVNC": "realvnc",
-    "Recurly": "recurly",
-    "Reddit": "reddit",
-    "Register4Less": "register4less",
-    "Registro.br": "registrobr",
-    "Remote Desktop Manager": "remotedesktopmanager",
-    "Repairshopr": "repairshopr",
-    "Ripe NCC": "ripe",
-    "Roberts Space Industries": "robertsspaceindustries",
-    "Robinhood": "robinhood",
-    "RoboForm": "roboform",
-    "Rockstar Games Social Club": "rockstargames",
-    "Rollbar": "rollbar",
-    "Runbox": "runbox",
-    "RuneScape": "runescape",
-    "RunSignUp": "runsignup",
-    "SAASPASS": "saaspass",
-    "SailPoint": "sailpoint",
-    "Salesforce": "salesforce",
-    "SaneBox": "sanebox",
-    "Santander PL": "santander",
-    "SatoshiTango": "satoshitango",
-    "Scaleway": "scaleway",
-    "Scalr": "scalr",
-    "Scryfall": "scryfall",
-    "SEB": "seb",
-    "section.io": "sectionio",
-    "Semaphore": "semaphore",
-    "SendGrid": "sendgrid",
-    "Sendloop": "sendloop",
-    "Sentry": "sentry",
-    "Shopify": "shopify",
-    "SimpleTax": "simpletax",
-    "SingleHop": "singlehop",
-    "SiteGround": "siteground",
-    "Skatteverket": "skatteverket",
-    "Skrill": "skrill",
-    "Skype": "skype",
-    "Slack": "slack",
-    "SmartBox": "smartbox",
-    "SmartSimple": "smartsimple",
-    "smashcast": "smashcast",
-    "Snapchat": "snapchat",
-    "SocketLabs": "socketlabs",
-    "Sonic": "sonic",
-    "Sophos Central": "sophoscentral",
-    "SourceForge": "sourceforge",
-    "SparkPost": "sparkpost",
-    "SpeedIT Solutions": "speedit",
-    "Square": "squareup",
-    "Square Enix": "squarenix",
-    "Squarespace": "squarespace",
-    "SSLTrust": "ssltrust",
-    "Stackfield": "stackfield",
-    "Stanford University": "stanford",
-    "Star Wars: The Old Republic": "swtor",
-    "StartMail": "startmail",
-    "State Bank of India": "sbi",
-    "StatusCake": "statuscake",
-    "Steam": "steam",
-    "Stripe": "stripe",
-    "Sumo Logic": "sumologic",
-    "Swedbank": "swedbank",
-    "Sync": "sync",
-    "Synology": "synology",
-    "TBC Bank": "tbcbank",
-    "TeamViewer": "teamviewer",
-    "Telia (Sweden)": "telia",
-    "Telzio": "telzio",
-    "Temple University": "templeuniversity",
-    "Thexyz": "thexyz",
-    "ThisData": "thisdata",
-    "Threat X": "threatx",
-    "ThreatConnect": "threatconnect",
-    "Tibia": "tibia",
-    "Tilaa": "tilaa",
-    "Time4VPS": "time4vps",
-    "Tinfoil Security": "tinfoil",
-    "Ting": "ting",
-    "Toodledo": "toodledo",
-    "Toontown Rewritten": "toontownrewritten",
-    "TorGuard": "torguard",
-    "TransferWise": "transferwise",
-    "TransIP": "transip",
-    "Trello": "trello",
-    "Tresorit": "tresorit",
-    "Trion Worlds": "trionworlds",
-    "True Key": "truekey",
-    "Tumblr": "tumblr",
-    "Tutanota": "tutanota",
-    "Twitch": "twitch",
-    "Twitter": "twitter",
-    "Uber": "uber",
-    "Ubiquiti Networks": "ubiquiti",
-    "Ubisoft/Uplay": "uplay",
-    "UKFast": "ukfast",
-    "Ukraine": "ukraine",
-    "Unfuddle": "unfuddle",
-    "Uniregistry": "uniregistry",
-    "United Domains USA": "uniteddomains-usa",
-    "united-domains Reselling": "udreselling",
-    "united-domains.de": "united-domains",
-    "University of Idaho": "uidaho",
-    "University of Michigan": "umich",
-    "University of Washington": "uw",
-    "UpCloud": "upcloud",
-    "Uphold": "uphold",
-    "US Internal Revenue Service": "usirs",
-    "USAA": "usaa",
-    "Usabilla": "usabilla",
-    "Userify": "userify",
-    "UW Credit Union": "uwcu",
-    "VentraIP": "ventraip",
-    "Versio": "versio",
-    "Virginia Commonwealth University": "vcu",
-    "Virginia Tech": "virginiatech",
-    "Visual Studio Online": "visualstudio",
-    "VK": "vk",
-    "VPS Server": "vpsserver",
-    "Vultr": "vultr",
-    "Wargaming": "wargaming",
-    "Watchman Monitoring": "watchmanmonitoring",
-    "Wealthfront": "wealthfront",
-    "Wealthsimple": "wealthsimple",
-    "WebFaction": "webfaction",
-    "Wedos": "wedos",
-    "Wikipedia": "wikipedia",
-    "WildStar": "wildstar",
-    "WordPress.com": "wordpress",
-    "WP Engine": "wpengine",
-    "Wykop": "wykop",
-    "Xapo": "xapo",
-    "Xbox Live": "xbox",
-    "Xero": "xero",
-    "XING": "xing",
-    "Yahoo Japan Mail": "yahoojapanmail",
-    "Yandex.Disk": "yandexdisk",
-    "Yandex.Mail": "yandexmail",
-    "Yandex.Money": "yandexmoney",
-    "Yclas": "yclas",
-    "YouTube": "youtube",
-    "YoYo Games": "yoyogames",
-    "Zagreba\u010dka banka": "zagrebacka",
-    "Zapier": "zapier",
-    "Zendesk": "zendesk",
-    "Zetta.net": "zetta",
-    "Zimbra": "zimbra",
-    "Zoho Mail": "zoho",
-    "Zoolz": "zoolz",
-    "Zurich Cantonal Bank (ZKB)": "zkb"
+    "(ISC)2": {
+        "img": "isc2.png",
+        "url": "https://www.isc2.org",
+        "doc": null
+    },
+    "007Names": {
+        "img": "007names.png",
+        "url": "https://www.007names.com",
+        "doc": "https://www.007names.com/info/two-step.xhtml"
+    },
+    "1&amp;1 IONOS": {
+        "img": "1and1.png",
+        "url": "https://www.ionos.com/",
+        "doc": "https://www.ionos.com/help/index.php?id=3269"
+    },
+    "101domain": {
+        "img": "101domain.png",
+        "url": "https://101domain.com",
+        "doc": "https://www.101domain.com/vip_security_card.htm"
+    },
+    "1Password": {
+        "img": "1password.png",
+        "url": "https://1password.com/",
+        "doc": "https://support.1password.com/two-factor-authentication/"
+    },
+    "20i": {
+        "img": "20i.png",
+        "url": "https://www.20i.com",
+        "doc": "https://www.20i.com/support/my-services/two-factor-authentication-my20i"
+    },
+    "34SP.com": {
+        "img": "34sp.png",
+        "url": "https://www.34SP.com",
+        "doc": "https://www.34sp.com/kb/142/how-to-enable-two-factor-authentication-on-your-account"
+    },
+    "500px": {
+        "img": "500px.png",
+        "url": "https://500px.com/",
+        "doc": "https://support.500px.com/hc/en-us/articles/205115877-How-do-I-setup-Two-Factor-Authentication"
+    },
+    "A2 Hosting": {
+        "img": "a2hosting.png",
+        "url": "https://www.a2hosting.com",
+        "doc": "https://www.a2hosting.com/kb/a2-hosting-customer-portal/account-management/enabling-two-factor-authentication-for-your-a2-hosting-account"
+    },
+    "Above.com": {
+        "img": "above.png",
+        "url": "https://www.above.com",
+        "doc": "https://www.above.com/manual/my-account-manual-two-step-auth.html"
+    },
+    "Acquia": {
+        "img": "acquia.png",
+        "url": "https://www.acquia.com",
+        "doc": "https://docs.acquia.com/acquia-cloud/access/signin/"
+    },
+    "Action Network": {
+        "img": "actionnetwork.png",
+        "url": "https://actionnetwork.org/",
+        "doc": "https://help.actionnetwork.org/hc/en-us/articles/217206826"
+    },
+    "Addiko Bank": {
+        "img": "addikobank.png",
+        "url": "https://www.addiko.hr/",
+        "doc": "https://www.addiko.hr/static/uploads/mtoken-uputa-za-koristenje.pdf"
+    },
+    "Adobe ID": {
+        "img": "adobe.png",
+        "url": "https://accounts.adobe.com/",
+        "doc": "https://helpx.adobe.com/manage-account/using/secure-your-adobe-account.html"
+    },
+    "Aha!": {
+        "img": "aha.png",
+        "url": "https://www.aha.io/",
+        "doc": "http://support.aha.io/hc/en-us/articles/202000957-Add-two-factor-authentication-2FA-"
+    },
+    "AirBank": {
+        "img": "airbank.png",
+        "url": "https://www.airbank.cz",
+        "doc": "https://www.airbank.cz/co-vas-nejvic-zajima/jake-bezpecnostni-prvky-u-nas-mame"
+    },
+    "Airbrake": {
+        "img": "airbrake.png",
+        "url": "https://airbrake.io",
+        "doc": "https://airbrake.io/docs/features/two-factor-authentication/"
+    },
+    "Airtable": {
+        "img": "airtable.png",
+        "url": "https://airtable.com",
+        "doc": "https://support.airtable.com/hc/en-us/articles/219409917-Setting-up-two-factor-authentication"
+    },
+    "Algolia": {
+        "img": "algolia.png",
+        "url": "https://algolia.com",
+        "doc": "https://www.algolia.com/doc/security/best-security-practices/#two-factor-authentication-2fa"
+    },
+    "Allegro": {
+        "img": "allegro.png",
+        "url": "https://allegro.pl",
+        "doc": "https://allegro.pl/pomoc/faq/dwustopniowe-logowanie-faq-oGgdkGDqXCq"
+    },
+    "AltoIRA": {
+        "img": "altoira.png",
+        "url": "https://www.altoira.com",
+        "doc": "https://help.altoira.com/hc/en-us/articles/360007374654-Enabling-Disabling-Two-Factor-Authentication-2FA-"
+    },
+    "Amazon": {
+        "img": "amazon.png",
+        "url": "https://www.amazon.com",
+        "doc": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330"
+    },
+    "Amazon AWS WorkSpaces": {
+        "img": "awsworkspaces.png",
+        "url": "https://aws.amazon.com/workspaces/",
+        "doc": "https://aws.amazon.com/blogs/aws/multi-factor-auth-for-workspaces/"
+    },
+    "Amazon Pay": {
+        "img": "amazonpay.png",
+        "url": "https://pay.amazon.com",
+        "doc": "https://www.amazon.com/gp/help/customer/display.html?nodeId=201962420"
+    },
+    "Amazon Web Services": {
+        "img": "aws.png",
+        "url": "https://aws.amazon.com",
+        "doc": "https://aws.amazon.com/iam/details/mfa/"
+    },
+    "Andrews &amp; Arnold": {
+        "img": "aaisp.png",
+        "url": "https://aa.net.uk",
+        "doc": "https://aa.net.uk/kb-broadband-2fa.html"
+    },
+    "AngelList": {
+        "img": "angellist.png",
+        "url": "https://angel.co",
+        "doc": null
+    },
+    "Ankama": {
+        "img": "ankama.png",
+        "url": "https://www.ankama.com",
+        "doc": "https://support.ankama.com/hc/en-us/categories/200093427-DOFUS-Security"
+    },
+    "ANXPRO Bitcoin Exchange": {
+        "img": "anxpro.png",
+        "url": "https://anxpro.com/",
+        "doc": "https://anxpro.com/pages/security"
+    },
+    "AnycoinDirect": {
+        "img": "anycoindirect.png",
+        "url": "https://anycoindirect.eu",
+        "doc": "https://support.anycoindirect.eu/hc/en-gb/articles/115001423191"
+    },
+    "Apple": {
+        "img": "apple.png",
+        "url": "https://appleid.apple.com",
+        "doc": "http://support.apple.com/kb/ht5570"
+    },
+    "Apple iCloud": {
+        "img": "icloud.png",
+        "url": "https://www.icloud.com",
+        "doc": "https://support.apple.com/HT204152"
+    },
+    "AppVeyor": {
+        "img": "appveyor.png",
+        "url": "https://www.appveyor.com",
+        "doc": "https://www.appveyor.com/blog/2018/11/07/2FA-implementation/"
+    },
+    "aTech Media": {
+        "img": "atechmedia.png",
+        "url": "https://atechmedia.com",
+        "doc": "https://atechmedia.com/blog/general/launches/two-factor-authentication"
+    },
+    "Aternos": {
+        "img": "aternos.png",
+        "url": "https://aternos.org/",
+        "doc": null
+    },
+    "Atlassian Cloud": {
+        "img": "atlassian.png",
+        "url": "https://id.atlassian.com",
+        "doc": "https://confluence.atlassian.com/cloud/secure-your-account-with-two-step-verification-939505063.html"
+    },
+    "Autodesk": {
+        "img": "autodesk.png",
+        "url": "https://www.autodesk.com",
+        "doc": "https://knowledge.autodesk.com/customer-service/account-management/account-profile/account-security/two-step-verification"
+    },
+    "Automater": {
+        "img": "automater.png",
+        "url": "https://automater.pl/en/",
+        "doc": "https://www.youtube.com/watch?v=5OLcvjVhhuI"
+    },
+    "Avanza": {
+        "img": "avanza.png",
+        "url": "https://www.avanza.se/",
+        "doc": "https://www.avanza.se/kundservice.html/1335/tvafaktorsinloggning/d264248e-bea3-48a0-bf2d-157309734649"
+    },
+    "AwardWallet": {
+        "img": "awardwallet.png",
+        "url": "https://awardwallet.com",
+        "doc": "https://awardwallet.com/faqs#44"
+    },
+    "Backblaze": {
+        "img": "backblaze.png",
+        "url": "https://www.backblaze.com",
+        "doc": "https://help.backblaze.com/hc/en-us/articles/217666588-Two-Factor-Verification"
+    },
+    "Barclays UK": {
+        "img": "barclays.png",
+        "url": "https://www.barclays.co.uk/",
+        "doc": "https://www.barclays.co.uk/Helpsupport/UpgradetoPINsentry/P1242559314766"
+    },
+    "Betterment": {
+        "img": "betterment.png",
+        "url": "https://www.betterment.com/",
+        "doc": "https://support.betterment.com/customer/en/portal/topics/1026376-two-factor-authentication-2fa-?b_id=9042"
+    },
+    "Binance": {
+        "img": "binance.png",
+        "url": "https://www.binance.com/",
+        "doc": "https://support.binance.com/hc/en-us/articles/115002439332-Securing-Your-Trading-Account"
+    },
+    "Binary Lane": {
+        "img": "binarylane.png",
+        "url": "https://www.binarylane.com.au/",
+        "doc": "https://www.binarylane.com.au/support/solutions/articles/1000199372-two-factor-authentication"
+    },
+    "Binero": {
+        "img": "binero.png",
+        "url": "https://www.binero.se",
+        "doc": "https://blogg.binero.se/2017/10/tvafaktorsautentisering/"
+    },
+    "BitBay": {
+        "img": "bitbay.png",
+        "url": "https://bitbay.net/",
+        "doc": "https://bitbay.net/en/safety"
+    },
+    "Bitbond": {
+        "img": "bitbond.png",
+        "url": "https://www.bitbond.com",
+        "doc": null
+    },
+    "Bitbucket": {
+        "img": "bitbucket.png",
+        "url": "https://bitbucket.org",
+        "doc": "https://confluence.atlassian.com/x/425QLg"
+    },
+    "Bitcoin.de": {
+        "img": "bitcoinde.png",
+        "url": "https://bitcoin.de",
+        "doc": "https://www.bitcoin.de/de/faq/was-ist-die-2-step-verification-2-faktor-authentifizierung/46.html"
+    },
+    "Bitcoins Norway": {
+        "img": "bitcoinsnorway.png",
+        "url": "https://bitcoinsnorway.com",
+        "doc": null
+    },
+    "BitcoinTrade": {
+        "img": "bitcointrade.png",
+        "url": "https://bitcointrade.com.br/",
+        "doc": null
+    },
+    "Bitfinex": {
+        "img": "bitfinex.png",
+        "url": "https://www.bitfinex.com",
+        "doc": "https://support.bitfinex.com/hc/en-us/sections/203192029-Security"
+    },
+    "Bitflyer": {
+        "img": "bitflyer.png",
+        "url": "https://bitflyer.com",
+        "doc": "https://bitflyer.com/en-jp/faq/2-10"
+    },
+    "BitGo": {
+        "img": "bitgo.png",
+        "url": "https://www.bitgo.com",
+        "doc": "https://bitgo.zendesk.com/hc/en-us/sections/201009049-Two-Factor-Authentication-Help-Page"
+    },
+    "Bithumb": {
+        "img": "bithumb.png",
+        "url": "https://www.bithumb.com/",
+        "doc": "https://bithumb.cafe/archives/7286"
+    },
+    "Bitium": {
+        "img": "bitium.png",
+        "url": "https://www.bitium.com",
+        "doc": "https://support.bitium.com/customer/portal/articles/1417358-enabling-two-factor-authentication-2fa-"
+    },
+    "Bitlish": {
+        "img": "bitlish.png",
+        "url": "https://bitlish.com",
+        "doc": "https://bitlish.com/how#mfa"
+    },
+    "Bitpay": {
+        "img": "bitpay.png",
+        "url": "https://bitpay.com",
+        "doc": "https://support.bitpay.com/hc/en-us/articles/360006612692"
+    },
+    "Bitstamp": {
+        "img": "bitstamp.png",
+        "url": "https://bitstamp.net",
+        "doc": "https://www.bitstamp.net/s/documents/bitstamp_2_factor_authentication_guide.pdf"
+    },
+    "Bittrex": {
+        "img": "bittrex.png",
+        "url": "https://bittrex.com",
+        "doc": "https://support.bittrex.com/hc/en-us/articles/115000198612-How-do-I-troubleshoot-backup-remove-disable-enable-Two-Factor-Authentication-2FA-"
+    },
+    "bitwarden": {
+        "img": "bitwarden.png",
+        "url": "https://bitwarden.com",
+        "doc": "https://help.bitwarden.com/article/setup-two-step-login/"
+    },
+    "Blade & Soul": {
+        "img": "bladeandsoul.png",
+        "url": "http://www.bladeandsoul.com/",
+        "doc": "https://support.bladeandsoul.com/hc/en-us/articles/207578553-Supported-Two-Step-OTP-Authentication-Verification-Methods"
+    },
+    "Blizzard": {
+        "img": "blizzard.png",
+        "url": "https://blizzard.com",
+        "doc": "https://us.battle.net/support/en/article/Blizzard-Authenticator"
+    },
+    "Blockchain": {
+        "img": "blockchain.png",
+        "url": "https://blockchain.info/",
+        "doc": "https://support.blockchain.com/hc/en-us/articles/211164103-Enable-2-Step-Verification-2FA-"
+    },
+    "Bluehost": {
+        "img": "bluehost.png",
+        "url": "https://www.bluehost.com/",
+        "doc": "https://my.bluehost.com/cgi/help/two-factor-authentication"
+    },
+    "Blur": {
+        "img": "blur.png",
+        "url": "https://www.abine.com/",
+        "doc": "https://dnt.abine.com/#help/faq/faq-enabletwoFactor"
+    },
+    "Boxcryptor": {
+        "img": "boxcryptor.png",
+        "url": "https://www.boxcryptor.com",
+        "doc": "https://www.boxcryptor.com/help/boxcryptor-account/#two-factor-authentication"
+    },
+    "Braintree": {
+        "img": "braintree.png",
+        "url": "https://www.braintreepayments.com/",
+        "doc": "https://articles.braintreepayments.com/reference/security/two-factor-authentication"
+    },
+    "Braziliex": {
+        "img": "braziliex.png",
+        "url": "https://braziliex.com/",
+        "doc": "https://braziliex.com/faq/index.php?id=288"
+    },
+    "BTC BOX": {
+        "img": "btcbox.png",
+        "url": "https://www.btcbox.co.jp/",
+        "doc": "https://www.btcbox.co.jp/help/ga"
+    },
+    "BTC Markets": {
+        "img": "btcmarkets.png",
+        "url": "https://www.btcmarkets.net/",
+        "doc": "https://www.btcmarkets.net/faq#q27"
+    },
+    "BTCPOP": {
+        "img": "btcpop.png",
+        "url": "https://btcpop.co/",
+        "doc": "https://blog.btcpop.co/2017/04/27/signing-security-btcpop-co-account/"
+    },
+    "Buddy": {
+        "img": "buddy.png",
+        "url": "https://buddy.works",
+        "doc": "https://buddy.works/blog/introducing-two-factor-authentication"
+    },
+    "Buffer": {
+        "img": "bufferapp.png",
+        "url": "https://bufferapp.com",
+        "doc": "https://blog.bufferapp.com/introducing-the-safest-social-media-publishing-on-the-web"
+    },
+    "bugcrowd": {
+        "img": "bugcrowd.png",
+        "url": "https://bugcrowd.com",
+        "doc": "https://docs.bugcrowd.com/v1.0/docs/two-factor-authentication-1"
+    },
+    "Bugsnag": {
+        "img": "bugsnag.png",
+        "url": "https://bugsnag.com",
+        "doc": "https://docs.bugsnag.com/product/account-and-security/#security"
+    },
+    "Bugzilla@Mozilla": {
+        "img": "bugzilla.png",
+        "url": "https://bugzilla.mozilla.org",
+        "doc": null
+    },
+    "Buildkite": {
+        "img": "buildkite.png",
+        "url": "https://buildkite.com",
+        "doc": "https://buildkite.com/changelog/31-two-factor-authentication"
+    },
+    "BuiltWith": {
+        "img": "builtwith.png",
+        "url": "https://builtwith.com",
+        "doc": null
+    },
+    "Buycraft": {
+        "img": "buycraft.png",
+        "url": "https://buycraft.net",
+        "doc": "https://help.buycraft.net/article/83-two-factor-authentication"
+    },
+    "BX Thailand": {
+        "img": "bxthailand.png",
+        "url": "https://bx.in.th/",
+        "doc": "https://bx.in.th/info/faq/"
+    },
+    "California Institute of Technology (CalTech)": {
+        "img": "caltech.png",
+        "url": "https://www.caltech.edu",
+        "doc": "https://imss.caltech.edu/node/1408"
+    },
+    "Capital One": {
+        "img": "capitalone.png",
+        "url": "https://www.capitalone.com/",
+        "doc": "https://www.capitalone.com/identity-protection/swiftid/"
+    },
+    "Capsule": {
+        "img": "capsule.png",
+        "url": "https://capsulecrm.com/",
+        "doc": "https://capsulecrm.com/support/user-preferences/#enabling-two-factor-authentication"
+    },
+    "Carnegie Mellon University": {
+        "img": "cmu.png",
+        "url": "https://www.cmu.edu/",
+        "doc": "https://www.cmu.edu/computing/services/security/identity-access/authentication/how-to/use2fa-weblogin.html"
+    },
+    "Carta": {
+        "img": "carta.png",
+        "url": "https://carta.com/",
+        "doc": "https://support.carta.com/article/388-2-factor-authentication"
+    },
+    "CDNsun": {
+        "img": "cdnsun.png",
+        "url": "https://cdnsun.com",
+        "doc": "https://cdnsun.com/knowledgebase/billing/two-factor-authentication"
+    },
+    "Centrify": {
+        "img": "centrify.png",
+        "url": "https://www.centrify.com",
+        "doc": "https://www.centrify.com/solutions/why-multi-factor-authentication/"
+    },
+    "CEX.IO": {
+        "img": "cex.png",
+        "url": "https://cex.io/",
+        "doc": "https://cex.io/guide#4"
+    },
+    "Changelly": {
+        "img": "changelly.png",
+        "url": "https://changelly.com/",
+        "doc": "https://changelly.com/faq#what-is-2fa-authentication"
+    },
+    "Charles Schwab": {
+        "img": "charlesschwab.png",
+        "url": "https://www.schwab.com/",
+        "doc": "/notes/schwab/"
+    },
+    "Chartbeat": {
+        "img": "chartbeat.png",
+        "url": "https://chartbeat.com/",
+        "doc": "https://chartbeat.zendesk.com/hc/en-us/articles/209531888-Two-Factor-Authentication"
+    },
+    "ChunkHost": {
+        "img": "chunkhost.png",
+        "url": "https://chunkhost.com",
+        "doc": null
+    },
+    "Circle": {
+        "img": "circle.png",
+        "url": "https://circle.com",
+        "doc": "https://support.circle.com/hc/en-us/articles/213560483--What-is-two-factor-authentication-2FA-"
+    },
+    "Cisco Meraki": {
+        "img": "meraki.png",
+        "url": "https://meraki.cisco.com/",
+        "doc": "https://documentation.meraki.com/zGeneral_Administration/Managing_Dashboard_Access/Using_Google_Authenticator_for_Two-factor_Authentication_in_Dashboard"
+    },
+    "Clemson University": {
+        "img": "clemson.png",
+        "url": "https://www.clemson.edu/",
+        "doc": "https://2fa.app.clemson.edu/"
+    },
+    "Clever": {
+        "img": "clever.png",
+        "url": "https://clever.com",
+        "doc": "https://support.clever.com/hc/en-us/articles/202062333-Two-Factor-Authentication"
+    },
+    "Clio": {
+        "img": "clio.png",
+        "url": "https://www.clio.com",
+        "doc": "https://support.goclio.com/hc/en-us/articles/203184210-Two-Factor-Authentication"
+    },
+    "Cloud 66": {
+        "img": "cloud66.png",
+        "url": "https://www.cloud66.com",
+        "doc": "http://blog.cloud66.com/two-factor-authentication-for-your-accounts/"
+    },
+    "cloud.ca": {
+        "img": "cloudca.png",
+        "url": "https://cloud.ca",
+        "doc": "https://cloud.ca/two-factor-authentication-is-now-available-on-cloud-ca/"
+    },
+    "Cloudflare": {
+        "img": "cloudflare.png",
+        "url": "https://cloudflare.com",
+        "doc": "https://support.cloudflare.com/hc/en-us/articles/200167866-How-do-I-set-up-two-factor-authentication-"
+    },
+    "Cloudinary": {
+        "img": "cloudinary.png",
+        "url": "https://cloudinary.com",
+        "doc": null
+    },
+    "ClouDNS": {
+        "img": "cloudns.png",
+        "url": "https://www.cloudns.net/",
+        "doc": "https://www.cloudns.net/wiki/article/201/"
+    },
+    "Cloudways": {
+        "img": "cloudways.png",
+        "url": "https://www.cloudways.com/",
+        "doc": "https://support.cloudways.com/enabling-two-factor-authentication-for-your-cloudways-account/"
+    },
+    "CM Telecom": {
+        "img": "cmtelecom.png",
+        "url": "https://www.cmtelecom.com/",
+        "doc": "https://help.onlinesmsgateway.com/en/accounts-and-payments/how-do-i-enable-two-factor-authentication"
+    },
+    "Cobalt": {
+        "img": "cobalt.png",
+        "url": "https://cobalt.io/",
+        "doc": "https://cobalt.io/blog/new-feature-two-factor-auth/"
+    },
+    "Code Climate": {
+        "img": "codeclimate.png",
+        "url": "https://codeclimate.com",
+        "doc": "https://docs.codeclimate.com/docs/enabling-two-factor-authentication"
+    },
+    "Codeanywhere": {
+        "img": "codeanywhere.png",
+        "url": "https://codeanywhere.com",
+        "doc": null
+    },
+    "Codeship": {
+        "img": "codeship.png",
+        "url": "https://codeship.com/",
+        "doc": "https://documentation.codeship.com/general/about/2fa/"
+    },
+    "Coin Cafe": {
+        "img": "coincafe.png",
+        "url": "https://coincafe.com",
+        "doc": "https://blog.coincafe.com/2016/01/08/2fa/"
+    },
+    "Coinapult": {
+        "img": "coinapult.png",
+        "url": "https://coinapult.com",
+        "doc": "https://coinapult.com/faq"
+    },
+    "Coinbase": {
+        "img": "coinbase.png",
+        "url": "https://www.coinbase.com/",
+        "doc": "https://support.coinbase.com/customer/en/portal/articles/1658338-how-do-i-set-up-2-factor-authentication-"
+    },
+    "CoinDeal": {
+        "img": "coindeal.png",
+        "url": "https://coindeal.com",
+        "doc": "https://coindeal.com/security"
+    },
+    "CoinFalcon": {
+        "img": "coinfalcon.png",
+        "url": "https://coinfalcon.com/",
+        "doc": "https://support.coinfalcon.com/en-us/article/how-to-setup-two-factor-authentication-2fa-nkjppd/"
+    },
+    "Coinfloor": {
+        "img": "coinfloor.png",
+        "url": "https://www.coinfloor.co.uk/",
+        "doc": "https://www.coinfloor.co.uk/security"
+    },
+    "CoinGate": {
+        "img": "coingate.png",
+        "url": "https://coingate.com",
+        "doc": "https://support.coingate.com/en/65/how-do-i-set-up-2-factor-authentication-2fa-on-my-account"
+    },
+    "Coinify (Merchants)": {
+        "img": "coinify.png",
+        "url": "https://coinify.com/merchants",
+        "doc": null
+    },
+    "Coinjar": {
+        "img": "coinjar.png",
+        "url": "https://coinjar.com",
+        "doc": "https://support.coinjar.com/hc/en-us/articles/202910075"
+    },
+    "CoinOne": {
+        "img": "coinone.png",
+        "url": "https://coinone.co.kr/",
+        "doc": "https://coinone.co.kr/static/download/coinone_guide.pdf"
+    },
+    "Coins.ph": {
+        "img": "coinsph.png",
+        "url": "https://coins.ph/",
+        "doc": "https://support.coins.ph/hc/en-us/articles/202604924-What-is-two-factor-authentication-"
+    },
+    "Coinspot": {
+        "img": "coinspot.png",
+        "url": "https://www.coinspot.com.au/",
+        "doc": "https://coinspot.zendesk.com/hc/en-us/sections/115000049254-2FA-Google-Authenticator"
+    },
+    "Coinut": {
+        "img": "coinut.png",
+        "url": "https://coinut.com/",
+        "doc": "https://help.coinut.com/hc/en-us/articles/360005061354"
+    },
+    "Comcast": {
+        "img": "comcast.png",
+        "url": "https://www.xfinity.com/",
+        "doc": "https://www.xfinity.com/support/account/enroll-2-step-verification/"
+    },
+    "Compose.io": {
+        "img": "composeio.png",
+        "url": "https://www.compose.io/",
+        "doc": "https://docs.compose.io/security/compose-two-factor-authentication.html"
+    },
+    "Con Edison": {
+        "img": "coned.png",
+        "url": "https://www.coned.com/",
+        "doc": "https://www.coned.com/en/accounts-billing/new-my-account-faqs"
+    },
+    "ConnectWise Control (ScreenConnect)": {
+        "img": "connectwisecontrol.png",
+        "url": "https://www.connectwise.com/software/control",
+        "doc": "https://docs.connectwise.com/ConnectWise_Control_Documentation/Get_started/Administration_page/Security_page/Enable_two-factor_authentication_for_host_accounts"
+    },
+    "Crowdin": {
+        "img": "crowdin.png",
+        "url": "https://crowdin.com/",
+        "doc": "https://support.crowdin.com/account-settings/#two-factor-authentication"
+    },
+    "Cryptopia": {
+        "img": "cryptopia.png",
+        "url": "https://www.cryptopia.co.nz",
+        "doc": "https://www.cryptopia.co.nz/Forum/Thread/1885"
+    },
+    "CSN": {
+        "img": "csn.png",
+        "url": "https://www.csn.se",
+        "doc": "https://tjanster.csn.se/bas/vanligaFragor.do"
+    },
+    "Customer.io": {
+        "img": "customerio.png",
+        "url": "https://customer.io",
+        "doc": "https://customer.io/docs/two-factor-auth.html"
+    },
+    "cyon": {
+        "img": "cyon.png",
+        "url": "https://www.cyon.ch",
+        "doc": "https://www.cyon.ch/support/a/225/wie-aktiviere-ich-die-zwei-schritt-verifizierung"
+    },
+    "Dashlane": {
+        "img": "dashlane.png",
+        "url": "https://www.dashlane.com",
+        "doc": "https://support.dashlane.com/hc/en-us/articles/202625042-Protect-your-account-using-Two-Factor-Authentication"
+    },
+    "Datov\u00e9 schr\u00e1nky": {
+        "img": "cz_datovky.png",
+        "url": "https://www.mojedatovaschranka.cz",
+        "doc": "https://www.mojedatovaschranka.cz/static/ISDS/help/page10.html#10_5_2"
+    },
+    "DEGIRO": {
+        "img": "degiro.png",
+        "url": "https://www.degiro.nl",
+        "doc": null
+    },
+    "DeployHQ": {
+        "img": "deployhq.png",
+        "url": "https://www.deployhq.com/",
+        "doc": "https://www.deployhq.com/support/managing-your-account/personal-profile/two-factor-authentication"
+    },
+    "DigiCert": {
+        "img": "digicert.png",
+        "url": "https://www.digicert.com/",
+        "doc": "https://www.digicert.com/two-factor-authentication.htm"
+    },
+    "DigiD": {
+        "img": "digid.png",
+        "url": "https://www.digid.nl/",
+        "doc": "https://www.digid.nl/nl/vraag-en-antwoord/hoe-kan-ik-de-sms-controle-toevoegen/"
+    },
+    "DigitalOcean": {
+        "img": "digitalocean.png",
+        "url": "https://www.digitalocean.com/",
+        "doc": "https://www.digitalocean.com/docs/accounts/security/2fa/"
+    },
+    "Digitec": {
+        "img": "digitec.png",
+        "url": "https://www.digitec.ch",
+        "doc": "https://www.digitec.ch/en/page/new-two-factor-authentication-for-your-user-account-6589"
+    },
+    "Direct Mail": {
+        "img": "directmail.png",
+        "url": "https://directmailmac.com",
+        "doc": "https://directmailmac.com/support/article/507"
+    },
+    "DirectAdmin": {
+        "img": "directadmin.png",
+        "url": "https://www.directadmin.com",
+        "doc": "https://directadmin.com/features.php?id=1754"
+    },
+    "Directnic": {
+        "img": "directnic.png",
+        "url": "https://directnic.com",
+        "doc": "https://directnic.com/knowledge/article/137:how+do+i+set+up+two-factor+authentication%3F"
+    },
+    "Discord": {
+        "img": "discord.png",
+        "url": "https://discordapp.com/",
+        "doc": "https://support.discordapp.com/hc/en-us/articles/219576828"
+    },
+    "DNB": {
+        "img": "dnb.png",
+        "url": "https://www.dnb.no/",
+        "doc": "https://www.dnb.no/privat/kundeservice/innlogging-nettbank.html"
+    },
+    "DNS Made Easy": {
+        "img": "dnsmadeeasy.png",
+        "url": "https://www.dnsmadeeasy.com",
+        "doc": "http://help.dnsmadeeasy.com/managed-dns/administrative/enable-two-factor-authentication/"
+    },
+    "DNSimple": {
+        "img": "dnsimple.png",
+        "url": "https://dnsimple.com/",
+        "doc": "https://support.dnsimple.com/articles/two-factor-authentication/"
+    },
+    "Docusign": {
+        "img": "docusign.png",
+        "url": "https://www.docusign.com",
+        "doc": "https://support.docusign.com/en/guides/ndse-user-guide-two-step-verification"
+    },
+    "Dome9 Security": {
+        "img": "dome9.png",
+        "url": "https://dome9.com/",
+        "doc": "https://dome9.com/overview/strong-2-factor-authentication"
+    },
+    "Domeneshop": {
+        "img": "domeneshop.png",
+        "url": "https://domeneshop.no/",
+        "doc": "https://domeneshop.no/faq?id=344"
+    },
+    "Domeny.tv": {
+        "img": "domenytv.png",
+        "url": "https://www.domeny.tv/en",
+        "doc": "https://www.domeny.tv/en/two-factor-authentication"
+    },
+    "Domino Data Lab": {
+        "img": "domino.png",
+        "url": "https://www.dominodatalab.com/",
+        "doc": "https://support.dominodatalab.com/hc/en-us/articles/115000998406-Two-Factor-Authentication"
+    },
+    "drchrono": {
+        "img": "drchrono.png",
+        "url": "https://www.drchrono.com",
+        "doc": "https://www.drchrono.com/blog/two-factor-authentication-extra-security-for-your-health-records/"
+    },
+    "Dreamhost": {
+        "img": "dreamhost.png",
+        "url": "https://dreamhost.com",
+        "doc": "https://help.dreamhost.com/hc/en-us/articles/216013897"
+    },
+    "Dropbox": {
+        "img": "dropbox.png",
+        "url": "https://www.dropbox.com",
+        "doc": "https://www.dropbox.com/en/help/363"
+    },
+    "DSX": {
+        "img": "dsx.png",
+        "url": "https://dsx.uk/",
+        "doc": "https://docs.dsx.uk/dsx/getting-started-with-dsx/your-security-is-our-priority/enable-two-factor-authentication"
+    },
+    "Duke University": {
+        "img": "duke.png",
+        "url": "https://www.duke.edu",
+        "doc": "https://idms-mfa.oit.duke.edu/mfa/help"
+    },
+    "Dwolla": {
+        "img": "dwolla.png",
+        "url": "https://www.dwolla.com",
+        "doc": "https://support.dwolla.com/customer/portal/articles/2079147"
+    },
+    "Dyn": {
+        "img": "dyn.png",
+        "url": "https://dyn.com/",
+        "doc": "https://help.dyn.com/2-factor-authentication/"
+    },
+    "Dynadot": {
+        "img": "dynadot.png",
+        "url": "https://dynadot.com/",
+        "doc": "https://dynadot.com/domain/security.html"
+    },
+    "Dynu": {
+        "img": "dynu.png",
+        "url": "https://www.dynu.com/",
+        "doc": "https://www.dynu.com/en-US/Blog/Article?Article=It-is-time-to-enable-two-factor-authentication"
+    },
+    "E*Trade": {
+        "img": "etrade.png",
+        "url": "https://www.etrade.com/",
+        "doc": "https://us.etrade.com/landing/secureid_enter"
+    },
+    "East Carolina University": {
+        "img": "ecu.png",
+        "url": "https://www.ecu.edu",
+        "doc": "https://itcs.ecu.edu/services/accounts-passwords/multi-factor-authentication/"
+    },
+    "Eastern Michigan University": {
+        "img": "emu.png",
+        "url": "https://www.emich.edu",
+        "doc": "https://www.emich.edu/it/security/esp/duo.php"
+    },
+    "Easy": {
+        "img": "easy.png",
+        "url": "https://easy.gr/",
+        "doc": "https://easy.gr/el/faq"
+    },
+    "easyDNS": {
+        "img": "easydns.png",
+        "url": "https://easydns.com",
+        "doc": "https://kb.easydns.com/knowledge/account-security/"
+    },
+    "Electronic Arts (Origin)": {
+        "img": "ea.png",
+        "url": "https://www.ea.com/",
+        "doc": "https://help.ea.com/en-us/help/account/origin-login-verification-information/"
+    },
+    "EngineYard": {
+        "img": "engineyard.png",
+        "url": "https://www.engineyard.com",
+        "doc": "https://blog.engineyard.com/2015/engine-yards-two-factor-authentication"
+    },
+    "Enjin": {
+        "img": "enjin.png",
+        "url": "https://www.enjin.com/",
+        "doc": "https://support.enjin.com/hc/en-us/articles/201090770-2-Factor-Authentication-Authy-"
+    },
+    "eNom": {
+        "img": "enom.png",
+        "url": "https://www.enom.com/",
+        "doc": "http://www.enom.com/kb/kb/kb_1687-setup-2-factor.htm"
+    },
+    "Entrust": {
+        "img": "entrust.png",
+        "url": "https://www.entrust.net",
+        "doc": "http://www.entrust.net/certificate-services/cms-authentication.htm"
+    },
+    "Envato": {
+        "img": "envato.png",
+        "url": "https://envato.com",
+        "doc": "https://help.market.envato.com/hc/en-us/articles/115005592963-Two-factor-authentication-for-your-Envato-Market-account"
+    },
+    "Epic Games": {
+        "img": "epicgames.png",
+        "url": "https://www.epicgames.com/",
+        "doc": "https://epicgames.helpshift.com/a/epic-accounts/?s=epic-accounts&f=what-is-two-factor-authentication-2fa-and-how-do-i-opt-in"
+    },
+    "Erste Bank Hrvatska": {
+        "img": "erstehr.png",
+        "url": "https://www.erstebank.hr/",
+        "doc": "https://www.erstebank.hr/content/dam/hr/ebc/www_erstebank_hr/gradani/downloads/e-bankarstvo/Upute%20za%20prijavu.pdf"
+    },
+    "Esri": {
+        "img": "esri.png",
+        "url": "https://www.esri.com",
+        "doc": "https://doc.arcgis.com/en/arcgis-online/reference/multifactor.htm"
+    },
+    "Etsy": {
+        "img": "etsy.png",
+        "url": "https://www.etsy.com/",
+        "doc": "https://www.etsy.com/help/article/3335"
+    },
+    "EuroDNS": {
+        "img": "eurodns.png",
+        "url": "https://www.eurodns.com",
+        "doc": "http://help.eurodns.com/customer/en/portal/articles/1633106-how-do-i-activate-two-step-verification-on-my-account-"
+    },
+    "EVE Online": {
+        "img": "eveonline.png",
+        "url": "https://www.eveonline.com/",
+        "doc": "https://support.eveonline.com/hc/en-us/articles/203465601-Two-Factor-Authentication-and-Authenticator"
+    },
+    "Everlaw": {
+        "img": "everlaw.png",
+        "url": "https://everlaw.com",
+        "doc": "https://everlaw.zendesk.com/hc/en-us/articles/206312165-Two-Factor-Authentication"
+    },
+    "Evernote": {
+        "img": "evernote.png",
+        "url": "https://evernote.com",
+        "doc": "https://help.evernote.com/hc/en-us/articles/208314238-How-to-set-up-two-step-verification"
+    },
+    "Exact Online": {
+        "img": "exact.png",
+        "url": "https://exact.com/",
+        "doc": "https://support.exactonline.com/community/s/knowledge-base#All-All-HNO-Concept-general-security-gen-auth-totpc"
+    },
+    "Fabulous": {
+        "img": "fabulous.png",
+        "url": "https://fabulous.com",
+        "doc": "https://fabulous.com/knowledge/article/137"
+    },
+    "Facebook": {
+        "img": "facebook.png",
+        "url": "https://facebook.com",
+        "doc": "https://www.facebook.com/help/148233965247823"
+    },
+    "FaceIT": {
+        "img": "faceit.png",
+        "url": "https://www.faceit.com",
+        "doc": "https://support.faceit.com/hc/en-us/articles/115000254670-Enabling-2-Factor-Authentication-"
+    },
+    "Fastly": {
+        "img": "fastly.png",
+        "url": "https://www.fastly.com",
+        "doc": "https://docs.fastly.com/guides/account-management-and-security/enabling-and-disabling-two-factor-authentication"
+    },
+    "FastMail": {
+        "img": "fastmail.png",
+        "url": "https://www.fastmail.com/",
+        "doc": "https://www.fastmail.com/help/account/2fa.html"
+    },
+    "Fidelity Investments": {
+        "img": "fidelity.png",
+        "url": "https://www.fidelity.com",
+        "doc": "/notes/fidelity/"
+    },
+    "Figma": {
+        "img": "figma.png",
+        "url": "https://www.figma.com/",
+        "doc": "https://help.figma.com/article/208-update-your-figma-account#factor"
+    },
+    "Findmyshift": {
+        "img": "findmyshift.png",
+        "url": "https://www.findmyshift.com/",
+        "doc": "https://www.findmyshift.com/help/what-is-two-factor-authentication"
+    },
+    "Firefox": {
+        "img": "firefox.png",
+        "url": "https://accounts.firefox.com",
+        "doc": "https://support.mozilla.org/en-US/kb/secure-firefox-account-two-step-authentication"
+    },
+    "First Direct": {
+        "img": "firstdirect.png",
+        "url": "https://www1.firstdirect.com/",
+        "doc": "https://www1.firstdirect.com/help/secure-key/"
+    },
+    "First Tech Federal Credit Union": {
+        "img": "firsttechfcu.png",
+        "url": "https://www.firsttechfed.com/",
+        "doc": "https://www.firsttechfed.com/Tools-and-Resources/Tools-and-Resources/What-You-Can-Do-To-Protect-Your-Privacy#3"
+    },
+    "Flywheel": {
+        "img": "flywheel.png",
+        "url": "https://getflywheel.com",
+        "doc": "https://getflywheel.com/wordpress-support/how-to-enable-two-factor-authentication-on-flywheel"
+    },
+    "FogBugz & Kiln": {
+        "img": "fogbugz.png",
+        "url": "https://www.fogcreek.com/fogbugz",
+        "doc": "http://help.fogcreek.com/10892/two-factor-authentication"
+    },
+    "FollowMyHealth": {
+        "img": "followmyhealth.png",
+        "url": "https://www.followmyhealth.com/",
+        "doc": "http://support.followmyhealth.com/customer/portal/articles/1309938-fmh-secure-login-2-step-verification---break-down"
+    },
+    "Formstack": {
+        "img": "formstack.png",
+        "url": "https://www.formstack.com/",
+        "doc": "https://support.formstack.com/customer/portal/articles/1833071-two-factor-authentication"
+    },
+    "fortrabbit": {
+        "img": "fortrabbit.png",
+        "url": "https://www.fortrabbit.com/",
+        "doc": "https://help.fortrabbit.com/account#toc-setting-up-2fa"
+    },
+    "FreeAgent": {
+        "img": "freeagent.png",
+        "url": "https://www.freeagent.com",
+        "doc": "https://www.freeagent.com/support/kb/getting-started/two-step-verification"
+    },
+    "FreeTaxUSA": {
+        "img": "freetaxusa.png",
+        "url": "https://www.freetaxusa.com/",
+        "doc": "https://www.freetaxusa.com/safe.jsp"
+    },
+    "Front App": {
+        "img": "front_app.png",
+        "url": "https://frontapp.com",
+        "doc": "https://community.frontapp.com/t/q56jf8/activating-two-factor-authentication-2fa"
+    },
+    "Gaijin Entertainment": {
+        "img": "gaijin.png",
+        "url": "https://gaijin.net",
+        "doc": "https://support.gaijin.net/hc/en-us/articles/203623622-How-to-set-up-the-Two-Step-Authorization-Google-Authenticator-"
+    },
+    "Gandi": {
+        "img": "gandi.png",
+        "url": "https://gandi.net",
+        "doc": "https://docs.gandi.net/en/account_management/security/"
+    },
+    "Garena Online": {
+        "img": "garena.png",
+        "url": "https://www.garena.sg/",
+        "doc": "https://account.garena.com/"
+    },
+    "Gatehub": {
+        "img": "gatehub.png",
+        "url": "https://gatehub.net",
+        "doc": null
+    },
+    "Gemini": {
+        "img": "gemini.png",
+        "url": "https://gemini.com/",
+        "doc": "https://gemini.com/blog/better-two-factor-authentication/"
+    },
+    "Georgia Institute of Technology": {
+        "img": "gatech.png",
+        "url": "https://www.gatech.edu",
+        "doc": "https://twofactor.oit.gatech.edu"
+    },
+    "GitHub": {
+        "img": "github.png",
+        "url": "https://github.com",
+        "doc": "https://help.github.com/articles/about-two-factor-authentication"
+    },
+    "GitLab": {
+        "img": "gitlab.png",
+        "url": "https://gitlab.com",
+        "doc": "https://docs.gitlab.com/ee/user/profile/account/two_factor_authentication.html"
+    },
+    "Glesys": {
+        "img": "glesys.png",
+        "url": "https://glesys.com/",
+        "doc": null
+    },
+    "Gmail": {
+        "img": "gmail.png",
+        "url": "https://mail.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "GoDaddy": {
+        "img": "godaddy.png",
+        "url": "https://www.godaddy.com/",
+        "doc": "https://www.godaddy.com/help/enable-two-step-verification-7502"
+    },
+    "Google Cloud Platform": {
+        "img": "googlecloud.png",
+        "url": "https://cloud.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Domains": {
+        "img": "googledomains.png",
+        "url": "https://domains.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Drive": {
+        "img": "drive.png",
+        "url": "https://drive.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Fi": {
+        "img": "projectfi.png",
+        "url": "https://fi.google.com/",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Fiber": {
+        "img": "googlefiber.png",
+        "url": "https://fiber.google.com/",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Fit": {
+        "img": "googlefit.png",
+        "url": "https://fit.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Play": {
+        "img": "googleplay.png",
+        "url": "https://play.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google Wallet": {
+        "img": "googlewallet.png",
+        "url": "https://www.google.se/wallet/",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Google+": {
+        "img": "g+.png",
+        "url": "https://plus.google.com",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Grape": {
+        "img": "grape.png",
+        "url": "https://chatgrape.com/",
+        "doc": "https://chatgrape.com/doc/deployment/2fa.html"
+    },
+    "GREE": {
+        "img": "gree.png",
+        "url": "https://product.gree.net/",
+        "doc": "/notes/gree/"
+    },
+    "Greenhost": {
+        "img": "greenhost.png",
+        "url": "https://greenhost.net",
+        "doc": null
+    },
+    "GrowingIO": {
+        "img": "growing.png",
+        "url": "https://www.growingio.com/",
+        "doc": "https://docs.growingio.com/docs/configuration/account-management#22-kai-qi-er-ci-ren-zheng"
+    },
+    "Guild Wars 2": {
+        "img": "guildwars2.png",
+        "url": "https://www.guildwars2.com",
+        "doc": "https://help.guildwars2.com/hc/en-us/articles/230672927-Securing-Your-Account-With-Authentication"
+    },
+    "HackerOne": {
+        "img": "hackerone.png",
+        "url": "https://hackerone.com",
+        "doc": "https://docs.hackerone.com/hackers/two-factor-authentication.html"
+    },
+    "Halebop": {
+        "img": "halebop.png",
+        "url": "https://www.halebop.se/",
+        "doc": "https://github.com/2factorauth/twofactorauth/pull/2304#issue-200730083"
+    },
+    "Handelsbanken": {
+        "img": "handelsbanken.png",
+        "url": "https://www.handelsbanken.se/",
+        "doc": "https://www.handelsbanken.se/shb/INeT/ICentSv.nsf/Default/qAE99695C4C1D033DC12579120036EB43?Opendocument"
+    },
+    "Hangouts": {
+        "img": "hangouts.png",
+        "url": "https://hangouts.google.com/",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "Harvard University": {
+        "img": "harvard.png",
+        "url": "https://www.harvard.edu",
+        "doc": "https://huit.harvard.edu/twostep"
+    },
+    "HashiCorp Terraform Enterprise": {
+        "img": "hashicorp-terraform-enterprise.png",
+        "url": "https://app.terraform.io/",
+        "doc": "https://www.terraform.io/docs/enterprise/users-teams-organizations/2fa.html"
+    },
+    "HashiCorp Vagrant Cloud": {
+        "img": "hashicorp-vagrant-cloud.png",
+        "url": "https://app.vagrantup.com/",
+        "doc": "https://www.vagrantup.com/docs/vagrant-cloud/users/authentication.html#two-factor-authentication"
+    },
+    "HealthVault (w/Microsoft Account)": {
+        "img": "healthvault.png",
+        "url": "https://www.healthvault.com",
+        "doc": "http://windows.microsoft.com/en-au/windows/two-step-verification-faq"
+    },
+    "Heroku": {
+        "img": "heroku.png",
+        "url": "https://www.heroku.com/",
+        "doc": "https://devcenter.heroku.com/articles/two-factor-authentication"
+    },
+    "Hetzner Online": {
+        "img": "hetzner.png",
+        "url": "https://www.hetzner.de/",
+        "doc": null
+    },
+    "Hexonet": {
+        "img": "hexonet.png",
+        "url": "https://www.hexonet.net/",
+        "doc": "https://www.hexonet.net/assets/pdf/2FA.pdf"
+    },
+    "HitBTC": {
+        "img": "hitbtc.png",
+        "url": "https://www.hitbtc.com/",
+        "doc": "https://hitbtc.com/faq/security"
+    },
+    "HMRC": {
+        "img": "hmrc.png",
+        "url": "https://hmrc.gov.uk",
+        "doc": "https://www.gov.uk/government/publications/genuine-hmrc-contact-and-recognising-phishing-emails/genuine-hmrc-contact-and-recognising-phishing-emails#hmrc-short-message-service-text-messages"
+    },
+    "HootSuite": {
+        "img": "hootsuite.png",
+        "url": "https://hootsuite.com",
+        "doc": "https://help.hootsuite.com/entries/22527304-Managing-Google-Authenticator"
+    },
+    "Hostens": {
+        "img": "hostens.png",
+        "url": "https://www.hostens.com/",
+        "doc": "https://www.hostens.com/knowledgebase/how-to-enhance-account-security/"
+    },
+    "HostHatch": {
+        "img": "hosthatch.png",
+        "url": "https://hosthatch.com/",
+        "doc": null
+    },
+    "Hostiso": {
+        "img": "hostiso.png",
+        "url": "https://hostiso.com/",
+        "doc": null
+    },
+    "Hostnet": {
+        "img": "hostnet.png",
+        "url": "https://www.hostnet.nl/",
+        "doc": "https://www.hostnet.nl/veelgestelde-vragen/tweestaps-authenticatie"
+    },
+    "HostUS": {
+        "img": "hostus.png",
+        "url": "https://hostus.us",
+        "doc": "https://my.hostus.us/knowledgebase/106/How-do-I-secure-my-account-with-Two-Factor-Authentication-or-TOTP.html"
+    },
+    "Hover.com": {
+        "img": "hover.png",
+        "url": "https://www.hover.com/",
+        "doc": "https://help.hover.com/entries/26677644"
+    },
+    "HSBC": {
+        "img": "hsbc.png",
+        "url": "http://www.hsbc.com",
+        "doc": "https://www.hsbc.co.uk/1/2/customer-support/online-banking-security/secure-key"
+    },
+    "HubSpot": {
+        "img": "hubspot.png",
+        "url": "https://www.hubspot.com/",
+        "doc": "https://knowledge.hubspot.com/articles/kcs_article/account/how-can-i-set-up-two-factor-authentication-for-my-hubspot-login"
+    },
+    "Humble Bundle": {
+        "img": "humble.png",
+        "url": "https://www.humblebundle.com/",
+        "doc": "https://support.humblebundle.com/hc/en-us/articles/202421374"
+    },
+    "Hurricane Electric": {
+        "img": "hurricane.png",
+        "url": "https://www.he.net/",
+        "doc": null
+    },
+    "Hushmail": {
+        "img": "hushmail.png",
+        "url": "https://www.hushmail.com",
+        "doc": "https://help.hushmail.com/entries/63282756-Two-step-verification"
+    },
+    "ICUK": {
+        "img": "icuk.png",
+        "url": "https://www.icuk.net",
+        "doc": "https://www.icuk.net/reseller/security.asp"
+    },
+    "ID.me": {
+        "img": "idme.png",
+        "url": "https://www.id.me/",
+        "doc": "https://help.id.me/hc/en-us/sections/115000551794"
+    },
+    "IFTTT": {
+        "img": "ifttt.png",
+        "url": "https://ifttt.com",
+        "doc": "https://ifttt.com/settings#two-step-verification"
+    },
+    "ImmobilienScout24": {
+        "img": "immobilienscout24.png",
+        "url": "https://www.immobilienscout24.de",
+        "doc": null
+    },
+    "Incapsula": {
+        "img": "incapsula.png",
+        "url": "https://www.incapsula.com/",
+        "doc": "https://docs.incapsula.com/Content/management-console-and-settings/account-settings.htm"
+    },
+    "Infomaniak": {
+        "img": "infomaniak.png",
+        "url": "https://www.infomaniak.com/",
+        "doc": "https://www.infomaniak.ch/en/support/faq/1940"
+    },
+    "INIZ": {
+        "img": "iniz.png",
+        "url": "https://iniz.com",
+        "doc": "https://my.iniz.com/knowledgebase/24/Securing-Your-Account-2FA.html"
+    },
+    "Instagram": {
+        "img": "instagram.png",
+        "url": "https://www.instagram.com",
+        "doc": "https://help.instagram.com/566810106808145"
+    },
+    "Interactive Brokers": {
+        "img": "interactivebrokers.png",
+        "url": "https://www.interactivebrokers.com",
+        "doc": "https://www.interactivebrokers.com/en/index.php?f=ibgStrength&p=log"
+    },
+    "Internet.bs": {
+        "img": "internetbs.png",
+        "url": "https://www.internet.bs",
+        "doc": "/notes/internetbs/"
+    },
+    "Intuit TurboTax": {
+        "img": "turbotax.png",
+        "url": "https://turbotax.intuit.com/",
+        "doc": "https://ttlc.intuit.com/questions/2902682-what-is-two-step-verification"
+    },
+    "Invoiced": {
+        "img": "invoiced.png",
+        "url": "https://invoiced.com/",
+        "doc": "https://support.invoiced.com/knowledge_base/topics/setting-up-two-factor-authentication"
+    },
+    "INWX": {
+        "img": "internetworx.png",
+        "url": "https://www.inwx.com/en/",
+        "doc": "https://www.inwx.com/en/offer/mobiletan"
+    },
+    "IO Zoom": {
+        "img": "iozoom.png",
+        "url": "https://www.iozoom.com",
+        "doc": "https://www.iozoom.com/client/announcements.php?id=6"
+    },
+    "IT Glue": {
+        "img": "itglue.png",
+        "url": "https://www.itglue.com/",
+        "doc": "https://kb.itglue.com/hc/en-us/articles/213293197-Using-multi-factor-authentication-MFA-"
+    },
+    "itch.io": {
+        "img": "itchio.png",
+        "url": "https://itch.io/",
+        "doc": "http://itch.io/developers/two-factor-authentication"
+    },
+    "iWantMyName": {
+        "img": "iwantmyname.png",
+        "url": "https://iwantmyname.com/",
+        "doc": "https://help.iwantmyname.com/customer/portal/articles/1139898"
+    },
+    "Jitbit Helpdesk": {
+        "img": "jitbit.png",
+        "url": "https://www.jitbit.com/hosted-helpdesk/",
+        "doc": "https://support.jitbit.com/helpdesk/KB/View/11048235-twofactor-authentication"
+    },
+    "join.me (w/ LogMeIn account)": {
+        "img": "joinme.png",
+        "url": "https://join.me/",
+        "doc": "https://secure.logmein.com/welcome/webhelp/EN/Pro/LogMeIn/c_common_Security_TwoStep.html"
+    },
+    "Joker.com": {
+        "img": "joker.png",
+        "url": "https://joker.com",
+        "doc": "https://joker.com/faq/content/52/480/en/what-is-two_factor_authentication.html"
+    },
+    "Joyent": {
+        "img": "joyent.png",
+        "url": "https://www.joyent.com/",
+        "doc": "https://docs.joyent.com/public-cloud/getting-started/2fa"
+    },
+    "Justworks": {
+        "img": "justworks.png",
+        "url": "https://justworks.com/",
+        "doc": "https://help.justworks.com/hc/en-us/articles/360004477492-Two-Factor-Authentication"
+    },
+    "Kayako": {
+        "img": "kayako.png",
+        "url": "https://www.kayako.com",
+        "doc": "https://support.kayako.com/article/1198-securing-your-user-account-with-two-factor-authentication-2fa"
+    },
+    "Keeper": {
+        "img": "keeper.png",
+        "url": "https://keepersecurity.com/",
+        "doc": "https://www.keepersecurity.com/security#twoFactor"
+    },
+    "Kickstarter": {
+        "img": "kickstarter.png",
+        "url": "https://www.kickstarter.com",
+        "doc": "https://www.kickstarter.com/help/faq/backer+questions#faq_63004"
+    },
+    "Kinsta": {
+        "img": "kinsta.png",
+        "url": "https://kinsta.com",
+        "doc": "https://kinsta.com/blog/wordpress-two-factor-authentication/"
+    },
+    "Klarna": {
+        "img": "klarna.png",
+        "url": "https://www.klarna.com",
+        "doc": null
+    },
+    "KnowBe4": {
+        "img": "knowbe4.png",
+        "url": "https://www.knowbe4.com/",
+        "doc": "https://support.knowbe4.com/hc/en-us/articles/225681448-How-do-I-enable-two-factor-or-multi-factor-authentication-on-my-account-"
+    },
+    "KnownHost": {
+        "img": "knownhost.png",
+        "url": "https://www.knownhost.com",
+        "doc": "https://www.knownhost.com/wiki/my-knownhost/two-factor"
+    },
+    "Koding": {
+        "img": "koding.png",
+        "url": "https://koding.com",
+        "doc": "https://www.koding.com/blog/2015/06/two-factor-authentication/"
+    },
+    "Koofr": {
+        "img": "koofr.png",
+        "url": "https://koofr.eu",
+        "doc": "https://koofr.eu/help/other/how-do-i-enable-2-step-verification/"
+    },
+    "Korbit": {
+        "img": "korbit.png",
+        "url": "https://www.korbit.co.kr",
+        "doc": "https://support.korbit.co.kr/customer/en/portal/articles/1717692-what-is-2-factor-authentication-"
+    },
+    "Kraken": {
+        "img": "kraken.png",
+        "url": "https://www.kraken.com/",
+        "doc": "https://support.kraken.com/hc/en-us/articles/360000426923"
+    },
+    "Laravel Forge": {
+        "img": "forge.png",
+        "url": "https://forge.laravel.com/",
+        "doc": "https://forge.laravel.com/user/profile#/authentication"
+    },
+    "LastPass": {
+        "img": "lastpass.png",
+        "url": "https://lastpass.com/",
+        "doc": "https://helpdesk.lastpass.com/multifactor-authentication-options/"
+    },
+    "Launchpad": {
+        "img": "launchpad.png",
+        "url": "https://launchpad.net",
+        "doc": "https://help.ubuntu.com/community/SSO/FAQs/2FA"
+    },
+    "Leaseweb": {
+        "img": "leaseweb.png",
+        "url": "https://www.leaseweb.com/",
+        "doc": "https://kb.leaseweb.com/users-and-accounts/managing-your-profile/setup-two-factor-authentication"
+    },
+    "lichess.org": {
+        "img": "lichess.png",
+        "url": "https://lichess.org",
+        "doc": null
+    },
+    "Linode": {
+        "img": "linode.png",
+        "url": "https://www.linode.com/",
+        "doc": "https://www.linode.com/docs/security/linode-manager-security-controls"
+    },
+    "Liquid Web": {
+        "img": "liquidweb.png",
+        "url": "https://www.liquidweb.com",
+        "doc": "https://www.liquidweb.com/kb/how-to-enable-two-factor-authentication-2fa/"
+    },
+    "LiteBit": {
+        "img": "litebit.png",
+        "url": "https://www.litebit.eu/",
+        "doc": "https://support.litebit.eu/hc/en-us/articles/115000953504-What-is-Two-Factor-Authentication-2FA-How-to-"
+    },
+    "Lobsters": {
+        "img": "lobsters.png",
+        "url": "https://lobste.rs/",
+        "doc": "https://lobste.rs/s/1cyltz/two_factor_authentication_now_available"
+    },
+    "LocalBitcoins": {
+        "img": "localbitcoins.png",
+        "url": "https://localbitcoins.com/",
+        "doc": "https://localbitcoins.blogspot.com.au/2013/05/using-two-factor-authentication-on.html"
+    },
+    "localethereum": {
+        "img": "localethereum.png",
+        "url": "https://localethereum.com",
+        "doc": null
+    },
+    "login.gov": {
+        "img": "login-gov.png",
+        "url": "https://login.gov/",
+        "doc": "https://login.gov/help/privacy-and-security/how-does-logingov-protect-my-data/"
+    },
+    "LogMeIn": {
+        "img": "logmein.png",
+        "url": "https://secure.logmein.com/",
+        "doc": "https://secure.logmein.com/welcome/webhelp/EN/Pro/LogMeIn/c_Common_Account_Security.html"
+    },
+    "Looker": {
+        "img": "looker.png",
+        "url": "https://looker.com/",
+        "doc": "https://www.looker.com/docs/admin/security/two-factor-authentication"
+    },
+    "Loopia": {
+        "img": "loopia.png",
+        "url": "https://www.loopia.se/",
+        "doc": "https://blogg.loopia.se/2015/03/16/nu-kan-du-logga-in-med-tvafaktorsautentiering-hos-loopia-genom-bankid/"
+    },
+    "Luno": {
+        "img": "luno.png",
+        "url": "https://www.luno.com/",
+        "doc": "https://www.luno.com/help/en/articles/1000203420-how-to-enable-twofactor-authentication"
+    },
+    "L\u00e4nsf\u00f6rs\u00e4kringar": {
+        "img": "lansforsakringar.png",
+        "url": "https://www.lansforsakringar.se/",
+        "doc": "http://www.lansforsakringar.se/privat/att-vara-kund/digitala-tjanster-telefonbank/internetbanken/"
+    },
+    "MacStadium": {
+        "img": "macstadium.png",
+        "url": "https://www.macstadium.com/",
+        "doc": "https://help.macstadium.com/articles/macstadium-two-factor-authentication-guide"
+    },
+    "mail.de": {
+        "img": "mailde.png",
+        "url": "https://mail.de/",
+        "doc": "https://mail.de/hilfe/u2f-authenticator"
+    },
+    "Mail.Ru": {
+        "img": "mailru.png",
+        "url": "https://mail.ru/",
+        "doc": "https://help.mail.ru/mail-help/2auth"
+    },
+    "mailbox.org": {
+        "img": "mailbox.png",
+        "url": "https://mailbox.org/",
+        "doc": "https://support-en.mailbox.org/knowledge-base/article/is-there-a-two-factor-authentication"
+    },
+    "MailChimp": {
+        "img": "mailchimp.png",
+        "url": "https://mailchimp.com/",
+        "doc": "https://kb.mailchimp.com/accounts/login/set-up-a-two-factor-authentication-app-at-login"
+    },
+    "Mailfence": {
+        "img": "mailfence.png",
+        "url": "https://mailfence.com/",
+        "doc": "https://mailfence.com/c/mailfence/more/totp.jsp"
+    },
+    "Mailgun": {
+        "img": "mailgun.png",
+        "url": "https://www.mailgun.com",
+        "doc": null
+    },
+    "Mammoth Networks": {
+        "img": "mammothnetworks.png",
+        "url": "https://www.mammoth.net.au/",
+        "doc": "https://www.mammoth.net.au/news/2012/10/22/two-factor-authentication-now-available"
+    },
+    "Mapbox": {
+        "img": "mapbox.png",
+        "url": "https://www.mapbox.com",
+        "doc": "https://www.mapbox.com/help/two-step-verification/"
+    },
+    "MarkMonitor": {
+        "img": "markmonitor.png",
+        "url": "https://www.markmonitor.com",
+        "doc": null
+    },
+    "Massachusetts Institute of Technology": {
+        "img": "mit.png",
+        "url": "https://web.mit.edu/",
+        "doc": "https://kb.mit.edu/confluence/display/istcontrib/Duo+Authentication+Landing+Page"
+    },
+    "MathWorks": {
+        "img": "mathworks.png",
+        "url": "https://www.mathworks.com/",
+        "doc": "https://www.mathworks.com/mw_account/two_step_verification/frequently-asked-questions.html"
+    },
+    "MaxCDN": {
+        "img": "maxcdn.png",
+        "url": "https://www.maxcdn.com",
+        "doc": "https://www.maxcdn.com/one/tutorial/enable-two-step-verification/"
+    },
+    "MB Connect Line": {
+        "img": "mbconnectline.png",
+        "url": "https://www.mbconnectline.com",
+        "doc": "http://www.cc-onlinehelp.com/en/#index/administrati/users/authenticati/authenticati.html"
+    },
+    "Mega": {
+        "img": "mega.png",
+        "url": "https://mega.nz/",
+        "doc": "https://mega.nz/help/client/webclient/security-and-privacy/5bb5436cf1b70966038b456b"
+    },
+    "Mercado Bitcoin": {
+        "img": "mercadobitcoin.png",
+        "url": "https://www.mercadobitcoin.com.br/",
+        "doc": "https://suporte.mercadobitcoin.com.br/hc/pt-br/articles/360000385152"
+    },
+    "Mercado Libre": {
+        "img": "mercado-libre.png",
+        "url": "https://www.mercadolibre.com",
+        "doc": "https://ayuda.mercadolibre.com.ar/ayuda/Consejos-para-fortalecer-la-se_961"
+    },
+    "Metorik": {
+        "img": "metorik.png",
+        "url": "https://www.metorik.com",
+        "doc": "https://help.metorik.com/article/22-how-can-i-enable-2fa-on-my-account"
+    },
+    "Metrological": {
+        "img": "metrological.png",
+        "url": "https://www.metrological.com/",
+        "doc": "https://github.com/2factorauth/twofactorauth/pull/2273#issuecomment-271876292"
+    },
+    "Microsoft Azure": {
+        "img": "microsoftazure.png",
+        "url": "https://azure.microsoft.com/",
+        "doc": "https://azure.microsoft.com/en-us/documentation/articles/multi-factor-authentication/"
+    },
+    "Microsoft To-Do": {
+        "img": "microsofttodo.png",
+        "url": "https://todo.microsoft.com/",
+        "doc": "https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification"
+    },
+    "Mimecast": {
+        "img": "mimecast.png",
+        "url": "https://www.mimecast.com/",
+        "doc": "https://community.mimecast.com/docs/DOC-1915"
+    },
+    "Mint": {
+        "img": "mint.png",
+        "url": "https://www.mint.com",
+        "doc": "https://help.mint.com/Security/908045661"
+    },
+    "Mixer": {
+        "img": "mixer.png",
+        "url": "https://mixer.com/",
+        "doc": "https://watchbeam.zendesk.com/hc/en-us/articles/115000997646-What-is-2FA-two-factor-authentication-and-How-do-I-set-it-up-"
+    },
+    "Mixpanel": {
+        "img": "mixpanel.png",
+        "url": "https://mixpanel.com/",
+        "doc": null
+    },
+    "mLab": {
+        "img": "mlab.png",
+        "url": "https://mlab.com/",
+        "doc": "http://docs.mlab.com/security/#two-factor-authentication"
+    },
+    "Moneybird": {
+        "img": "moneybird.png",
+        "url": "https://www.moneybird.com/",
+        "doc": "https://www.moneybird.nl/blog/twee-staps-verificatie/"
+    },
+    "MongoDB Cloud Manager": {
+        "img": "mongodbmms.png",
+        "url": "https://cloud.mongodb.com",
+        "doc": "https://docs.cloudmanager.mongodb.com/core/two-factor-authentication/"
+    },
+    "MXroute": {
+        "img": "mxroute.png",
+        "url": "https://mxroute.com/",
+        "doc": null
+    },
+    "MyDigipass.com": {
+        "img": "mydigipass.png",
+        "url": "https://mydigipass.com/",
+        "doc": "https://www.mydigipass.com/en/fp/signup"
+    },
+    "myGov": {
+        "img": "mygov.png",
+        "url": "https://my.gov.au",
+        "doc": "https://my.gov.au/mygov/content/html/help.html#securityCode"
+    },
+    "Name.com": {
+        "img": "namecom.png",
+        "url": "https://www.name.com/",
+        "doc": "https://www.name.com/services/two-step-verification"
+    },
+    "Namecheap": {
+        "img": "namecheap.png",
+        "url": "https://www.namecheap.com/",
+        "doc": "https://www.namecheap.com/support/knowledgebase/article.aspx/9253/45/how-to-two-factor-authentication"
+    },
+    "NameSilo.com": {
+        "img": "namesilo.png",
+        "url": "https://www.namesilo.com/",
+        "doc": "https://www.namesilo.com/Support/2~Factor-Authentication"
+    },
+    "Navy Federal Credit Union": {
+        "img": "navyfederal.png",
+        "url": "https://www.navyfederal.org/",
+        "doc": "https://nfcucloud.custhelp.com/app/answers/list/c/543"
+    },
+    "NearlyFreeSpeech.NET": {
+        "img": "nfsn.png",
+        "url": "https://www.nearlyfreespeech.net/",
+        "doc": "https://blog.nearlyfreespeech.net/2014/02/28/price-cuts-more-security-and-recovery-options/"
+    },
+    "NearlyFreeSpeech.net": {
+        "img": "nfsn.png",
+        "url": "https://www.nearlyfreespeech.net/",
+        "doc": "https://blog.nearlyfreespeech.net/2014/02/28/price-cuts-more-security-and-recovery-options/"
+    },
+    "Netcup": {
+        "img": "netcup.png",
+        "url": "https://netcup.eu/",
+        "doc": "http://www.netcup-wiki.de/wiki/Stammdaten_CCP#Zwei-Faktor-Authentifizierung_.282FA.29"
+    },
+    "NETELLER": {
+        "img": "neteller.png",
+        "url": "https://www.neteller.com/",
+        "doc": "https://support.neteller.com/ACCOUNT/Two-Factor-Authentication/85238429/What-is-two-step-authentication.htm"
+    },
+    "Newegg": {
+        "img": "newegg.png",
+        "url": "https://www.newegg.com",
+        "doc": null
+    },
+    "Nimbox": {
+        "img": "nimbox.png",
+        "url": "https://www.nimbox.co.uk/",
+        "doc": "http://support.nimbox.co.uk/knowledge_base/topics/two-step-slash-two-factor-authentication"
+    },
+    "Nintendo Account": {
+        "img": "nintendo-account.png",
+        "url": "https://accounts.nintendo.com/",
+        "doc": "http://en-americas-support.nintendo.com/app/answers/detail/a_id/27496"
+    },
+    "Nitrado": {
+        "img": "nitrado.png",
+        "url": "https://server.nitrado.net/",
+        "doc": "https://server.nitrado.net/deu/news2/view/nitrado-bietet-zweifaktorauthentifizierung/?f=index/mode:0/page:2"
+    },
+    "No Starch Press": {
+        "img": "nostarchpress.png",
+        "url": "https://nostarch.com/",
+        "doc": null
+    },
+    "Noez": {
+        "img": "noez.png",
+        "url": "https://noez.de/",
+        "doc": null
+    },
+    "Nominet": {
+        "img": "nominet.png",
+        "url": "https://www.nominet.uk/",
+        "doc": "https://registrars.nominet.org.uk/sites/default/files/two_factor_authentication_userguide.pdf"
+    },
+    "Nordea Sverige": {
+        "img": "nordea.png",
+        "url": "https://www.nordea.se/",
+        "doc": "https://www.nordea.se/privat/vardagstjanster/internet-mobil-telefon/bank-id.html"
+    },
+    "Nordnet Sverige": {
+        "img": "nordnet.png",
+        "url": "https://www.nordnet.se/",
+        "doc": null
+    },
+    "Norton": {
+        "img": "norton.png",
+        "url": "https://us.norton.com",
+        "doc": "https://support.norton.com/sp/en/us/home/current/solutions/v100023155_NortonM_Retail_1_en_us"
+    },
+    "npm": {
+        "img": "npm.png",
+        "url": "https://www.npmjs.com/",
+        "doc": "https://docs.npmjs.com/getting-started/using-two-factor-authentication"
+    },
+    "NS1": {
+        "img": "ns1.png",
+        "url": "https://ns1.com/",
+        "doc": "https://ns1.com/articles/enabling-2-factor-authentication"
+    },
+    "Nutmeg": {
+        "img": "nutmeg.png",
+        "url": "https://www.nutmeg.com/",
+        "doc": "https://support.nutmeg.com/hc/en-us/articles/115000495111-How-to-set-up-and-manage-2-step-verification"
+    },
+    "O&amp;O Syspectr": {
+        "img": "oosyspectr.png",
+        "url": "https://www.syspectr.com",
+        "doc": "https://www.syspectr.com/en/faq/how-do-i-activate-deactivate-two-factor-authentication-for-my-account"
+    },
+    "Oderland": {
+        "img": "oderland.png",
+        "url": "https://www.oderland.se/",
+        "doc": "https://www.oderland.se/support/en/artikel/how-is-my-personal-information-handled/#how-do-i-encrypt-personal-information"
+    },
+    "Office 365": {
+        "img": "office365.png",
+        "url": "https://office.microsoft.com/en-us/business/",
+        "doc": "https://support.office.com/en-US/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6"
+    },
+    "Okta": {
+        "img": "okta.png",
+        "url": "https://www.okta.com/",
+        "doc": "https://help.okta.com/en/prod/Content/Topics/Security/MFA.htm"
+    },
+    "OneDrive": {
+        "img": "onedrive.png",
+        "url": "https://onedrive.live.com",
+        "doc": "https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification"
+    },
+    "Online": {
+        "img": "online.png",
+        "url": "https://www.online.net/",
+        "doc": null
+    },
+    "Onshape": {
+        "img": "onshape.png",
+        "url": "https://www.onshape.com/",
+        "doc": "https://cad.onshape.com/help/Content/twofactorauthentication.htm"
+    },
+    "OpenDNS": {
+        "img": "opendns.png",
+        "url": "https://www.opendns.com/",
+        "doc": "https://engineering.opendns.com/2014/05/22/launching-two-step-verification/"
+    },
+    "Openprovider": {
+        "img": "openprovider.png",
+        "url": "https://www.openprovider.co.uk",
+        "doc": null
+    },
+    "OpenSRS": {
+        "img": "opensrs.png",
+        "url": "https://opensrs.com",
+        "doc": "https://help.opensrs.com/hc/en-us/articles/209618017-Two-Factor-Authentication-2FA-for-Reseller-Account-Access"
+    },
+    "Outlook.com": {
+        "img": "outlook.png",
+        "url": "https://outlook.com",
+        "doc": "https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification"
+    },
+    "OVH": {
+        "img": "ovh.png",
+        "url": "https://www.ovh.com/",
+        "doc": null
+    },
+    "Packet": {
+        "img": "packet.png",
+        "url": "https://www.packet.net/",
+        "doc": "https://help.packet.net/faq/onboarding/portal"
+    },
+    "pair Domains": {
+        "img": "pairdomains.png",
+        "url": "https://www.pairdomains.com/",
+        "doc": "https://www.pairdomains.com/kb/posts/345"
+    },
+    "Panic Sync": {
+        "img": "panic.png",
+        "url": "https://panic.com/",
+        "doc": "https://library.panic.com/general/sync-2fa/"
+    },
+    "PassHub": {
+        "img": "passhub.png",
+        "url": "https://passhub.net/",
+        "doc": "https://passhub.net/security.php"
+    },
+    "Paycor": {
+        "img": "paycor.png",
+        "url": "https://www.paycor.com",
+        "doc": "https://www.paycor.com/security/how-to-keep-your-account-safe"
+    },
+    "PAYEER": {
+        "img": "payeer.png",
+        "url": "https://payeer.com/en/",
+        "doc": "https://payeer.com/en/faq/"
+    },
+    "PayPal": {
+        "img": "paypal.png",
+        "url": "https://www.paypal.com/",
+        "doc": "https://www.paypal.com/us/cgi-bin?cmd=xpt/Marketing_CommandDriven/securitycenter/PayPalSecurityKey-outside&bn_r=o"
+    },
+    "Paysafecard": {
+        "img": "paysafecard.png",
+        "url": "https://www.paysafecard.com/",
+        "doc": "https://www.paysafecard.com/en-au/lp-products/2-step-login/"
+    },
+    "Payza": {
+        "img": "payza.png",
+        "url": "https://www.payza.eu/",
+        "doc": "https://docs.payza.eu/docs/personal-manual-advanced-security#section-how-do-i-set-up-2-factor-authentication"
+    },
+    "Peerio": {
+        "img": "peerio.png",
+        "url": "https://peerio.com",
+        "doc": "https://peerio.zendesk.com/hc/en-us/articles/202933829-How-do-I-setup-two-factor-authentication-"
+    },
+    "Pennsylvania State University": {
+        "img": "psu.png",
+        "url": "http://www.psu.edu/",
+        "doc": "http://www.identity.psu.edu/services/authentication-services/two-factor/"
+    },
+    "Phacility": {
+        "img": "phacility.png",
+        "url": "https://phacility.com/",
+        "doc": null
+    },
+    "PhraseApp": {
+        "img": "phraseapp.png",
+        "url": "https://phraseapp.com",
+        "doc": "https://phraseapp.com/blog/posts/multi-factor-how-to-secure-your-account-using-multi-factor/"
+    },
+    "Pinterest": {
+        "img": "pinterest.png",
+        "url": "https://pinterest.com",
+        "doc": "https://help.pinterest.com/en/articles/two-factor-authentication"
+    },
+    "PlanetHoster": {
+        "img": "planethoster.png",
+        "url": "https://www.planethoster.com/",
+        "doc": "https://blog.planethoster.com/securite-espace-client-planethoster/"
+    },
+    "Planio": {
+        "img": "planio.png",
+        "url": "https://plan.io",
+        "doc": "https://support.plan.io/news/133"
+    },
+    "Plurk": {
+        "img": "plurk.png",
+        "url": "https://plurk.com",
+        "doc": null
+    },
+    "Pobox": {
+        "img": "pobox.png",
+        "url": "https://www.pobox.com/",
+        "doc": "https://pobox.com/helpspot/index.php?pg=kb.chapter&id=65"
+    },
+    "Pocketsmith": {
+        "img": "pocketsmith.png",
+        "url": "https://www.pocketsmith.com",
+        "doc": "https://learn.pocketsmith.com/article/167-two-factor-authentication-2fa-on-your-pocketsmith-account"
+    },
+    "Podravska banka": {
+        "img": "podravska.png",
+        "url": "https://www.poba.hr/",
+        "doc": "http://www.poba.hr/get_file.php?d=pobaklik__upute_gradani.pdf&PHPSESSID=cafutfbcjozu"
+    },
+    "Poloniex": {
+        "img": "poloniex.png",
+        "url": "https://poloniex.com/",
+        "doc": "https://poloniex.freshdesk.com/support/solutions/articles/1000225338-how-do-i-to-setup-two-factor-authentication"
+    },
+    "porkbun": {
+        "img": "porkbun.png",
+        "url": "https://porkbun.com",
+        "doc": "https://porkbun.com/products/two_factor_authentication"
+    },
+    "Posteo": {
+        "img": "posteo.png",
+        "url": "https://posteo.de/",
+        "doc": "https://posteo.de/en/help/what-is-two-factor-authentication-and-how-do-i-set-it-up"
+    },
+    "Prey": {
+        "img": "prey.png",
+        "url": "https://www.preyproject.com",
+        "doc": "http://help.preyproject.com/article/248-how-to-enable-the-two-step-authenticator-for-prey"
+    },
+    "Privacy": {
+        "img": "privacy.png",
+        "url": "https://privacy.com/",
+        "doc": "https://privacy.com/faq"
+    },
+    "Private Internet Access": {
+        "img": "privateinternetaccess.png",
+        "url": "https://www.privateinternetaccess.com",
+        "doc": "https://www.privateinternetaccess.com/helpdesk/kb/articles/how-do-i-use-the-2fa-system"
+    },
+    "ProfitBricks": {
+        "img": "profitbricks.png",
+        "url": "https://www.profitbricks.de",
+        "doc": "https://www.profitbricks.com/help/2-Factor_Authentication"
+    },
+    "ProtonMail": {
+        "img": "protonmail.png",
+        "url": "https://protonmail.com/",
+        "doc": "https://protonmail.com/support/knowledge-base/two-factor-authentication/"
+    },
+    "ProtonVPN": {
+        "img": "protonvpn.png",
+        "url": "https://protonvpn.com/",
+        "doc": null
+    },
+    "Purdue University": {
+        "img": "purdue.png",
+        "url": "https://www.purdue.edu/",
+        "doc": "https://www.purdue.edu/securepurdue/iamoServices/BoilerKey.php"
+    },
+    "Purse": {
+        "img": "purse.png",
+        "url": "https://purse.io/",
+        "doc": "https://support.purse.io/account/2-factor-authentication-2fa"
+    },
+    "Pushover": {
+        "img": "pushover.png",
+        "url": "https://pushover.net/",
+        "doc": "https://pushover.net/faq#security-2fa"
+    },
+    "Pwnie Express Pwn Pulse": {
+        "img": "pwnieexpress.png",
+        "url": "https://www.pwnieexpress.com/products/pulse-device-detection",
+        "doc": "http://support.pwnieexpress.com/customer/en/portal/articles/2858909-chapter-5-pulse-administration-user-management"
+    },
+    "PythonAnywhere": {
+        "img": "pythonanywhere.png",
+        "url": "https://www.pythonanywhere.com",
+        "doc": null
+    },
+    "QNAP": {
+        "img": "qnap.png",
+        "url": "https://www.qnap.com",
+        "doc": "https://www.qnap.com/en-us/how-to/tutorial/article/how-to-enhance-account-security-using-2-step-verification"
+    },
+    "Quickbooks Online": {
+        "img": "quickbooks.png",
+        "url": "https://www.quickbooks.com",
+        "doc": "https://accounts-help.lc.intuit.com/questions/1590157"
+    },
+    "QuickFile": {
+        "img": "quickfile.png",
+        "url": "https://www.quickfile.co.uk",
+        "doc": "https://community.quickfile.co.uk/t/2-factor-authentication/8892"
+    },
+    "Rackspace": {
+        "img": "rackspace.png",
+        "url": "https://www.rackspace.com/",
+        "doc": "https://support.rackspace.com/how-to/multi-factor-authentication-from-the-cloud-control-panel/"
+    },
+    "RamNode": {
+        "img": "ramnode.png",
+        "url": "https://www.ramnode.com",
+        "doc": "https://clientarea.ramnode.com/knowledgebase.php?action=displayarticle&id=70"
+    },
+    "Ravelin": {
+        "img": "ravelin.png",
+        "url": "https://www.ravelin.com/",
+        "doc": "https://ravelin.zendesk.com/hc/en-us/articles/115001071665-Two-Factor-Authentication"
+    },
+    "Raygun": {
+        "img": "raygun.png",
+        "url": "https://raygun.com",
+        "doc": "https://raygun.com/docs/workflow/two-factor-authentication"
+    },
+    "RBCommons": {
+        "img": "rbcommons.png",
+        "url": "https://rbcommons.com",
+        "doc": "http://support.beanbaginc.com/support/solutions/articles/3000006998-enabling-two-factor-authentication"
+    },
+    "RBLTracker": {
+        "img": "rbltracker.png",
+        "url": "https://rbltracker.com/",
+        "doc": "https://rbltracker.com/docs/setting-up-two-factor-authentication/"
+    },
+    "RealMe": {
+        "img": "realme.png",
+        "url": "https://www.realme.govt.nz/",
+        "doc": "https://www.realme.govt.nz/help/#second-factor-authentication"
+    },
+    "RealVNC": {
+        "img": "realvnc.png",
+        "url": "https://www.realvnc.com",
+        "doc": "https://www.realvnc.com/en/connect/docs/multi-factor-auth.html#protecting-your-realvnc-account"
+    },
+    "Recurly": {
+        "img": "recurly.png",
+        "url": "https://www.recurly.com/",
+        "doc": "https://docs.recurly.com/docs/two-factor-authentication"
+    },
+    "Reddit": {
+        "img": "reddit.png",
+        "url": "https://www.reddit.com/",
+        "doc": "https://www.reddithelp.com/en/categories/using-reddit/your-reddit-account/how-set-two-factor-authentication"
+    },
+    "Register4Less": {
+        "img": "register4less.png",
+        "url": "https://register4less.com/",
+        "doc": "http://blog.register4less.com/?p=43"
+    },
+    "Registro.br": {
+        "img": "registrobr.png",
+        "url": "https://registro.br",
+        "doc": "https://registro.br/ajuda.html?secao=GerenciamentoConta&item=310"
+    },
+    "Remote Desktop Manager": {
+        "img": "remotedesktopmanager.png",
+        "url": "https://www.remotedesktopmanager.com",
+        "doc": "https://help.remotedesktopmanager.com/howto_googleauthenticator.htm"
+    },
+    "Repairshopr": {
+        "img": "repairshopr.png",
+        "url": "https://www.repairshopr.com/",
+        "doc": "https://feedback.repairshopr.com/knowledgebase/articles/928266-two-factor-authentication-google-authenticator"
+    },
+    "Report URI": {
+        "img": "report-uri.png",
+        "url": "https://report-uri.com",
+        "doc": null
+    },
+    "Republic Wireless": {
+        "img": "rw.png",
+        "url": "https://republicwireless.com/",
+        "doc": "https://help.republicwireless.com/hc/en-us/articles/360008803994"
+    },
+    "Ripe NCC": {
+        "img": "ripe.png",
+        "url": "https://www.ripe.net/",
+        "doc": "https://www.ripe.net/participate/member-support/ripe-ncc-access/two-step-verification"
+    },
+    "Roberts Space Industries": {
+        "img": "robertsspaceindustries.png",
+        "url": "https://robertsspaceindustries.com/",
+        "doc": "https://robertsspaceindustries.com/faq/two-step-authentication"
+    },
+    "Robinhood": {
+        "img": "robinhood.png",
+        "url": "https://www.robinhood.com/",
+        "doc": "https://support.robinhood.com/hc/en-us/articles/360001213783"
+    },
+    "RoboForm": {
+        "img": "roboform.png",
+        "url": "https://www.roboform.com/",
+        "doc": "https://help.roboform.com/hc/en-us/articles/115002729512-Setting-up-Google-Authenticator-for-your-account"
+    },
+    "Rockstar Games Social Club": {
+        "img": "rockstargames.png",
+        "url": "https://socialclub.rockstargames.com",
+        "doc": "https://support.rockstargames.com/hc/en-us/articles/360000031747-Setting-Up-2-Step-Verification-with-Social-Club"
+    },
+    "Rollbar": {
+        "img": "rollbar.png",
+        "url": "https://rollbar.com/",
+        "doc": "https://rollbar.com/docs/two-factor-authentication/"
+    },
+    "Runbox": {
+        "img": "runbox.png",
+        "url": "https://runbox.com",
+        "doc": "https://help.runbox.com/account-security/"
+    },
+    "RuneScape": {
+        "img": "runescape.png",
+        "url": "https://www.runescape.com/",
+        "doc": "https://support.runescape.com/hc/en-gb/articles/206811835-Setting-the-Authenticator-Mobile-Device"
+    },
+    "RunSignUp": {
+        "img": "runsignup.png",
+        "url": "https://runsignup.com/",
+        "doc": null
+    },
+    "SAASPASS": {
+        "img": "saaspass.png",
+        "url": "https://saaspass.com",
+        "doc": "https://saaspass.com/faq/"
+    },
+    "SailPoint": {
+        "img": "sailpoint.png",
+        "url": "https://www.sailpoint.com/",
+        "doc": null
+    },
+    "Salesforce": {
+        "img": "salesforce.png",
+        "url": "https://www.salesforce.com",
+        "doc": "https://developer.salesforce.com/docs/atlas.en-us.identityImplGuide.meta/identityImplGuide/add_time-based_token.htm"
+    },
+    "SaneBox": {
+        "img": "sanebox.png",
+        "url": "https://www.sanebox.com/",
+        "doc": "https://support.sanebox.com/hc/en-us/articles/203837226-Two-Factor-Authentication-2FA-for-your-account-dashboard-on-sanebox-com"
+    },
+    "Santander PL": {
+        "img": "santander.png",
+        "url": "https://santander.pl",
+        "doc": "https://santander.pl/firmy/bankowosc-elektroniczna/bzwbk24-mini-firma/metody-autoryzacji/metody-autoryzacji.html"
+    },
+    "SatoshiTango": {
+        "img": "satoshitango.png",
+        "url": "https://satoshitango.com/",
+        "doc": "https://github.com/2factorauth/twofactorauth/pull/2321#issuecomment-273971890"
+    },
+    "Scaleway": {
+        "img": "scaleway.png",
+        "url": "https://www.scaleway.com",
+        "doc": "https://blog.online.net/2017/06/13/introducing-two-factor-authentication-on-scaleway/"
+    },
+    "Scalr": {
+        "img": "scalr.png",
+        "url": "https://www.scalr.com",
+        "doc": "https://scalr-wiki.atlassian.net/wiki/display/docs/Two-Factor+Authentication"
+    },
+    "Scryfall": {
+        "img": "scryfall.png",
+        "url": "https://www.scryfall.com/",
+        "doc": "https://scryfall.com/docs/privacy#scryfall-accounts"
+    },
+    "SEB": {
+        "img": "seb.png",
+        "url": "https://seb.se/",
+        "doc": "https://seb.se/privat/digitala-tjanster"
+    },
+    "section.io": {
+        "img": "sectionio.png",
+        "url": "https://www.section.io",
+        "doc": "https://www.section.io/docs/how-to/user-management/enable-two-factor-authentication-on-your-account/"
+    },
+    "Semaphore": {
+        "img": "semaphore.png",
+        "url": "https://semaphoreci.com",
+        "doc": "https://semaphoreci.com/docs/two-step-verification.html"
+    },
+    "SendGrid": {
+        "img": "sendgrid.png",
+        "url": "https://sendgrid.com/",
+        "doc": "https://sendgrid.com/docs/User_Guide/Settings/two_factor_authentication.html"
+    },
+    "Sendloop": {
+        "img": "sendloop.png",
+        "url": "https://app.sendloop.com",
+        "doc": "https://help.sendloop.com/docs/securing-your-account"
+    },
+    "Sentry": {
+        "img": "sentry.png",
+        "url": "https://sentry.io",
+        "doc": "https://blog.sentry.io/2016/06/22/introducing-2fa"
+    },
+    "Shopify": {
+        "img": "shopify.png",
+        "url": "https://shopify.com/",
+        "doc": "https://help.shopify.com/manual/your-account/account-security/two-step-authentication"
+    },
+    "SimpleTax": {
+        "img": "simpletax.png",
+        "url": "https://simpletax.ca/",
+        "doc": "https://help.simpletax.ca/questions/two-factor-authentication"
+    },
+    "SingleHop": {
+        "img": "singlehop.png",
+        "url": "https://www.singlehop.com",
+        "doc": "http://library.singlehop.com/assets_project_development/Two_Factor_Instructions.pdf"
+    },
+    "SiteGround": {
+        "img": "siteground.png",
+        "url": "https://www.siteground.com",
+        "doc": "https://www.siteground.com/tutorials/two-factor-authentication/"
+    },
+    "Skatteverket": {
+        "img": "skatteverket.png",
+        "url": "https://www.skatteverket.se",
+        "doc": "https://www.skatteverket.se/privat/sjalvservice/allaetjanster/omelegitimation.4.18e1b10334ebe8bc80004811.html"
+    },
+    "Skrill": {
+        "img": "skrill.png",
+        "url": "https://skrill.com/",
+        "doc": "https://www.skrill.com/en/support#/path/ACCOUNT/Two-Factor-Authentication/905761532/Two-Factor-Authentication-2FA.htm"
+    },
+    "Skype": {
+        "img": "skype.png",
+        "url": "https://www.skype.com",
+        "doc": "https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification"
+    },
+    "Slack": {
+        "img": "slack.png",
+        "url": "https://slack.com/",
+        "doc": "https://slack.zendesk.com/hc/en-us/articles/204509068-Enabling-two-factor-authentication"
+    },
+    "SmartBox": {
+        "img": "smartbox.png",
+        "url": "https://www.panterranetworks.com/products/smartbox.php",
+        "doc": null
+    },
+    "SmartSimple": {
+        "img": "smartsimple.png",
+        "url": "https://www.smartsimple.com",
+        "doc": "https://wiki.smartsimple.com/wiki/Two-Factor_Authentication"
+    },
+    "smashcast": {
+        "img": "smashcast.png",
+        "url": "https://www.smashcast.tv/",
+        "doc": "https://help.smashcast.tv/customer/en/portal/articles/2779887"
+    },
+    "Snapchat": {
+        "img": "snapchat.png",
+        "url": "https://www.snapchat.com/",
+        "doc": "https://support.snapchat.com/en-US/article/enable-login-verification"
+    },
+    "SocketLabs": {
+        "img": "socketlabs.png",
+        "url": "https://socketlabs.com/",
+        "doc": "https://support.socketlabs.com/kb/145"
+    },
+    "Sonic": {
+        "img": "sonic.png",
+        "url": "https://www.sonic.com/",
+        "doc": "https://help.sonic.com/hc/en-us/articles/236079387"
+    },
+    "Sophos Central": {
+        "img": "sophoscentral.png",
+        "url": "https://www.sophos.com",
+        "doc": "https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/ep_MultiFactorAuthentication.html"
+    },
+    "SourceForge": {
+        "img": "sourceforge.png",
+        "url": "https://sourceforge.net/",
+        "doc": "https://sourceforge.net/blog/introducing-multifactor-authentication-on-sourceforge/"
+    },
+    "SparkPost": {
+        "img": "sparkpost.png",
+        "url": "https://sparkpost.com/",
+        "doc": "https://support.sparkpost.com/customer/portal/articles/1948449"
+    },
+    "SpeedIT Solutions": {
+        "img": "speedit.png",
+        "url": "https://www.speedit.org/",
+        "doc": null
+    },
+    "Square": {
+        "img": "squareup.png",
+        "url": "https://squareup.com",
+        "doc": "https://squareup.com/help/us/en/article/5593-2-step-verification"
+    },
+    "Square Enix": {
+        "img": "squarenix.png",
+        "url": "https://na.square-enix.com/",
+        "doc": "http://www.square-enix.com/na/account/otp/"
+    },
+    "Squarespace": {
+        "img": "squarespace.png",
+        "url": "https://squarespace.com/",
+        "doc": "https://support.squarespace.com/hc/en-us/articles/360000044827"
+    },
+    "SSLTrust": {
+        "img": "ssltrust.png",
+        "url": "https://www.ssltrust.com.au/",
+        "doc": "http://www.ssltrust.com.au/enable-two-factor-authentication.html"
+    },
+    "Stackfield": {
+        "img": "stackfield.png",
+        "url": "https://www.stackfield.com/",
+        "doc": "http://en.stackfield.help/article/92-activating-deactivating-the-two-factor-authentication"
+    },
+    "Stanford University": {
+        "img": "stanford.png",
+        "url": "https://www.stanford.edu/",
+        "doc": "https://uit.stanford.edu/service/webauth/twostep"
+    },
+    "Star Wars: The Old Republic": {
+        "img": "swtor.png",
+        "url": "http://www.swtor.com/",
+        "doc": "http://www.swtor.com/info/security-key"
+    },
+    "StartMail": {
+        "img": "startmail.png",
+        "url": "https://www.startmail.com",
+        "doc": "https://support.startmail.com/index.php?/Knowledgebase/Article/View/704/4/how-to-set-up-two-factor-authentication-2fa"
+    },
+    "State Bank of India": {
+        "img": "sbi.png",
+        "url": "https://www.onlinesbi.com/",
+        "doc": "https://www.onlinesbi.com/sbijava/mobile/sbsecure_otp_app_faq.html"
+    },
+    "StatusCake": {
+        "img": "statuscake.png",
+        "url": "https://statuscake.com/",
+        "doc": null
+    },
+    "Steam": {
+        "img": "steam.png",
+        "url": "http://store.steampowered.com/",
+        "doc": "https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030"
+    },
+    "Stripe": {
+        "img": "stripe.png",
+        "url": "https://www.stripe.com/",
+        "doc": "https://support.stripe.com/questions/how-do-i-enable-two-step-verification"
+    },
+    "Sumo Logic": {
+        "img": "sumologic.png",
+        "url": "https://www.sumologic.com",
+        "doc": "https://help.sumologic.com/Manage/Security/About_2-Step_Verification"
+    },
+    "Swedbank": {
+        "img": "swedbank.png",
+        "url": "https://www.swedbank.se/",
+        "doc": "https://hjalp.swedbank.se/logga-in/index.htm"
+    },
+    "Sync": {
+        "img": "sync.png",
+        "url": "https://www.sync.com",
+        "doc": "https://www.sync.com/help/how-do-i-setup-two-factor-authentication/"
+    },
+    "Synology": {
+        "img": "synology.png",
+        "url": "https://www.synology.com/",
+        "doc": "https://originwww.synology.com/en-us/knowledgebase/tutorials/615#t5"
+    },
+    "TBC Bank": {
+        "img": "tbcbank.png",
+        "url": "http://www.tbcbank.ge",
+        "doc": "http://www.tbcbank.ge/web/en/web/guest/tbc-digipass"
+    },
+    "TeamViewer": {
+        "img": "teamviewer.png",
+        "url": "https://www.teamviewer.com",
+        "doc": "https://www.teamviewer.com/en/help/402-How-do-I-activate-deactivate-two-factor-authentication-for-my-TeamViewer-account.aspx"
+    },
+    "Telia (Sweden)": {
+        "img": "telia.png",
+        "url": "https://www.telia.se/",
+        "doc": "https://www.telia.se/privat/support/info/logga-in-med-bankid-och-eleg-pa-mitt-telia"
+    },
+    "Telzio": {
+        "img": "telzio.png",
+        "url": "https://www.telzio.com/",
+        "doc": "https://telzio.com/support/two-factor-authentication"
+    },
+    "Temple University": {
+        "img": "templeuniversity.png",
+        "url": "https://www.temple.edu/",
+        "doc": "https://computerservices.temple.edu/two-step-verification"
+    },
+    "Thexyz": {
+        "img": "thexyz.png",
+        "url": "https://www.thexyz.com/",
+        "doc": "https://www.thexyz.com/account/knowledgebase/15/Enabling-two-factor-authentication.html"
+    },
+    "ThisData": {
+        "img": "thisdata.png",
+        "url": "https://thisdata.com",
+        "doc": "https://thisdata.com/blog/how-to-enable-two-factor-authentication/"
+    },
+    "ThreatConnect": {
+        "img": "threatconnect.png",
+        "url": "https://threatconnect.com/",
+        "doc": "http://kb.threatconnect.com/customer/en/portal/articles/2214975-configuring-user-settings-and-two-factor-authentication"
+    },
+    "ThreatX": {
+        "img": "threatx.png",
+        "url": "https://www.threatx.com/",
+        "doc": "https://support.threatx.com/hc/en-us/articles/360022157591"
+    },
+    "Tibia": {
+        "img": "tibia.png",
+        "url": "https://www.tibia.com/",
+        "doc": "https://www.tibia.com/support/?subtopic=gethelp&topicid=21"
+    },
+    "Tilaa": {
+        "img": "tilaa.png",
+        "url": "https://www.tilaa.com",
+        "doc": "http://blog.tilaa.com/post/128110588046/two-factor-authentication-and-session-management"
+    },
+    "Time4VPS": {
+        "img": "time4vps.png",
+        "url": "https://www.time4vps.eu/",
+        "doc": "https://billing.time4vps.eu/knowledgebase/article/100/2-factor-authentication/"
+    },
+    "Tinfoil Security": {
+        "img": "tinfoil.png",
+        "url": "https://www.tinfoilsecurity.com",
+        "doc": "http://support.tinfoilsecurity.com/customer/portal/articles/1559364-do-you-support-two-factor-authentication-how-do-i-set-it-up-"
+    },
+    "Ting": {
+        "img": "ting.png",
+        "url": "https://ting.com/",
+        "doc": "https://help.ting.com/hc/en-us/articles/209351258-Two-Factor-Authentication"
+    },
+    "Toodledo": {
+        "img": "toodledo.png",
+        "url": "https://www.toodledo.com",
+        "doc": "https://www.toodledo.com/info/help.php#168"
+    },
+    "Toontown Rewritten": {
+        "img": "toontownrewritten.png",
+        "url": "https://www.toontownrewritten.com/",
+        "doc": "https://www.toontownrewritten.com/help/faq/accounts--login#twostep"
+    },
+    "TorGuard": {
+        "img": "torguard.png",
+        "url": "https://torguard.net",
+        "doc": null
+    },
+    "TransferWise": {
+        "img": "transferwise.png",
+        "url": "https://transferwise.com",
+        "doc": "https://transferwise.com/help/article/2811597/borderless-account/how-can-i-setup-2-step-login"
+    },
+    "TransIP": {
+        "img": "transip.png",
+        "url": "https://www.transip.nl/",
+        "doc": "https://www.transip.nl/vragen/574-hoe-stel-two-factor-authentication/"
+    },
+    "Trello": {
+        "img": "trello.png",
+        "url": "https://trello.com",
+        "doc": "http://help.trello.com/article/993-enabling-two-factor-authentication-for-your-trello-account"
+    },
+    "Tresorit": {
+        "img": "tresorit.png",
+        "url": "https://tresorit.com/",
+        "doc": "https://support.tresorit.com/entries/104192996-How-to-set-up-two-step-verification"
+    },
+    "Trion Worlds": {
+        "img": "trionworlds.png",
+        "url": "https://www.trionworlds.com/en/",
+        "doc": "https://support.trionworlds.com/hc/en-us/articles/204183357-Adding-a-Mobile-Authenticator"
+    },
+    "True Key": {
+        "img": "truekey.png",
+        "url": "https://www.truekey.com",
+        "doc": "https://help.truekey.com/hc/en-us/articles/218580447-How-can-I-add-additional-factors-"
+    },
+    "Tumblr": {
+        "img": "tumblr.png",
+        "url": "https://www.tumblr.com/",
+        "doc": "https://www.tumblr.com/docs/en/two_factor_auth"
+    },
+    "Tutanota": {
+        "img": "tutanota.png",
+        "url": "https://tutanota.com/",
+        "doc": "https://tutanota.uservoice.com/knowledgebase/articles/1201942"
+    },
+    "Twitch": {
+        "img": "twitch.png",
+        "url": "https://www.twitch.tv/",
+        "doc": "http://blog.twitch.tv/2015/11/two-factor-authentication-now-available-on-your-twitch-account/"
+    },
+    "Twitter": {
+        "img": "twitter.png",
+        "url": "https://twitter.com",
+        "doc": "https://support.twitter.com/articles/20170388"
+    },
+    "Uber": {
+        "img": "uber.png",
+        "url": "https://www.uber.com/",
+        "doc": "https://help.uber.com/h/b8bb9152-8c91-4f49-83c4-35cf2e1dcf72"
+    },
+    "Ubiquiti Networks": {
+        "img": "ubiquiti.png",
+        "url": "https://www.ubnt.com",
+        "doc": "https://help.ubnt.com/hc/en-us/articles/115012986607-How-to-Enable-Two-Factor-Authentication"
+    },
+    "Ubisoft/Uplay": {
+        "img": "uplay.png",
+        "url": "https://uplay.ubi.com/",
+        "doc": "https://support.ubi.com/en-GB/Faqs/000025170/Secure-your-account-with-2-Step-Verification"
+    },
+    "UKFast": {
+        "img": "ukfast.png",
+        "url": "https://www.ukfast.co.uk/",
+        "doc": null
+    },
+    "Ukraine": {
+        "img": "ukraine.png",
+        "url": "https://www.ukraine.com.ua/",
+        "doc": "https://www.ukraine.com.ua/faq/rekomendatsii-po-zashchite-ot-vzloma-uchetnoj-zapisi.html"
+    },
+    "Unfuddle": {
+        "img": "unfuddle.png",
+        "url": "https://unfuddle.com/",
+        "doc": "https://unfuddle.com/blog/2014/07/140721-two-factor-authentication"
+    },
+    "Uniregistry": {
+        "img": "uniregistry.png",
+        "url": "https://uniregistry.com/",
+        "doc": "https://uniregistry.help/my-account-en/what-is-two-step-verification/"
+    },
+    "United Domains USA": {
+        "img": "uniteddomains-usa.png",
+        "url": "https://www.uniteddomains.com/",
+        "doc": "https://help.uniteddomains.com/hc/en-us/articles/115001458813-How-to-Enable-Disable-Two-Factor-Authentication"
+    },
+    "united-domains Reselling": {
+        "img": "udreselling.png",
+        "url": "https://www.ud-reselling.com/en/",
+        "doc": "https://www.ud-reselling.com/en/security/"
+    },
+    "united-domains.de": {
+        "img": "united-domains.png",
+        "url": "https://www.united-domains.de/",
+        "doc": "https://help.united-domains.de/faq-article/wie-aktiviere-ich-die-zweistufige-verifizierung-und-mache-mein-portfolio-login-sicherer"
+    },
+    "University of Idaho": {
+        "img": "uidaho.png",
+        "url": "https://www.uidaho.edu",
+        "doc": "https://support.uidaho.edu/TDClient/KB/ArticleDet?ID=109"
+    },
+    "University of Michigan": {
+        "img": "umich.png",
+        "url": "https://www.umich.edu",
+        "doc": "https://www.safecomputing.umich.edu/two-factor-authentication"
+    },
+    "University of Washington": {
+        "img": "uw.png",
+        "url": "https://www.washington.edu/",
+        "doc": "https://itconnect.uw.edu/security/uw-netids/2fa/"
+    },
+    "UpCloud": {
+        "img": "upcloud.png",
+        "url": "https://www.upcloud.com",
+        "doc": "https://www.upcloud.com/support/two-factor-authentication/"
+    },
+    "Uphold": {
+        "img": "uphold.png",
+        "url": "https://uphold.com/",
+        "doc": "https://support.uphold.com/hc/en-us/articles/206119683-How-does-phone-number-verification-work-"
+    },
+    "US Internal Revenue Service": {
+        "img": "usirs.png",
+        "url": "https://www.irs.gov/Individuals/Get-Transcript",
+        "doc": "https://www.irs.gov/individuals/secure-access-how-to-register-for-certain-online-self-help-tools"
+    },
+    "US Veteran Affairs": {
+        "img": "va.png",
+        "url": "https://www.va.gov",
+        "doc": null
+    },
+    "USAA": {
+        "img": "usaa.png",
+        "url": "https://www.usaa.com/",
+        "doc": "https://www.usaa.com/inet/pages/security_token_logon_options"
+    },
+    "Usabilla": {
+        "img": "usabilla.png",
+        "url": "https://usabilla.com",
+        "doc": "https://support.usabilla.com/hc/en-us/articles/207976889-Setting-up-2-step-authentication"
+    },
+    "Userify": {
+        "img": "userify.png",
+        "url": "https://userify.com",
+        "doc": "https://userify.com/docs/multifactor-authentication/"
+    },
+    "UW Credit Union": {
+        "img": "uwcu.png",
+        "url": "https://www.uwcu.org/",
+        "doc": "https://www.uwcu.org/OnlineBanking/OnlineSecurity/VerifyU.aspx"
+    },
+    "VentraIP": {
+        "img": "ventraip.png",
+        "url": "https://ventraip.com.au/",
+        "doc": "https://ventraip.com.au/faq/article/two-factor-authentication-faq-vipcontrol/"
+    },
+    "Versio": {
+        "img": "versio.png",
+        "url": "https://www.versio.nl",
+        "doc": "https://www.versio.nl/nieuws/twofactor-authenticatie-nu-beschikbaar-voor-uw-klantenaccount-205"
+    },
+    "Virginia Commonwealth University": {
+        "img": "vcu.png",
+        "url": "https://www.vcu.edu",
+        "doc": "https://ts.vcu.edu/askit/essential-computing/information-security/2factor/"
+    },
+    "Virginia Tech": {
+        "img": "virginiatech.png",
+        "url": "https://www.vt.edu/",
+        "doc": "http://www.tech.it.vt.edu/2factor/"
+    },
+    "Visual Studio Online": {
+        "img": "visualstudio.png",
+        "url": "https://www.visualstudio.com/",
+        "doc": "https://windows.microsoft.com/en-us/windows/two-step-verification-faq"
+    },
+    "VK": {
+        "img": "vk.png",
+        "url": "https://vk.com",
+        "doc": "https://vk.com/page-59800369_47885415"
+    },
+    "VPS Server": {
+        "img": "vpsserver.png",
+        "url": "https://www.vpsserver.com/",
+        "doc": "https://github.com/2factorauth/twofactorauth/pull/2311#issuecomment-273424695"
+    },
+    "Vultr": {
+        "img": "vultr.png",
+        "url": "https://www.vultr.com",
+        "doc": "https://www.vultr.com/docs/using-two-factor-authentication-to-login-to-vultr-control-panel"
+    },
+    "Wargaming": {
+        "img": "wargaming.png",
+        "url": "http://wargaming.net/",
+        "doc": "https://wargaming.net/support/kb/articles/792"
+    },
+    "Watchman Monitoring": {
+        "img": "watchmanmonitoring.png",
+        "url": "https://www.watchmanmonitoring.com",
+        "doc": "https://www.watchmanmonitoring.com/two-factor-authentication"
+    },
+    "Wealthfront": {
+        "img": "wealthfront.png",
+        "url": "https://www.wealthfront.com/",
+        "doc": "https://support.wealthfront.com/hc/en-us/articles/211004563-How-do-I-enable-two-step-authentication-for-my-account-"
+    },
+    "Wealthsimple": {
+        "img": "wealthsimple.png",
+        "url": "https://www.wealthsimple.com",
+        "doc": "https://help.wealthsimple.com/hc/en-ca/articles/360005175373-Does-Wealthsimple-offer-Two-Step-Verification-"
+    },
+    "WebFaction": {
+        "img": "webfaction.png",
+        "url": "https://www.webfaction.com",
+        "doc": "https://docs.webfaction.com/user-guide/control_panel.html#two-step-login"
+    },
+    "Wedos": {
+        "img": "wedos.png",
+        "url": "https://hosting.wedos.com",
+        "doc": "https://kb.wedos.com/cs/zakaznik/otp.html"
+    },
+    "Wikipedia": {
+        "img": "wikipedia.png",
+        "url": "https://www.wikipedia.org/",
+        "doc": "https://meta.wikimedia.org/wiki/Help:Two-factor_authentication"
+    },
+    "WildStar": {
+        "img": "wildstar.png",
+        "url": "https://www.wildstar-online.com/",
+        "doc": "https://support.wildstar-online.com/hc/en-us/articles/203982369-Two-Step-Verification-FAQ"
+    },
+    "WordPress.com": {
+        "img": "wordpress.png",
+        "url": "https://wordpress.com",
+        "doc": "https://en.support.wordpress.com/security/two-step-authentication/"
+    },
+    "WP Engine": {
+        "img": "wpengine.png",
+        "url": "https://wpengine.com/",
+        "doc": "https://wpengine.com/support/2-factor-authentication/"
+    },
+    "Wykop": {
+        "img": "wykop.png",
+        "url": "https://www.wykop.pl",
+        "doc": null
+    },
+    "Xapo": {
+        "img": "xapo.png",
+        "url": "https://xapo.com",
+        "doc": "https://support.xapo.com/articles/123/"
+    },
+    "Xbox Live": {
+        "img": "xbox.png",
+        "url": "https://www.xbox.com/live",
+        "doc": "https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification"
+    },
+    "Xero": {
+        "img": "xero.png",
+        "url": "https://www.xero.com/",
+        "doc": "https://help.xero.com/nz/MyXero_Two-Step_About"
+    },
+    "XING": {
+        "img": "xing.png",
+        "url": "https://www.xing.com",
+        "doc": "https://faq.xing.com/en/settings-security/two-factor-login-two-factor-authentication"
+    },
+    "Yahoo Japan Mail": {
+        "img": "yahoojapanmail.png",
+        "url": "https://mail.yahoo.co.jp/",
+        "doc": "https://id.yahoo.co.jp/security/otp.html"
+    },
+    "Yandex.Disk": {
+        "img": "yandexdisk.png",
+        "url": "https://disk.yandex.com",
+        "doc": "https://yandex.com/support/passport/authorization/twofa.html"
+    },
+    "Yandex.Mail": {
+        "img": "yandexmail.png",
+        "url": "https://mail.yandex.com/",
+        "doc": "https://yandex.com/support/passport/authorization/twofa.xml"
+    },
+    "Yandex.Money": {
+        "img": "yandexmoney.png",
+        "url": "https://money.yandex.ru",
+        "doc": "https://money.yandex.ru/doc.xml?id=524852"
+    },
+    "Yclas": {
+        "img": "yclas.png",
+        "url": "https://yclas.com/",
+        "doc": "https://docs.yclas.com/2-step-authentication/"
+    },
+    "YourAcclaim": {
+        "img": "youracclaim.png",
+        "url": "https://youracclaim.com",
+        "doc": null
+    },
+    "YouTube": {
+        "img": "youtube.png",
+        "url": "https://www.youtube.com/",
+        "doc": "https://www.google.com/intl/en-US/landing/2step/features.html"
+    },
+    "YoYo Games": {
+        "img": "yoyogames.png",
+        "url": "https://www.yoyogames.com/",
+        "doc": "http://help.yoyogames.com/hc/en-us/articles/216757288-Creating-a-YoYo-Account"
+    },
+    "Zagreba\u010dka banka": {
+        "img": "zagrebacka.png",
+        "url": "https://www.zaba.hr/",
+        "doc": "https://www.zaba.hr/home/token#pan3"
+    },
+    "Zapier": {
+        "img": "zapier.png",
+        "url": "https://zapier.com",
+        "doc": "https://zapier.com/help/two-factor-authentication/"
+    },
+    "Zendesk": {
+        "img": "zendesk.png",
+        "url": "https://www.zendesk.com",
+        "doc": "https://support.zendesk.com/hc/en-us/articles/203824246"
+    },
+    "Zetta.net": {
+        "img": "zetta.png",
+        "url": "https://www.zetta.net/",
+        "doc": "https://www.zetta.net/about/blog/how-set-zetta-two-factor-authentication/"
+    },
+    "Zimbra": {
+        "img": "zimbra.png",
+        "url": "https://www.zimbra.com/",
+        "doc": "https://blog.zimbra.com/2016/02/zimbra-collaboration-8-7-two-factor-authentication-2fa-technical-preview/"
+    },
+    "Zoho Mail": {
+        "img": "zoho.png",
+        "url": "https://www.zoho.com/mail/",
+        "doc": "https://adminconsole.wiki.zoho.com/mail/Two-Factor-Authentication.html"
+    },
+    "Zoolz": {
+        "img": "zoolz.png",
+        "url": "https://intelli.zoolz.com/",
+        "doc": "http://wiki.zoolz.com/how-do-i-enable-two-factor-authentication-on-my-zoolz-intelligent-account/"
+    },
+    "Zurich Cantonal Bank (ZKB)": {
+        "img": "zkb.png",
+        "url": "https://www.zkb.ch/",
+        "doc": "https://www.zkb.ch/de/pr/pk/efinance/ebanking/login-verfahren.html"
+    }
 }

@@ -28,7 +28,7 @@ gnome.compile_resources(
 # Install gschema
 gschema_conf = configuration_data()
 gschema_conf.set('app-id', application_id)
-gschema_conf.set('gettext_package', gettext_package)
+gschema_conf.set('gettext-package', gettext_package)
 if get_option('profile') == 'development'
   gschema_conf.set('schema-path', '/com/github/bilelmoussaoui/Authenticator/')
 else
@@ -92,7 +92,7 @@ endif
 # Freedesktop AppData File
 appdata_conf = configuration_data()
 appdata_conf.set('appid', application_id)
-appdata_conf.set('gettext_package', gettext_package)
+appdata_conf.set('gettext-package', gettext_package)
 appdata_file = i18n.merge_file(
   'appdata',
   input: configure_file(

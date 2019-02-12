@@ -16,11 +16,12 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
+import asyncio
 from gettext import gettext as _
 from gi.repository import Gtk, GObject, Handy
 
 from Authenticator.widgets.accounts.row import AccountRow
-from Authenticator.models import Account, AccountsManager
+from Authenticator.models import Account, AccountsManager, ProviderManager, FaviconManager
 from Authenticator.utils import load_pixbuf_from_provider
 
 
@@ -118,7 +119,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self._reorder()
         self._clean_unneeded_providers_widgets()
         self.emit("account-removed")
-        
+
     def _clean_unneeded_providers_widgets(self):
         for account_list in self._to_delete:
             provider_widget = account_list.get_parent()
@@ -148,27 +149,34 @@ class ProviderWidget(Gtk.Box):
 
     def __init__(self, accounts_list, provider):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        self.get_style_context().add_class("provider-widget")
         self.provider = provider
-        self._build_widgets(accounts_list, provider)
+        self._build_widgets(accounts_list)
 
-    def _build_widgets(self, accounts_list, provider):
+    def _build_widgets(self, accounts_list):
         provider_container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-
         provider_lbl = Gtk.Label()
-        provider_lbl.set_text(provider)
+        provider_lbl.set_text(self.provider)
         provider_lbl.set_halign(Gtk.Align.START)
         provider_lbl.get_style_context().add_class("provider-label")
 
-        provider_img = Gtk.Image()
-        pixbuf = load_pixbuf_from_provider(provider)
-        provider_img.set_from_pixbuf(pixbuf)
+        self.provider_img = Gtk.Image()
 
-        provider_container.pack_start(provider_img, False, False, 3)
+        provider_container.pack_start(self.provider_img, False, False, 3)
         provider_container.pack_start(provider_lbl, False, False, 3)
 
         self.pack_start(provider_container, False, False, 3)
         self.pack_start(accounts_list, False, False, 3)
 
+        provider = ProviderManager.get_default().get_provider_by_name(self.provider)
+
+        if provider:
+            asyncio.run(FaviconManager.get_default().grab_favicon(provider.img, provider.url,
+                                                      self.__on_favicon_downloaded,
+                                                      None))
+
+    def __on_favicon_downloaded(self, img_path, callback_data=None):
+        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(img_path, 32))
 
 class AccountsList(Gtk.ListBox, GObject.GObject):
     """Accounts List."""
