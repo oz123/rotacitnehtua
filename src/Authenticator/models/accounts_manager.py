@@ -18,25 +18,24 @@
 """
 from threading import Thread
 from time import sleep
-from gi.repository import GObject
+from gi.repository import GObject, GLib
 
 
-class AccountsManager(GObject.GObject, Thread):
+class AccountsManager(GObject.GObject):
     __gsignals__ = {
-        'counter_updated': (GObject.SignalFlags.RUN_LAST, None, (str,)),
+        'counter_updated': (GObject.SignalFlags.RUN_LAST, None, (int,)),
     }
     instance = None
 
     def __init__(self):
         GObject.GObject.__init__(self)
-        Thread.__init__(self)
         self._accounts = []
         self._alive = True
         self.__fill_accounts()
 
         self.counter_max = 30
         self.counter = self.counter_max
-        self.start()
+        GLib.timeout_add_seconds(1, self.__update_counter, None)
 
     @staticmethod
     def get_default():
@@ -64,14 +63,15 @@ class AccountsManager(GObject.GObject, Thread):
             else:
                 child.emit(signal)
 
-    def run(self):
-        while self._alive:
+    def __update_counter(self, *args):
+        if self._alive:
             self.counter -= 1
             if self.counter == 0:
                 self.counter = self.counter_max
                 self.update_childes("otp_out_of_date")
             self.emit("counter_updated", self.counter)
-            sleep(1)
+            return True
+        return False
 
     def __fill_accounts(self):
         from .database import Database

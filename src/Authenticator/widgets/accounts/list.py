@@ -139,7 +139,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self.show_all()
 
     def _on_counter_updated(self, accounts_manager, counter):
-        counter_fraction = int(counter) / accounts_manager.counter_max
+        counter_fraction = counter / accounts_manager.counter_max
         self.otp_progress_bar.set_fraction(counter_fraction)
         self.otp_progress_bar.set_tooltip_text(
             _("The One-Time Passwords expires in {} seconds").format(counter))

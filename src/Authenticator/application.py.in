@@ -64,10 +64,10 @@ class Application(Gtk.Application):
         Application.__setup_css()
 
         # Set the default night mode
-        is_night_mode = Settings.get_default().is_night_mode
         gtk_settings = Gtk.Settings.get_default()
-        gtk_settings.set_property("gtk-application-prefer-dark-theme",
-                                  is_night_mode)
+        Settings.get_default().bind("night-mode", gtk_settings,
+                                    "gtk-application-prefer-dark-theme",
+                                    Gio.SettingsBindFlags.GET)
 
     @staticmethod
     def __setup_css():
