@@ -59,9 +59,7 @@ class SettingsWindow(Gtk.Window):
         self.__init_widgets()
 
     def __init_widgets(self):
-        settings = Settings.get_default()
-        settings.bind("night-mode", self.dark_theme_switch, "state", Gio.SettingsBindFlags.DEFAULT)
-
+        self.dark_theme_switch.set_active(Settings.get_default().is_night_mode)
         self.lock_switch.set_active(Keyring.get_default().has_password())
 
     @Gtk.Template.Callback('lock_switch_state_changed')
@@ -89,6 +87,7 @@ class SettingsWindow(Gtk.Window):
     @Gtk.Template.Callback('dark_theme_switch_state_changed')
     @staticmethod
     def __on_dark_theme_changed(_, state):
+        Settings.get_default().is_night_mode = state
         gtk_settings = Gtk.Settings.get_default()
         gtk_settings.set_property("gtk-application-prefer-dark-theme",
                                   state)
