@@ -16,7 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from .about import AboutDialog
 from .accounts import AccountsList, AccountRow
 from .window import Window, WindowState
 from .settings import SettingsWindow

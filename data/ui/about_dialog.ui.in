@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <template class="AboutDialog" parent="GtkAboutDialog">
+  <object class="GtkAboutDialog" id="about_dialog">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Authenticator</property>
@@ -45,5 +45,5 @@ Tobias Bernard</property>
     <child type="titlebar">
       <placeholder/>
     </child>
-  </template>
+  </object>
 </interface>

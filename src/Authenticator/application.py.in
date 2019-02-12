@@ -19,7 +19,7 @@
 from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
-from Authenticator.widgets import Window, WindowState, AboutDialog, import_json, export_json
+from Authenticator.widgets import Window, WindowState, import_json, export_json
 from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 
 
@@ -164,7 +164,9 @@ class Application(Gtk.Application):
         """
             Shows about dialog
         """
-        dialog = AboutDialog()
+        builder = Gtk.Builder()
+        builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/about_dialog.ui")
+        dialog = builder.get_object("about_dialog")
         dialog.set_transient_for(Window.get_default())
         dialog.run()
         dialog.destroy()
