@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-01-14 07:20+0000\n"
+"PO-Revision-Date: 2019-02-13 11:09+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Flemish <https://hosted.weblate.org/projects/authenticator/"
 "translation/nl_BE/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -59,118 +59,124 @@ msgid ""
 "Since I have moved the application to GOME Gitlab's World group, a Flatpak "
 "build for each new commit is available to download from the site's website."
 msgstr ""
+"Sinds de verhuizing naar de World-groep op GNOME Gitlab, is er op de website "
+"een Flatpak-pakket beschikbaar voor iedere nieuwe commit."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
 msgid "Backup and restore from a basic JSON file"
-msgstr ""
+msgstr "Back-up en herstel uit een basis-JSON-bestand"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
 msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr ""
+msgstr "Back-up en herstel uit een met GPG versleuteld JSON-bestand"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
 msgid "Add andOTP support (free and open Android 2FA application)"
 msgstr ""
+"andOTP-ondersteuning toegevoegd (gratis en vrije Android-app voor "
+"tweestapsauthenticatie)"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
 msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
-msgstr ""
+msgstr "Nieuw instellingsvenster met 3 secties: uiterlijk, gedrag en back-up"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
 msgid "Fix Flatpak Build with the latest GNOME Runtime"
-msgstr ""
+msgstr "Flatpak-pakketten compatibel gemaakt met de nieuwste GNOME Runtime"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
 msgid "Move the project to GOME Gitlab's World group"
-msgstr ""
+msgstr "Project verplaatst naar GNOME Gitlab World-groep"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:50
 msgid "GNOME Shell Search provider"
-msgstr ""
+msgstr "GNOME Shell-zoekdienst"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:51
 msgid "Codes expire simultaneously #91"
-msgstr ""
+msgstr "Codes vervallen tegelijkertijd #91"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:58
 msgid "Revamped main window to more closely follow the GNOME HIG"
-msgstr ""
+msgstr "Hoofdvenster herontworpen voor beter te voldoen aan de GNOME HIG"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
 msgid "Revamped add a new account window to make it easier to use"
-msgstr ""
+msgstr "Nieuw accountvenster herontworpen zodat het eenvoudig is geworden"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
 msgid ""
 "Possibility to add an account from a provider not listed in the shipped "
 "database"
 msgstr ""
+"Mogelijkheid van nen account toe te voegen van een dienst die niet in de "
+"databank voorkomt"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
 msgid "Possibilty to edit an account"
-msgstr ""
+msgstr "Mogelijkheid van nen account te bewerken"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
 msgid "One Time Password now visible by default"
-msgstr ""
+msgstr "Eenmalig wachtwoord is nu standaard zichtbaar"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
 msgid "Fix python-dbus by using GDbus instead"
-msgstr ""
+msgstr "python-dbus-probleem opgelost door GDbus te gebruiken"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
 msgid "Fix the QRScanner on GNOME Shell"
-msgstr ""
+msgstr "QR-codescanner hersteld bij gebruik in GNOME Shell"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
 msgid "Add a new entry for the account's username"
-msgstr ""
+msgstr "Voegt een nieuw item toe voor de gebruikersnaam"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:78
 msgid "Updated database of supported accounts"
-msgstr ""
+msgstr "Databank met ondersteunde accounts bijgewerkt"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
 msgid "HOTFIX: App not running in DE other than GNOME"
 msgstr ""
+"BELANGRIJK: de toepassingen draait nu ook in andere bureaubladomgevingen dan "
+"GNOME"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
-#, fuzzy
 msgid "Rename project to Authenticator"
-msgstr "Over Authenticator"
+msgstr "Project hernoemd naar Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
-#, fuzzy
 msgid "Cleaner code base"
-msgstr "Databank wissen"
+msgstr "Eenvoudigere broncode"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:94
 msgid "Faster startup"
-msgstr ""
+msgstr "Rapper opstarten"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:95
 msgid "Remove unneeded features"
-msgstr ""
+msgstr "Onnodige functies verwijderd"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:96
 msgid "Switch to pyzbar instead of zbarlight"
-msgstr ""
+msgstr "Overgeschakeld van zbarlight naar pyzbar"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
 msgid "Flatpak package"
-msgstr ""
+msgstr "Flatpak-pakket"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
 msgid "Bilal Elmoussaoui"
-msgstr ""
+msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
-msgstr "Tweefactorauthenticatie"
+msgstr "Tweestapsauthenticatie"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
-msgstr "Gnome;GTK;Verification;Verificatie;"
+msgstr "Gnome;GTK;Verification;Verificatie;authenticatie;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
 msgid "@appid@"
@@ -195,7 +201,7 @@ msgstr "Standaardgedrag van gemaximaliseerd venster"
 
 #: data/ui/about_dialog.ui.in:10
 msgid "Two-factor authentication code generator."
-msgstr "Generator voor tweefactorauthenticatiecodes."
+msgstr "Generator voor tweestapsauthenticatiecodes."
 
 #: data/ui/about_dialog.ui.in:13
 msgid "translator-credits"
@@ -214,7 +220,6 @@ msgid "Add"
 msgstr "Toevoegen"
 
 #: data/ui/account_add.ui:56
-#, fuzzy
 msgid "Scan QR Code"
 msgstr "QR-code scannen"
 
@@ -233,7 +238,7 @@ msgstr "Verwijderen"
 
 #: data/ui/account_row.ui:92
 msgid "Copy PIN to clipboard"
-msgstr ""
+msgstr "Pincode kopiëren naar klembord"
 
 #: data/ui/settings.ui.in:66
 msgid "Behaviour"
@@ -252,13 +257,12 @@ msgid "Lock the application"
 msgstr "Toepassing vergrendelen"
 
 #: data/ui/settings.ui.in:196
-#, fuzzy
 msgid "Lock the application with a password"
-msgstr "Mogelijkheid voor de toepassing te vergrendelen met een paswoord"
+msgstr "Vergrendelt de toepassing met een wachtwoord"
 
 #: data/ui/settings.ui.in:279
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Houdt uw accounts veilig "
 
 #: data/ui/settings.ui.in:303
 msgid "Password"
@@ -273,7 +277,6 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: data/ui/settings.ui.in:427
-#, fuzzy
 msgid "Authenticator Password"
 msgstr "Authenticatiepaswoord"
 
@@ -285,7 +288,7 @@ msgstr "Algemeen"
 #: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Sneltoetsen tonen"
+msgstr "Sneltoetsen weergeven"
 
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
@@ -317,17 +320,16 @@ msgid "There are no accounts yet…"
 msgstr "Ge hebt nog geen accounts toegevoegd…"
 
 #: data/ui/window.ui.in:187
-#, fuzzy
 msgid "Authenticator is locked"
-msgstr "Authenticator"
+msgstr "Authenticator is vergrendeld"
 
 #: data/ui/window.ui.in:222
 msgid "Unlock"
-msgstr ""
+msgstr "Ontgrendelen"
 
 #: src/authenticator.py.in:49
 msgid "Start in debug mode"
-msgstr "Starten in debugmodus"
+msgstr "Starten in foutopsporingsmodus"
 
 #: src/authenticator.py.in:51
 msgid "Authenticator version number"
@@ -388,11 +390,11 @@ msgstr "Aanmaken van geheime code mislukt"
 
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
-msgstr ""
+msgstr "Authenticatiepaswoord is niet ingesteld. Herstart de toepassing"
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
-msgstr ""
+msgstr "Authenticatiepaswoord is ingeschakeld. Herstart de toepassing."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
