@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-01-01 10:42+0000\n"
+"PO-Revision-Date: 2019-02-13 11:09+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/authenticator/"
 "translation/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -231,7 +231,6 @@ msgid "Add"
 msgstr "Añadir"
 
 #: data/ui/account_add.ui:56
-#, fuzzy
 msgid "Scan QR Code"
 msgstr "Escanear código QR"
 
@@ -250,7 +249,7 @@ msgstr "Eliminar"
 
 #: data/ui/account_row.ui:92
 msgid "Copy PIN to clipboard"
-msgstr ""
+msgstr "Copiar PIN al portapapeles"
 
 #: data/ui/settings.ui.in:66
 msgid "Behaviour"
@@ -269,13 +268,12 @@ msgid "Lock the application"
 msgstr "Bloquear la aplicación"
 
 #: data/ui/settings.ui.in:196
-#, fuzzy
 msgid "Lock the application with a password"
-msgstr "Posibilidad de bloquear la aplicación con una contraseña"
+msgstr "Bloquear la aplicación con una contraseña"
 
 #: data/ui/settings.ui.in:279
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Mantenga sus cuentas seguras "
 
 #: data/ui/settings.ui.in:303
 msgid "Password"
@@ -290,9 +288,8 @@ msgid "Settings"
 msgstr "Configuración"
 
 #: data/ui/settings.ui.in:427
-#, fuzzy
 msgid "Authenticator Password"
-msgstr "Contraseña de autenticación"
+msgstr "Contraseña de Authenticator"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -334,13 +331,12 @@ msgid "There are no accounts yet…"
 msgstr "No hay ninguna cuenta aún…"
 
 #: data/ui/window.ui.in:187
-#, fuzzy
 msgid "Authenticator is locked"
-msgstr "Authenticator"
+msgstr "Authenticator está bloqueado"
 
 #: data/ui/window.ui.in:222
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: src/authenticator.py.in:49
 msgid "Start in debug mode"
@@ -406,10 +402,12 @@ msgstr "No se pudo generar el código secreto"
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
 msgstr ""
+"La contraseña de autenticación no estaba configurada. Reinicie la aplicación"
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
 msgstr ""
+"La contraseña de autenticación está ahora activa. Reinicie la aplicación."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
