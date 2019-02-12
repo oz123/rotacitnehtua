@@ -19,14 +19,13 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 
-import sy
+import sys
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 from os import path
 from gi.repository import Gio, GLib
 
-from Authenticator.models.database import Database
-from Authenticator.models.account import Account
+from Authenticator.models import Account, Database
 
 
 class Server:
