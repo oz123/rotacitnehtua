@@ -17,55 +17,27 @@
 
 - QR code scanner
 - Beautiful UI
-- Huge database of (290+) websites/applications
+- Huge database of more than 500 supported services
+- Keep your 2FA pin's secure by locking the application with a password
 
-## Installation
 
-### Flatpak
-You can install the `flatpak` package of the application from Flathub using
-```
-flatpak install flathub com.github.bilelmoussaoui.Authenticator
-```
+## Hack on Authenticator
+To build the development version of Authenticator and hack on the code
+see the [general guide](https://wiki.gnome.org/Newcomers/BuildProject)
+for building GNOME apps with Flatpak and GNOME Builder.
 
-### Distribution packaging
 
-- Pop!\_OS (18.10+): `gnome-authenticator`
-
-### Building from source code
-#### Dependecies
+## Dependecies
 
 - `Python 3.3+`
 - `Gtk 3.16+`
-- `meson 0.42+`
+- `meson 0.48`
 - `ninja`
 - `pyotp`
 - `libsecret`
-
-Those dependencies are only used if you build the application with QR code scanner support
 - `Pillow`
-- `pyzbar` depends on `zbar`
-  - `libzbar-dev` on Ubuntu
-  - `zbar` on Arch
-
-1 - Clone the repository
-
-```bash
-git clone https://gitlab.gnome.org/World/Authenticator && cd ./Authenticator
-```
-
-2 - Install the dependencies
-
-3 - Afterwards
-
-```bash
-meson builddir
-sudo ninja -C builddir install
-```
-
-4 - You can run the application from the desktop file or from the terminal using
-```bash
-authenticator
-```
+- `zbar`
+- `pyzbar`
 
 ## Flags
 
