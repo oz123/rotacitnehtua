@@ -101,6 +101,15 @@
     <release version="0.1.1" date="2016-06-28" />
     <release version="0.1.0" date="2016-06-22" />
   </releases>
+  <kudos>
+      <!--
+        GNOME Software kudos:
+        https://gitlab.gnome.org/GNOME/gnome-software/blob/master/doc/kudos.md
+      -->
+      <kudo>SearchProvider</kudo>
+      <kudo>ModernToolkit</kudo>
+      <kudo>HiDpiIcon</kudo>
+  </kudos>
   <developer_name>Bilal Elmoussaoui</developer_name>
   <update_contact>bil.elmoussaoui@gmail.com</update_contact>
   <translation type="gettext">@gettext-package@</translation>
