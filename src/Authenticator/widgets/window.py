@@ -151,7 +151,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.accounts_viewport.add(accounts_widget)
 
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
-                                      "active", GObject.BindingFlags.BIDIRECTIONAL)
+                                      "active",
+                                      GObject.BindingFlags.BIDIRECTIONAL)
 
     def __on_accounts_changed(self, *_):
         if Database.get_default().count == 0:
