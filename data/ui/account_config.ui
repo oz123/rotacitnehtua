@@ -10,6 +10,7 @@
   </object>
   <object class="GtkEntryCompletion" id="provider_completion">
     <property name="model">providers_store</property>
+    <property name="minimum_key_length">2</property>
     <property name="text_column">0</property>
     <property name="inline_completion">True</property>
     <property name="inline_selection">True</property>
@@ -58,14 +59,16 @@
           <object class="GtkStack" id="provider_img_stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">start</property>
+            <property name="hexpand">True</property>
             <child>
               <object class="GtkImage" id="provider_img">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="valign">center</property>
+                <property name="valign">start</property>
                 <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
                 <property name="icon_name">authenticator-symbolic</property>
                 <property name="icon_size">6</property>
               </object>
@@ -77,6 +80,9 @@
               <object class="GtkSpinner" id="provider_spinner">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">start</property>
+                <property name="hexpand">True</property>
               </object>
               <packing>
                 <property name="name">spinner</property>
@@ -137,12 +143,12 @@
                 <property name="model">providers_store</property>
                 <property name="active">0</property>
                 <property name="has_entry">True</property>
-                <property name="entry_text_column">0</property>
                 <property name="id_column">0</property>
                 <signal name="changed" handler="provider_changed" swapped="no"/>
                 <child internal-child="entry">
                   <object class="GtkEntry" id="provider_entry">
-                    <property name="can_focus">False</property>
+                    <property name="can_focus">True</property>
+                    <property name="has_focus">True</property>
                     <property name="placeholder_text" translatable="yes">Provider</property>
                     <property name="completion">provider_completion</property>
                   </object>
