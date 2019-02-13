@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-02-07 19:09+0000\n"
-"Last-Translator: Hendrik Michaelsen <weblate@cryck.me>\n"
+"PO-Revision-Date: 2019-02-13 15:09+0000\n"
+"Last-Translator: Sven G. <sven79hd@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/authenticator/"
 "translation/de/>\n"
 "Language: de\n"
@@ -62,12 +62,12 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
 msgid "Backup and restore from a basic JSON file"
-msgstr ""
+msgstr "Sichern und wiederherstellen von der grundlegenden JSON-Datei"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
-#, fuzzy
 msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr "aus einer OpenPGP-verschlüsselten JSON-Datei"
+msgstr ""
+"Sichern und wiederherstellen von einer OpenPGP-verschlüsselten JSON-Datei"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
 msgid "Add andOTP support (free and open Android 2FA application)"
