@@ -35,8 +35,6 @@ class SettingsWindow(Gtk.Window):
     lock_switch = Gtk.Template.Child()
     dark_theme_switch = Gtk.Template.Child()
 
-    headerbar = Gtk.Template.Child()
-
     headerbar_stack = Gtk.Template.Child()
     main_stack = Gtk.Template.Child()
 
@@ -88,9 +86,6 @@ class SettingsWindow(Gtk.Window):
     @staticmethod
     def __on_dark_theme_changed(_, state):
         Settings.get_default().is_night_mode = state
-        gtk_settings = Gtk.Settings.get_default()
-        gtk_settings.set_property("gtk-application-prefer-dark-theme",
-                                  state)
 
     @Gtk.Template.Callback('password_entry_changed')
     def __validate_password(self, *_):
@@ -118,13 +113,11 @@ class SettingsWindow(Gtk.Window):
         if self.props.view == SettingsView.PASSWORD:
             self.main_stack.set_visible_child_name("password_view")
             self.headerbar_stack.set_visible_child_name("headerbar_password")
-            self.headerbar.set_show_close_button(False)
             self.notification.set_reveal_child(False)
             self.notification_label.set_text("")
         else:
             self.main_stack.set_visible_child_name("settings_view")
-            self.headerbar_stack.set_visible_child_name("headerbar_settings")
-            self.headerbar.set_show_close_button(True)
+            self.headerbar_stack.set_visible_child_name("headerbar_main")
             # Reset Password View
             # To avoid user saving a password he doesn't remember
             self.password_entry.set_text("")
@@ -137,5 +130,5 @@ class SettingsWindow(Gtk.Window):
         self.notification_label.set_text(message)
         self.notification.set_reveal_child(True)
 
-        GLib.timeout_add_seconds(5,
+        GLib.timeout_add_seconds(3,
                                 lambda _: self.notification.set_reveal_child(False), None)

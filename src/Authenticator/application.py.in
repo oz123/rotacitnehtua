@@ -19,7 +19,7 @@
 from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
-from Authenticator.widgets import Window, WindowState, import_json, export_json
+from Authenticator.widgets import Window, WindowView, import_json, export_json
 from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 
 
@@ -42,13 +42,13 @@ class Application(Gtk.Application):
 
     def __is_locked_changed(self, *_):
         if self.is_locked:
-            Window.get_default().state = WindowState.LOCKED
+            Window.get_default().view = WindowView.LOCKED
         else:
             count = Database.get_default().count
             if count == 0:
-                Window.get_default().state = WindowState.EMPTY
+                Window.get_default().view = WindowView.EMPTY
             else:
-                Window.get_default().state = WindowState.NORMAL
+                Window.get_default().view = WindowView.NORMAL
     @staticmethod
     def get_default():
         if Application.instance is None:

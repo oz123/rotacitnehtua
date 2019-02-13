@@ -22,7 +22,7 @@ from Authenticator.models import Database, Logger, Settings, AccountsManager, Pr
 from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
 
 
-class WindowState:
+class WindowView:
     NORMAL = 0
     LOCKED = 1
     EMPTY  = 2
@@ -40,7 +40,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     instance = None
 
 
-    state = GObject.Property(type=int, default=0)
+    view = GObject.Property(type=int, default=0)
 
     headerbar = Gtk.Template.Child()
 
@@ -64,7 +64,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         super(Window, self).__init__()
         self.init_template('Window')
 
-        self.connect("notify::state", self.__state_changed)
+        self.connect("notify::view", self.__state_changed)
 
         self.key_press_signal = None
         self.restore_state()
@@ -108,7 +108,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 - There are at least one account in the database
             return: None
         """
-        if self.props.state == WindowState.NORMAL:
+        if self.props.view == WindowView.NORMAL:
             toggled = not self.search_btn.props.active
             self.search_btn.set_property("active", toggled)
 
@@ -155,9 +155,9 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     def __on_accounts_changed(self, *_):
         if Database.get_default().count == 0:
-            self.props.state = WindowState.EMPTY
+            self.props.view = WindowView.EMPTY
         else:
-            self.props.state = WindowState.NORMAL
+            self.props.view = WindowView.NORMAL
 
     @Gtk.Template.Callback('unlock_btn_clicked')
     def __unlock_btn_clicked(self, *_):
@@ -179,7 +179,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.add_action(action)
 
     def __state_changed(self, *_):
-        if self.props.state == WindowState.LOCKED:
+        if self.props.view == WindowView.LOCKED:
             visible_child = "locked_state"
             self.add_btn.set_visible(False)
             self.add_btn.set_no_show_all(True)
@@ -188,10 +188,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             if self.key_press_signal:
                 self.disconnect(self.key_press_signal)
         else:
-            # Connect on type search bar
-            self.key_press_signal = self.connect("key-press-event", lambda x,
-                                                y: self.search_bar.handle_event(y))
-            if self.props.state == WindowState.EMPTY:
+            if self.props.view == WindowView.EMPTY:
                 visible_child = "empty_state"
                 self.search_btn.set_visible(False)
                 self.search_btn.set_no_show_all(True)
@@ -199,6 +196,9 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 visible_child = "normal_state"
                 self.search_btn.set_visible(True)
                 self.search_btn.set_no_show_all(False)
+                # Connect on type search bar
+                self.key_press_signal = self.connect("key-press-event", lambda x,
+                                                    y: self.search_bar.handle_event(y))
             self.add_btn.set_visible(True)
             self.add_btn.set_no_show_all(False)
         self.main_stack.set_visible_child_name(visible_child)
