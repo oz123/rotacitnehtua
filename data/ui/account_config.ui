@@ -10,10 +10,15 @@
   </object>
   <object class="GtkEntryCompletion" id="provider_completion">
     <property name="model">providers_store</property>
-    <property name="minimum_key_length">2</property>
     <property name="text_column">0</property>
-    <property name="inline_completion">True</property>
     <property name="inline_selection">True</property>
+    <property name="popup_completion">True</property>
+    <child>
+      <object class="GtkCellRendererText" id="epithet_completion_renderer"/>
+      <attributes>
+        <attribute name="text">0</attribute>
+      </attributes>
+    </child>
   </object>
   <template class="AccountConfig" parent="GtkBox">
     <property name="visible">True</property>
