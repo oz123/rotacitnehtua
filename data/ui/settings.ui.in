@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
+  <requires lib="libhandy" version="0.0"/>
   <object class="GtkImage" id="previous_img">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -10,22 +11,76 @@
   <template class="SettingsWindow" parent="GtkWindow">
     <property name="can_focus">False</property>
     <property name="type">popup</property>
+    <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="default_width">350</property>
     <property name="default_height">500</property>
     <property name="gravity">center</property>
-    <signal name="delete-event" handler="settings_window_deleted" swapped="no"/>
+    <child type="titlebar">
+      <object class="GtkStack" id="headerbar_stack">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="transition_type">slide-left-right</property>
+        <child>
+          <object class="GtkHeaderBar">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="title" translatable="yes">Preferences</property>
+            <property name="show_close_button">True</property>
+          </object>
+          <packing>
+            <property name="name">headerbar_main</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHeaderBar">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="back_btn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="image">previous_img</property>
+                <signal name="clicked" handler="back_btn_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="save_btn">
+                <property name="label" translatable="yes">Save</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="save_btn_clicked" swapped="no"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+              <packing>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="name">headerbar_password</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkRevealer" id="notification">
+          <object class="GtkOverlay">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkOverlay">
+              <object class="GtkRevealer" id="notification">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -36,11 +91,11 @@
                       <class name="app-notification"/>
                     </style>
                   </object>
-                  <packing>
-                    <property name="index">-1</property>
-                  </packing>
                 </child>
               </object>
+              <packing>
+                <property name="index">-1</property>
+              </packing>
             </child>
           </object>
           <packing>
@@ -53,198 +108,205 @@
           <object class="GtkStack" id="main_stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="border_width">36</property>
+            <property name="border_width">32</property>
             <property name="transition_type">slide-left-right</property>
             <child>
-              <object class="GtkBox">
+              <object class="HdyColumn">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="orientation">vertical</property>
+                <property name="maximum_width">700</property>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Behaviour</property>
-                    <style>
-                      <class name="settings-category-title"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkListBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="selection_mode">none</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkListBoxRow">
+                      <object class="GtkLabel">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Behaviour</property>
+                        <style>
+                          <class name="settings-category-title"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkListBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="selection_mode">none</property>
                         <child>
-                          <object class="GtkBox">
+                          <object class="GtkListBoxRow">
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
+                            <property name="can_focus">True</property>
                             <child>
                               <object class="GtkBox">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="orientation">vertical</property>
                                 <child>
-                                  <object class="GtkLabel">
+                                  <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Dark theme</property>
-                                    <style>
-                                      <class name="settings-box-main-label"/>
-                                    </style>
+                                    <property name="orientation">vertical</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Dark theme</property>
+                                        <style>
+                                          <class name="settings-box-main-label"/>
+                                        </style>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="padding">6</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Use a dark theme, if possible</property>
+                                        <style>
+                                          <class name="settings-box-secondary-label"/>
+                                        </style>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="padding">6</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">True</property>
-                                    <property name="padding">6</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel">
+                                  <object class="GtkSwitch" id="dark_theme_switch">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Use a dark theme, if possible</property>
-                                    <style>
-                                      <class name="settings-box-secondary-label"/>
-                                    </style>
+                                    <property name="can_focus">True</property>
+                                    <property name="halign">end</property>
+                                    <property name="valign">center</property>
+                                    <signal name="state-set" handler="dark_theme_switch_state_changed" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">True</property>
-                                    <property name="padding">6</property>
+                                    <property name="pack_type">end</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
+                                <style>
+                                  <class name="settings-box"/>
+                                </style>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkSwitch" id="dark_theme_switch">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <signal name="state-set" handler="dark_theme_switch_state_changed" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="pack_type">end</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <style>
-                              <class name="settings-box"/>
+                              <class name="settings-row"/>
                             </style>
                           </object>
                         </child>
-                        <style>
-                          <class name="settings-row"/>
-                        </style>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkListBoxRow">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <child>
-                          <object class="GtkBox">
+                          <object class="GtkListBoxRow">
                             <property name="visible">True</property>
-                            <property name="can_focus">False</property>
+                            <property name="can_focus">True</property>
                             <child>
                               <object class="GtkBox">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="orientation">vertical</property>
                                 <child>
-                                  <object class="GtkLabel">
+                                  <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Lock the application</property>
-                                    <style>
-                                      <class name="settings-box-main-label"/>
-                                    </style>
+                                    <property name="orientation">vertical</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Lock the application</property>
+                                        <style>
+                                          <class name="settings-box-main-label"/>
+                                        </style>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="padding">6</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Lock the application with a password</property>
+                                        <style>
+                                          <class name="settings-box-secondary-label"/>
+                                        </style>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="padding">6</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">True</property>
-                                    <property name="padding">6</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel">
+                                  <object class="GtkSwitch" id="lock_switch">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Lock the application with a password</property>
-                                    <style>
-                                      <class name="settings-box-secondary-label"/>
-                                    </style>
+                                    <property name="can_focus">True</property>
+                                    <property name="halign">end</property>
+                                    <property name="valign">center</property>
+                                    <signal name="state-set" handler="lock_switch_state_changed" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">True</property>
-                                    <property name="padding">6</property>
+                                    <property name="pack_type">end</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
+                                <style>
+                                  <class name="settings-box"/>
+                                </style>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkSwitch" id="lock_switch">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="halign">end</property>
-                                <property name="valign">center</property>
-                                <signal name="state-set" handler="lock_switch_state_changed" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="pack_type">end</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <style>
-                              <class name="settings-box"/>
+                              <class name="settings-row"/>
                             </style>
                           </object>
                         </child>
-                        <style>
-                          <class name="settings-row"/>
-                        </style>
                       </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
               <packing>
@@ -390,60 +452,6 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-    <child type="titlebar">
-      <object class="GtkStack" id="headerbar_stack">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="transition_type">slide-left-right</property>
-        <child>
-          <object class="GtkHeaderBar">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="title" translatable="yes">Preferences</property>
-            <property name="show_close_button">True</property>
-          </object>
-          <packing>
-            <property name="name">headerbar_main</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHeaderBar">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkButton" id="back_btn">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="image">previous_img</property>
-                <signal name="clicked" handler="back_btn_clicked" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="save_btn">
-                <property name="label" translatable="yes">Save</property>
-                <property name="visible">True</property>
-                <property name="sensitive">False</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <signal name="clicked" handler="save_btn_clicked" swapped="no"/>
-                <style>
-                  <class name="suggested-action"/>
-                </style>
-              </object>
-              <packing>
-                <property name="pack_type">end</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="name">headerbar_password</property>
             <property name="position">1</property>
           </packing>
         </child>

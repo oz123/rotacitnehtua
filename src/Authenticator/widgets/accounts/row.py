@@ -33,6 +33,11 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
     """
     __gtype_name__ = 'AccountRow'
 
+    __gsignals__ = {
+        'pin-copied': (GObject.SignalFlags.RUN_LAST, None, (str,)),
+        'account-updated': (GObject.SignalFlags.RUN_LAST, None, (str,)),
+    }
+
     account_name_label = Gtk.Template.Child()
     pin_label = Gtk.Template.Child()
 
@@ -74,12 +79,14 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             self.pin_label.set_tooltip_text(_("Couldn't generate the secret code"))
 
     @Gtk.Template.Callback('copy_btn_clicked')
-    def _on_copy(self, *_):
+    def _on_copy(self, *__):
         """
             Copy button clicked signal handler.
             Copies the OTP pin to the clipboard
         """
         self._account.copy_pin()
+        self.emit("pin-copied",
+                  _("The PIN of {} was copied to the clipboard").format(self.account.username))
 
     @Gtk.Template.Callback('edit_btn_clicked')
     def _on_edit(self, *_):
@@ -94,7 +101,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         edit_window.show_all()
         edit_window.present()
 
-    def _on_update(self, _, account_name, provider):
+    def _on_update(self, __, account_name, provider):
         """
             On account update signal handler.
             Updates the account name and provider
@@ -107,6 +114,8 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         """
         self.account_name_label.set_text(account_name)
         self.account.update(account_name, provider)
+        self.emit("account-updated",
+                  _("The account was updated successfully"))
 
     def _on_pin_updated(self, _, pin):
         """

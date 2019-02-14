@@ -62,6 +62,9 @@ class SettingsWindow(Gtk.Window):
 
     @Gtk.Template.Callback('lock_switch_state_changed')
     def __on_app_set_password(self, __, state):
+        # TODO: the state of the lock switch is set
+        # When the window is open for the first time
+        # The notification is then shown the user which is not great :/
         if state and not Keyring.get_default().has_password():
             self.props.view = SettingsView.PASSWORD
         elif Keyring.get_default().has_password():
@@ -130,5 +133,5 @@ class SettingsWindow(Gtk.Window):
         self.notification_label.set_text(message)
         self.notification.set_reveal_child(True)
 
-        GLib.timeout_add_seconds(3,
+        GLib.timeout_add_seconds(5,
                                 lambda _: self.notification.set_reveal_child(False), None)

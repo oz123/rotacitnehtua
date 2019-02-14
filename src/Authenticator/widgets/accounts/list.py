@@ -25,6 +25,7 @@ from Authenticator.models import Account, AccountsManager, ProviderManager, Favi
 from Authenticator.utils import load_pixbuf_from_provider
 
 
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/accounts_widget.ui')
 class AccountsWidget(Gtk.Box, GObject.GObject):
     instance = None
 
@@ -33,32 +34,29 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         'account-added': (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
+    __gtype_name__ = 'AccountsWidget'
+
+    accounts_container = Gtk.Template.Child()
+    otp_progress_bar = Gtk.Template.Child()
+
     def __init__(self):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        super(AccountsWidget, self).__init__()
         GObject.GObject.__init__(self)
-        self.get_style_context().add_class("accounts-widget")
+        self.init_template('AccountsWidget')
 
         self._providers = {}
         self._to_delete = []
-        self._build_widgets()
-        self.__fill_data()
+        self.__init_widgets()
 
-    def _build_widgets(self):
-        self.otp_progress_bar = Gtk.ProgressBar()
-        self.otp_progress_bar.get_style_context().add_class("progress-bar")
-        self.add(self.otp_progress_bar)
-        AccountsManager.get_default().connect("counter_updated",
-                                               self._on_counter_updated)
 
-        self.accounts_container = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    def __init_widgets(self):
+        accounts_manager = AccountsManager.get_default()
+        accounts_manager.connect("counter_updated",
+                                  self._on_counter_updated)
+        # Add different accounts to the main view
+        for account in accounts_manager.accounts:
+            self.append(account)
 
-        self.accounts_column = Handy.Column()
-        self.accounts_column.set_maximum_width(700)
-        self.accounts_column.add(self.accounts_container)
-
-        accounts_scrolled = Gtk.ScrolledWindow()
-        accounts_scrolled.add_with_viewport(self.accounts_column)
-        self.pack_start(accounts_scrolled, True, True, 0)
 
     @staticmethod
     def get_default():
@@ -106,12 +104,6 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self._on_account_deleted(current_account_list)
         self._reorder()
         self._clean_unneeded_providers_widgets()
-
-    def __fill_data(self):
-        """Fill the Accounts List with accounts."""
-        accounts = AccountsManager.get_default().accounts
-        for account in accounts:
-            self.append(account)
 
     def _on_account_deleted(self, account_list):
         if len(account_list.get_children()) == 0:

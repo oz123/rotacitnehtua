@@ -50,9 +50,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     search_bar = Gtk.Template.Child()
 
-    notification = Gtk.Template.Child()
-    notification_label = Gtk.Template.Child()
-
     accounts_viewport = Gtk.Template.Child()
 
     password_entry = Gtk.Template.Child()

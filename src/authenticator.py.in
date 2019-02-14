@@ -30,7 +30,7 @@ require_version('Gtk', '3.0')
 require_version('Gdk', '3.0')
 require_version("Handy", "0.0")
 require_version('Secret', '1')
-from gi.repository import Gio
+from gi.repository import Gio, Handy
 
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
@@ -68,6 +68,7 @@ if __name__ == "__main__":
         sys.exit("Version : @VERSION@")
     else:
         try:
+            Handy.init(None)
             from Authenticator.application import Application
             app = Application.get_default()
             Application.IS_DEVEL = "@PROFILE@" == 'Devel'

@@ -139,3 +139,4 @@ class Keyring:
     def clear_password():
         schema = Keyring.get_default().password_schema
         Secret.password_clear_sync(schema, {}, None)
+
