@@ -42,13 +42,11 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     view = GObject.Property(type=int, default=0)
 
-    headerbar = Gtk.Template.Child()
-
-    add_btn = Gtk.Template.Child()
     search_btn = Gtk.Template.Child()
     primary_menu_btn = Gtk.Template.Child()
 
     main_stack = Gtk.Template.Child()
+    headerbar_stack = Gtk.Template.Child()
 
     search_bar = Gtk.Template.Child()
 
@@ -57,7 +55,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     accounts_viewport = Gtk.Template.Child()
 
-    unlock_btn = Gtk.Template.Child()
     password_entry = Gtk.Template.Child()
 
     def __init__(self):
@@ -160,18 +157,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         else:
             self.props.view = WindowView.NORMAL
 
-    @Gtk.Template.Callback('unlock_btn_clicked')
-    def __unlock_btn_clicked(self, *_):
-        from Authenticator.models import Keyring
-        typed_password = self.password_entry.get_text()
-        if typed_password == Keyring.get_password():
-            self.get_application().set_property("is-locked", False)
-            # Reset password entry
-            self.password_entry.get_style_context().remove_class("error")
-            self.password_entry.set_text("")
-        else:
-            self.password_entry.get_style_context().add_class("error")
-
     def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
         action.connect("activate", callback)
@@ -182,27 +167,34 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     def __state_changed(self, *_):
         if self.props.view == WindowView.LOCKED:
             visible_child = "locked_state"
-            self.add_btn.set_visible(False)
-            self.add_btn.set_no_show_all(True)
-            self.search_btn.set_visible(False)
-            self.search_btn.set_no_show_all(True)
+            visible_headerbar = "locked_headerbar"
             if self.key_press_signal:
                 self.disconnect(self.key_press_signal)
         else:
             if self.props.view == WindowView.EMPTY:
                 visible_child = "empty_state"
-                self.search_btn.set_visible(False)
-                self.search_btn.set_no_show_all(True)
+                visible_headerbar = "empty_headerbar"
             else:
                 visible_child = "normal_state"
-                self.search_btn.set_visible(True)
-                self.search_btn.set_no_show_all(False)
+                visible_headerbar = "main_headerbar"
                 # Connect on type search bar
                 self.key_press_signal = self.connect("key-press-event", lambda x,
                                                     y: self.search_bar.handle_event(y))
-            self.add_btn.set_visible(True)
-            self.add_btn.set_no_show_all(False)
         self.main_stack.set_visible_child_name(visible_child)
+        self.headerbar_stack.set_visible_child_name(visible_headerbar)
+
+    @Gtk.Template.Callback('unlock_btn_clicked')
+    def __unlock_btn_clicked(self, *_):
+
+        from Authenticator.models import Keyring
+        typed_password = self.password_entry.get_text()
+        if typed_password == Keyring.get_password():
+            self.get_application().set_property("is-locked", False)
+            # Reset password entry
+            self.password_entry.get_style_context().remove_class("error")
+            self.password_entry.set_text("")
+        else:
+            self.password_entry.get_style_context().add_class("error")
 
     @Gtk.Template.Callback('search_changed')
     def __search_changed(self, entry):
