@@ -39,8 +39,11 @@ class ProviderManager:
         return self.__providers
 
     def get_provider_by_name(self, provider_name):
+        if not provider_name:
+            return
         for provider in self.providers:
-            if provider.name == provider_name:
+            _current_name = str(provider.name)
+            if _current_name.lower().strip() == provider_name.lower().strip():
                 return provider
         return None
 

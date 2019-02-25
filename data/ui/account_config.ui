@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkListStore" id="providers_store">
@@ -12,7 +12,6 @@
     <property name="model">providers_store</property>
     <property name="text_column">0</property>
     <property name="inline_selection">True</property>
-    <property name="popup_completion">True</property>
     <child>
       <object class="GtkCellRendererText" id="epithet_completion_renderer"/>
       <attributes>
@@ -55,51 +54,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkBox">
+      <object class="GtkBox" id="main_box">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="border_width">36</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkStack" id="provider_img_stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">start</property>
-            <property name="hexpand">True</property>
-            <child>
-              <object class="GtkImage" id="provider_img">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">start</property>
-                <property name="hexpand">True</property>
-                <property name="icon_name">authenticator-symbolic</property>
-                <property name="icon_size">6</property>
-              </object>
-              <packing>
-                <property name="name">image</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSpinner" id="provider_spinner">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">start</property>
-                <property name="hexpand">True</property>
-              </object>
-              <packing>
-                <property name="name">spinner</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
+          <placeholder/>
         </child>
         <child>
           <object class="GtkGrid">

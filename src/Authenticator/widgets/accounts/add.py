@@ -20,6 +20,7 @@ import asyncio
 from gettext import gettext as _
 from gi.repository import Gtk, GObject, GLib
 
+from Authenticator.widgets.provider_image import ProviderImage
 from Authenticator.models import OTP, ProviderManager, FaviconManager
 from Authenticator.utils import load_pixbuf_from_provider
 
@@ -81,10 +82,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
 
     __gtype_name__ = 'AccountConfig'
 
-    provider_img_stack = Gtk.Template.Child()
-    provider_spinner = Gtk.Template.Child()
+    main_box = Gtk.Template.Child()
+    proivder_image = None
 
-    provider_img = Gtk.Template.Child()
     account_name_entry = Gtk.Template.Child()
     token_entry = Gtk.Template.Child()
     provider_combobox = Gtk.Template.Child()
@@ -122,6 +122,11 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         return account
 
     def __init_widgets(self):
+        self.provider_image = ProviderImage(None, 96)
+        self.main_box.pack_start(self.provider_image, False, False, 0)
+        self.main_box.reorder_child(self.provider_image, 0)
+        self.provider_image.set_halign(Gtk.Align.CENTER)
+
         # Set up auto completion
         if self._account and self._account.provider:
             self.provider_entry.set_text(self._account.provider)
@@ -144,19 +149,8 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         else:
             entry = combo.get_child()
             provider_name = entry.get_text()
-        provider = ProviderManager.get_default().get_provider_by_name(provider_name)
         self._validate()
-        if provider:
-            self.provider_img_stack.set_visible_child_name("spinner")
-            self.provider_spinner.start()
-            asyncio.run(FaviconManager.get_default().grab_favicon(provider.img, provider.url,
-                                                      self.__on_favicon_downloaded,
-                                                      None))
-
-    def __on_favicon_downloaded(self, img_path, callback_data=None):
-        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(img_path, 96))
-        self.provider_img_stack.set_visible_child_name("image")
-        self.provider_spinner.stop()
+        self.provider_image.set_property('provider', provider_name)
 
     def _fill_data(self):
         providers = ProviderManager.get_default().providers

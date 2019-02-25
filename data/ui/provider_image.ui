@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <template class="ProviderImage" parent="GtkStack">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="halign">start</property>
+    <property name="valign">center</property>
+    <child>
+      <object class="GtkSpinner" id="provider_spinner">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+      </object>
+      <packing>
+        <property name="name">provider_spinner</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkImage" id="provider_image">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="pixel_size">0</property>
+        <property name="icon_name">authenticator-symbolic</property>
+        <property name="icon_size">1</property>
+      </object>
+      <packing>
+        <property name="name">provider_image</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+  </template>
+</interface>

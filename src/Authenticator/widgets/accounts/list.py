@@ -20,6 +20,7 @@ import asyncio
 from gettext import gettext as _
 from gi.repository import Gtk, GObject, Handy
 
+from Authenticator.widgets.provider_image import ProviderImage
 from Authenticator.widgets.accounts.row import AccountRow
 from Authenticator.models import Account, AccountsManager, ProviderManager, FaviconManager
 from Authenticator.utils import load_pixbuf_from_provider
@@ -152,7 +153,7 @@ class ProviderWidget(Gtk.Box):
         provider_lbl.set_halign(Gtk.Align.START)
         provider_lbl.get_style_context().add_class("provider-label")
 
-        self.provider_img = Gtk.Image()
+        self.provider_img = ProviderImage(self.provider, 32)
 
         provider_container.pack_start(self.provider_img, False, False, 3)
         provider_container.pack_start(provider_lbl, False, False, 3)
@@ -160,15 +161,6 @@ class ProviderWidget(Gtk.Box):
         self.pack_start(provider_container, False, False, 3)
         self.pack_start(accounts_list, False, False, 3)
 
-        provider = ProviderManager.get_default().get_provider_by_name(self.provider)
-
-        if provider:
-            asyncio.run(FaviconManager.get_default().grab_favicon(provider.img, provider.url,
-                                                      self.__on_favicon_downloaded,
-                                                      None))
-
-    def __on_favicon_downloaded(self, img_path, callback_data=None):
-        self.provider_img.set_from_pixbuf(load_pixbuf_from_provider(img_path, 32))
 
 class AccountsList(Gtk.ListBox, GObject.GObject):
     """Accounts List."""

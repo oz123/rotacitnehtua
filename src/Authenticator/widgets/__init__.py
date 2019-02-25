@@ -16,7 +16,7 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from .accounts import AccountsList, AccountRow
 from .window import Window, WindowView
+from .provider_image import ProviderImage
 from .settings import SettingsWindow
 from .utils import import_json, export_json

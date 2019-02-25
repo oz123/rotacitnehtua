@@ -16,13 +16,12 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-import requests
 from os import path, mkdir
 from bs4 import BeautifulSoup
-from gi.repository import Gio, GLib
+from gi.repository import Gio, GLib, Soup
 from urllib.parse import urlparse
 import base64
-
+import requests
 
 LINK_RELS = [
     'icon',
@@ -51,7 +50,7 @@ class FaviconManager:
             FaviconManager.instance  = FaviconManager()
         return FaviconManager.instance
 
-    async def grab_favicon(self, img, url, callback=None, data=None):
+    def grab_favicon(self, img, url, callback=None):
         cache_dir = path.join(GLib.get_user_cache_dir(), "Authenticator")
         # Create the cache directory
         if not path.isdir(cache_dir):
@@ -59,21 +58,21 @@ class FaviconManager:
 
         img_path = path.join(cache_dir, img)
         if not path.isfile(img_path):
-            await self.__download_favicon(url, img_path, callback, data)
+            self.__download_favicon(url, img_path, callback)
         else:
             # If the file was downloaded before, just load it
-            callback(img_path, data)
+            callback(img_path)
 
-    async def __download_favicon(self, url, img_path, callback=None, data=None):
+    def __download_favicon(self, url, img_path, callback=None):
         """
             Get the website favicon and save it.
         """
         r = requests.get(url, headers= {'DNT': '1'})
         if r.status_code == 200:
-           await self.__on_download_finished(r.url, r.text, img_path, callback, data)
+           self.__on_download_finished(r.url, r.text, img_path, callback)
 
-    async def __on_download_finished(self, provider_url, html_content, img_path, callback=None, data=None):
-        favicon_url = await self.__grab_favicon_url(html_content, provider_url)
+    def __on_download_finished(self, provider_url, html_content, img_path, callback=None):
+        favicon_url = self.__grab_favicon_url(html_content, provider_url)
         if favicon_url:
             # If the favicon is not a base64 png image
             if "base64" in favicon_url:
@@ -82,7 +81,7 @@ class FaviconManager:
                     favicon_obj.write(favicon)
                 callback(img_path, data)
             else:
-                await self.__save_favicon(favicon_url, img_path, callback, data)
+                self.__save_favicon(favicon_url, img_path, callback)
         return None
 
     def __get_largest_icon(self, links):
@@ -97,7 +96,7 @@ class FaviconManager:
                 pass
         return largest[0]
 
-    async def __grab_favicon_url(self, html_content, url):
+    def __grab_favicon_url(self, html_content, url):
         bsoup = BeautifulSoup(html_content, features="html.parser")
         links = []
         for rel in LINK_RELS:
@@ -117,7 +116,7 @@ class FaviconManager:
                 return favicon_url
         return None
 
-    async def __save_favicon(self, favicon_url, img_path, callback=None, data=None):
+    def __save_favicon(self, favicon_url, img_path, callback=None):
         if favicon_url:
             try:
                 r = requests.get(favicon_url, stream=True)
@@ -125,7 +124,7 @@ class FaviconManager:
                     with open(img_path, 'wb') as fd:
                         for chunk in r.iter_content(chunk_size=128):
                             fd.write(chunk)
-                    callback(img_path, data)
+                    callback(img_path)
             except requests.exceptions.ConnectionError:
                 # In case the favicon is not on the server anymore
                 pass
