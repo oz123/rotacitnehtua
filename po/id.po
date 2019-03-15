@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2018-05-14 15:02+0000\n"
-"Last-Translator: ditokp <ditokpl@gmail.com>\n"
+"PO-Revision-Date: 2019-03-16 10:02+0000\n"
+"Last-Translator: yusuf afandi <afandi.yusuf.04@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/authenticator/"
 "translation/id/>\n"
 "Language: id\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -42,11 +42,11 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
-msgstr ""
+msgstr "Fitur:"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
 msgid "QR code scanner"
-msgstr ""
+msgstr "Pembaca QR code"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
