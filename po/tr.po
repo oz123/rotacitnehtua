@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-01-29 03:08+0000\n"
-"Last-Translator: Muha Aliss <muhaaliss@pm.me>\n"
+"PO-Revision-Date: 2019-03-18 18:03+0000\n"
+"Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/authenticator/"
 "translation/tr/>\n"
 "Language: tr\n"
@@ -17,187 +17,191 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 #: data/ui/window.ui.in:255 src/Authenticator/application.py.in:36
 msgid "Authenticator"
-msgstr "Şifrematik"
+msgstr "Kimlik Doğrulayıcı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
 msgid "Two-factor authentication code generator"
-msgstr ""
+msgstr "İki aşamalı kimlik doğrulama kodu üreteci"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
 msgstr ""
+"GNOME için oluşturulan iki aşamalı kimlik doğrulama kodu üreten basit bir "
+"uygulama."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
-msgstr ""
+msgstr "Özellikler:"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
 msgid "QR code scanner"
-msgstr ""
+msgstr "QR kod tarayıcı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
-msgstr ""
+msgstr "Mükemmel kullanıcı arayüzü"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
-msgstr ""
+msgstr "(290+) web sitesinin/uygulamasının devasa veritabanı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:34
 msgid ""
 "Since I have moved the application to GOME Gitlab's World group, a Flatpak "
 "build for each new commit is available to download from the site's website."
 msgstr ""
+"Uygulamayı GNOME Gitlab'ın Worl grubuna taşıdığımdan, web sitesinden "
+"indirebileceğiniz her yeni işlem için bir Flatpak yapısı vardır."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
 msgid "Backup and restore from a basic JSON file"
-msgstr ""
+msgstr "Temel bir JSON dosyasından yedekle ve geri yükle"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
 msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr ""
+msgstr "Şifreli bir GPG JSON dosyasından yedekle ve geri yükle"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
 msgid "Add andOTP support (free and open Android 2FA application)"
-msgstr ""
+msgstr "AndOTP desteği ekle (ücretsiz ve açık Android 2FA uygulaması)"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
 msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
-msgstr ""
+msgstr "Üç bölümlü yeni pencere ayarları: görünüm, davranış ve yedekleme"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
 msgid "Fix Flatpak Build with the latest GNOME Runtime"
-msgstr ""
+msgstr "En son GNOME Çalışma Zamanı Modülü ile Flatpak İnşasını Onarın"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
 msgid "Move the project to GOME Gitlab's World group"
-msgstr ""
+msgstr "Proje GOME Gitlab'ın Word grubuna taşındı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:50
 msgid "GNOME Shell Search provider"
-msgstr ""
+msgstr "GNOME Kabuk Arama sağlayıcısı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:51
 msgid "Codes expire simultaneously #91"
-msgstr ""
+msgstr "Kodlar aynı anda sona eriyor #91"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:58
 msgid "Revamped main window to more closely follow the GNOME HIG"
-msgstr ""
+msgstr "GNOME HIG'i daha yakından takip etmek için yenilenen ana pencere"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
 msgid "Revamped add a new account window to make it easier to use"
 msgstr ""
+"Yenilendi, kullanımı kolaylaştırmak için yeni bir hesap penceresi ekleyin"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
 msgid ""
 "Possibility to add an account from a provider not listed in the shipped "
 "database"
 msgstr ""
+"Gönderilen veri tabanında listelenmeyen bir sağlayıcıdan hesap ekleme imkanı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
 msgid "Possibilty to edit an account"
-msgstr ""
+msgstr "Bir hesap düzenleme imkanı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
 msgid "One Time Password now visible by default"
-msgstr ""
+msgstr "Öntanımlı olarak görünür durumda tek seferlik parola"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
 msgid "Fix python-dbus by using GDbus instead"
-msgstr ""
+msgstr "Python-dbus'u GDbus kullanarak düzeltin"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
 msgid "Fix the QRScanner on GNOME Shell"
-msgstr ""
+msgstr "QR Tarayıcısını GNOME Kabuğuna Sabitleyin"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
 msgid "Add a new entry for the account's username"
-msgstr ""
+msgstr "Hesabın kullanıcı adı için yeni bir giriş ekleyin"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:78
 msgid "Updated database of supported accounts"
-msgstr ""
+msgstr "Desteklenen hesapların güncellenmiş veritabanı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
 msgid "HOTFIX: App not running in DE other than GNOME"
-msgstr ""
+msgstr "DÜZELTME: Uygulama GNOME dışında DE'de çalışmıyor"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
-#, fuzzy
 msgid "Rename project to Authenticator"
-msgstr "Şifrematik hakkında"
+msgstr "Projeyi Authenticator olarak yeniden adlandır"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
-#, fuzzy
 msgid "Cleaner code base"
-msgstr "Veritabanını temizle"
+msgstr "Kod tabanı temizleyici"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:94
 msgid "Faster startup"
-msgstr ""
+msgstr "Hızlı başlangıç"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:95
 msgid "Remove unneeded features"
-msgstr ""
+msgstr "Gereksiz özellikler kaldırıldı"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:96
 msgid "Switch to pyzbar instead of zbarlight"
-msgstr ""
+msgstr "Zbarlight yerine pyzbar'a geç"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
 msgid "Flatpak package"
-msgstr ""
+msgstr "Flatpak paketi"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
 msgid "Bilal Elmoussaoui"
-msgstr ""
+msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "İki aşamalı kimlik doğrulama"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
-msgstr ""
+msgstr "Gnome;Kimlik;Doğrulayıcı;Authenticator;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
 msgid "@appid@"
-msgstr ""
+msgstr "@appid@"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
-msgstr ""
+msgstr "Öntanımlı pencere konumu"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
 msgid "Night mode"
-msgstr ""
+msgstr "Gece kipi"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
-msgstr ""
+msgstr "Uygulama içinde gece kipini etkinleştir/devre dışı bırak"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
 msgid "Default window maximized behaviour"
-msgstr ""
+msgstr "Öntanımlı pencere yükseklik davranışı"
 
 #: data/ui/about_dialog.ui.in:10
 msgid "Two-factor authentication code generator."
-msgstr ""
+msgstr "İki aşamalı kimlik doğrulama kodu üreteci."
 
 #: data/ui/about_dialog.ui.in:13
 msgid "translator-credits"
-msgstr ""
+msgstr "Serdar Sağlam <teknomobil@yandex.com"
 
 #: data/ui/account_add.ui:24
 msgid "Add a new account"
@@ -212,9 +216,8 @@ msgid "Add"
 msgstr "Ekle"
 
 #: data/ui/account_add.ui:56
-#, fuzzy
 msgid "Scan QR Code"
-msgstr "QR kod tara"
+msgstr "QR Kodunu Tara"
 
 #: data/ui/account_edit.ui:30 data/ui/settings.ui.in:454
 #: src/Authenticator/widgets/utils.py:34
@@ -231,7 +234,7 @@ msgstr "Sil"
 
 #: data/ui/account_row.ui:92
 msgid "Copy PIN to clipboard"
-msgstr ""
+msgstr "PIN'i panoya kopyala"
 
 #: data/ui/settings.ui.in:66
 msgid "Behaviour"
@@ -243,20 +246,19 @@ msgstr "Koyu tema"
 
 #: data/ui/settings.ui.in:117
 msgid "Use a dark theme, if possible"
-msgstr "Mümkünse koyu bir tema kullanın"
+msgstr "Mümkünse koyu tema kullan"
 
 #: data/ui/settings.ui.in:179 src/Authenticator/application.py.in:91
 msgid "Lock the application"
 msgstr "Uygulamayı kilitle"
 
 #: data/ui/settings.ui.in:196
-#, fuzzy
 msgid "Lock the application with a password"
-msgstr "Uygulamayı kilitle"
+msgstr "Uygulamayı bir parola ile kilitle"
 
 #: data/ui/settings.ui.in:279
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Hesaplarınızı güvende tutun "
 
 #: data/ui/settings.ui.in:303
 msgid "Password"
@@ -264,84 +266,82 @@ msgstr "Parola"
 
 #: data/ui/settings.ui.in:348
 msgid "Repeat Password"
-msgstr "Tekrar Parola"
+msgstr "Parolayı Tekrarla"
 
 #: data/ui/settings.ui.in:410
 msgid "Settings"
 msgstr "Ayarlar"
 
 #: data/ui/settings.ui.in:427
-#, fuzzy
 msgid "Authenticator Password"
-msgstr "Kimlik doğrulama parolası"
+msgstr "Kimlik Doğrulayıcı Parolası"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: data/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr ""
+msgstr "Kısayolları Göster"
 
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr ""
+msgstr "Tercihler"
 
 #: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Çık"
 
 #: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr ""
+msgstr "Hesaplar"
 
 #: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: data/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Search"
-msgstr ""
+msgstr "Ara"
 
 #: data/ui/window.ui.in:60
 msgid "There are no accounts yet…"
 msgstr "Henüz hesap yok…"
 
 #: data/ui/window.ui.in:187
-#, fuzzy
 msgid "Authenticator is locked"
-msgstr "Şifrematik"
+msgstr "Kimlik Doğrulayıcı kilitlendi"
 
 #: data/ui/window.ui.in:222
 msgid "Unlock"
-msgstr ""
+msgstr "Kilidi aç"
 
 #: src/authenticator.py.in:49
 msgid "Start in debug mode"
-msgstr ""
+msgstr "Hata ayıklama kipinde başlat"
 
 #: src/authenticator.py.in:51
 msgid "Authenticator version number"
-msgstr ""
+msgstr "Kimlik doğrulayıcı sürüm numarası"
 
 #: src/Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
-msgstr ""
+msgstr "düz metin JSON dosyasından"
 
 #: src/Authenticator/application.py.in:100
 msgid "in a plain-text JSON file"
-msgstr ""
+msgstr "düz metinli JSON dosyasına"
 
 #: src/Authenticator/application.py.in:102
 msgid "Restore"
-msgstr ""
+msgstr "Onar"
 
 #: src/Authenticator/application.py.in:103
 msgid "Backup"
@@ -362,18 +362,17 @@ msgstr "Klavye Kısayolları"
 
 #: src/Authenticator/application.py.in:114
 msgid "About Authenticator"
-msgstr "Şifrematik hakkında"
+msgstr "Kimlik Doğrulayıcı Hakkında"
 
 #: src/Authenticator/models/account.py:70
 msgid "Default"
-msgstr "Varsayılan"
+msgstr "Öntanımlı"
 
 #: src/Authenticator/widgets/accounts/add.py:204
 msgid "Invalid QR code"
 msgstr "Geçersiz QR kodu"
 
 #: src/Authenticator/widgets/accounts/edit.py:45
-#, fuzzy
 msgid "Edit {} - {}"
 msgstr "Düzenle {} - {}"
 
@@ -387,15 +386,15 @@ msgstr "Gizli kod oluşturulamadı"
 
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
-msgstr ""
+msgstr "Kimlik Doğrulama parolası ayarlanmamış. Lütfen yeniden başlatın"
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
-msgstr ""
+msgstr "Kimlik Doğrulama parolası şimdi etkin. Lütfen yeniden başlatın."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
-msgstr ""
+msgstr "Aç"
 
 #: src/Authenticator/widgets/utils.py:36 src/Authenticator/widgets/utils.py:62
 msgid "Cancel"
@@ -403,11 +402,11 @@ msgstr "İptal"
 
 #: src/Authenticator/widgets/utils.py:46 src/Authenticator/widgets/utils.py:51
 msgid "JSON files"
-msgstr ""
+msgstr "JSON dosyası"
 
 #: src/Authenticator/widgets/utils.py:61
 msgid "Select"
-msgstr ""
+msgstr "Seç"
 
 #~ msgid "Provider"
 #~ msgstr "Sağlayıcı"
