@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-02-03 23:09+0000\n"
-"Last-Translator: Nicolas Lapointe <nixcocpp@gmail.com>\n"
+"PO-Revision-Date: 2019-03-30 12:03+0000\n"
+"Last-Translator: Estébastien Robespi <estebastien@mailbox.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/authenticator/"
 "translation/fr/>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.6-dev\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -32,12 +32,12 @@ msgid "Two-factor authentication code generator"
 msgstr "Générateur de code d'authentification à deux facteurs"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
-#, fuzzy
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
 msgstr ""
-"Une simple application pour générer les codes de validation en 2 étapes"
+"Une application simple pour générer des codes de validation en deux étapes, "
+"créée pour GNOME."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid "Features:"
@@ -49,33 +49,40 @@ msgstr "Lecteur de QR code"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
 msgid "Beautiful UI"
-msgstr ""
+msgstr "Interface élégante"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
 msgid "Huge database of (290+) websites/applications"
-msgstr ""
+msgstr "Très nombreux (plus de 290) sites et applis pris en charge"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:34
 msgid ""
 "Since I have moved the application to GOME Gitlab's World group, a Flatpak "
 "build for each new commit is available to download from the site's website."
 msgstr ""
+"Puisque que j'ai déplacé l'appli sur le groupe « World » du gitlab de GNOME, "
+"les résultats Flatpak pour chaque soumission sont téléchargeables depuis le "
+"site de l'appli."
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
 msgid "Backup and restore from a basic JSON file"
 msgstr ""
+"Sauvegarde de sécurité et restauration à partir d'un simple fichier JSON"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
 msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr ""
+msgstr "Sauvegarde et restauration à partir fichier JSON chiffré par GPG"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
 msgid "Add andOTP support (free and open Android 2FA application)"
 msgstr ""
+"Ajouter la prise en charge d'andOTP (appli Android 2FA libre et ouverte)"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
 msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
 msgstr ""
+"Remodelage de la fenêtre des réglages par sections : Apparence, Comportement "
+"et Sauvegarde"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
 msgid "Fix Flatpak Build with the latest GNOME Runtime"
@@ -136,9 +143,8 @@ msgid "HOTFIX: App not running in DE other than GNOME"
 msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
-#, fuzzy
 msgid "Rename project to Authenticator"
-msgstr "À propos de l'Authentificateur"
+msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
 #, fuzzy
@@ -167,7 +173,7 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
-msgstr ""
+msgstr "Identification en deux étapes"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;"
@@ -180,12 +186,11 @@ msgstr ""
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
-msgstr ""
+msgstr "Position de fenêtre par défaut"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
-#, fuzzy
 msgid "Night mode"
-msgstr "Mode nuit"
+msgstr "Mode sombre"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
 msgid "Enable/disable night mode within the application"
@@ -257,32 +262,28 @@ msgid "Lock the application"
 msgstr "Verrouiller l'application"
 
 #: data/ui/settings.ui.in:196
-#, fuzzy
 msgid "Lock the application with a password"
-msgstr "Verrouiller l'application"
+msgstr "Verrouiller l'application avec un mot de passe"
 
 #: data/ui/settings.ui.in:279
 msgid "Keep your accounts safer "
-msgstr ""
+msgstr "Augmentez la sécurité de vos comptes "
 
 #: data/ui/settings.ui.in:303
-#, fuzzy
 msgid "Password"
-msgstr "Ancien mot de passe"
+msgstr "Mot de passe"
 
 #: data/ui/settings.ui.in:348
-#, fuzzy
 msgid "Repeat Password"
-msgstr "Répétez le nouveau mot de passe"
+msgstr "Répétez le mot de passe"
 
 #: data/ui/settings.ui.in:410
 msgid "Settings"
 msgstr "Préférenes"
 
 #: data/ui/settings.ui.in:427
-#, fuzzy
 msgid "Authenticator Password"
-msgstr "Répétez le nouveau mot de passe"
+msgstr "Mot de passe d'identification"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -298,7 +299,7 @@ msgstr "Raccourcis clavier"
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr ""
+msgstr "Réglages"
 
 #: data/ui/shortcuts.ui:31
 #, fuzzy
@@ -307,13 +308,11 @@ msgid "Quit"
 msgstr "Quitter"
 
 #: data/ui/shortcuts.ui:40
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Compte"
+msgstr "Comptes"
 
 #: data/ui/shortcuts.ui:44
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Ajouter"
@@ -328,9 +327,8 @@ msgid "There are no accounts yet…"
 msgstr "Il n'y a aucun compte pour le moment…"
 
 #: data/ui/window.ui.in:187
-#, fuzzy
 msgid "Authenticator is locked"
-msgstr "Authentificateur"
+msgstr "L'identificateur est verrouillé"
 
 #: data/ui/window.ui.in:222
 msgid "Unlock"
@@ -338,11 +336,11 @@ msgstr "Déverrouiller"
 
 #: src/authenticator.py.in:49
 msgid "Start in debug mode"
-msgstr ""
+msgstr "Démarrer en mode débogage"
 
 #: src/authenticator.py.in:51
 msgid "Authenticator version number"
-msgstr ""
+msgstr "Numéro de version d'identification"
 
 #: src/Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
@@ -357,9 +355,8 @@ msgid "Restore"
 msgstr "Restaurer"
 
 #: src/Authenticator/application.py.in:103
-#, fuzzy
 msgid "Backup"
-msgstr "Retour"
+msgstr "Sauvegarde"
 
 #. Night mode action
 #: src/Authenticator/application.py.in:111
@@ -376,9 +373,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
 #: src/Authenticator/application.py.in:114
-#, fuzzy
 msgid "About Authenticator"
-msgstr "À propos de l'Authentificateur"
+msgstr "À propos d'Authenticator"
 
 #: src/Authenticator/models/account.py:70
 msgid "Default"
@@ -403,14 +399,18 @@ msgstr "Le code secret n'a pas pu être généré"
 #: src/Authenticator/widgets/settings.py:73
 msgid "Authentication password was unset. Please restart the application"
 msgstr ""
+"Le mot de passe d'identification n'a pas été paramétré. Veuillez redémarrer "
+"l'application."
 
 #: src/Authenticator/widgets/settings.py:81
 msgid "Authentication password is now enabled. Please restart the application."
 msgstr ""
+"Le mot de passe d'identification est en place. Veuillez redémarrer "
+"l'application."
 
 #: src/Authenticator/widgets/utils.py:32
 msgid "Open"
-msgstr ""
+msgstr "Ouvrir"
 
 #: src/Authenticator/widgets/utils.py:36 src/Authenticator/widgets/utils.py:62
 msgid "Cancel"
@@ -421,9 +421,8 @@ msgid "JSON files"
 msgstr "Fichiers JSON"
 
 #: src/Authenticator/widgets/utils.py:61
-#, fuzzy
 msgid "Select"
-msgstr "Mode de séléction"
+msgstr "Sélectionner"
 
 #~ msgid "Provider"
 #~ msgstr "Prestataire"
