@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-03-18 18:03+0000\n"
-"Last-Translator: Andreas Kleinert <Andy.Kleinert@gmail.com>\n"
+"PO-Revision-Date: 2019-04-16 05:03+0000\n"
+"Last-Translator: CurlingTongs <o11577482@nwytg.net>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/authenticator/"
 "translation/de/>\n"
 "Language: de\n"
@@ -125,11 +125,11 @@ msgstr "Einmalpasswort jetzt standardmäßig sichtbar"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
 msgid "Fix python-dbus by using GDbus instead"
-msgstr ""
+msgstr "Fix für python-dbus, indem stattdessen GDbus verwendet wird"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
 msgid "Fix the QRScanner on GNOME Shell"
-msgstr ""
+msgstr "QRScanner in GNOME Shell reparieren"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
 msgid "Add a new entry for the account's username"
@@ -214,7 +214,7 @@ msgstr "Neues Konto anlegen"
 
 #: data/ui/account_add.ui:27 data/ui/account_edit.ui:21
 msgid "Close"
-msgstr "schließen"
+msgstr "Schließen"
 
 #: data/ui/account_add.ui:36
 msgid "Add"
@@ -318,7 +318,7 @@ msgstr "Suchen"
 
 #: data/ui/window.ui.in:60
 msgid "There are no accounts yet…"
-msgstr "Derzeit gibt es kein Konto…"
+msgstr "Noch keine Kontos vorhanden …"
 
 #: data/ui/window.ui.in:187
 msgid "Authenticator is locked"
@@ -330,11 +330,11 @@ msgstr "Entsperren"
 
 #: src/authenticator.py.in:49
 msgid "Start in debug mode"
-msgstr "Starte im Fehlersuch-Modus"
+msgstr "Im Fehlersuch-Modus starten"
 
 #: src/authenticator.py.in:51
 msgid "Authenticator version number"
-msgstr "Versions des Authenticator"
+msgstr "Authenticator-Version"
 
 #: src/Authenticator/application.py.in:99
 msgid "from a plain-text JSON file"
@@ -375,7 +375,7 @@ msgstr "Grundeinstellung"
 
 #: src/Authenticator/widgets/accounts/add.py:204
 msgid "Invalid QR code"
-msgstr "Ungültiger QR Code"
+msgstr "Ungültiger QR-Code"
 
 #: src/Authenticator/widgets/accounts/edit.py:45
 msgid "Edit {} - {}"
