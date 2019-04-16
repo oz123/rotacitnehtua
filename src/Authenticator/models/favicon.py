@@ -18,6 +18,8 @@
 """
 from os import path, mkdir
 from bs4 import BeautifulSoup
+import gi
+gi.require_version('Soup', '2.4')
 from gi.repository import Gio, GLib, Soup
 from urllib.parse import urlparse
 import base64
