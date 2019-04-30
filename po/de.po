@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-11 22:35+0100\n"
-"PO-Revision-Date: 2019-04-16 05:03+0000\n"
+"PO-Revision-Date: 2019-04-30 07:13+0000\n"
 "Last-Translator: CurlingTongs <o11577482@nwytg.net>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/authenticator/"
 "translation/de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
@@ -74,7 +74,7 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
 msgid "Add andOTP support (free and open Android 2FA application)"
-msgstr "andOTP-Unterstützung hinzugefügt (freie und offene Android 2FA App)"
+msgstr "andOTP-Unterstützung hinzugefügt (freie und offene Android 2FA-App)"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
 msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
 msgid "Fix Flatpak Build with the latest GNOME Runtime"
-msgstr "Flatpak Build mit der neuesten GNOME Runtime beheben"
+msgstr "Flatpak-Build mit der neuesten GNOME-Runtime beheben"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
 msgid "Move the project to GOME Gitlab's World group"
@@ -169,7 +169,7 @@ msgstr "Flatpak-Paket"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
 msgid "Bilal Elmoussaoui"
-msgstr ""
+msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
 msgid "Two-factor authentication"
@@ -294,7 +294,7 @@ msgstr "Verknüpfungen anzeigen"
 #: data/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr "Präferenzen"
+msgstr "Einstellungen"
 
 #: data/ui/shortcuts.ui:31
 msgctxt "shortcut window"
@@ -304,7 +304,7 @@ msgstr "Beenden"
 #: data/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Kontos"
+msgstr "Konten"
 
 #: data/ui/shortcuts.ui:44
 msgctxt "shortcut window"
@@ -318,7 +318,7 @@ msgstr "Suchen"
 
 #: data/ui/window.ui.in:60
 msgid "There are no accounts yet…"
-msgstr "Noch keine Kontos vorhanden …"
+msgstr "Noch keine Konten vorhanden …"
 
 #: data/ui/window.ui.in:187
 msgid "Authenticator is locked"
@@ -355,7 +355,7 @@ msgstr "Sicherung"
 #. Night mode action
 #: src/Authenticator/application.py.in:111
 msgid "Preferences"
-msgstr "Präferenzen"
+msgstr "Einstellungen"
 
 #: src/Authenticator/application.py.in:112
 msgid "Donate"
@@ -363,7 +363,7 @@ msgstr "Spenden"
 
 #: src/Authenticator/application.py.in:113
 msgid "Keyboard Shortcuts"
-msgstr "Tastaturkürzel"
+msgstr "Tastenkombinationen"
 
 #: src/Authenticator/application.py.in:114
 msgid "About Authenticator"
@@ -371,7 +371,7 @@ msgstr "Über Authenticator"
 
 #: src/Authenticator/models/account.py:70
 msgid "Default"
-msgstr "Grundeinstellung"
+msgstr "Vorgabe"
 
 #: src/Authenticator/widgets/accounts/add.py:204
 msgid "Invalid QR code"
