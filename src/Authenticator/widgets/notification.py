@@ -7,6 +7,9 @@ class Notification(Gtk.Revealer):
     show_action_btn = GObject.Property(type=bool, default=False)
 
     timeout = GObject.Property(type=int, default=5)
+    action_callback = None
+
+    _action_signal = None
 
     def __init__(self):
         Gtk.Revealer.__init__(self)
@@ -60,15 +63,17 @@ class Notification(Gtk.Revealer):
         self._action_btn.set_label(kwargs.get("action_label", _("Undo")))
         self.props.show_action_btn = kwargs.get("show_action_btn", False)
         self.props.show_close_btn = kwargs.get("show_close_btn", False)
+        self.action_callback = kwargs.get("action_callback")
         GLib.timeout_add_seconds(self.timeout, self.__delete_notification, None)
     
     def __delete_notification(self, *args):
         self.set_reveal_child(False)
         self.message = ""
-        print(self.props.show_action_btn)
 
     def __on_action_btn_clicked(self, *args):
-        pass
+        if self.action_callback:
+            self.action_callback()
+        self.__delete_notification()
     
     def __bind_signals(self):
         self._close_btn.bind_property("visible", self, "show-close-btn", GObject.BindingFlags.BIDIRECTIONAL)

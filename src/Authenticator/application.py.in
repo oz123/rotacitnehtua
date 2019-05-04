@@ -65,10 +65,13 @@ class Application(Gtk.Application):
         Application.__setup_css()
 
         # Set the default night mode
-        gtk_settings = Gtk.Settings.get_default()
-        Settings.get_default().bind("dark-theme", gtk_settings,
-                                    "gtk-application-prefer-dark-theme",
-                                    Gio.SettingsBindFlags.DEFAULT)
+        settings = Settings.get_default()
+        # Restore default state
+        self.__on_dark_theme_changed()
+        self.__on_night_light_changed()
+        # Bind signals
+        settings.connect("changed::dark-theme", self.__on_dark_theme_changed)
+        settings.connect("changed::night-light", self.__on_night_light_changed)
 
     @staticmethod
     def __setup_css():
@@ -153,6 +156,16 @@ class Application(Gtk.Application):
         window.show_all()
         window.present()
 
+    def __on_dark_theme_changed(self, *args):
+        Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                Settings.get_default().dark_theme)    
+
+    def __on_night_light_changed(self, *args):
+        if Settings.get_default().night_light:
+            # Set up nightight dbus watcher
+            pass
+        print(*args)
+    
     def __on_lock(self, *_):
         self.set_property("is-locked", True)
 

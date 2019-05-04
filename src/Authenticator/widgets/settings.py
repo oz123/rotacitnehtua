@@ -103,9 +103,6 @@ class SettingsWindow(Gtk.Window):
     def __bind_signals(self):
         settings = Settings.get_default()
         self.dark_theme_switch.set_active(settings.dark_theme and not settings.night_light)
-        self.dark_theme_switch.bind_property("active", Gtk.Settings.get_default(),
-                                    "gtk-application-prefer-dark-theme",
-                                    GObject.BindingFlags.DEFAULT)
 
         self.night_light_switch.set_active(settings.night_light)
         settings.bind("night-light", self.night_light_switch, 
@@ -114,11 +111,22 @@ class SettingsWindow(Gtk.Window):
         self._password_widget.connect("password-updated", self.__on_password_updated)
         self._password_widget.connect("password-deleted", self.__on_password_deleted)
         
-        def on_night_switch(*_):
+
+        def on_night_light_switch(switch, _):
             # Set the application to use Light theme 
-            if settings.night_light and not settings.dark_theme:
+            if switch.get_active() and self.dark_theme_switch.get_active():
                 self.dark_theme_switch.set_active(False)
-        self.dark_theme_switch.connect("state-set", on_night_switch)
+
+        self.night_light_switch.connect("notify::active", on_night_light_switch)
+
+        def on_dark_theme_switch(switch, _):
+            # Set the application to use Light theme 
+            if settings.night_light and switch.get_active():
+                settings.dark_theme = False
+                switch.set_active(False)
+            else:
+                settings.dark_theme = switch.get_active()
+        self.dark_theme_switch.connect("notify::active", on_dark_theme_switch)
 
     def __on_enable_password(self, *_):
         if not Keyring.get_default().has_password():
@@ -131,7 +139,8 @@ class SettingsWindow(Gtk.Window):
             self.notification.send(_("Authentication password is now enabled."),
                                     action_label=_("Restart the application"),
                                     show_action_btn=True,
-                                    show_close_btn=False)
+                                    show_close_btn=False,
+                                    action_callback=self.__restart_app)
         else:
             self.notification.send(_("The authentication password was updated."))
         self.lock_switch_row.toggled = False
@@ -140,6 +149,10 @@ class SettingsWindow(Gtk.Window):
         self.notification.send(_("The authentication password was deleted."))
         self.lock_switch_row.toggled = False
         self.lock_switch_row.set_enable_expansion(False)
+    
+    def __restart_app(self, *args):
+        #TODO: restart the application to reflect the authentication passsword change        
+        pass
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/password_widget.ui')
 class PasswordWidget(Gtk.Box):

@@ -7,6 +7,7 @@
 
     <!-- Accounts logo fallback -->
     <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
+    <file alias="authenticator.svg">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
 
     <!-- UI Files -->
     <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
