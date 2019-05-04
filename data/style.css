@@ -1,58 +1,62 @@
-.account-row,
- .settings-row{
+window hdycolumn box list row{
   background-color: mix(@theme_base_color,@theme_bg_color,0.3);
 	padding: 2px 8px;
   margin:0;
 	border: 1px solid mix(@theme_base_color,@theme_fg_color,0.3);
 	border-bottom: 0px;
 }
-.account-row:last-child, .settings-row:last-child {
+window hdycolumn box list row:last-child{
 	border-bottom: 1px solid mix(@theme_base_color,@theme_fg_color,0.3);
 }
+
+window hdycolumn box list row separator {
+  background-color: mix(@theme_base_color,@theme_fg_color,0.3);
+}
+
 
 /* AccountsList */
 .accounts-list{
   background-color: @theme_bg_color;
 }
 .provider-label{
-  font-size:14px;
+
   font-weight: bold;
 }
 
 /* AccountRow */
 .account-row .account-name-label{
-  font-size: 13px;
+
   padding: 3px 6px;
 }
 .account-row .pin-label{
-  font-size: 12px;
+
 }
 
 /* Settings */
 .settings-category-title{
-  font-size:13px;
+
   font-weight:600;
   padding: 6px 3px;
 }
 
 .settings-box-main-label{
-  font-size:12px;
+
 }
 .settings-box-secondary-label{
-  font-size:12px;
+
   color: mix(@theme_base_color,@theme_fg_color,0.6);
 }
 
 
 .application-name {
-  font-size: 14px;
+
   color: @theme_fg_color;
   font-style: italic;
 }
 
 .account-name {
   font-weight: bold;
-  font-size: 16px;
+
 }
 
 /* Common */
@@ -65,7 +69,7 @@
   border-radius: 0px
 }
 .app-notification{
-	font-size:11px;
+
 }
 .provider-widget{
 	margin: 4px 2px;

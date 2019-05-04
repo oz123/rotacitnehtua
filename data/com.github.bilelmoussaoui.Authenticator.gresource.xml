@@ -7,6 +7,7 @@
 
     <!-- Accounts logo fallback -->
     <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
+    <file alias="authenticator.svg">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
 
     <!-- UI Files -->
     <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
@@ -17,6 +18,7 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="account_row.ui">ui/account_row.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="accounts_widget.ui">ui/accounts_widget.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="provider_image.ui">ui/provider_image.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="password_widget.ui">ui/password_widget.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="window.ui">window.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="settings.ui">settings.ui</file>
   </gresource>

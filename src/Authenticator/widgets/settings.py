@@ -18,13 +18,38 @@
 """
 from gettext import gettext as _
 
-from gi.repository import Gio, GLib, Gtk, GObject
+from gi.repository import Gio, GLib, Gtk, GObject, Handy
 from .window import Window
+from .notification import Notification
 from ..models import Settings, Keyring
 
-class SettingsView:
-    MAIN = 0
-    PASSWORD = 1
+class SettingRow(Handy.ActionRow):
+
+    def __init__(self, title, subtitle, widget):
+        Handy.ActionRow.__init__(self)
+
+        self.__populate_widget(title, subtitle, widget)
+
+    def __populate_widget(self, title, subtitle, widget):
+        self.set_title(title)
+        self.set_subtitle(subtitle)
+        self.add_action(widget)
+
+class SettingExpanderRow(Handy.ExpanderRow):
+    toggled = GObject.Property(type=bool, default=False)
+    def __init__(self, title, subtitle):
+        Handy.ExpanderRow.__init__(self)
+
+        self.__populate_widget(title, subtitle)
+
+    def __populate_widget(self, title, subtitle):
+        self.set_title(title)
+        self.set_subtitle(subtitle)
+
+        # Hackish solution until libhandy have a property for that
+        expander_toggled_btn = self.get_children()[0].get_children()[3]
+        expander_toggled_btn.bind_property("active", self, "toggled", GObject.BindingFlags.BIDIRECTIONAL)
+
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/settings.ui')
@@ -32,68 +57,141 @@ class SettingsWindow(Gtk.Window):
 
     __gtype_name__ = 'SettingsWindow'
 
-    lock_switch = Gtk.Template.Child()
-    dark_theme_switch = Gtk.Template.Child()
+    behaviour_listbox = Gtk.Template.Child()
 
     headerbar_stack = Gtk.Template.Child()
-    main_stack = Gtk.Template.Child()
 
-    save_btn = Gtk.Template.Child()
-
-    password_entry = Gtk.Template.Child()
-    repeat_password_entry = Gtk.Template.Child()
-
-    notification = Gtk.Template.Child()
-    notification_label = Gtk.Template.Child()
-
-    view = GObject.Property(type=int)
+    notification_overlay = Gtk.Template.Child()
 
     def __init__(self):
         super(SettingsWindow, self).__init__()
         self.init_template('SettingsWindow')
 
-        self.connect("notify::view", self.__update_view)
+        self.dark_theme_switch = Gtk.Switch()
+        self.night_light_switch = Gtk.Switch()
+        self._password_widget = PasswordWidget()
+        self._password_widget.parent = self
 
         self.__init_widgets()
+        self.__bind_signals()
 
     def __init_widgets(self):
-        self.dark_theme_switch.set_active(Settings.get_default().is_night_mode)
-        self.lock_switch.set_active(Keyring.get_default().has_password())
+        self.notification = Notification()
+        self.notification_overlay.add_overlay(self.notification)
 
-    @Gtk.Template.Callback('lock_switch_state_changed')
-    def __on_app_set_password(self, __, state):
-        # TODO: the state of the lock switch is set
-        # When the window is open for the first time
-        # The notification is then shown the user which is not great :/
-        if state and not Keyring.get_default().has_password():
-            self.props.view = SettingsView.PASSWORD
-        elif Keyring.get_default().has_password():
-            Keyring.get_default().clear_password()
-            self.__send_notification(_("Authentication password was unset. Please restart the application"))
+        self.dark_theme_switch.set_valign(Gtk.Align.CENTER)
+        dark_theme_row = SettingRow(_('Dark Theme'),
+                                    _('Whether the application should use a dark theme.'),
+                                    self.dark_theme_switch)
 
-    @Gtk.Template.Callback('save_btn_clicked')
-    def __save_password(self, *__):
-        if self.save_btn.get_sensitive():
-            password = self.password_entry.get_text()
-            Keyring.set_password(password)
-            self.props.view = SettingsView.MAIN
-            self.__send_notification(_("Authentication password is now enabled. Please restart the application."))
+        self.night_light_switch.set_valign(Gtk.Align.CENTER)
+        night_light_row = SettingRow(_('Night Light'),
+                                    _('Automatically enable dark mode at night.'),
+                                    self.night_light_switch)
 
-    @Gtk.Template.Callback('back_btn_clicked')
-    def __back_btn_clicked(self, *_):
-        self.props.view = SettingsView.MAIN
+        self.lock_switch_row = SettingExpanderRow(_('Lock the application'),
+                                            _('Lock the application with a password')
+                                            )
+        self.lock_switch_row.set_enable_expansion(Keyring.get_default().has_password())
+        self.lock_switch_row.connect("notify::enable-expansion", self.__on_enable_password)
+        self.lock_switch_row.add(self._password_widget)
+
+        self.behaviour_listbox.add(dark_theme_row)
+        self.behaviour_listbox.add(night_light_row)
+        self.behaviour_listbox.add(self.lock_switch_row)
+
+    def __bind_signals(self):
+        settings = Settings.get_default()
+        self.dark_theme_switch.set_active(settings.dark_theme and not settings.night_light)
+
+        self.night_light_switch.set_active(settings.night_light)
+        settings.bind("night-light", self.night_light_switch, 
+                        "active", Gio.SettingsBindFlags.DEFAULT)
+
+        self._password_widget.connect("password-updated", self.__on_password_updated)
+        self._password_widget.connect("password-deleted", self.__on_password_deleted)
+        
+
+        def on_night_light_switch(switch, _):
+            # Set the application to use Light theme 
+            if switch.get_active() and self.dark_theme_switch.get_active():
+                self.dark_theme_switch.set_active(False)
+
+        self.night_light_switch.connect("notify::active", on_night_light_switch)
+
+        def on_dark_theme_switch(switch, _):
+            # Set the application to use Light theme 
+            if settings.night_light and switch.get_active():
+                switch.set_active(False)
+            else:
+                settings.dark_theme = switch.get_active()
+        self.dark_theme_switch.connect("notify::active", on_dark_theme_switch)
+
+    def __on_enable_password(self, *_):
         if not Keyring.get_default().has_password():
-            self.lock_switch.set_active(False)
+            self._password_widget.set_current_password_visibility(False)
+        else:
+            self._password_widget.set_current_password_visibility(True)
+    
+    def __on_password_updated(self, __, had_password):
+        if not had_password:
+            self.notification.send(_("Authentication password is now enabled."))
+        else:
+            self.notification.send(_("The authentication password was updated."))
+        self.lock_switch_row.toggled = False
 
-    @Gtk.Template.Callback('dark_theme_switch_state_changed')
-    @staticmethod
-    def __on_dark_theme_changed(_, state):
-        Settings.get_default().is_night_mode = state
+    def __on_password_deleted(self, *__):
+        self.notification.send(_("The authentication password was deleted."))
+        self.lock_switch_row.toggled = False
+        self.lock_switch_row.set_enable_expansion(False)
+
+@Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/password_widget.ui')
+class PasswordWidget(Gtk.Box):
+    __gtype_name__ = 'PasswordWidget'
+    __gsignals__ = {
+        'password-updated': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
+        'password-deleted': (GObject.SignalFlags.RUN_LAST, None, ()),
+    }
+
+    delete_password_btn = Gtk.Template.Child()
+    change_password_btn = Gtk.Template.Child()
+
+    password_entry = Gtk.Template.Child()
+    confirm_password_entry = Gtk.Template.Child()
+    current_password_entry = Gtk.Template.Child()
+
+    current_password_box = Gtk.Template.Child()
+
+    def __init__(self):
+        super(PasswordWidget, self).__init__()
+        self.parent = None
+        self.init_template('PasswordWidget')
+
+    def reset_widgets(self):
+        """Reset widgets state."""
+        self.password_entry.set_text("")
+        self.confirm_password_entry.set_text("")
+        self.current_password_entry.set_text("")
+
+        self.password_entry.get_style_context().remove_class("error")
+        self.confirm_password_entry.get_style_context().remove_class("error")
+        self.current_password_entry.get_style_context().remove_class("error")
+        self.change_password_btn.set_sensitive(False)
+    
+    def set_current_password_visibility(self, visibilty):
+        if not visibilty:
+            self.current_password_box.hide()
+            self.delete_password_btn.hide()
+            self.change_password_btn.set_label(_("Save Password"))
+        else:
+            self.current_password_box.show()
+            self.delete_password_btn.show()
+            self.change_password_btn.set_label(_("Change Password"))
 
     @Gtk.Template.Callback('password_entry_changed')
     def __validate_password(self, *_):
         password = self.password_entry.get_text()
-        repeat_password = self.repeat_password_entry.get_text()
+        repeat_password = self.confirm_password_entry.get_text()
         if not password:
             self.password_entry.get_style_context().add_class("error")
             valid_password = False
@@ -102,36 +200,45 @@ class SettingsWindow(Gtk.Window):
             valid_password = True
 
         if not repeat_password or password != repeat_password:
-            self.repeat_password_entry.get_style_context().add_class("error")
+            self.confirm_password_entry.get_style_context().add_class("error")
             valid_repeat_password = False
         else:
-            self.repeat_password_entry.get_style_context().remove_class("error")
+            self.confirm_password_entry.get_style_context().remove_class("error")
             valid_repeat_password = True
-
         to_validate = [valid_password, valid_repeat_password]
 
-        self.save_btn.set_sensitive(all(to_validate))
+        if Keyring.get_default().has_password():
+            old_password = self.current_password_entry.get_text()
+            if old_password != Keyring.get_default().get_password():
+                self.current_password_entry.get_style_context().add_class("error")
+                valid_old_password = False
+            else:
+                self.current_password_entry.get_style_context().remove_class("error")
+                valid_old_password = True
+            to_validate.append(valid_old_password)
 
-    def __update_view(self, *_):
-        if self.props.view == SettingsView.PASSWORD:
-            self.main_stack.set_visible_child_name("password_view")
-            self.headerbar_stack.set_visible_child_name("headerbar_password")
-            self.notification.set_reveal_child(False)
-            self.notification_label.set_text("")
-        else:
-            self.main_stack.set_visible_child_name("settings_view")
-            self.headerbar_stack.set_visible_child_name("headerbar_main")
-            # Reset Password View
-            # To avoid user saving a password he doesn't remember
-            self.password_entry.set_text("")
-            self.repeat_password_entry.set_text("")
-            self.password_entry.get_style_context().remove_class("error")
-            self.repeat_password_entry.get_style_context().remove_class("error")
-            self.save_btn.set_sensitive(False)
+        self.change_password_btn.set_sensitive(all(to_validate))
 
-    def __send_notification(self, message):
-        self.notification_label.set_text(message)
-        self.notification.set_reveal_child(True)
-
-        GLib.timeout_add_seconds(5,
-                                lambda _: self.notification.set_reveal_child(False), None)
+    @Gtk.Template.Callback('update_password_clicked')
+    def __save_password(self, *__):
+        if self.change_password_btn.get_sensitive():
+            password = self.password_entry.get_text()
+            had_password = Keyring.has_password()
+            Keyring.set_password(password)
+            self.reset_widgets()
+            self.set_current_password_visibility(True)
+            self.emit("password-updated", had_password)
+    
+    @Gtk.Template.Callback('reset_password_clicked')
+    def __reset_password(self, *args):
+        dialog = Gtk.MessageDialog(self.parent, 0, Gtk.MessageType.QUESTION,
+            Gtk.ButtonsType.YES_NO, "Do you want to remove the authentication password?")
+        dialog.format_secondary_text(
+            "Authentication password enforces the privacy of your accounts.")
+        response = dialog.run()
+        if response == Gtk.ResponseType.YES:
+            Keyring.get_default().remove_password()
+            self.reset_widgets()
+            self.set_current_password_visibility(False)
+            self.emit("password-deleted")
+        dialog.destroy()

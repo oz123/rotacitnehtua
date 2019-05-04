@@ -20,3 +20,4 @@ from .window import Window, WindowView
 from .provider_image import ProviderImage
 from .settings import SettingsWindow
 from .utils import import_json, export_json
+from .notification import Notification

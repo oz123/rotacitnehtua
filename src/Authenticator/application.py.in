@@ -20,7 +20,7 @@ from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
 from Authenticator.widgets import Window, WindowView, import_json, export_json
-from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
+from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring, NightLightColor
 
 
 class Application(Gtk.Application):
@@ -28,6 +28,7 @@ class Application(Gtk.Application):
     instance = None
     IS_DEVEL = False
     is_locked = GObject.Property(type=bool, default=False)
+    profile = GObject.Property(type=str, default='default')
 
     def __init__(self):
         Gtk.Application.__init__(self,
@@ -64,10 +65,13 @@ class Application(Gtk.Application):
         Application.__setup_css()
 
         # Set the default night mode
-        gtk_settings = Gtk.Settings.get_default()
-        Settings.get_default().bind("night-mode", gtk_settings,
-                                    "gtk-application-prefer-dark-theme",
-                                    Gio.SettingsBindFlags.DEFAULT)
+        settings = Settings.get_default()
+        # Restore default state
+        self.__on_dark_theme_changed()
+        self.__on_night_light_changed()
+        # Bind signals
+        settings.connect("changed::dark-theme", self.__on_dark_theme_changed)
+        settings.connect("changed::night-light", self.__on_night_light_changed)
 
     @staticmethod
     def __setup_css():
@@ -146,12 +150,40 @@ class Application(Gtk.Application):
         window.set_menu(self._menu)
         window.set_application(self)
         window.connect("delete-event", lambda x, y: self.__on_quit())
-        if Application.IS_DEVEL:
-            window.get_style_context().add_class("devel")
+        if self.props.profile != 'default':
+            window.get_style_context().add_class(self.props.profile)
         self.add_window(window)
         window.show_all()
         window.present()
 
+    def __on_dark_theme_changed(self, *args):
+        Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                Settings.get_default().dark_theme)    
+
+    def __on_night_light_changed(self, *args):
+        if Settings.get_default().night_light:
+            bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+            proxy = Gio.DBusProxy.new_sync(bus,
+                                            Gio.DBusProxyFlags.NONE,
+                                            None,
+                                            "org.gnome.SettingsDaemon.Color",
+                                            "/org/gnome/SettingsDaemon/Color",
+                                            "org.gnome.SettingsDaemon.Color",
+                                            None)
+            system_value = proxy.get_cached_property('NightLightActive')
+            Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                    system_value)
+
+            proxy.connect("g-properties-changed", self.__on_color_night_changed)
+        else:
+            self.__on_dark_theme_changed()
+
+
+    def __on_color_night_changed(self, *args):
+        print(args)
+        
+
+    
     def __on_lock(self, *_):
         self.set_property("is-locked", True)
 

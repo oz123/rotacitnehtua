@@ -120,7 +120,7 @@ class Keyring:
     def set_password(password):
         schema = Keyring.get_default().password_schema
         # Clear old password
-        Secret.password_clear_sync(schema, {}, None)
+        Keyring.remove_password()
         # Store the new one
         Secret.password_store_sync(
             schema,
@@ -136,7 +136,7 @@ class Keyring:
         return Keyring.get_password() is not None
 
     @staticmethod
-    def clear_password():
+    def remove_password():
         schema = Keyring.get_default().password_schema
         Secret.password_clear_sync(schema, {}, None)
 
