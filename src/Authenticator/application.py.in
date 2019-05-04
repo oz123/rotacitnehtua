@@ -20,7 +20,7 @@ from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
 from Authenticator.widgets import Window, WindowView, import_json, export_json
-from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring, NightLightColor
+from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 
 
 class Application(Gtk.Application):
