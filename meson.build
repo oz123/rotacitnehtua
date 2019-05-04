@@ -9,15 +9,17 @@ gnome  = import('gnome')
 i18n   = import('i18n')
 
 gettext_package = 'Authenticator'
-
-if get_option('profile') == 'development'
-  profile = 'Devel'
-  name_suffix = ' (Development)'
-  gettext_package += '-devel'
-else
-  profile = ''
-  name_suffix = ''
+profile = get_option('profile')
+name_suffix = ''
+if profile != 'default'
+  gettext_package += profile
+  if profile == 'beta'
+    name_suffix = ' (Beta)'
+  else
+    name_suffix = ' (Development)'
+  endif
 endif
+
 
 application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile)
 

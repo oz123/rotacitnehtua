@@ -6,10 +6,15 @@
         <summary>Default window position</summary>
         <description>Default window position</description>
     </key>
-    <key name="night-mode" type="b">
+    <key name="dark-theme" type="b">
         <default>false</default>
-        <summary>Night mode</summary>
-        <description>Enable/disable night mode within the application</description>
+        <summary>Dark Theme</summary>
+        <description>Whether the application should use a dark theme.</description>
+    </key>
+       <key name="night-light" type="b">
+        <default>false</default>
+        <summary>Night Light</summary>
+        <description>Automatically enable dark mode at night.</description>
     </key>
     <key name="is-maximized" type="b">
         <default>false</default>

@@ -28,6 +28,7 @@ class Application(Gtk.Application):
     instance = None
     IS_DEVEL = False
     is_locked = GObject.Property(type=bool, default=False)
+    profile = GObject.Property(type=str, default='default')
 
     def __init__(self):
         Gtk.Application.__init__(self,
@@ -65,7 +66,7 @@ class Application(Gtk.Application):
 
         # Set the default night mode
         gtk_settings = Gtk.Settings.get_default()
-        Settings.get_default().bind("night-mode", gtk_settings,
+        Settings.get_default().bind("dark-theme", gtk_settings,
                                     "gtk-application-prefer-dark-theme",
                                     Gio.SettingsBindFlags.DEFAULT)
 
@@ -146,8 +147,8 @@ class Application(Gtk.Application):
         window.set_menu(self._menu)
         window.set_application(self)
         window.connect("delete-event", lambda x, y: self.__on_quit())
-        if Application.IS_DEVEL:
-            window.get_style_context().add_class("devel")
+        if self.props.profile != 'default':
+            window.get_style_context().add_class(self.props.profile)
         self.add_window(window)
         window.show_all()
         window.present()

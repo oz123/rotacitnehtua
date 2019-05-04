@@ -64,19 +64,20 @@ class Settings(Gio.Settings):
         self.set_value('window-position', position)
 
     @property
-    def is_night_mode(self):
-        """Is night mode?"""
-        return self.get_boolean('night-mode')
+    def dark_theme(self):
+        return self.get_boolean('dark-theme')
 
-    @is_night_mode.setter
-    def is_night_mode(self, state):
-        """
-        Set the night mode.
+    @dark_theme.setter
+    def dark_theme(self, state):
+        self.set_boolean('dark-theme', state)
 
-        :param state: Night mode state
-        :type state: bool
-        """
-        self.set_boolean('night-mode', state)
+    @property
+    def night_light(self):
+        return self.get_boolean('night-light')
+
+    @night_light.setter
+    def night_light(self, state):
+        self.set_boolean('night-light', state)
 
     @property
     def window_maximized(self):

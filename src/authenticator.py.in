@@ -71,7 +71,7 @@ if __name__ == "__main__":
             Handy.init(None)
             from Authenticator.application import Application
             app = Application.get_default()
-            Application.IS_DEVEL = "@PROFILE@" == 'Devel'
+            app.props.profile = '@@'
             exit_status = app.run(None)
             sys.exit(exit_status)
         except KeyboardInterrupt:
