@@ -10,18 +10,21 @@ i18n   = import('i18n')
 
 gettext_package = 'Authenticator'
 profile = get_option('profile')
+profile_suffix = ''
 name_suffix = ''
 if profile != 'default'
   gettext_package += profile
   if profile == 'beta'
     name_suffix = ' (Beta)'
+    profile_suffix = 'Beta'
   else
     name_suffix = ' (Development)'
+    profile_suffix = 'Devel'
   endif
 endif
 
 
-application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile)
+application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile_suffix)
 
 message('Looking for dependencies')
 dependency('glib-2.0')
