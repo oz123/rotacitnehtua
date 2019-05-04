@@ -20,7 +20,7 @@ from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
 from Authenticator.widgets import Window, WindowView, import_json, export_json
-from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
+from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring, NightLightColor
 
 
 class Application(Gtk.Application):
@@ -162,9 +162,27 @@ class Application(Gtk.Application):
 
     def __on_night_light_changed(self, *args):
         if Settings.get_default().night_light:
-            # Set up nightight dbus watcher
-            pass
-        print(*args)
+            bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+            proxy = Gio.DBusProxy.new_sync(bus,
+                                            Gio.DBusProxyFlags.NONE,
+                                            None,
+                                            "org.gnome.SettingsDaemon.Color",
+                                            "/org/gnome/SettingsDaemon/Color",
+                                            "org.gnome.SettingsDaemon.Color",
+                                            None)
+            system_value = proxy.get_cached_property('NightLightActive')
+            Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                    system_value)
+
+            proxy.connect("g-properties-changed", self.__on_color_night_changed)
+        else:
+            self.__on_dark_theme_changed()
+
+
+    def __on_color_night_changed(self, *args):
+        print(args)
+        
+
     
     def __on_lock(self, *_):
         self.set_property("is-locked", True)

@@ -27,7 +27,6 @@ from .account import Account
 from .accounts_manager import AccountsManager
 from .backup import BackupJSON
 
-
 from .qr_reader import QRReader
 from .screenshot import GNOMEScreenshot
 from .settings import Settings
