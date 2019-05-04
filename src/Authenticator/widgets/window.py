@@ -47,6 +47,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     main_stack = Gtk.Template.Child()
     headerbar_stack = Gtk.Template.Child()
+    accounts_stack = Gtk.Template.Child()
 
     search_bar = Gtk.Template.Child()
 
@@ -213,7 +214,17 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 return True
         data = entry.get_text().strip()
         search_lists = AccountsWidget.get_default().accounts_lists
+        results_count = 0
         for search_list in search_lists:
             search_list.set_filter_func(filter_func,
                                         data, False)
+            for elem in search_list:
+
+                if elem.get_child_visible():
+                    results_count += 1
+
+        if results_count == 0:
+            self.accounts_stack.set_visible_child_name("empty_results")
+        else:
+            self.accounts_stack.set_visible_child_name("accounts")
 
