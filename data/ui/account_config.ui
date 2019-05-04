@@ -68,16 +68,19 @@
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">baseline</property>
+            <property name="margin_top">24</property>
             <property name="hexpand">True</property>
             <property name="row_spacing">6</property>
             <property name="column_spacing">6</property>
             <property name="column_homogeneous">True</property>
             <child>
               <object class="GtkEntry" id="token_entry">
+                <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="no_show_all">True</property>
                 <property name="hexpand">True</property>
                 <property name="visibility">False</property>
+                <property name="secondary_icon_name">dialog-information-symbolic</property>
+                <property name="secondary_icon_tooltip_text" translatable="yes">Enable 2FA for this account</property>
                 <property name="placeholder_text" translatable="yes">2FA Token</property>
                 <property name="input_purpose">pin</property>
                 <signal name="changed" handler="account_edited" swapped="no"/>

@@ -22,8 +22,8 @@ from gi.repository import Gtk, GObject, Handy
 
 from Authenticator.widgets.provider_image import ProviderImage
 from Authenticator.widgets.accounts.row import AccountRow
-from Authenticator.models import Account, AccountsManager, ProviderManager, FaviconManager
-from Authenticator.utils import load_pixbuf_from_provider
+from Authenticator.models import Account, AccountsManager, FaviconManager
+
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/accounts_widget.ui')

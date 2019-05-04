@@ -18,11 +18,12 @@
 """
 import asyncio
 from gettext import gettext as _
-from gi.repository import Gtk, GObject, GLib
+from gi.repository import Gtk, GObject, GLib, Gio
 
+from Authenticator.widgets.notification import Notification
 from Authenticator.widgets.provider_image import ProviderImage
 from Authenticator.models import OTP, ProviderManager, FaviconManager
-from Authenticator.utils import load_pixbuf_from_provider
+
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
 class AddAccountWindow(Gtk.Window):
@@ -31,6 +32,7 @@ class AddAccountWindow(Gtk.Window):
     __gtype_name__ = "AddAccountWindow"
 
     add_btn = Gtk.Template.Child()
+    overlay = Gtk.Template.Child()
 
     def __init__(self):
         super(AddAccountWindow, self).__init__()
@@ -39,18 +41,22 @@ class AddAccountWindow(Gtk.Window):
 
     def __init_widgets(self):
         """Create the Add Account widgets."""
+        self.notification = Notification()
+        self.overlay.add_overlay(self.notification)
+
         self.account_config = AccountConfig()
         self.account_config.connect("changed", self._on_account_config_changed)
 
-        self.add(self.account_config)
+        self.overlay.add(self.account_config)
 
     @Gtk.Template.Callback('scan_btn_clicked')
-    def _on_scan(self, *_):
+    def _on_scan(self, *__):
         """
             QR Scan button clicked signal handler.
         """
-        if self.account_config:
-            self.account_config.scan_qr()
+        if self.account_config and not self.account_config.scan_qr():
+            self.notification.send(_("Invalid QR code"),
+                                   timeout=3)
 
     def _on_account_config_changed(self, _, state):
         """Set the sensitivity of the AddButton depends on the AccountConfig."""
@@ -81,6 +87,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     }
 
     __gtype_name__ = 'AccountConfig'
+    is_edit = GObject.Property(type=bool, default=False)
 
     main_box = Gtk.Template.Child()
     proivder_image = None
@@ -100,7 +107,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         self.init_template('AccountConfig')
         GObject.GObject.__init__(self)
 
-        self.is_edit = kwargs.get("edit", False)
+        self.props.is_edit = kwargs.get("edit", False)
         self._account = kwargs.get("account", None)
 
         self.__init_widgets()
@@ -115,7 +122,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             "provider": self.provider_entry.get_text()
         }
 
-        if not self.is_edit:
+        if not self.props.is_edit:
             # remove spaces
             token = self.token_entry.get_text()
             account["token"] = "".join(token.split())
@@ -134,11 +141,19 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         if self._account and self._account.username:
             self.account_name_entry.set_text(self._account.username)
 
-        if not self.is_edit:
-            self.token_entry.set_no_show_all(False)
-            self.token_entry.show()
+        if self.props.is_edit:
+            self.token_entry.hide()
+            self.token_entry.set_no_show_all(True)
+        else:
+            self.token_entry.connect("icon-press", self.__on_open_doc_url)
 
         self._fill_data()
+
+    def __on_open_doc_url(self, *args):
+        provider_name = self.provider_entry.get_text()
+        provider = ProviderManager.get_default().get_by_name(provider_name)
+        if provider and provider.doc:
+            Gio.app_info_launch_default_for_uri(provider.doc)
 
     @Gtk.Template.Callback('provider_changed')
     def _on_provider_changed(self, combo):
@@ -149,6 +164,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         else:
             entry = combo.get_child()
             provider_name = entry.get_text()
+
+        provider = ProviderManager.get_default().get_by_name(provider_name)
+        self.token_entry.props.secondary_icon_activatable = provider is not None
         self._validate()
         self.provider_image.set_property('provider', provider_name)
 
@@ -178,7 +196,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
             self.provider_combobox.get_style_context().remove_class("error")
             valid_provider = True
 
-        if (not token or not OTP.is_valid(token)) and not self.is_edit:
+        if (not token or not OTP.is_valid(token)) and not self.props.is_edit:
             self.token_entry.get_style_context().add_class("error")
             valid_token = False
         else:
@@ -195,22 +213,10 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         if filename:
             qr_reader = QRReader(filename)
             secret = qr_reader.read()
-            if not qr_reader.is_valid():
-                self.__send_notification(_("Invalid QR code"))
-            else:
+            if qr_reader.is_valid():
                 self.token_entry.set_text(secret)
                 if qr_reader.provider is not None:
                     self.provider_entry.set_text(qr_reader.provider)
                 if qr_reader.username is not None:
                     self.account_name_entry.set_text(qr_reader.username)
-
-    def __send_notification(self, message):
-        """
-            Show a notification using Gd.Notification.
-            :param message: the notification message
-            :type message: str
-        """
-        self.notification_label.set_text(message)
-        self.notification.set_reveal_child(True)
-        GLib.timeout_add_seconds(5,
-                                lambda _: self.notification.set_reveal_child(False), None)
+            return qr_reader.is_valid()

@@ -80,11 +80,18 @@
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <child>
-                  <object class="GtkButton" id="add_btn1">
+                  <object class="GtkButton">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="action_name">win.add-account</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">list-add-symbolic</property>
+                      </object>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -139,6 +146,8 @@
           <object class="GtkBox" id="empty_accounts_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="border_width">36</property>
@@ -150,6 +159,7 @@
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
                 <property name="resource">/com/github/bilelmoussaoui/Authenticator/authenticator.svg</property>
                 <property name="icon_size">6</property>
               </object>
@@ -167,8 +177,10 @@
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="margin_top">12</property>
+                <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <property name="label" translatable="yes">There are no accounts yet…</property>
+                <property name="ellipsize">end</property>
                 <style>
                   <class name="head-title"/>
                 </style>
@@ -197,6 +209,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="label" translatable="yes">Add a new account from the menu</property>
+                    <property name="ellipsize">end</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
@@ -212,6 +225,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="label" translatable="yes">Scan a QR Code</property>
+                    <property name="ellipsize">end</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
@@ -325,6 +339,8 @@
           <object class="GtkBox" id="LoginWidget">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="border_width">36</property>

@@ -17,10 +17,12 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, GdkPixbuf, GLib
+from os import path
+
 
 from Authenticator.models import ProviderManager, FaviconManager
-from Authenticator.utils import load_pixbuf_from_provider
+
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/provider_image.ui')
 class ProviderImage(Gtk.Stack):
@@ -53,7 +55,7 @@ class ProviderImage(Gtk.Stack):
         self.provider_spinner.start()
         self.set_visible_child_name("provider_spinner")
 
-        provider = ProviderManager.get_default().get_provider_by_name(
+        provider = ProviderManager.get_default().get_by_name(
             self.get_property('provider')
         )
         if provider:
@@ -63,6 +65,16 @@ class ProviderImage(Gtk.Stack):
             self.__on_favicon_downloaded(None)
 
     def __on_favicon_downloaded(self, img_path):
-        self.provider_image.set_from_pixbuf(load_pixbuf_from_provider(img_path, self.image_size))
+
+        try:
+            if img_path and path.exists(img_path):
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img_path, self.image_size, self.image_size)
+
+                if pixbuf and (pixbuf.props.width != self.image_size or pixbuf.props.height != self.image_size):
+                    pixbuf = pixbuf.scale_simple(self.image_size, self.image_size,
+                                                GdkPixbuf.InterpType.BILINEAR)
+                self.provider_image.set_from_pixbuf(pixbuf)
+        except GLib.Error:
+            self.provider_image.set_from_resource("/com/github/bilelmoussaoui/Authenticator/authenticator.svg")
         self.provider_spinner.stop()
         self.set_visible_child_name("provider_image")

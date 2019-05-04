@@ -38,7 +38,7 @@ class ProviderManager:
     def providers(self):
         return self.__providers
 
-    def get_provider_by_name(self, provider_name):
+    def get_by_name(self, provider_name):
         if not provider_name:
             return
         for provider in self.providers:

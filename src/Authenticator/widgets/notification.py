@@ -63,6 +63,7 @@ class Notification(Gtk.Revealer):
         self._action_btn.set_label(kwargs.get("action_label", _("Undo")))
         self.props.show_action_btn = kwargs.get("show_action_btn", False)
         self.props.show_close_btn = kwargs.get("show_close_btn", False)
+        self.props.timeout = kwargs.get("timeout", self.props.timeout)
         self.action_callback = kwargs.get("action_callback")
         GLib.timeout_add_seconds(self.timeout, self.__delete_notification, None)
     
