@@ -13,7 +13,7 @@
     <property name="type">popup</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
-    <property name="default_width">400</property>
+    <property name="default_width">350</property>
     <property name="default_height">500</property>
     <property name="gravity">center</property>
     <child type="titlebar">
