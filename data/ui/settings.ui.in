@@ -80,6 +80,7 @@
           <object class="HdyColumn">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_top">24</property>
             <property name="maximum_width">700</property>
             <child>
               <object class="GtkBox">

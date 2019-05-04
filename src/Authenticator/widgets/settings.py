@@ -36,7 +36,7 @@ class SettingRow(Handy.ActionRow):
         self.add_action(widget)
 
 class SettingExpanderRow(Handy.ExpanderRow):
-
+    toggled = GObject.Property(type=bool, default=False)
     def __init__(self, title, subtitle):
         Handy.ExpanderRow.__init__(self)
 
@@ -45,6 +45,11 @@ class SettingExpanderRow(Handy.ExpanderRow):
     def __populate_widget(self, title, subtitle):
         self.set_title(title)
         self.set_subtitle(subtitle)
+
+        # Hackish solution until libhandy have a property for that
+        expander_toggled_btn = self.get_children()[0].get_children()[3]
+        expander_toggled_btn.bind_property("active", self, "toggled", GObject.BindingFlags.BIDIRECTIONAL)
+
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/settings.ui')
@@ -123,12 +128,17 @@ class SettingsWindow(Gtk.Window):
     
     def __on_password_updated(self, __, had_password):
         if not had_password:
-            self.notification.send(_("Authentication password is now enabled. Please restart the application."))
+            self.notification.send(_("Authentication password is now enabled."),
+                                    action_label=_("Restart the application"),
+                                    show_action_btn=True,
+                                    show_close_btn=False)
         else:
             self.notification.send(_("The authentication password was updated."))
+        self.lock_switch_row.toggled = False
 
     def __on_password_deleted(self, *__):
         self.notification.send(_("The authentication password was deleted."))
+        self.lock_switch_row.toggled = False
         self.lock_switch_row.set_enable_expansion(False)
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/password_widget.ui')
