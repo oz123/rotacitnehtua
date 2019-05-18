@@ -9,8 +9,18 @@ from glob import glob
 from os import path, remove
 from shutil import rmtree
 from subprocess import call
+import sys
+try:
+    import yaml
+except ImportError:
+    sys.exit("Please install pyaml first")
 
-import yaml
+try:
+    from HTMLParser import HTMLParser
+except ImportError:
+    from html.parser import HTMLParser
+
+
 
 GIT_CLONE_URI = "https://github.com/2factorauth/twofactorauth"
 TMP_FOLDER = path.join(tempfile.gettempdir(), "Authenticator")
@@ -36,13 +46,16 @@ def is_valid(provider):
 
 output = {}
 
+html_parser = HTMLParser()
+
 for db_file in glob(DATA_DIR + "/*.yml"):
-    with open(db_file, 'r') as file_data:
+    with open(db_file, 'r', encoding='utf8') as file_data:
         try:
             providers = yaml.load(file_data)["websites"]
             for provider in providers:
                 if is_valid(provider):
-                     output[provider.get("name")] = {
+                    name = provider.get("name")
+                    output[html_parser.unescape(name)] = {
                         "img": provider.get("img"),
                         "url": provider.get("url", ""),
                         "doc": provider.get("doc", "")
