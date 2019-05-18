@@ -24,7 +24,7 @@ from Authenticator.widgets.accounts.add import AccountConfig
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
 class EditAccountWindow(Gtk.Window, GObject.GObject):
     __gsignals__ = {
-        'updated': (GObject.SignalFlags.RUN_LAST, None, (str, str,)),
+        'updated': (GObject.SignalFlags.RUN_LAST, None, (str, str, str, )),
     }
 
     __gtype_name__ = 'EditAccountWindow'
@@ -64,9 +64,10 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         new_account = self.account_config.account
         username = new_account["username"]
         provider = new_account["provider"]
+        image_path = new_account["image_path"]
         old_provider = self._account.provider
         # Update the AccountRow widget
-        self.emit("updated", username, provider)
+        self.emit("updated", username, provider, image_path)
         # Update the providers list
         if provider != old_provider:
             from .list import AccountsWidget

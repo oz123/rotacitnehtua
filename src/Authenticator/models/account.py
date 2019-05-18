@@ -30,12 +30,13 @@ class Account(GObject.GObject):
         'removed': (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
-    def __init__(self, _id, username, provider, secret_id):
+    def __init__(self, _id, username, provider, secret_id, image_path=None):
         GObject.GObject.__init__(self)
         self.id = _id
         self.username = username
         self.provider = provider
         self.secret_id = secret_id
+        self.image_path = image_path
         token = Keyring.get_by_id(self.secret_id)
         self.connect("otp_out_of_date", self._on_otp_out_of_date)
         if token:
@@ -48,7 +49,7 @@ class Account(GObject.GObject):
                          "the keyring keys were reset manually")
 
     @staticmethod
-    def create(username, provider, token):
+    def create(username, provider, token, image_path=None):
         """
         Create a new Account.
         :param username: the account's username
@@ -59,9 +60,9 @@ class Account(GObject.GObject):
         # Encrypt the token to create a secret_id
         secret_id = sha256(token.encode('utf-8')).hexdigest()
         # Save the account
-        obj = Database.get_default().insert(username, provider, secret_id)
+        obj = Database.get_default().insert(username, provider, secret_id, image_path)
         Keyring.insert(secret_id, provider, username, token)
-        return Account(obj['id'], username, provider, secret_id)
+        return Account(obj['id'], username, provider, secret_id, image_path)
 
     @staticmethod
     def create_from_json(json_obj):
@@ -78,7 +79,7 @@ class Account(GObject.GObject):
         obj = Database.get_default().get_by_id(id_)
         return Account(obj['id'], obj['username'], obj['provider'], obj['secret_id'])
 
-    def update(self, username, provider):
+    def update(self, username, provider, image_path=None):
         """
         Update the account name and/or provider.
         :param username: the account's username
@@ -86,7 +87,16 @@ class Account(GObject.GObject):
         """
         self.username = username
         self.provider = provider
-        Database.get_default().update(username, provider, self.id)
+        account = {
+            "username": username,
+            "provider": provider,
+        }
+
+        if image_path != None:
+            self.image_path = image_path
+            account["image_path"] = image_path
+
+        Database.get_default().update(account, self.id)
 
     def remove(self):
         """

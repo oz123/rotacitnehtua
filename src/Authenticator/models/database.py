@@ -30,7 +30,7 @@ class Database:
     # Default instance
     instance = None
     # Database version number
-    db_version = 4
+    db_version = 5
 
     table_name = "accounts"
     primary_key = "id"
@@ -57,23 +57,24 @@ class Database:
                          'database-{}.db'.format(str(Database.db_version))
                          )
 
-    def insert(self, username, provider, secret_id):
+    def insert(self, username, provider, secret_id, image_path=None):
         """
         Insert a new account to the database
         :param username: Account name
         :param provider: Service provider
         :param secret_id: the secret code
         """
-        query = "INSERT INTO {table} (username, provider, secret_id) VALUES (?, ?, ?)".format(
+        query = "INSERT INTO {table} (username, provider, secret_id, image_path) VALUES (?, ?, ?, ?)".format(
             table=self.table_name)
         try:
-            self.conn.execute(query, [username, provider, secret_id])
+            self.conn.execute(query, [username, provider, secret_id, image_path])
             self.conn.commit()
             return OrderedDict([
                 ("id", self.latest_id),
                 ("name", username),
                 ("provider", provider),
-                ("secret_id", secret_id)
+                ("secret_id", secret_id),
+                ("image_path", image_path)
             ])
         except Exception as error:
             Logger.error("[SQL] Couldn't add a new account")
@@ -94,7 +95,8 @@ class Database:
                 ("id", obj[0]),
                 ("username", obj[1]),
                 ("provider", obj[2]),
-                ("secret_id", obj[3])
+                ("secret_id", obj[3]),
+                ("image_path", obj[4])
             ])
         except Exception as error:
             Logger.error("[SQL] Couldn't get account with ID={}".format(id_))
@@ -141,14 +143,23 @@ class Database:
         self.conn.execute(query)
         self.conn.commit()
 
-    def update(self, username, provider, id_):
+    def update(self, data, id_):
         """
         Update an account by id
         """
-        query = "UPDATE {table} SET username=?, provider=? WHERE {key}=?".format(key=self.primary_key,
-                                                                                 table=self.table_name)
+        query = "UPDATE {table} SET ".format(self.table_name)
+        resources = []
+        i = 0
+        for table_column, value in data.items():
+            query += " {}=?".format(table_column)
+            if i != len(data) - 1:
+                query += ","
+            resources.append(value)
+            i += 1
+        resources.append(id_)
+        query += "WHERE {key}=?".format(key=self.primary_key,)
         try:
-            self.conn.execute(query, (username, provider, id_))
+            self.conn.execute(query, resources)
             self.conn.commit()
         except Exception as error:
             Logger.error("[SQL] Couldn't update account name by id")
@@ -200,7 +211,8 @@ class Database:
                 ("id", account[0]),
                 ("username", account[1]),
                 ("provider", account[2]),
-                ("secret_id", account[3])
+                ("secret_id", account[3]),
+                ("image_path", account[4])
             ]) for account in accounts]
         except Exception as error:
             Logger.error("[SQL] Couldn't fetch accounts list")
@@ -241,7 +253,8 @@ class Database:
             "{key}" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
             "username" VARCHAR NOT NULL,
             "provider" VARCHAR NOT NULL,
-            "secret_id" VARCHAR NOT NULL UNIQUE
+            "secret_id" VARCHAR NOT NULL UNIQUE,
+            "image_path" VARCHAR NULL
         )'''.format(table=self.table_name, key=self.primary_key)
         try:
             self.conn.execute(query)

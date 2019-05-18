@@ -79,6 +79,6 @@ class AccountsManager(GObject.GObject):
         accounts = Database.get_default().accounts
         for account_obj in accounts:
             account = Account(account_obj["id"], account_obj["username"], account_obj["provider"],
-                              account_obj["secret_id"])
+                              account_obj["secret_id"], account_obj["image_path"])
             if account.otp:
                 self.add(account)

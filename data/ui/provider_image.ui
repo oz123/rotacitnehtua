@@ -11,7 +11,7 @@
       <object class="GtkSpinner" id="provider_spinner">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
+        <property name="halign">start</property>
         <property name="valign">center</property>
       </object>
       <packing>
@@ -23,7 +23,6 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">center</property>
-        <property name="valign">center</property>
         <property name="pixel_size">0</property>
         <property name="icon_name">authenticator-symbolic</property>
         <property name="icon_size">1</property>
@@ -31,6 +30,56 @@
       <packing>
         <property name="name">provider_image</property>
         <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="provider_set_image_box">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">start</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin_bottom">6</property>
+            <property name="label" translatable="yes">We couldn't find an image for this provider</property>
+            <property name="justify">center</property>
+            <property name="wrap">True</property>
+            <attributes>
+              <attribute name="font-desc" value="Cantarell 10"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Select an image</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="margin_bottom">6</property>
+            <signal name="clicked" handler="select_image_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="name">provider_image_not_found</property>
+        <property name="position">2</property>
       </packing>
     </child>
   </template>

@@ -74,9 +74,14 @@ label.head-title{
 .progress-bar trough {
   border-radius: 0px
 }
-.app-notification{
-
-}
+/* Account List */
 .provider-widget{
-	margin: 4px 2px;
+	margin: 6px;
+}
+.account-row {
+	padding: 6px;
+}
+.provider-label {
+	font-size: 18px;
+	font-weight: bold;
 }

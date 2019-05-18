@@ -74,7 +74,8 @@ class AddAccountWindow(Gtk.Window):
         # Create a new account
         account = Account.create(account_obj["username"],
                                  account_obj["provider"],
-                                 account_obj["token"])
+                                 account_obj["token"],
+                                 account_obj["image_path"])
         # Add it to the AccountsManager
         AccountsManager.get_default().add(account)
         AccountsWidget.get_default().append(account)
@@ -119,7 +120,8 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         """
         account = {
             "username": self.account_name_entry.get_text(),
-            "provider": self.provider_entry.get_text()
+            "provider": self.provider_entry.get_text(),
+            "image_path": self.provider_image.get_path()
         }
 
         if not self.props.is_edit:
@@ -129,7 +131,7 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         return account
 
     def __init_widgets(self):
-        self.provider_image = ProviderImage(None, 96)
+        self.provider_image = ProviderImage(None, None, 96, True)
         self.main_box.pack_start(self.provider_image, False, False, 0)
         self.main_box.reorder_child(self.provider_image, 0)
         self.provider_image.set_halign(Gtk.Align.CENTER)

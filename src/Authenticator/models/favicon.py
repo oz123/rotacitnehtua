@@ -36,6 +36,7 @@ LINK_RELS = [
 class FaviconManager:
 
     instance = None
+    CACHE_DIR = path.join(GLib.get_user_cache_dir(), "Authenticator")
 
     def __init__(self):
         """
@@ -53,12 +54,12 @@ class FaviconManager:
         return FaviconManager.instance
 
     def grab_favicon(self, img, url, callback=None):
-        cache_dir = path.join(GLib.get_user_cache_dir(), "Authenticator")
-        # Create the cache directory
-        if not path.isdir(cache_dir):
-            mkdir(cache_dir)
 
-        img_path = path.join(cache_dir, img)
+        # Create the cache directory
+        if not path.isdir(FaviconManager.CACHE_DIR):
+            mkdir(FaviconManager.CACHE_DIR)
+
+        img_path = path.join(FaviconManager.CACHE_DIR, img)
         if not path.isfile(img_path):
             self.__download_favicon(url, img_path, callback)
         else:

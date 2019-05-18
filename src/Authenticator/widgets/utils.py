@@ -21,7 +21,7 @@ from gi.repository import Gtk
 
 
 def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
-    file_chooser = Gtk.FileChooserDialog()
+    file_chooser = Gtk.FileChooserNative()
     file_chooser.set_action(action)
     file_chooser.set_transient_for(parent)
     filter_json = Gtk.FileFilter()
@@ -32,8 +32,8 @@ def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
         label = _("Open")
     else:
         label = _("Save")
-    file_chooser.add_button(label, Gtk.ResponseType.ACCEPT)
-    file_chooser.add_button(_("Cancel"), Gtk.ResponseType.CLOSE)
+    file_chooser.set_accept_label(label)
+    file_chooser.set_cancel_label(_("Cancel"))
     response = file_chooser.run()
     uri = None
     if response == Gtk.ResponseType.ACCEPT:
@@ -53,13 +53,11 @@ def export_json(parent):
 
 
 def open_directory(parent):
-    file_chooser = Gtk.FileChooserDialog()
+    file_chooser = Gtk.FileChooserNative()
     file_chooser.set_action(Gtk.FileChooserAction.SELECT_FOLDER)
     file_chooser.set_transient_for(parent)
     file_chooser.set_show_hidden(True)
     response = file_chooser.run()
-    file_chooser.add_button(_("Select"), Gtk.ResponseType.ACCEPT)
-    file_chooser.add_button(_("Cancel"), Gtk.ResponseType.CLOSE)
     folder_name = None
     if response == Gtk.ResponseType.ACCEPT:
         folder_name = file_chooser.get_filename()
