@@ -34,7 +34,7 @@ class Keyring:
         self.password_schema = Secret.Schema.new(Keyring.PasswordID,
                                                  Secret.SchemaFlags.NONE,
                                                  {
-                                                     "password": Secret.SchemaAttributeType.STRING
+                                                    "password": Secret.SchemaAttributeType.STRING
                                                  })
 
     @staticmethod
@@ -111,7 +111,6 @@ class Keyring:
 
     @staticmethod
     def get_password():
-
         schema = Keyring.get_default().password_schema
         password = Secret.password_lookup_sync(schema, {}, None)
         return password
@@ -130,6 +129,17 @@ class Keyring:
             password,
             None
         )
+        Keyring.set_password_state(True)
+
+    @staticmethod
+    def is_password_enabled():
+        from .settings import Settings
+        return Settings.get_default().password_state
+
+    @staticmethod
+    def set_password_state(state):
+        from .settings import Settings
+        Settings.get_default().password_state = state
 
     @staticmethod
     def has_password():
@@ -139,4 +149,4 @@ class Keyring:
     def remove_password():
         schema = Keyring.get_default().password_schema
         Secret.password_clear_sync(schema, {}, None)
-
+        Keyring.set_password_state(False)

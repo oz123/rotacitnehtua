@@ -58,14 +58,15 @@ class Application(Gtk.Application):
 
     def do_startup(self):
         """Startup the application."""
+        # Set the default night mode
+        settings = Settings.get_default()
+
         Gtk.Application.do_startup(self)
         self.__generate_menu()
         self.__setup_actions()
-        self.props.is_locked = Keyring.get_default().has_password()
+        self.props.is_locked = Keyring.get_default().has_password() and settings.password_state
         Application.__setup_css()
 
-        # Set the default night mode
-        settings = Settings.get_default()
         # Restore default state
         self.__on_dark_theme_changed()
         self.__on_night_light_changed()
