@@ -17,7 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, GLib
 from Authenticator.widgets.accounts.edit import EditAccountWindow
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_row.ui')
@@ -43,6 +43,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
 
     more_actions_btn = Gtk.Template.Child()
     delete_btn = Gtk.Template.Child()
+    copy_btn_stack = Gtk.Template.Child()
 
     def __init__(self, account):
         """
@@ -84,9 +85,13 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             Copy button clicked signal handler.
             Copies the OTP pin to the clipboard
         """
+        self.copy_btn_stack.set_visible_child_name("ok_image")
         self._account.copy_pin()
         self.emit("pin-copied",
                   _("The PIN of {} was copied to the clipboard").format(self.account.username))
+
+        GLib.timeout_add_seconds(2, lambda *_: self.copy_btn_stack.set_visible_child_name("copy_image"), None)
+
 
     @Gtk.Template.Callback('edit_btn_clicked')
     def _on_edit(self, *_):

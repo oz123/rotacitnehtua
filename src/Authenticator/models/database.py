@@ -19,9 +19,14 @@
 import sqlite3
 from collections import OrderedDict
 from os import path, makedirs
-from gi.repository import GLib
-
+from gi.repository import GLib, Gio
+from collections import namedtuple
 from Authenticator.models import Logger
+import json
+
+
+Provider = namedtuple('Provider', ['id', 'name', 'website', 'doc_url', 'image'])
+Account = namedtuple('Account', ['id', 'username', 'token_id', 'provider'])
 
 
 class Database:
@@ -30,18 +35,14 @@ class Database:
     # Default instance
     instance = None
     # Database version number
-    db_version = 5
-
-    table_name = "accounts"
-    primary_key = "id"
+    db_version = 7
 
     def __init__(self):
-        self.__create_database_file()
+        database_created = self.__create_database_file()
         self.conn = sqlite3.connect(self.db_file)
-        if not self.__is_table_exists():
-            Logger.debug("[SQL]: Table 'accounts' does not exist")
-            self.__create_table()
-            Logger.debug("[SQL]: Table 'accounts' created successfully")
+        if database_created:
+            self.__create_tables()
+            self.__fill_providers()
 
     @staticmethod
     def get_default():
@@ -57,119 +58,128 @@ class Database:
                          'database-{}.db'.format(str(Database.db_version))
                          )
 
-    def insert(self, username, provider, secret_id, image_path=None):
+    def insert_account(self, username, token_id, provider):
         """
         Insert a new account to the database
         :param username: Account name
-        :param provider: Service provider
-        :param secret_id: the secret code
+        :param token_id: The token identifier stored using libsecret
+        :param provider: The provider foreign key
         """
-        query = "INSERT INTO {table} (username, provider, secret_id, image_path) VALUES (?, ?, ?, ?)".format(
-            table=self.table_name)
+        query = "INSERT INTO accounts (username, token_id, provider) VALUES (?, ?, ?)"
+        cursor = self.conn.cursor()
         try:
-            self.conn.execute(query, [username, provider, secret_id, image_path])
+            cursor.execute(query, [username, token_id, provider])
             self.conn.commit()
-            return OrderedDict([
-                ("id", self.latest_id),
-                ("name", username),
-                ("provider", provider),
-                ("secret_id", secret_id),
-                ("image_path", image_path)
-            ])
+            return Account(cursor.lastrowid, username, token_id, provider)
         except Exception as error:
             Logger.error("[SQL] Couldn't add a new account")
             Logger.error(str(error))
 
-    def get_by_id(self, id_):
+    def insert_provider(self, name, website, doc_url=None, image=None):
+        """
+        Insert a new provider to the database
+        :param name: The provider name
+        :param website: The provider website, used to extract favicon
+        :param doc_url: The provider doc_url, used to allow user get the docs
+        :param image: The image path of a provider
+        """
+        query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
+        cursor = self.conn.cursor()
+        try:
+            cursor.execute(query, [name, website, doc_url, image])
+            self.conn.commit()
+            return Provider(cursor.lastrowid, name, website, doc_url, image)
+        except Exception as error:
+            Logger.error("[SQL] Couldn't add a new account")
+            Logger.error(str(error))
+
+    def account_by_id(self, id_):
         """
             Get an account by the ID
             :param id_: int the account id
-            :return: list: The account data
+            :return: Account: The account data
         """
-        query = "SELECT * FROM {table} WHERE {key}=?".format(
-            key=self.primary_key, table=self.table_name)
+        query = "SELECT * FROM accounts WHERE id=?"
         try:
             data = self.conn.cursor().execute(query, (id_,))
-            obj = data.fetchone()
-            return OrderedDict([
-                ("id", obj[0]),
-                ("username", obj[1]),
-                ("provider", obj[2]),
-                ("secret_id", obj[3]),
-                ("image_path", obj[4])
-            ])
+            return Account(*data.fetchone())
         except Exception as error:
             Logger.error("[SQL] Couldn't get account with ID={}".format(id_))
             Logger.error(str(error))
         return None
 
-    def get_secret_id(self, id_):
+    def accounts_by_provider(self, provider_id):
+        query = "SElECT * FROM accounts WHERE provider=?"
+        query_d = self.conn.execute(query, (provider_id, ))
+        accounts = query_d.fetchall()
+        return [Account(*account) for account in accounts]
+
+    def provider_by_id(self, id_):
         """
-        Get the secret code by id
-        :param id_: int the account id
-        :return: the secret id
+            Get a provider by the ID
+            :param id_: int the provider id
+            :return: Provider: The provider data
         """
-        query = "SELECT secret_id FROM {table} WHERE {key}=?".format(
-            key=self.primary_key, table=self.table_name)
+        query = "SELECT * FROM providers WHERE id=?"
         try:
             data = self.conn.cursor().execute(query, (id_,))
-            return data.fetchone()[0]
+            return Provider(*data.fetchone())
         except Exception as error:
-            Logger.error("[SQL] Couldn't get account secret code")
+            Logger.error("[SQL] Couldn't get provider with ID={}".format(id_))
             Logger.error(str(error))
         return None
 
-    def remove(self, id_):
+    def provider_by_name(self, provider_name):
+        """
+            Get a provider by the ID
+            :param id_: int the provider id
+            :return: Provider: The provider data
+        """
+        query = "SELECT * FROM providers WHERE name LIKE ?"
+        try:
+            data = self.conn.cursor().execute(query, (provider_name,))
+            provider = data.fetchone()
+            return Provider(*provider) if provider else None
+        except Exception as error:
+            Logger.error("[SQL] Couldn't get provider with name={}".format(provider_name))
+            Logger.error(str(error))
+        return None
+
+
+    def delete_account(self, id_):
         """
             Remove an account by ID.
 
             :param id_: the account ID
             :type id_: int
         """
-        query = "DELETE FROM {table} WHERE {key}=?".format(
-            key=self.primary_key, table=self.table_name)
-        try:
-            self.conn.execute(query, (id_,))
-            self.conn.commit()
-        except Exception as error:
-            Logger.error("[SQL] Couldn't remove the account '{}'".format(id_))
-            Logger.error(str(error))
+        self.__delete("accounts", id_)
 
-    def clear(self):
+    def delete_provider(self, id_):
         """
-            Remove all the existing accounts.
-        """
-        query = "DELETE FROM {table}".format(table=self.table_name)
-        self.conn.execute(query)
-        self.conn.commit()
+            Remove a provider by ID.
 
-    def update(self, data, id_):
+            :param id_: the provider ID
+            :type id_: int
+        """
+        self.__delete("providers", id_)
+
+    def update_account(self, account_data, id_):
         """
         Update an account by id
         """
-        query = "UPDATE {table} SET ".format(self.table_name)
-        resources = []
-        i = 0
-        for table_column, value in data.items():
-            query += " {}=?".format(table_column)
-            if i != len(data) - 1:
-                query += ","
-            resources.append(value)
-            i += 1
-        resources.append(id_)
-        query += "WHERE {key}=?".format(key=self.primary_key,)
-        try:
-            self.conn.execute(query, resources)
-            self.conn.commit()
-        except Exception as error:
-            Logger.error("[SQL] Couldn't update account name by id")
-            Logger.error(error)
+        self.__update_by_id("accounts", account_data, id_)
 
-    def search(self, terms):
+    def update_provider(self, proivder_data, id_):
+        # Update a provider by id
+        self.__update_by_id("providers", provider_data, id_)
+
+
+    def search_accounts(self, terms):
         filters = " ".join(terms)
         if filters:
             filters = "%" + filters + "%"
-        query = "SELECT {key} FROM {table} WHERE username LIKE ?".format(table=self.table_name, key=self.primary_key)
+        query = "SELECT id FROM accounts WHERE username LIKE ?"
         try:
             data = self.conn.cursor().execute(query, (filters,))
             return [str(account[0]) for account in data.fetchall()]
@@ -179,21 +189,36 @@ class Database:
             return []
 
     @property
-    def count(self):
+    def accounts_count(self):
         """
             Count the total number of existing accounts.
 
            :return: int
         """
-        query = "SELECT COUNT({key}) AS count FROM {table}".format(
-            key=self.primary_key, table=self.table_name)
+        return self.__count("accounts")
+
+    @property
+    def providers_count(self):
+        """
+            Count the total number of existing providers
+            :return: int
+        """
+        return self.__count("providers")
+
+    def get_providers(self, **kwargs):
+        only_used = kwargs.get("only_used",)
+        query = "SELECT * FROM providers"
+        if only_used:
+            query += " WHERE id IN (SELECT DISTINCT provider FROM accounts)"
         try:
             data = self.conn.cursor().execute(query)
-            return data.fetchone()[0]
+            providers = data.fetchall()
+            return [Provider(*provider) for provider in providers]
         except Exception as error:
-            Logger.error("[SQL]: Couldn't count accounts list")
+            Logger.error("[SQL] Couldn't fetch providers list")
             Logger.error(str(error))
         return None
+
 
     @property
     def accounts(self):
@@ -202,37 +227,13 @@ class Database:
 
             :return list
         """
-        query = "SELECT * FROM {table} ORDER BY provider ASC, username DESC".format(
-            table=self.table_name)
+        query = "SELECT * FROM accounts"
         try:
             data = self.conn.cursor().execute(query)
             accounts = data.fetchall()
-            return [OrderedDict([
-                ("id", account[0]),
-                ("username", account[1]),
-                ("provider", account[2]),
-                ("secret_id", account[3]),
-                ("image_path", account[4])
-            ]) for account in accounts]
+            return [Account(*account) for account in accounts]
         except Exception as error:
             Logger.error("[SQL] Couldn't fetch accounts list")
-            Logger.error(str(error))
-        return None
-
-    @property
-    def latest_id(self):
-        """
-            Retrieve the latest added ID from accounts.
-
-            :return: int
-        """
-        query = "SELECT {key} FROM {table} ORDER BY {key} DESC LIMIT 1;".format(key=self.primary_key,
-                                                                                table=self.table_name)
-        try:
-            data = self.conn.cursor().execute(query)
-            return data.fetchone()[0]
-        except Exception as error:
-            Logger.error("[SQL] Couldn't fetch the latest id")
             Logger.error(str(error))
         return None
 
@@ -244,34 +245,92 @@ class Database:
         if not path.exists(self.db_file):
             with open(self.db_file, 'w') as file_obj:
                 file_obj.write('')
+            return True
+        return False
 
-    def __create_table(self):
+    def __create_tables(self):
         """
         Create the needed tables to run the application.
         """
-        query = '''CREATE TABLE "{table}" (
-            "{key}" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+        accounts_table = '''
+        CREATE TABLE "accounts" (
+            "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
             "username" VARCHAR NOT NULL,
-            "provider" VARCHAR NOT NULL,
-            "secret_id" VARCHAR NOT NULL UNIQUE,
-            "image_path" VARCHAR NULL
-        )'''.format(table=self.table_name, key=self.primary_key)
+            "token_id" VARCHAR NOT NULL UNIQUE,
+            "provider" INTEGER NOT NULL
+        );
+        '''
+        providers_table = '''
+        CREATE TABLE "providers" (
+            "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+            "name" VARCHAR NOT NULL,
+            "website" VARCHAR NULL,
+            "doc_url" VARCHAR NULL,
+            "image" VARCHAR NULL
+        )
+        '''
         try:
-            self.conn.execute(query)
+            self.conn.execute(accounts_table)
+            self.conn.execute(providers_table)
             self.conn.commit()
         except Exception as error:
             Logger.error("[SQL] Impossible to create table 'accounts'")
             Logger.error(str(error))
 
-    def __is_table_exists(self):
-        """
-            Check if the used table are created or not.
-            :return bool
-        """
-        query = "SELECT {key} from {table} LIMIT 1".format(
-            key=self.primary_key, table=self.table_name)
+    def __count(self, table_name):
+        query = "SELECT COUNT(id) AS count FROM " + table_name
         try:
-            self.conn.cursor().execute(query)
-            return True
-        except Exception as e:
-            return False
+            data = self.conn.cursor().execute(query)
+            return data.fetchone()[0]
+        except Exception as error:
+            Logger.error("[SQL]: Couldn't count the results from " + table_name)
+            Logger.error(str(error))
+        return None
+
+    def __delete(self, table_name, id_):
+        """
+            Remove a row by ID.
+
+            :param id_: the row ID
+            :type id_: int
+        """
+        query = "DELETE FROM {} WHERE id=?".format(table_name)
+        try:
+            self.conn.execute(query, (id_,))
+            self.conn.commit()
+        except Exception as error:
+            Logger.error("[SQL] Couldn't remove the row '{}'".format(id_))
+            Logger.error(str(error))
+
+    def __update_by_id(self, table_name, data, id_):
+        query = "UPDATE {} SET ".format(table_name)
+        resources = []
+        i = 0
+        for table_column, value in data.items():
+            query += " {}=?".format(table_column)
+            if i != len(data) - 1:
+                query += ","
+            resources.append(value)
+            i += 1
+        resources.append(id_)
+        query += "WHERE id=?"
+        try:
+            self.conn.execute(query, resources)
+            self.conn.commit()
+        except Exception as error:
+            Logger.error("[SQL] Couldn't update row by id")
+            Logger.error(error)
+
+    def __fill_providers(self):
+        # Fill providers table with data we ship in resources
+        uri = 'resource:///com/github/bilelmoussaoui/Authenticator/data.json'
+        g_file = Gio.File.new_for_uri(uri)
+        content = str(g_file.load_contents(None)[1].decode("utf-8"))
+        data = json.loads(content)
+        providers = []
+        for provider_name, provider_info in data.items():
+            providers.append((provider_name, provider_info['url'],
+                                    provider_info['doc'], provider_info['img'],))
+        query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
+        self.conn.executemany(query, providers)
+        self.conn.commit()

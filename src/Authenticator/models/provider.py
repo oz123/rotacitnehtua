@@ -16,17 +16,18 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from collections import namedtuple
-import json
-from gi.repository import Gio
+from Authenticator.models import Database
 
-class ProviderManager:
+class Provider:
 
     instance = None
-    __providers = []
 
-    def __init__(self):
-        self.__parse_providers()
+    def __init__(self, provider_id=None, name=None, website=None, doc_url=None, image=None):
+        self.provider_id = provider_id
+        self.name = name
+        self.website = website
+        self.doc_url = doc_url
+        self.image = image
 
     @staticmethod
     def get_default():
@@ -34,27 +35,36 @@ class ProviderManager:
             ProviderManager.instance = ProviderManager()
         return ProviderManager.instance
 
-    @property
-    def providers(self):
-        return self.__providers
-
-    def get_by_name(self, provider_name):
-        if not provider_name:
-            return
-        for provider in self.providers:
-            _current_name = str(provider.name)
-            if _current_name.lower().strip() == provider_name.lower().strip():
-                return provider
+    @staticmethod
+    def get_by_id(id_):
+        provider = Database.get_default().provider_by_id(id_)
+        if provider:
+            return Provider(*provider)
         return None
 
-    def __parse_providers(self):
-        uri = 'resource:///com/github/bilelmoussaoui/Authenticator/data.json'
-        g_file = Gio.File.new_for_uri(uri)
-        content = str(g_file.load_contents(None)[1].decode("utf-8"))
-        data = json.loads(content)
-        Provider = namedtuple('Provider', 'name img url doc')
-        for provider_name, provider_info in data.items():
-            provider = Provider(provider_name, provider_info['img'],
-                                provider_info['url'], provider_info['doc'])
-            self.__providers.append(provider)
+    @staticmethod
+    def get_by_name(name):
+        provider = Database.get_default().provider_by_name(name)
+        if provider:
+            return Provider(*provider)
+        return None
     
+    @staticmethod
+    def all():
+        providers = Database.get_default().get_providers()
+        return [
+            Provider(*provider)
+            for provider in providers
+        ]
+
+
+    @staticmethod
+    def create(name, website, doc_url, image):
+        provider = Database.get_default().insert_provider(name, website, doc_url, image)
+        return Provider(*provider)
+
+    def update(self, provider_data):
+        self.image = provider_data.get("image", self.image)
+        self.name = provider_data.get("name", self.name)
+        Database.get_default().update_provider(provider_data, self.provider_id)
+

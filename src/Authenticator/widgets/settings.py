@@ -92,13 +92,27 @@ class SettingsWindow(Gtk.Window):
         self.lock_switch_row = SettingExpanderRow(_('Lock the application'),
                                             _('Lock the application with a password')
                                             )
-        self.lock_switch_row.set_enable_expansion(Keyring.get_default().has_password())
+        self.lock_switch_row.props.enable_expansion = Keyring.get_default().is_password_enabled()
         self.lock_switch_row.connect("notify::enable-expansion", self.__on_enable_password)
+        self.lock_switch_row.connect("notify::toggled", self.__on_lock_switch_toggled)
+        self.lock_switch_row.connect("notify::expanded", self.__on_lock_switch_state_changed)
+
         self.lock_switch_row.add(self._password_widget)
 
         self.behaviour_listbox.add(dark_theme_row)
         self.behaviour_listbox.add(night_light_row)
         self.behaviour_listbox.add(self.lock_switch_row)
+
+    def __on_lock_switch_state_changed(self, *_):
+        keyring = Keyring.get_default()
+        if keyring.has_password():
+            keyring.set_password_state(self.lock_switch_row.props.expanded)
+
+    def __on_lock_switch_toggled(self, *_):
+        toggled = self.lock_switch_row.props.toggled
+        expansion_enabled = self.lock_switch_row.props.enable_expansion
+        if not Keyring.get_default().has_password() and not toggled and expansion_enabled:
+            self.lock_switch_row.props.enable_expansion = False
 
     def __bind_signals(self):
         settings = Settings.get_default()
@@ -128,7 +142,9 @@ class SettingsWindow(Gtk.Window):
         self.dark_theme_switch.connect("notify::active", on_dark_theme_switch)
 
     def __on_enable_password(self, *_):
-        if not Keyring.get_default().has_password():
+        keyring = Keyring.get_default()
+        keyring.set_password_state(self.lock_switch_row.props.enable_expansion)
+        if not keyring.has_password():
             self._password_widget.set_current_password_visibility(False)
         else:
             self._password_widget.set_current_password_visibility(True)

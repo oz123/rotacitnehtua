@@ -16,7 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from threading import Thread
 from time import sleep
 from gi.repository import GObject, GLib
 
@@ -26,6 +25,9 @@ class AccountsManager(GObject.GObject):
         'counter_updated': (GObject.SignalFlags.RUN_LAST, None, (int,)),
     }
     instance = None
+
+    # A list that contains a tuple (provider, accounts)
+    __accounts = []
 
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -43,8 +45,10 @@ class AccountsManager(GObject.GObject):
             AccountsManager.instance = AccountsManager()
         return AccountsManager.instance
 
-    def add(self, account):
-        self._accounts.append(account)
+    def add(self, provider, account):
+        for _provider, accounts in self._accounts:
+            if provider == _provider:
+                accounts.append(account)
 
     @property
     def accounts(self):
@@ -57,11 +61,12 @@ class AccountsManager(GObject.GObject):
         self._alive = False
 
     def update_childes(self, signal, data=None):
-        for child in self._accounts:
-            if data:
-                child.emit(signal, data)
-            else:
-                child.emit(signal)
+        for _, accounts in self._accounts:
+            for account in accounts:
+                if data:
+                    account.emit(signal, data)
+                else:
+                    account.emit(signal)
 
     def __update_counter(self, *args):
         if self._alive:
@@ -76,9 +81,15 @@ class AccountsManager(GObject.GObject):
     def __fill_accounts(self):
         from .database import Database
         from .account import Account
-        accounts = Database.get_default().accounts
-        for account_obj in accounts:
-            account = Account(account_obj["id"], account_obj["username"], account_obj["provider"],
-                              account_obj["secret_id"], account_obj["image_path"])
-            if account.otp:
-                self.add(account)
+        from .provider import Provider
+
+        providers = Database.get_default().get_providers(only_used=True)
+        for provider in providers:
+            accounts = Database.get_default().accounts_by_provider(provider.id)
+            provider = Provider(*provider)
+            _accounts = []
+            for account in accounts:
+                account = Account(*account)
+                if account.otp:
+                    _accounts.append(account)
+            self._accounts.append((provider, _accounts))

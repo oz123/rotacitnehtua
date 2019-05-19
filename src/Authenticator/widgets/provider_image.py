@@ -21,8 +21,9 @@ from gi.repository import Gtk, GObject, GdkPixbuf, GLib, Gio
 from os import path
 from tempfile import NamedTemporaryFile
 from gettext import gettext as _
+from threading import Thread
 
-from Authenticator.models import ProviderManager, FaviconManager
+from Authenticator.models import FaviconManager, Provider
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/provider_image.ui')
@@ -36,57 +37,80 @@ class ProviderImage(Gtk.Stack):
     """
 
     __gtype_name__ = 'ProviderImage'
-
+    __gsignals__ = {
+        'changed': (GObject.SignalFlags.RUN_LAST, None, (str, str, )),
+    }
     provider_image = Gtk.Template.Child()
     provider_spinner = Gtk.Template.Child()
     provider_set_image_box = Gtk.Template.Child()
-    _image_path = None
-
-    provider = GObject.Property(type=str)
 
 
-    def __init__(self, provider_name, image_path, image_size, allow_setting_image=False):
+    def __init__(self, provider=None, image_size=48, allow_setting_image=False):
         super(ProviderImage, self).__init__()
         self.init_template('ProviderImage')
-        self._image_path = image_path
+        self.provider = provider if provider else Provider(*[None]*5)
         self.allow_setting_image = allow_setting_image
+        self.image_size = image_size
         if not allow_setting_image:
             self.remove(self.provider_set_image_box)
-        self.connect("notify::provider", self.__on_provider_changed)
-        self.image_size = image_size
-        self.provider = provider_name
+        self.connect("changed", self.__on_provider_changed)
         self.provider_image.set_pixel_size(image_size)
-
-    def get_path(self):
-        return self._image_path
-
-    def __on_provider_changed(self, _, provider):
-        self.provider_spinner.start()
-        self.set_visible_child_name("provider_spinner")
-
-        provider = ProviderManager.get_default().get_by_name(
-            self.get_property('provider')
-        )
-        if provider and not isinstance(provider, str):
-            FaviconManager.get_default().grab_favicon(provider.img, provider.url,
-                                                      self.__on_favicon_downloaded)
-        elif self._image_path is not None:
-            self.__on_favicon_downloaded(self._image_path)
+        if self.provider.image and self.set_image(self.provider.image):
+            self.set_visible_child_name("provider_image")
         else:
             self.set_visible_child_name("provider_image_not_found")
 
-    def __on_favicon_downloaded(self, img_path):
-        self.provider_spinner.stop()
+
+    @property
+    def image(self):
+        if self.provider:
+            return self.provider.image
+        return None
+
+    def __on_provider_changed(self, _, provider_website, provider_image):
+        self.provider_spinner.start()
+        self.set_visible_child_name("provider_spinner")
+
+        if provider_image is not None and self.set_image(provider_image):
+            self.set_visible_child_name("provider_image")
+        elif provider_image and provider_website:
+            favicon_manager = FaviconManager()
+            t = Thread(target=lambda:
+                                favicon_manager.grab_favicon(provider_image,
+                                                            provider_website,
+                                                            self.__on_favicon_downloaded)
+                        )
+            t.daemon = True
+            t.start()
+        else:
+            self.set_visible_child_name("provider_image_not_found")
+
+    def set_image(self, image):
+        updated = False
+        if len(path.split(image)) == 2:
+            image = path.join(FaviconManager.CACHE_DIR, image)
+            updated = True
         try:
-            if img_path and path.exists(img_path):
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img_path, self.image_size, self.image_size)
+            if image and path.exists(image):
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(image, self.image_size, self.image_size)
 
                 if pixbuf and (pixbuf.props.width != self.image_size or pixbuf.props.height != self.image_size):
                     pixbuf = pixbuf.scale_simple(self.image_size, self.image_size,
                                                 GdkPixbuf.InterpType.BILINEAR)
+                if updated and self.provider:
+                    self.provider.image = image
                 self.provider_image.set_from_pixbuf(pixbuf)
-                self.set_visible_child_name("provider_image")
+                return True
         except GLib.Error:
+            pass
+        return False
+
+    def __on_favicon_downloaded(self, img_path):
+        self.provider_spinner.stop()
+
+        if img_path and self.set_image(img_path):
+            self.set_visible_child_name("provider_image")
+        else:
             if self.allow_setting_image:
                 self.set_visible_child_name("provider_image_not_found")
             else:
@@ -110,7 +134,7 @@ class ProviderImage(Gtk.Stack):
         if response == Gtk.ResponseType.ACCEPT:
             file_uri = dialog.get_uri()
             cache_file = self.__create_cache_file(file_uri)
-            self._image_path = cache_file
+            # TODO: update the provider image
             self.__on_favicon_downloaded(cache_file)
         dialog.destroy()
 

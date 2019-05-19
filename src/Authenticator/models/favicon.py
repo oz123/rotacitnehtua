@@ -24,6 +24,10 @@ from gi.repository import Gio, GLib, Soup
 from urllib.parse import urlparse
 import base64
 import requests
+import urllib3
+from threading import Thread
+
+from .logger import Logger
 
 LINK_RELS = [
     'icon',
@@ -32,6 +36,19 @@ LINK_RELS = [
     'apple-touch-icon-precomposed',
     'fluid-icon'
 ]
+
+def send_request(url, **kwargs):
+    try:
+        r = requests.get(url, headers= {'DNT': '1'}, **kwargs)
+        Logger.debug("Favicon: Downloading html page")
+        if r.status_code == 200:
+            Logger.debug("Favicon: Page downloaded successufly")
+            return r
+        else:
+            Logger.error("Favicon: can't download the page.")
+    except (requests.exceptions.ConnectionError, urllib3.exceptions.MaxRetryError):
+        Logger.error("Favicon: Canno't connect to the server to download html page.")
+    return None
 
 class FaviconManager:
 
@@ -44,15 +61,6 @@ class FaviconManager:
         """
         pass
 
-    @staticmethod
-    def get_default():
-        """
-            Return default FaviconManager instance
-        """
-        if FaviconManager.instance is None:
-            FaviconManager.instance  = FaviconManager()
-        return FaviconManager.instance
-
     def grab_favicon(self, img, url, callback=None):
 
         # Create the cache directory
@@ -61,8 +69,11 @@ class FaviconManager:
 
         img_path = path.join(FaviconManager.CACHE_DIR, img)
         if not path.isfile(img_path):
+            Logger.debug("Favicon: downloading favicon for {}".format(url))
             self.__download_favicon(url, img_path, callback)
         else:
+            Logger.debug("Favicon: the favicon is already in cache for {}".format(url))
+            Logger.debug("Favicon: the file is ".format(img_path))
             # If the file was downloaded before, just load it
             callback(img_path)
 
@@ -70,9 +81,9 @@ class FaviconManager:
         """
             Get the website favicon and save it.
         """
-        r = requests.get(url, headers= {'DNT': '1'})
-        if r.status_code == 200:
-           self.__on_download_finished(r.url, r.text, img_path, callback)
+        r = send_request(url)
+        if not r or not self.__on_download_finished(r.url, r.text, img_path, callback):
+            callback(None)
 
     def __on_download_finished(self, provider_url, html_content, img_path, callback=None):
         favicon_url = self.__grab_favicon_url(html_content, provider_url)
@@ -82,10 +93,12 @@ class FaviconManager:
                 favicon = base64.b64decode(favicon_url.split("base64,")[-1])
                 with open(img_path, 'wb') as favicon_obj:
                     favicon_obj.write(favicon)
+                Logger.debug("Favicon: favicon saved.")
                 callback(img_path, data)
             else:
                 self.__save_favicon(favicon_url, img_path, callback)
-        return None
+            return True
+        return False
 
     def __get_largest_icon(self, links):
         largest = (links[0], 0)
@@ -104,8 +117,10 @@ class FaviconManager:
         links = []
         for rel in LINK_RELS:
             links.extend(bsoup.find_all('link', attrs={'rel': rel, 'href': True}))
+        Logger.debug("Favicon: found {} favicons".format(len(links)))
         if len(links):
             largest_icon = self.__get_largest_icon(links)
+            Logger.debug("Favicon: Larget favicon is {}".format(largest_icon))
             if largest_icon:
                 favicon_url = largest_icon.attrs['href']
                 if not favicon_url.startswith("http") \
@@ -116,19 +131,21 @@ class FaviconManager:
                 elif favicon_url.startswith("//"):
                     url_obj = urlparse(url)
                     favicon_url = url_obj.scheme + '://' + favicon_url.lstrip('/')
+                Logger.debug("Favicon: the favicon url is {}".format(favicon_url))
                 return favicon_url
         return None
 
     def __save_favicon(self, favicon_url, img_path, callback=None):
+        saved = False
         if favicon_url:
-            try:
-                r = requests.get(favicon_url, stream=True)
-                if r.status_code == 200:
-                    with open(img_path, 'wb') as fd:
-                        for chunk in r.iter_content(chunk_size=128):
-                            fd.write(chunk)
+            r = send_request(favicon_url, stream=True)
+            if r:
+                with open(img_path, 'wb') as fd:
+                    for chunk in r.iter_content(chunk_size=128):
+                        fd.write(chunk)
+                    saved = True
+                    Logger.debug("Favicon: favicon saved")
                     callback(img_path)
-            except requests.exceptions.ConnectionError:
-                # In case the favicon is not on the server anymore
-                pass
+        if not saved:
+            callback(None)
         return None
