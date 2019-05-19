@@ -40,10 +40,10 @@
             </p>
             <ul>
                 <li>New settings window</li>
-                <li>Download provider images using their favicon if possible<li>
-                <li>Night Light feature: not working yet!<li>
-                <li>The possiblity to enable/disable a password without having to reset everything<li>
-                <li>You can now add new providers and set images for providers that we didn't find an icon for<li>
+                <li>Download provider images using their favicon if possible</li>
+                <li>Night Light feature: not working yet!</li>
+                <li>The possiblity to enable/disable a password without having to reset everything</li>
+                <li>You can now add new providers and set images for providers that we didn't find an icon for</li>
                 <li>Mobile ready</li>
                 <li>New icon by Tobias</li>
                 <li>Bunch of fixed bugs</li>
