@@ -207,7 +207,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 return (
                     data in row.account.username.lower()
                     or
-                    data in row.account.provider.lower()
+                    data in row.account.provider.name.lower()
                 )
             else:
                 return True

@@ -64,9 +64,9 @@ class AccountsManager(GObject.GObject):
         for _, accounts in self._accounts:
             for account in accounts:
                 if data:
-                    child.emit(signal, data)
+                    account.emit(signal, data)
                 else:
-                    child.emit(signal)
+                    account.emit(signal)
 
     def __update_counter(self, *args):
         if self._alive:
