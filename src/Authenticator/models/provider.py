@@ -16,7 +16,7 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from Authenticator.models import Database
+from Authenticator.models import Database, FaviconManager
 
 class Provider:
 

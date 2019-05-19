@@ -71,8 +71,10 @@ class Account(GObject.GObject):
             provider = _("Default")
         else:
             provider = tags[0]
-
-        return Account.create(json_obj["label"], provider, json_obj["secret"])
+        provider = Provider.get_by_name(provider)
+        if not provider:
+            provider = Provider.create(name, None, None, None)
+        return Account.create(json_obj["label"], json_obj["secret"], provider.provider_id)
 
     @staticmethod
     def get_by_id(id_):

@@ -136,9 +136,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     def __init_widgets(self):
         if self._account is not None:
             self.provider_image = ProviderImage(self._account.provider,
-                                                96, True)
+                                                96)
         else:
-            self.provider_image = ProviderImage(None, 96, True)
+            self.provider_image = ProviderImage(None, 96)
 
         self.main_box.pack_start(self.provider_image, False, False, 0)
         self.main_box.reorder_child(self.provider_image, 0)
