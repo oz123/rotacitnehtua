@@ -21,10 +21,5 @@
         <summary>Default window maximized behaviour</summary>
         <description></description>
     </key>
-    <key name="password-state" type="b">
-        <default>false</default>
-        <summary>The state of the password authentication</summary>
-        <description></description>
-    </key>
   </schema>
 </schemalist>

@@ -60,7 +60,9 @@ class Application(Gtk.Application):
         Gtk.Application.do_startup(self)
         self.__generate_menu()
         self.__setup_actions()
-        self.props.is_locked = Keyring.get_default().has_password() and settings.password_state
+        keyring = Keyring.get_default()
+
+        self.props.is_locked = keyring.has_password() and keyring.is_password_enabled()
         Application.__setup_css()
 
         # Restore default state

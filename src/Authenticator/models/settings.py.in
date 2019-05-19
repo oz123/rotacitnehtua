@@ -93,19 +93,3 @@ class Settings(Gio.Settings):
             :type is_maximized: bool
         """
         self.set_boolean("is-maximized", is_maximized)
-
-    @property
-    def password_state(self):
-        """Is the password authentication enabled?."""
-        state =  self.get_boolean("password-state")
-        return state
-
-    @password_state.setter
-    def password_state(self, state):
-        """
-            Set whether the authentication with a password is enabled
-
-            :param state: the new state of the authentication with a password
-            :type state: bool
-        """
-        self.set_boolean("password-state", state)

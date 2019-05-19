@@ -22,6 +22,7 @@ from gi.repository import Secret
 class Keyring:
     ID = "com.github.bilelmoussaoui.Authenticator"
     PasswordID = "com.github.bilelmoussaoui.Authenticator.Login"
+    PasswordState = "com.github.bilelmoussaoui.Authenticator.State"
     instance = None
 
     def __init__(self):
@@ -36,6 +37,11 @@ class Keyring:
                                                  {
                                                     "password": Secret.SchemaAttributeType.STRING
                                                  })
+        self.password_state_schema = Secret.Schema.new(Keyring.PasswordState,
+                                                       Secret.SchemaFlags.NONE,
+                                                       {
+                                                           "state": Secret.SchemaAttributeType.STRING
+                                                       })
 
     @staticmethod
     def get_default():
@@ -133,13 +139,25 @@ class Keyring:
 
     @staticmethod
     def is_password_enabled():
-        from .settings import Settings
-        return Settings.get_default().password_state
+        schema = Keyring.get_default().password_state_schema
+        state = Secret.password_lookup_sync(schema, {}, None)
+        return state == 'true' if state else False
 
     @staticmethod
     def set_password_state(state):
-        from .settings import Settings
-        Settings.get_default().password_state = state
+        schema = Keyring.get_default().password_state_schema
+        if not state:
+            Secret.password_clear_sync(schema, {}, None)
+        else:
+            Secret.password_store_sync(
+                schema,
+                {},
+                Secret.COLLECTION_DEFAULT,
+                "Authenticator state",
+                "true",
+                None
+            )
+
 
     @staticmethod
     def has_password():
