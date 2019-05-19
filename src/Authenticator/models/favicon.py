@@ -24,6 +24,7 @@ from gi.repository import Gio, GLib, Soup
 from urllib.parse import urlparse
 import base64
 import requests
+from threading import Thread
 
 LINK_RELS = [
     'icon',
@@ -33,7 +34,7 @@ LINK_RELS = [
     'fluid-icon'
 ]
 
-class FaviconManager:
+class FaviconManager(Thread):
 
     instance = None
     CACHE_DIR = path.join(GLib.get_user_cache_dir(), "Authenticator")

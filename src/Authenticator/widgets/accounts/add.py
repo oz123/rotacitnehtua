@@ -22,7 +22,7 @@ from gi.repository import Gtk, GObject, GLib, Gio
 
 from Authenticator.widgets.notification import Notification
 from Authenticator.widgets.provider_image import ProviderImage
-from Authenticator.models import OTP, ProviderManager, FaviconManager
+from Authenticator.models import OTP, Provider, FaviconManager
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
@@ -73,11 +73,10 @@ class AddAccountWindow(Gtk.Window):
         account_obj = self.account_config.account
         # Create a new account
         account = Account.create(account_obj["username"],
-                                 account_obj["provider"],
                                  account_obj["token"],
-                                 account_obj["image_path"])
+                                 account_obj["provider"].provider_id)
         # Add it to the AccountsManager
-        AccountsManager.get_default().add(account)
+        AccountsManager.get_default().add(account_obj["provider"], account)
         AccountsWidget.get_default().append(account)
         self._on_quit()
 
@@ -118,10 +117,14 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         """
             Return an instance of Account for the new account.
         """
+        provider_name = self.provider_entry.get_text()
+        provider = Provider.get_by_name(provider_name)
+        if not provider:
+            provider_image = self.provider_image.image
+            provider = Provider.create(provider_name, None, None, provider_image)
         account = {
             "username": self.account_name_entry.get_text(),
-            "provider": self.provider_entry.get_text(),
-            "image_path": self.provider_image.get_path()
+            "provider": provider
         }
 
         if not self.props.is_edit:
@@ -131,16 +134,19 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         return account
 
     def __init_widgets(self):
+        if self._account is not None:
+            self.provider_image = ProviderImage(self._account.provider,
+                                                96, True)
+        else:
+            self.provider_image = ProviderImage(None, 96, True)
 
-        self.provider_image = ProviderImage(self._account.provider, self._account.image_path,
-                                             96, True)
         self.main_box.pack_start(self.provider_image, False, False, 0)
         self.main_box.reorder_child(self.provider_image, 0)
         self.provider_image.set_halign(Gtk.Align.CENTER)
 
         # Set up auto completion
         if self._account and self._account.provider:
-            self.provider_entry.set_text(self._account.provider)
+            self.provider_entry.set_text(self._account.provider.name)
 
         if self._account and self._account.username:
             self.account_name_entry.set_text(self._account.username)
@@ -155,29 +161,34 @@ class AccountConfig(Gtk.Box, GObject.GObject):
 
     def __on_open_doc_url(self, *args):
         provider_name = self.provider_entry.get_text()
-        provider = ProviderManager.get_default().get_by_name(provider_name)
-        if provider and provider.doc:
-            Gio.app_info_launch_default_for_uri(provider.doc)
+        provider = Provider.get_by_name(provider_name)
+        if provider and provider.doc_url:
+            Gio.app_info_launch_default_for_uri(provider.doc_url)
+        else:
+            self.token_entry.props.secondary_icon_activatable = False
 
     @Gtk.Template.Callback('provider_changed')
     def _on_provider_changed(self, combo):
         tree_iter = combo.get_active_iter()
         if tree_iter is not None:
             model = combo.get_model()
-            provider_name = model[tree_iter][0]
+            provider_id = model[tree_iter][0]
+            provider = Provider.get_by_id(provider_id)
         else:
-            entry = combo.get_child()
-            provider_name = entry.get_text()
+            provider_name = self.provider_entry.get_text()
+            provider = Provider.get_by_name(provider_name)
 
-        provider = ProviderManager.get_default().get_by_name(provider_name)
         self.token_entry.props.secondary_icon_activatable = provider is not None
         self._validate()
-        self.provider_image.set_property('provider', provider_name)
+        if provider:
+            self.provider_image.emit('changed', provider.website, provider.image)
+        else:
+            self.provider_image.emit("changed", None, None)
 
     def _fill_data(self):
-        providers = ProviderManager.get_default().providers
+        providers = Provider.all()
         for provider in providers:
-            self.providers_store.append([provider.name])
+            self.providers_store.append([provider.provider_id, provider.name])
 
     @Gtk.Template.Callback('account_edited')
     def _validate(self, *_):
@@ -216,9 +227,9 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         filename = GNOMEScreenshot.area()
         if filename:
             qr_reader = QRReader(filename)
-            secret = qr_reader.read()
+            token = qr_reader.read()
             if qr_reader.is_valid():
-                self.token_entry.set_text(secret)
+                self.token_entry.set_text(token)
                 if qr_reader.provider is not None:
                     self.provider_entry.set_text(qr_reader.provider)
                 if qr_reader.username is not None:

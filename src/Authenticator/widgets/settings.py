@@ -127,7 +127,8 @@ class SettingsWindow(Gtk.Window):
                 settings.dark_theme = switch.get_active()
         self.dark_theme_switch.connect("notify::active", on_dark_theme_switch)
 
-    def __on_enable_password(self, *_):
+    def __on_enable_password(self, *args):
+        print(args)
         if not Keyring.get_default().has_password():
             self._password_widget.set_current_password_visibility(False)
         else:

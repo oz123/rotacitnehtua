@@ -18,7 +18,7 @@
 """
 from gi.repository import Gtk, GObject, Gio, GLib
 
-from Authenticator.models import Database, Logger, Settings, AccountsManager, ProviderManager
+from Authenticator.models import Database, Logger, Settings, AccountsManager
 from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
 
 
@@ -65,7 +65,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.restore_state()
         # Start the Account Manager
         AccountsManager.get_default()
-        ProviderManager.get_default()
         
         self.__init_widgets()
 
@@ -150,7 +149,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
     def __on_accounts_changed(self, *_):
-        if Database.get_default().count == 0:
+        if Database.get_default().accounts_count == 0:
             self.props.view = WindowView.EMPTY
         else:
             self.props.view = WindowView.NORMAL

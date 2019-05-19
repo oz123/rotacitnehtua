@@ -45,7 +45,7 @@ class Application(Gtk.Application):
         if self.is_locked:
             Window.get_default().view = WindowView.LOCKED
         else:
-            count = Database.get_default().count
+            count = Database.get_default().accounts_count
             if count == 0:
                 Window.get_default().view = WindowView.EMPTY
             else:
@@ -182,8 +182,6 @@ class Application(Gtk.Application):
     def __on_color_night_changed(self, *args):
         print(args)
         
-
-    
     def __on_lock(self, *_):
         self.set_property("is-locked", True)
 

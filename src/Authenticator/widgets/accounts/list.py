@@ -55,8 +55,19 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         accounts_manager.connect("counter_updated",
                                   self._on_counter_updated)
         # Add different accounts to the main view
-        for account in accounts_manager.accounts:
-            self.append(account)
+        for provider, accounts in accounts_manager.accounts:
+            for account in accounts:
+                self.append(account)
+
+    def __add_provider(self, provider):
+        accounts_list = self._providers.get(provider.provider_id)
+        if not accounts_list:
+            accounts_list = AccountsList()
+            accounts_list.connect("account-deleted", self._on_account_deleted)
+            self._providers[provider.provider_id] = accounts_list
+            provider_widget = ProviderWidget(accounts_list, provider)
+            self.accounts_container.pack_start(provider_widget, False, False, 0)
+        return accounts_list
 
 
     @staticmethod
@@ -67,14 +78,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         return AccountsWidget.instance
 
     def append(self, account):
-        accounts_list = self._providers.get(account.provider)
-        if not accounts_list:
-            accounts_list = AccountsList()
-            accounts_list.connect("account-deleted", self._on_account_deleted)
-            self._providers[account.provider] = accounts_list
-            provider_image = account.image_path if account.image_path else account.provider
-            provider_widget = ProviderWidget(accounts_list, account.provider, provider_image)
-            self.accounts_container.pack_start(provider_widget, False, False, 0)
+        accounts_list = self.__add_provider(account.provider)
         accounts_list.add_row(account)
         self._reorder()
         self.emit("account-added")
@@ -118,7 +122,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         for account_list in self._to_delete:
             provider_widget = account_list.get_parent()
             self.accounts_container.remove(provider_widget)
-            del self._providers[provider_widget.provider]
+            del self._providers[provider_widget.provider.provider_id]
         self._to_delete = []
 
     def _reorder(self):
@@ -127,7 +131,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         """
         childs = self.accounts_container.get_children()
         ordered_childs = sorted(
-            childs, key=lambda children: children.provider.lower())
+            childs, key=lambda children: children.provider.name.lower())
         for i in range(len(ordered_childs)):
             self.accounts_container.reorder_child(ordered_childs[i], i)
         self.show_all()
@@ -141,26 +145,28 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
 class ProviderWidget(Gtk.Box):
 
-    def __init__(self, accounts_list, provider, provider_image):
+    def __init__(self, accounts_list:Gtk.ListBox, provider):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         self.get_style_context().add_class("provider-widget")
         self.provider = provider
-        self._build_widgets(accounts_list, provider_image)
+        self.accounts_list = accounts_list
+        self._build_widgets()
 
-    def _build_widgets(self, accounts_list, provider_image):
+    def _build_widgets(self):
         provider_container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         provider_lbl = Gtk.Label()
-        provider_lbl.set_text(self.provider)
+        provider_lbl.set_text(self.provider.name)
         provider_lbl.set_halign(Gtk.Align.START)
         provider_lbl.get_style_context().add_class("provider-label")
 
-        self.provider_img = ProviderImage(self.provider, provider_image, 32)
+        self.provider_img = ProviderImage(self.provider, 48)
 
         provider_container.pack_start(self.provider_img, False, False, 6)
         provider_container.pack_start(provider_lbl, False, False, 6)
 
         self.pack_start(provider_container, False, False, 6)
-        self.pack_start(accounts_list, False, False, 6)
+        self.pack_start(self.accounts_list, False, False, 6)
+
 
 
 class AccountsList(Gtk.ListBox, GObject.GObject):
@@ -178,15 +184,15 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         self.set_selection_mode(Gtk.SelectionMode.NONE)
         self.get_style_context().add_class("accounts-list")
 
-    def append_new(self, name, provider, token, image_path=None):
-        account = Account.create(name, provider, token, image_path)
+    def append_new(self, name: str, provider: int, token: str):
+        account = Account.create(name, provider, token)
         self.add_row(account)
 
-    def append(self, _id, name, provider, secret_id, image_path=None):
-        account = Account(_id, name, provider, secret_id, image_path)
+    def append(self, _id: int, name: str, provider: int, token_id: str):
+        account = Account(_id, name, provider, token_id)
         self.add_row(account)
 
-    def add_row(self, account):
+    def add_row(self, account: Account):
         row = AccountRow(account)
         row.delete_btn.connect("clicked", self.__on_delete_child, row)
         self.add(row)

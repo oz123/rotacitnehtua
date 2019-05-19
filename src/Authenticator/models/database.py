@@ -65,10 +65,11 @@ class Database:
         :param token_id: The token identifier stored using libsecret
         :param provider: The provider foreign key
         """
-        query = "INSERT INTO accounts (username, token_id, provider) VALUES (?, ?, ?, ?)"
+        query = "INSERT INTO accounts (username, token_id, provider) VALUES (?, ?, ?)"
         cursor = self.conn.cursor()
         try:
             cursor.execute(query, [username, token_id, provider])
+            self.conn.commit()
             return Account(cursor.lastrowid, username, token_id, provider)
         except Exception as error:
             Logger.error("[SQL] Couldn't add a new account")
@@ -107,6 +108,12 @@ class Database:
             Logger.error(str(error))
         return None
 
+    def accounts_by_provider(self, provider_id):
+        query = "SElECT * FROM accounts WHERE provider=?"
+        query_d = self.conn.execute(query, (provider_id, ))
+        accounts = query_d.fetchall()
+        return [Account(*account) for account in accounts]
+
     def provider_by_id(self, id_):
         """
             Get a provider by the ID
@@ -118,9 +125,26 @@ class Database:
             data = self.conn.cursor().execute(query, (id_,))
             return Provider(*data.fetchone())
         except Exception as error:
-            Logger.error("[SQL] Couldn't get account with ID={}".format(id_))
+            Logger.error("[SQL] Couldn't get provider with ID={}".format(id_))
             Logger.error(str(error))
         return None
+
+    def provider_by_name(self, provider_name):
+        """
+            Get a provider by the ID
+            :param id_: int the provider id
+            :return: Provider: The provider data
+        """
+        query = "SELECT * FROM providers WHERE name LIKE ?"
+        try:
+            data = self.conn.cursor().execute(query, (provider_name,))
+            provider = data.fetchone()
+            return Provider(*provider) if provider else None
+        except Exception as error:
+            Logger.error("[SQL] Couldn't get provider with name={}".format(provider_name))
+            Logger.error(str(error))
+        return None
+
 
     def delete_account(self, id_):
         """
@@ -181,6 +205,21 @@ class Database:
         """
         return self.__count("providers")
 
+    def get_providers(self, **kwargs):
+        only_used = kwargs.get("only_used",)
+        query = "SELECT * FROM providers"
+        if only_used:
+            query += " WHERE id IN (SELECT DISTINCT provider FROM accounts)"
+        try:
+            data = self.conn.cursor().execute(query)
+            providers = data.fetchall()
+            return [Provider(*provider) for provider in providers]
+        except Exception as error:
+            Logger.error("[SQL] Couldn't fetch providers list")
+            Logger.error(str(error))
+        return None
+
+
     @property
     def accounts(self):
         """
@@ -188,24 +227,11 @@ class Database:
 
             :return list
         """
-        query = '''
-                SELECT A.id, A.username, A.token_id, P.name, P.image
-                FROM accounts A
-                JOIN providers P
-                ON P.id = A.provider
-                GROUP BY P.id
-                ORDER BY P.name ASC, A.username DESC
-                '''
+        query = "SELECT * FROM accounts"
         try:
             data = self.conn.cursor().execute(query)
             accounts = data.fetchall()
-            return [OrderedDict([
-                ("id", account[0]),
-                ("username", account[1]),
-                ("provider", account[2]),
-                ("secret_id", account[3]),
-                ("image_path", account[4])
-            ]) for account in accounts]
+            return [Account(*account) for account in accounts]
         except Exception as error:
             Logger.error("[SQL] Couldn't fetch accounts list")
             Logger.error(str(error))
@@ -230,15 +256,15 @@ class Database:
         CREATE TABLE "accounts" (
             "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
             "username" VARCHAR NOT NULL,
-            "provider" INTEGER NOT NULL,
-            "token_id" VARCHAR NOT NULL UNIQUE
+            "token_id" VARCHAR NOT NULL UNIQUE,
+            "provider" INTEGER NOT NULL
         );
         '''
         providers_table = '''
         CREATE TABLE "providers" (
             "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
             "name" VARCHAR NOT NULL,
-            "website" VARCHAR NOT NULL,
+            "website" VARCHAR NULL,
             "doc_url" VARCHAR NULL,
             "image" VARCHAR NULL
         )

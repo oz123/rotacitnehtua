@@ -22,7 +22,7 @@ from .clipboard import Clipboard
 from .database import Database
 from .keyring import Keyring
 from .favicon import FaviconManager
-from .provider import ProviderManager
+from .provider import Provider
 from .account import Account
 from .accounts_manager import AccountsManager
 from .backup import BackupJSON

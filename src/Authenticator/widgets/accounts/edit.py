@@ -64,12 +64,11 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         new_account = self.account_config.account
         username = new_account["username"]
         provider = new_account["provider"]
-        image_path = new_account["image_path"]
         old_provider = self._account.provider
         # Update the AccountRow widget
-        self.emit("updated", username, provider, image_path)
+        self.emit("updated", username, provider)
         # Update the providers list
-        if provider != old_provider:
+        if provider.provider_id != old_provider.provider_id:
             from .list import AccountsWidget
             ac_widget = AccountsWidget.get_default()
             ac_widget.update_provider(self._account, provider)
