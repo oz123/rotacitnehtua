@@ -108,7 +108,7 @@ class ProviderImage(Gtk.Stack):
     def __on_favicon_downloaded(self, img_path):
         self.provider_spinner.stop()
 
-        if self.set_image(img_path):
+        if img_path and self.set_image(img_path):
             self.set_visible_child_name("provider_image")
         else:
             if self.allow_setting_image:
