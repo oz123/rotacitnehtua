@@ -34,7 +34,7 @@ LINK_RELS = [
     'fluid-icon'
 ]
 
-class FaviconManager(Thread):
+class FaviconManager:
 
     instance = None
     CACHE_DIR = path.join(GLib.get_user_cache_dir(), "Authenticator")
@@ -44,15 +44,6 @@ class FaviconManager(Thread):
             Start a new FaviconManager.
         """
         pass
-
-    @staticmethod
-    def get_default():
-        """
-            Return default FaviconManager instance
-        """
-        if FaviconManager.instance is None:
-            FaviconManager.instance  = FaviconManager()
-        return FaviconManager.instance
 
     def grab_favicon(self, img, url, callback=None):
 

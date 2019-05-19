@@ -21,6 +21,7 @@ from gi.repository import Gtk, GObject, GdkPixbuf, GLib, Gio
 from os import path
 from tempfile import NamedTemporaryFile
 from gettext import gettext as _
+from threading import Thread
 
 from Authenticator.models import FaviconManager, Provider
 
@@ -73,8 +74,14 @@ class ProviderImage(Gtk.Stack):
         if provider_image is not None and self.set_image(provider_image):
             self.set_visible_child_name("provider_image")
         elif provider_image and provider_website:
-            FaviconManager.get_default().grab_favicon(provider_image, provider_website,
-                                                      self.__on_favicon_downloaded)
+            favicon_manager = FaviconManager()
+            t = Thread(target=lambda:
+                                favicon_manager.grab_favicon(provider_image,
+                                                            provider_website,
+                                                            self.__on_favicon_downloaded)
+                        )
+            t.daemon = True
+            t.start()
         else:
             self.set_visible_child_name("provider_image_not_found")
 
