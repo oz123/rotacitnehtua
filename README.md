@@ -18,8 +18,7 @@
 - Huge database of more than 560 supported services
 - Keep your PIN tokens secure by locking the application with a password
 - Automtically fetch an image for services using their favicon
-- Allow the user to add new services
-- 
+- The possibility to add new services
 
 ## Hack on Authenticator
 To build the development version of Authenticator and hack on the code
