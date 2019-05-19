@@ -45,11 +45,7 @@ class Application(Gtk.Application):
         if self.is_locked:
             Window.get_default().view = WindowView.LOCKED
         else:
-            count = Database.get_default().accounts_count
-            if count == 0:
-                Window.get_default().view = WindowView.EMPTY
-            else:
-                Window.get_default().view = WindowView.NORMAL
+            Window.get_default().refresh_view()
     @staticmethod
     def get_default():
         if Application.instance is None:

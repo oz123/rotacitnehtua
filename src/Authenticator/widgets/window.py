@@ -135,16 +135,16 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
         # Set up accounts Widget
         accounts_widget = AccountsWidget.get_default()
-        accounts_widget.connect("account-removed", self.__on_accounts_changed)
-        accounts_widget.connect("account-added", self.__on_accounts_changed)
+        accounts_widget.connect("account-removed", self.refresh_view)
+        accounts_widget.connect("account-added", self.refresh_view)
         self.accounts_viewport.add(accounts_widget)
 
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
                                       "active",
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
-    def __on_accounts_changed(self, *_):
-        if Database.get_default().accounts_count == 0:
+    def refresh_view(self, *_):
+        if AccountsManager.get_default().accounts_count == 0:
             self.props.view = WindowView.EMPTY
         else:
             self.props.view = WindowView.NORMAL

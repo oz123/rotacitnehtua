@@ -54,6 +54,13 @@ class AccountsManager(GObject.GObject):
     def accounts(self):
         return self._accounts
 
+    @property
+    def accounts_count(self):
+        count = 0
+        for _, accounts in self._accounts:
+            count += len(accounts)
+        return count
+
     def clear(self):
         self._accounts = []
 
