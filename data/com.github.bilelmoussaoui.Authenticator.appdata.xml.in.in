@@ -9,9 +9,12 @@
     <p>Simple application that generates a two-factor authentication code, created for GNOME.</p>
     <p>Features:</p>
     <ul>
-      <li>QR code scanner</li>
-      <li>Beautiful UI</li>
-      <li>Huge database of (290+) websites/applications</li>
+        <li>QR code scanner</li>
+        <li>Beautiful UI</li>
+        <li>Huge database of more than 560 supported services</li>
+        <li>Keep your PIN tokens secure by locking the application with a password</li>
+        <li>Automtically fetch an image for services using their favicon</li>
+        <li>The possibility to add new services</li>
     </ul>
   </description>
   <screenshots>
@@ -26,9 +29,27 @@
   <url type="homepage">https://gitlab.gnome.org/World/Authenticator</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/Authenticator/issues</url>
   <url type="translate">https://hosted.weblate.org/projects/authenticator/translation/</url>
-  <url type="donation">https://www.paypal.me/BilalELMoussaoui</url>
+  <url type="donation">https://liberapay.com/bielmoussaoui</url>
   <content_rating type="oars-1.0" />
   <releases>
+    <release version="3.31" date="2019-05-20" type="development">
+        <description>
+            <p>
+                New 3.31 beta is out! Here's an overview of what changed
+                Please backup your accounts before updating to the latest version and restore the data after update.
+            </p>
+            <ul>
+                <li>New settings window</li>
+                <li>Download provider images using their favicon if possible<li>
+                <li>Night Light feature: not working yet!<li>
+                <li>The possiblity to enable/disable a password without having to reset everything<li>
+                <li>You can now add new providers and set images for providers that we didn't find an icon for<li>
+                <li>Mobile ready</li>
+                <li>New icon by Tobias</li>
+                <li>Bunch of fixed bugs</li>
+            </ul>
+        </description>
+    </release>
     <release version="0.2.5" date="2018-09-11">
       <description>
         <p>
