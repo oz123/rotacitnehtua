@@ -30,15 +30,10 @@ class WindowView:
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/window.ui')
 class Window(Gtk.ApplicationWindow, GObject.GObject):
     """Main Window object."""
-    __gsignals__ = {
-        'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,))
-    }
-
     __gtype_name__ = 'Window'
 
     # Default Window instance
     instance = None
-
 
     view = GObject.Property(type=int, default=0)
 

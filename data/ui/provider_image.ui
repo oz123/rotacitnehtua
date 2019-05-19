@@ -2,16 +2,6 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="insert_image">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="halign">center</property>
-    <property name="valign">center</property>
-    <property name="icon_name">insert-image-symbolic</property>
-    <style>
-      <class name="flat"/>
-    </style>
-  </object>
   <template class="ProviderImage" parent="GtkStack">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -45,7 +35,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkImage">
+          <object class="GtkImage" id="image_missing">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">We couldn't find an image for this provider</property>
@@ -58,20 +48,19 @@
           </packing>
         </child>
         <child type="overlay">
-          <object class="GtkButton">
+          <object class="GtkEventBox">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="tooltip_text" translatable="yes">Select an image</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin_bottom">6</property>
-            <property name="image">insert_image</property>
-            <signal name="clicked" handler="select_image_clicked" swapped="no"/>
-            <style>
-              <class name="flat"/>
-              <class name="insert-image-btn"/>
-            </style>
+            <property name="can_focus">False</property>
+            <signal name="button-press-event" handler="select_image_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="valign">end</property>
+                <property name="icon_name">insert-image-symbolic</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="index">1</property>

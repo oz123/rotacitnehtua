@@ -42,19 +42,17 @@ class ProviderImage(Gtk.Stack):
     }
     provider_image = Gtk.Template.Child()
     provider_spinner = Gtk.Template.Child()
-    provider_set_image_box = Gtk.Template.Child()
+    image_missing = Gtk.Template.Child()
 
 
-    def __init__(self, provider=None, image_size=48, allow_setting_image=False):
+    def __init__(self, provider=None, image_size=48):
         super(ProviderImage, self).__init__()
         self.init_template('ProviderImage')
         self.provider = provider if provider else Provider(*[None]*5)
-        self.allow_setting_image = allow_setting_image
         self.image_size = image_size
-        if not allow_setting_image:
-            self.remove(self.provider_set_image_box)
-        self.connect("changed", self.__on_provider_changed)
         self.provider_image.set_pixel_size(image_size)
+        self.image_missing.set_pixel_size(image_size)
+        self.connect("changed", self.__on_provider_changed)
         if self.provider.image and self.set_image(self.provider.image):
             self.set_visible_child_name("provider_image")
         else:
@@ -107,7 +105,6 @@ class ProviderImage(Gtk.Stack):
 
     def __on_favicon_downloaded(self, img_path):
         self.provider_spinner.stop()
-
         if img_path and self.set_image(img_path):
             self.set_visible_child_name("provider_image")
         else:

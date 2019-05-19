@@ -215,7 +215,6 @@ class Application(Gtk.Application):
         filename = import_json(Window.get_default())
         if filename:
             BackupJSON.import_file(filename)
-        Window.get_default().update_view()
 
     @staticmethod
     def __on_export_json(*_):

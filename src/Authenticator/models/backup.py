@@ -34,7 +34,7 @@ class Backup:
         for account in accounts:
             try:
                 new_account = Account.create_from_json(account)
-                accounts_manager.add(new_account)
+                accounts_manager.add(new_account.provider, new_account)
                 accounts_widget.append(new_account)
             except Exception as e:
                 Logger.error("[Restore] Failed to import accounts")
