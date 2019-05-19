@@ -9,17 +9,17 @@
 
 ## Screenshots
 
-<p align="center">
-<img align="center" src="data/screenshots/screenshot1.png" />
-</p>
+![screenshot](data/screenshots/screenshot1.png)
 
 ## Features
 
 - QR code scanner
 - Beautiful UI
-- Huge database of more than 500 supported services
-- Keep your 2FA pin's secure by locking the application with a password
-
+- Huge database of more than 560 supported services
+- Keep your PIN tokens secure by locking the application with a password
+- Automtically fetch an image for services using their favicon
+- Allow the user to add new services
+- 
 
 ## Hack on Authenticator
 To build the development version of Authenticator and hack on the code
@@ -27,26 +27,6 @@ see the [general guide](https://wiki.gnome.org/Newcomers/BuildProject)
 for building GNOME apps with Flatpak and GNOME Builder.
 
 
-## Dependecies
-
-- `Python 3.3+`
-- `Gtk 3.16+`
-- `meson 0.48`
-- `ninja`
-- `pyotp`
-- `libsecret`
-- `Pillow`
-- `zbar`
-- `pyzbar`
-
-## Flags
-
-- `--version`
-  Shows the version number of the application
-- `--debug`
-  Enable the debug logs
-
-
 ## Credits
 
-- Database for applications/websites from [twofactorauth](https://github.com/2factorauth/twofactorauth), by the 2factorauth team
+- We ship a database of providers based on [twofactorauth](https://github.com/2factorauth/twofactorauth), by the 2factorauth team
