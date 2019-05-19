@@ -5,7 +5,7 @@
 
 # Authenticator
 <img src="https://gitlab.gnome.org/World/Authenticator/raw/master/data/icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg" width="128" height="128" />
-<p>Two-factor authentication code generator for GNOME. Created with love using Python and GTK+.</p>
+<p>Two-factor authentication application built for GNOME.</p>
 
 ## Screenshots
 
