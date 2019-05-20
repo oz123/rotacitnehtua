@@ -38,8 +38,10 @@ class Application(Gtk.Application):
         GLib.set_prgname("Authenticator")
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
+        self.night_light_watcher = None
 
         self._menu = Gio.Menu()
+
 
     @staticmethod
     def get_default():
@@ -69,6 +71,7 @@ class Application(Gtk.Application):
         # Bind signals
         settings.connect("changed::dark-theme", self.__on_dark_theme_changed)
         settings.connect("changed::night-light", self.__on_night_light_changed)
+
 
     @staticmethod
     def __setup_css():
@@ -159,7 +162,7 @@ class Application(Gtk.Application):
         Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                 Settings.get_default().dark_theme)    
 
-    def __on_night_light_changed(self, *args):
+    def __on_night_light_changed(self, *_):
         if Settings.get_default().night_light:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
             proxy = Gio.DBusProxy.new_sync(bus,
@@ -172,14 +175,12 @@ class Application(Gtk.Application):
             system_value = proxy.get_cached_property('NightLightActive')
             Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                     system_value)
-
-            proxy.connect("g-properties-changed", self.__on_color_night_changed)
+            if not self.night_light_watcher:
+                self.night_light_watcher = GLib.timeout_add_seconds(1, self.__on_night_light_changed, 0)
+            return True
         else:
             self.__on_dark_theme_changed()
-
-
-    def __on_color_night_changed(self, *args):
-        print(args)
+            self.night_light_watcher = None
 
     def __sync_lock_action(self, *_):
         keyring = Keyring.get_default()
