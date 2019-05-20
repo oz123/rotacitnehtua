@@ -108,11 +108,8 @@ class ProviderImage(Gtk.Stack):
         if img_path and self.set_image(img_path):
             self.set_visible_child_name("provider_image")
         else:
-            if self.allow_setting_image:
-                self.set_visible_child_name("provider_image_not_found")
-            else:
-                self.provider_image.set_from_resource("/com/github/bilelmoussaoui/Authenticator/authenticator.svg")
-                self.set_visible_child_name("provider_image")
+            self.set_visible_child_name("provider_image_not_found")
+
 
     @Gtk.Template.Callback('select_image_clicked')
     def __on_select_image_clicked(self, *args):
