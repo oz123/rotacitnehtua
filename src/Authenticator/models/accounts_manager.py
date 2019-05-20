@@ -25,6 +25,7 @@ class AccountsManager(GObject.GObject):
         'counter_updated': (GObject.SignalFlags.RUN_LAST, None, (int,)),
     }
     instance = None
+    empty = GObject.Property(type=bool, default=False)
 
     # A list that contains a tuple (provider, accounts)
     __accounts = []
@@ -46,9 +47,31 @@ class AccountsManager(GObject.GObject):
         return AccountsManager.instance
 
     def add(self, provider, account):
+        added = False
         for _provider, accounts in self._accounts:
             if provider == _provider:
                 accounts.append(account)
+                added = True
+                break
+        if not added:
+            self._accounts.append((provider, [account]))
+        self.props.empty = len(self._accounts) == 0
+
+    
+    def delete(self, account):
+        provider_index = 0
+        _accounts = None
+        for provider, accounts in self._accounts:
+            if account in accounts:
+                _accounts = accounts
+                break
+            provider_index += 1 
+        if provider:
+            _accounts.remove(account)
+            if not len(_accounts):
+                del self._accounts[provider_index]
+        self.props.empty = len(self._accounts) == 0
+
 
     def search(self, terms):
         from .database import Database
@@ -112,3 +135,4 @@ class AccountsManager(GObject.GObject):
                 if account.otp:
                     _accounts.append(account)
             self._accounts.append((provider, _accounts))
+        self.props.empty = len(self._accounts) == 0

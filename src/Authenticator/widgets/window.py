@@ -137,6 +137,9 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         accounts_widget = AccountsWidget.get_default()
         accounts_widget.connect("account-removed", self.refresh_view)
         accounts_widget.connect("account-added", self.refresh_view)
+
+        AccountsManager.get_default().connect("notify::empty", self.refresh_view)
+
         self.accounts_viewport.add(accounts_widget)
 
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
@@ -144,7 +147,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
     def refresh_view(self, *_):
-        if AccountsManager.get_default().accounts_count == 0:
+        if AccountsManager.get_default().props.empty:
             self.props.view = WindowView.EMPTY
         else:
             self.props.view = WindowView.NORMAL
