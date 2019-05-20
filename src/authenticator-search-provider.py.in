@@ -22,7 +22,6 @@
 import sys
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
-from os import path
 
 from gi import require_version
 require_version('Gtk', '3.0')
@@ -30,7 +29,7 @@ require_version('Gdk', '3.0')
 require_version('Secret', '1')
 from gi.repository import Gio, GLib
 
-from Authenticator.models import AccountsManager
+from Authenticator.models import AccountsManager, Account
 
 class Server:
     def __init__(self, con, path):
@@ -69,7 +68,6 @@ class Server:
 
         try:
             result = getattr(self, method_name)(*args)
-            print(result)
 
             # out_args is atleast (signature1).
             # We therefore always wrap the result as a tuple.
@@ -153,12 +151,13 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
         try:
             for search_id in ids:
                 account = Account.get_by_id(int(search_id))
-                name = account.username
-                description = "{} - {}".format(
-                    account.provider.strip(), account.username)
+                gicon = account.provider.image_path
+                description = "{} - {}".format(account.provider.name, account.username)
+
                 d = {'id': GLib.Variant('s', search_id),
                      'description': GLib.Variant('s', description),
-                     'name': GLib.Variant('s', name)
+                     'name': GLib.Variant('s', account.username),
+                     'gicon': GLib.Variant('s', gicon)
                      }
                 results.append(d)
         except Exception as e:
@@ -179,7 +178,7 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
         ids = []
         try:
             accounts = AccountsManager.get_default().search(terms)
-            ids = [account.id for account in accounts]
+            ids = [str(account.id) for account in accounts]
         except Exception as e:
             print("AuthenticatorSearchProvider::__search():", e)
         return ids

@@ -170,34 +170,35 @@ class Database:
         """
         self.__update_by_id("accounts", account_data, id_)
 
-    def update_provider(self, proivder_data, id_):
+    def update_provider(self, provider_data, id_):
         # Update a provider by id
         self.__update_by_id("providers", provider_data, id_)
 
 
     def search_accounts(self, terms):
-        filters = " ".join(terms)
-        if filters:
-            filters = "%" + filters + "%"
-        query = """
-                    SELECT A.* FROM accounts A
-                    JOIN providers P
-                    ON A.provider = P.id
-                    WHERE
-                    A.username LIKE ?
-                    OR
-                    P.name LIKE ?
-                    GROUP BY provider
-                    ORDER BY  A.username ASC
-                """
-        try:
-            data = self.conn.cursor().execute(query, (filters, filters, ))
-            accounts = data.fetchall()
-            return [Account(*account) for account in accounts]
-        except Exception as error:
-            Logger.error("[SQL]: Couldn't search for an account")
-            Logger.error(str(error))
-            return []
+        if terms:
+            filters = " ".join(terms)
+            if filters:
+                filters = "%" + filters + "%"
+            query = """
+                        SELECT A.* FROM accounts A
+                        JOIN providers P
+                        ON A.provider = P.id
+                        WHERE
+                        A.username LIKE ?
+                        OR
+                        P.name LIKE ?
+                        GROUP BY provider
+                        ORDER BY  A.username ASC
+                    """
+            try:
+                data = self.conn.cursor().execute(query, (filters, filters, ))
+                accounts = data.fetchall()
+                return [Account(*account) for account in accounts]
+            except Exception as error:
+                Logger.error("[SQL]: Couldn't search for an account")
+                Logger.error(str(error))
+        return []
 
     @property
     def accounts_count(self):
