@@ -16,16 +16,19 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gi.repository import Secret
+from gi.repository import GObject, Secret
 
 
-class Keyring:
+class Keyring(GObject.GObject):
     ID = "com.github.bilelmoussaoui.Authenticator"
     PasswordID = "com.github.bilelmoussaoui.Authenticator.Login"
     PasswordState = "com.github.bilelmoussaoui.Authenticator.State"
     instance = None
 
+    can_be_locked = GObject.Property(type=bool, default=False)
+
     def __init__(self):
+        GObject.GObject.__init__(self)
         self.schema = Secret.Schema.new(Keyring.ID,
                                         Secret.SchemaFlags.NONE,
                                         {
@@ -42,6 +45,7 @@ class Keyring:
                                                        {
                                                            "state": Secret.SchemaAttributeType.STRING
                                                        })
+
 
     @staticmethod
     def get_default():
@@ -145,7 +149,8 @@ class Keyring:
 
     @staticmethod
     def set_password_state(state):
-        schema = Keyring.get_default().password_state_schema
+        keyring = Keyring.get_default()
+        schema = keyring.password_state_schema
         if not state:
             Secret.password_clear_sync(schema, {}, None)
         else:
@@ -157,6 +162,7 @@ class Keyring:
                 "true",
                 None
             )
+        keyring.props.can_be_locked = state and keyring.has_password()
 
 
     @staticmethod
