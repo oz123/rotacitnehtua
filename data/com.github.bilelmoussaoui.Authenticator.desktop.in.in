@@ -7,6 +7,7 @@ Exec=authenticator
 Terminal=false
 Categories=GNOME;GTK;Security;Network;
 Keywords=Gnome;GTK;Verification;
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=@appid@
 StartupNotify=true
 StartupWMClass=com.github.bilelmoussaoui.Authenticator
