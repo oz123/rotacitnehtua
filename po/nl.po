@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 22:35+0100\n"
+"POT-Creation-Date: 2019-05-20 05:14+0200\n"
 "PO-Revision-Date: 2019-02-13 11:09+0000\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/authenticator/"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
-#: data/ui/window.ui.in:255 src/Authenticator/application.py.in:36
+#: src/Authenticator/application.py.in:37
 msgid "Authenticator"
 msgstr "Authenticator"
 
@@ -51,10 +51,66 @@ msgid "Beautiful UI"
 msgstr "Prachtige vormgeving"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
-msgid "Huge database of (290+) websites/applications"
-msgstr "Enorme databank met (meer dan 290) websites/toepassingen"
+msgid "Huge database of more than 560 supported services"
+msgstr ""
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:34
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:15
+#, fuzzy
+msgid "Keep your PIN tokens secure by locking the application with a password"
+msgstr "Vergrendel de toepassing met een wachtwoord"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:16
+msgid "Automtically fetch an image for services using their favicon"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:17
+msgid "The possibility to add new services"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:37
+msgid ""
+"New 3.31 beta is out! Here's an overview of what changed Please backup your "
+"accounts before updating to the latest version and restore the data after "
+"update."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
+msgid "New settings window"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
+msgid "Download provider images using their favicon if possible"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:44
+msgid "Night Light feature: not working yet!"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:45
+msgid ""
+"The possiblity to enable/disable a password without having to reset "
+"everything"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:46
+msgid ""
+"You can now add new providers and set images for providers that we didn't "
+"find an icon for"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:47
+msgid "Mobile ready"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:48
+msgid "New icon by Tobias"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:49
+msgid "Bunch of fixed bugs"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:55
 msgid ""
 "Since I have moved the application to GOME Gitlab's World group, a Flatpak "
 "build for each new commit is available to download from the site's website."
@@ -62,50 +118,50 @@ msgstr ""
 "Sinds de verhuizing naar GNOME Gitlab's World-groep, is er op de website een "
 "Flatpak-pakket beschikbaar voor elke nieuwe commit."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:38
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
 msgid "Backup and restore from a basic JSON file"
 msgstr "Back-up en herstel uit een basis-JSON-bestand"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:39
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
 msgid "Backup and restore from an encrypted-GPG JSON file"
 msgstr "Back-up en herstel uit een met GPG versleuteld JSON-bestand"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:40
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
 msgid "Add andOTP support (free and open Android 2FA application)"
 msgstr ""
 "andOTP-ondersteuning toegevoegd (gratis en vrije Android-app voor "
 "authenticatie in twee stappen)"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:41
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
 msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
 msgstr "Nieuw instellingenvenster met 3 secties: uiterlijk, gedrag en back-up"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:63
 msgid "Fix Flatpak Build with the latest GNOME Runtime"
 msgstr "Flatpak-pakketten compatibel gemaakt met de nieuwste GNOME Runtime"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:64
 msgid "Move the project to GOME Gitlab's World group"
 msgstr "Project verplaatst naar GNOME Gitlab World-groep"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:50
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:71
 msgid "GNOME Shell Search provider"
 msgstr "GNOME Shell-zoekdienst"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:51
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:72
 msgid "Codes expire simultaneously #91"
 msgstr "Codes vervallen tegelijkertijd #91"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:58
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:79
 msgid "Revamped main window to more closely follow the GNOME HIG"
 msgstr "Hoofdvenster opnieuw ontworpen om meer te voldoen aan de GNOME HIG"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:80
 msgid "Revamped add a new account window to make it easier to use"
 msgstr ""
 "Nieuw account-venster opnieuw ontworpen zodat het eenvoudig is geworden"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:81
 msgid ""
 "Possibility to add an account from a provider not listed in the shipped "
 "database"
@@ -113,59 +169,59 @@ msgstr ""
 "Mogelijkheid om een account toe te voegen van een dienst die niet in de "
 "databank voorkomt"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:82
 msgid "Possibilty to edit an account"
 msgstr "Mogelijkheid om een account te bewerken"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:83
 msgid "One Time Password now visible by default"
 msgstr "Eenmalig wachtwoord is nu standaard zichtbaar"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:90
 msgid "Fix python-dbus by using GDbus instead"
 msgstr "python-dbus-probleem opgelost door GDbus te gebruiken"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:76
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
 msgid "Fix the QRScanner on GNOME Shell"
 msgstr "QR-codescanner gerepareerd bij gebruik in GNOME Shell"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:77
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:98
 msgid "Add a new entry for the account's username"
 msgstr "Voeg een nieuw item toe voor de gebruikersnaam"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:78
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:99
 msgid "Updated database of supported accounts"
 msgstr "Databank met ondersteunde accounts bijgewerkt"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:106
 msgid "HOTFIX: App not running in DE other than GNOME"
 msgstr "BELANGRIJK: de app draait nu ook in andere werkomgevingen dan GNOME"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:92
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:113
 msgid "Rename project to Authenticator"
 msgstr "Projectnaam gewijzigd in Authenticator"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:93
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:114
 msgid "Cleaner code base"
 msgstr "Eenvoudigere broncode"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:94
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:115
 msgid "Faster startup"
 msgstr "Snellere opstart"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:95
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:116
 msgid "Remove unneeded features"
 msgstr "Onnodige functies verwijderd"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:96
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:117
 msgid "Switch to pyzbar instead of zbarlight"
 msgstr "Overgeschakeld van zbarlight naar pyzbar"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:118
 msgid "Flatpak package"
 msgstr "Flatpak-pakket"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:104
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:134
 msgid "Bilal Elmoussaoui"
 msgstr "Bilal Elmoussaoui"
 
@@ -187,14 +243,28 @@ msgid "Default window position"
 msgstr "Standaard vensterpositie"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
-msgid "Night mode"
-msgstr "Nachtmodus"
+#: src/Authenticator/widgets/settings.py:83
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Donker thema"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
-msgid "Enable/disable night mode within the application"
-msgstr "Schakelt de nachtmodus in de toepassing in/uit"
+#: src/Authenticator/widgets/settings.py:84
+#, fuzzy
+msgid "Whether the application should use a dark theme."
+msgstr "Of de toepassing vergrendeld kan worden"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
+#: src/Authenticator/widgets/settings.py:88
+msgid "Night Light"
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:17
+#: src/Authenticator/widgets/settings.py:89
+msgid "Automatically enable dark mode at night."
+msgstr ""
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Default window maximized behaviour"
 msgstr "Standaardgedrag van gemaximaliseerd venster"
 
@@ -206,24 +276,40 @@ msgstr "Code-generator voor authenticatie in twee stappen."
 msgid "translator-credits"
 msgstr "Nathan Follens, Heimen Stoffels"
 
-#: data/ui/account_add.ui:24
+#: data/ui/account_add.ui:22
 msgid "Add a new account"
 msgstr "Nieuw account toevoegen"
 
-#: data/ui/account_add.ui:27 data/ui/account_edit.ui:21
+#: data/ui/account_add.ui:25 data/ui/account_edit.ui:19
 msgid "Close"
 msgstr "Sluiten"
 
-#: data/ui/account_add.ui:36
+#: data/ui/account_add.ui:34
 msgid "Add"
 msgstr "Toevoegen"
 
-#: data/ui/account_add.ui:56
+#: data/ui/account_add.ui:54
 msgid "Scan QR Code"
 msgstr "QR-code scannen"
 
-#: data/ui/account_edit.ui:30 data/ui/settings.ui.in:454
-#: src/Authenticator/widgets/utils.py:34
+#: data/ui/account_config.ui:85
+msgid "Enable 2FA for this account"
+msgstr ""
+
+#: data/ui/account_config.ui:86
+msgid "2FA Token"
+msgstr ""
+
+#: data/ui/account_config.ui:100
+#, fuzzy
+msgid "Account Name"
+msgstr "Accountnaam"
+
+#: data/ui/account_config.ui:123
+msgid "Provider"
+msgstr "Dienst"
+
+#: data/ui/account_edit.ui:28 data/ui/settings.ui.in:50
 msgid "Save"
 msgstr "Opslaan"
 
@@ -231,53 +317,51 @@ msgstr "Opslaan"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: data/ui/account_row.ui:37
+#: data/ui/account_row.ui:41
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: data/ui/account_row.ui:92
+#: data/ui/account_row.ui:97
 msgid "Copy PIN to clipboard"
 msgstr "Pincode kopiëren naar klembord"
 
-#: data/ui/settings.ui.in:66
-msgid "Behaviour"
-msgstr "Gedrag"
-
-#: data/ui/settings.ui.in:100
-msgid "Dark theme"
-msgstr "Donker thema"
-
-#: data/ui/settings.ui.in:117
-msgid "Use a dark theme, if possible"
-msgstr "Donker thema gebruiken, indien mogelijk"
-
-#: data/ui/settings.ui.in:179 src/Authenticator/application.py.in:91
-msgid "Lock the application"
-msgstr "Toepassing vergrendelen"
-
-#: data/ui/settings.ui.in:196
-msgid "Lock the application with a password"
-msgstr "Vergrendel de toepassing met een wachtwoord"
-
-#: data/ui/settings.ui.in:279
-msgid "Keep your accounts safer "
-msgstr "Houd je accounts veilig "
-
-#: data/ui/settings.ui.in:303
-msgid "Password"
-msgstr "Wachtwoord"
-
-#: data/ui/settings.ui.in:348
-msgid "Repeat Password"
+#: data/ui/password_widget.ui:46
+#, fuzzy
+msgid "Current Password:"
 msgstr "Herhaal wachtwoord"
 
-#: data/ui/settings.ui.in:410
-msgid "Settings"
-msgstr "Instellingen"
+#: data/ui/password_widget.ui:90
+#, fuzzy
+msgid "New Password:"
+msgstr "Nieuw wachtwoord"
 
-#: data/ui/settings.ui.in:427
-msgid "Authenticator Password"
-msgstr "Authenticatiewachtwoord"
+#: data/ui/password_widget.ui:135
+#, fuzzy
+msgid "Confirm New Password:"
+msgstr "Nieuw wachtwoord"
+
+#: data/ui/password_widget.ui:183 src/Authenticator/widgets/settings.py:208
+#, fuzzy
+msgid "Change Password"
+msgstr "Wachtwoord"
+
+#: data/ui/password_widget.ui:204
+#, fuzzy
+msgid "Delete Password"
+msgstr "Herhaal wachtwoord"
+
+#: data/ui/provider_image.ui:41
+msgid "We couldn't find an image for this provider"
+msgstr ""
+
+#. Night mode action
+#: data/ui/settings.ui.in:28 src/Authenticator/application.py.in:112
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: data/ui/settings.ui.in:95
+msgid "Behaviour"
+msgstr "Gedrag"
 
 #: data/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -314,108 +398,174 @@ msgctxt "shortcut window"
 msgid "Search"
 msgstr "Zoeken"
 
-#: data/ui/window.ui.in:60
+#: data/ui/window.ui.in:182
 msgid "There are no accounts yet…"
 msgstr "Je hebt nog geen accounts toegevoegd…"
 
-#: data/ui/window.ui.in:187
+#: data/ui/window.ui.in:211
+#, fuzzy
+msgid "Add a new account from the menu"
+msgstr "Nieuw account toevoegen"
+
+#: data/ui/window.ui.in:227
+#, fuzzy
+msgid "Scan a QR Code"
+msgstr "QR-code scannen"
+
+#: data/ui/window.ui.in:373
+msgid "No results found"
+msgstr ""
+
+#: data/ui/window.ui.in:437
 msgid "Authenticator is locked"
 msgstr "Authenticator is vergreneld"
 
-#: data/ui/window.ui.in:222
+#: data/ui/window.ui.in:476
 msgid "Unlock"
 msgstr "Ontgrendelen"
 
-#: src/authenticator.py.in:49
+#: src/authenticator.py.in:50
 msgid "Start in debug mode"
 msgstr "Starten in foutopsporingsmodus"
 
-#: src/authenticator.py.in:51
+#: src/authenticator.py.in:52
 msgid "Authenticator version number"
 msgstr "Versienummer van Authenticator"
 
-#: src/Authenticator/application.py.in:99
+#: src/Authenticator/application.py.in:92
+#: src/Authenticator/widgets/settings.py:92
+msgid "Lock the application"
+msgstr "Toepassing vergrendelen"
+
+#: src/Authenticator/application.py.in:100
 msgid "from a plain-text JSON file"
 msgstr "uit een JSON-bestand met platte tekst"
 
-#: src/Authenticator/application.py.in:100
+#: src/Authenticator/application.py.in:101
 msgid "in a plain-text JSON file"
 msgstr "naar een JSON-bestand met platte tekst"
 
-#: src/Authenticator/application.py.in:102
+#: src/Authenticator/application.py.in:103
 msgid "Restore"
 msgstr "Herstellen"
 
-#: src/Authenticator/application.py.in:103
+#: src/Authenticator/application.py.in:104
 msgid "Backup"
 msgstr "Back-uppen"
 
-#. Night mode action
-#: src/Authenticator/application.py.in:111
-msgid "Preferences"
-msgstr "Voorkeuren"
-
-#: src/Authenticator/application.py.in:112
+#: src/Authenticator/application.py.in:113
 msgid "Donate"
 msgstr "Doneren"
 
-#: src/Authenticator/application.py.in:113
+#: src/Authenticator/application.py.in:114
 msgid "Keyboard Shortcuts"
 msgstr "Sneltoetsen"
 
-#: src/Authenticator/application.py.in:114
+#: src/Authenticator/application.py.in:115
 msgid "About Authenticator"
 msgstr "Over Authenticator"
 
-#: src/Authenticator/models/account.py:70
+#: src/Authenticator/models/account.py:71
 msgid "Default"
 msgstr "Standaard"
 
-#: src/Authenticator/widgets/accounts/add.py:204
+#: src/Authenticator/widgets/accounts/add.py:58
 msgid "Invalid QR code"
 msgstr "Ongeldige QR-code"
 
-#: src/Authenticator/widgets/accounts/edit.py:45
-msgid "Edit {} - {}"
-msgstr "{} - {} bewerken"
-
-#: src/Authenticator/widgets/accounts/list.py:144
+#: src/Authenticator/widgets/accounts/list.py:143
 msgid "The One-Time Passwords expires in {} seconds"
 msgstr "Het eenmalige wachtwoord verloopt over {} seconden"
 
-#: src/Authenticator/widgets/accounts/row.py:75
+#: src/Authenticator/widgets/accounts/row.py:80
 msgid "Couldn't generate the secret code"
 msgstr "Kan geen geheime sleutel genereren"
 
-#: src/Authenticator/widgets/settings.py:73
-msgid "Authentication password was unset. Please restart the application"
-msgstr "Authenticatiewachtwoord is niet ingesteld. Herstart de toepassing"
+#: src/Authenticator/widgets/accounts/row.py:91
+msgid "The PIN of {} was copied to the clipboard"
+msgstr ""
 
-#: src/Authenticator/widgets/settings.py:81
-msgid "Authentication password is now enabled. Please restart the application."
-msgstr "Authenticatiewachtwoord is ingeschakeld. Herstart de toepassing."
+#: src/Authenticator/widgets/accounts/row.py:123
+msgid "The account was updated successfully"
+msgstr ""
 
-#: src/Authenticator/widgets/utils.py:32
-msgid "Open"
-msgstr "Openen"
+#: src/Authenticator/widgets/notification.py:43
+#, fuzzy
+msgid "Close the notification"
+msgstr "Toepassing vergrendelen"
 
-#: src/Authenticator/widgets/utils.py:36 src/Authenticator/widgets/utils.py:62
-msgid "Cancel"
-msgstr "Annuleren"
+#: src/Authenticator/widgets/notification.py:48
+#: src/Authenticator/widgets/notification.py:63
+msgid "Undo"
+msgstr "Ongedaan maken"
 
-#: src/Authenticator/widgets/utils.py:46 src/Authenticator/widgets/utils.py:51
+#: src/Authenticator/widgets/settings.py:93
+msgid "Lock the application with a password"
+msgstr "Vergrendel de toepassing met een wachtwoord"
+
+#: src/Authenticator/widgets/settings.py:157
+#, fuzzy
+msgid "Authentication password is now enabled."
+msgstr "Authenticatiewachtwoord"
+
+#: src/Authenticator/widgets/settings.py:159
+#, fuzzy
+msgid "The authentication password was updated."
+msgstr "Authenticatiewachtwoord"
+
+#: src/Authenticator/widgets/settings.py:163
+#, fuzzy
+msgid "The authentication password was deleted."
+msgstr "Authenticatiewachtwoord"
+
+#: src/Authenticator/widgets/settings.py:204
+#, fuzzy
+msgid "Save Password"
+msgstr "Wachtwoord"
+
+#: src/Authenticator/widgets/utils.py:40 src/Authenticator/widgets/utils.py:45
 msgid "JSON files"
 msgstr "JSON-bestanden"
 
-#: src/Authenticator/widgets/utils.py:61
-msgid "Select"
-msgstr "Kiezen"
+#~ msgid "Huge database of (290+) websites/applications"
+#~ msgstr "Enorme databank met (meer dan 290) websites/toepassingen"
 
-#~ msgid "Provider"
-#~ msgstr "Dienst"
+#~ msgid "Night mode"
+#~ msgstr "Nachtmodus"
 
-#~ msgid "Account name"
-#~ msgstr "Accountnaam"
+#~ msgid "Enable/disable night mode within the application"
+#~ msgstr "Schakelt de nachtmodus in de toepassing in/uit"
+
+#~ msgid "Use a dark theme, if possible"
+#~ msgstr "Donker thema gebruiken, indien mogelijk"
+
+#~ msgid "Keep your accounts safer "
+#~ msgstr "Houd je accounts veilig "
+
+#~ msgid "Settings"
+#~ msgstr "Instellingen"
+
+#~ msgid "Authenticator Password"
+#~ msgstr "Authenticatiewachtwoord"
+
+#~ msgid "Edit {} - {}"
+#~ msgstr "{} - {} bewerken"
+
+#~ msgid "Authentication password was unset. Please restart the application"
+#~ msgstr "Authenticatiewachtwoord is niet ingesteld. Herstart de toepassing"
+
+#~ msgid ""
+#~ "Authentication password is now enabled. Please restart the application."
+#~ msgstr "Authenticatiewachtwoord is ingeschakeld. Herstart de toepassing."
+
+#~ msgid "Open"
+#~ msgstr "Openen"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgid "Select"
+#~ msgstr "Kiezen"
 
 #~ msgid "Secret token"
 #~ msgstr "Geheime toegangssleutel"
@@ -449,9 +599,6 @@ msgstr "Kiezen"
 #~ msgid "Erase existing accounts"
 #~ msgstr "Bestaande accounts wissen"
 
-#~ msgid "Authentication password"
-#~ msgstr "Authenticatiewachtwoord"
-
 #~ msgid "Set up application authentication password"
 #~ msgstr "Stel het authenticatiewachtwoord in"
 
@@ -461,17 +608,11 @@ msgstr "Kiezen"
 #~ msgid "The existing accounts will be erased in 5 seconds"
 #~ msgstr "De bestaande accounts worden over 5 seconden gewist"
 
-#~ msgid "Undo"
-#~ msgstr "Ongedaan maken"
-
 #~ msgid "An account or more were removed."
 #~ msgstr "Eén of meerdere accounts zijn verwijderd."
 
 #~ msgid "Whether the application is locked with a password or not"
 #~ msgstr "Of de toepassing moet worden vergrendeld met een wachtwoord"
-
-#~ msgid "Whether the application can be locked or not"
-#~ msgstr "Of de toepassing vergrendeld kan worden"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Select"
@@ -571,9 +712,6 @@ msgstr "Kiezen"
 
 #~ msgid "Apply"
 #~ msgstr "Toepassen"
-
-#~ msgid "New password"
-#~ msgstr "Nieuw wachtwoord"
 
 #~ msgid "Select an application"
 #~ msgstr "Kies een toepassing"

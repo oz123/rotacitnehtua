@@ -28,12 +28,6 @@ def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
     filter_json.set_name(mimetype["name"])
     filter_json.add_mime_type(mimetype["type"])
     file_chooser.add_filter(filter_json)
-    if action == Gtk.FileChooserAction.OPEN:
-        label = _("Open")
-    else:
-        label = _("Save")
-    file_chooser.set_accept_label(label)
-    file_chooser.set_cancel_label(_("Cancel"))
     response = file_chooser.run()
     uri = None
     if response == Gtk.ResponseType.ACCEPT:

@@ -16,9 +16,8 @@ src/authenticator.py.in
 src/Authenticator/application.py.in
 src/Authenticator/models/account.py
 src/Authenticator/widgets/accounts/add.py
-src/Authenticator/widgets/accounts/edit.py
 src/Authenticator/widgets/accounts/list.py
 src/Authenticator/widgets/accounts/row.py
-src/Authenticator/widgets/provider_image.py
+src/Authenticator/widgets/notification.py
 src/Authenticator/widgets/settings.py
 src/Authenticator/widgets/utils.py
