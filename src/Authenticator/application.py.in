@@ -38,7 +38,7 @@ class Application(Gtk.Application):
         GLib.set_prgname("Authenticator")
         self.connect("notify::is-locked", self.__is_locked_changed)
         self.alive = True
-        self.night_light_watcher = None
+        self.proxy = None
 
         self._menu = Gio.Menu()
 
@@ -163,24 +163,30 @@ class Application(Gtk.Application):
                                                 Settings.get_default().dark_theme)    
 
     def __on_night_light_changed(self, *_):
-        if Settings.get_default().night_light:
+        if Settings.get_default().night_light and not self.proxy:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
-            proxy = Gio.DBusProxy.new_sync(bus,
+            self.proxy = Gio.DBusProxy.new_sync(bus,
                                             Gio.DBusProxyFlags.NONE,
                                             None,
                                             "org.gnome.SettingsDaemon.Color",
                                             "/org/gnome/SettingsDaemon/Color",
                                             "org.gnome.SettingsDaemon.Color",
                                             None)
-            system_value = proxy.get_cached_property('NightLightActive')
+            system_value = self.proxy.get_cached_property('NightLightActive')
+            self.proxy.connect("g-properties-changed", self.__night_light_changed)
             Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                     system_value)
-            if not self.night_light_watcher:
-                self.night_light_watcher = GLib.timeout_add_seconds(1, self.__on_night_light_changed, 0)
+
             return True
         else:
+            self.proxy = None
             self.__on_dark_theme_changed()
-            self.night_light_watcher = None
+
+    def __night_light_changed(self, proxy, gvariant, *_):
+        data = gvariant.unpack()
+        if 'NightLightActive' in data.keys():
+          Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                    data['NightLightActive'])
 
     def __sync_lock_action(self, *_):
         keyring = Keyring.get_default()
