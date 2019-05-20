@@ -16,6 +16,9 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
+from os import path
+from gi.repository import Gtk
+
 from Authenticator.models import Database, FaviconManager
 
 class Provider:
@@ -57,14 +60,25 @@ class Provider:
             for provider in providers
         ]
 
+    @property
+    def image_path(self):
+        cached_icon = path.join(FaviconManager.CACHE_DIR, self.image)
+        if path.exists(cached_icon):
+            return cached_icon
+        else:
+            theme = Gtk.IconTheme.get_default()
+            icon_info = theme.lookup_icon("image-missing", 48, 0)
+            if icon_info:
+                return icon_info.get_filename()
+        return None
+
 
     @staticmethod
     def create(name, website, doc_url, image):
         provider = Database.get_default().insert_provider(name, website, doc_url, image)
         return Provider(*provider)
 
-    def update(self, provider_data):
-        self.image = provider_data.get("image", self.image)
+    def update(self, **provider_data):
         self.name = provider_data.get("name", self.name)
         Database.get_default().update_provider(provider_data, self.provider_id)
 
