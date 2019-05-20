@@ -44,7 +44,6 @@ configure_file(
 # GNOME Shell Search Provider Service
 search_service_provider_conf = configuration_data()
 search_service_provider_conf.set('appid', application_id)
-search_service_provider_conf.set('profile', profile)
 search_service_provider_conf.set('libexecdir', LIBEXEC_DIR)
 configure_file(
   configuration: search_service_provider_conf,
@@ -55,7 +54,7 @@ configure_file(
 # GNOME Shell Search Provider
 search_provider_conf = configuration_data()
 search_provider_conf.set('appid', application_id)
-search_provider_conf.set('profile', profile)
+search_provider_conf.set('profile', profile_suffix)
 configure_file(
   configuration: search_provider_conf,
   input: files(meson.project_name() + '.SearchProvider.ini.in'),

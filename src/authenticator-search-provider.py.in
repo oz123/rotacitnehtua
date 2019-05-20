@@ -23,10 +23,14 @@ import sys
 sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 from os import path
+
+from gi import require_version
+require_version('Gtk', '3.0')
+require_version('Gdk', '3.0')
+require_version('Secret', '1')
 from gi.repository import Gio, GLib
 
-from Authenticator.models import Account, Database
-
+from Authenticator.models import AccountsManager
 
 class Server:
     def __init__(self, con, path):
@@ -38,7 +42,7 @@ class Server:
                 method_outargs[method.name] = '(' + ''.join(
                               [arg.signature for arg in method.out_args]) + ')'
                 method_inargs[method.name] = tuple(
-                    arg.signature for arg in method.in_args)
+                                       arg.signature for arg in method.in_args)
 
             con.register_object(object_path=path,
                                 interface_info=interface,
@@ -65,6 +69,7 @@ class Server:
 
         try:
             result = getattr(self, method_name)(*args)
+            print(result)
 
             # out_args is atleast (signature1).
             # We therefore always wrap the result as a tuple.
@@ -87,7 +92,7 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
     '-//freedesktop//DTD D-BUS Object Introspection 1.0//EN'
     'http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd'>
     <node>
-  <interface name="org.gnome.Shell.SearchProvider2">
+    <interface name="org.gnome.Shell.SearchProvider2">
 
     <method name="GetInitialResultSet">
       <arg type="as" name="terms" direction="in" />
@@ -119,9 +124,10 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
     </interface>
     </node>
     '''
+
     __AUTHENTICATOR_BUS = '@APP_ID@.SearchProvider'
     __SEARCH_BUS = 'org.gnome.Shell.SearchProvider2'
-    __PATH_BUS = '/com/github/bilelmoussaoui/Authenticator@PROFILE@/SearchProvider'
+    __PATH_BUS = '/com/github/bilelmoussaoui/Authenticator@PRFOILE_SUFFIX@/SearchProvider'
 
     def __init__(self):
         Gio.Application.__init__(
@@ -172,7 +178,8 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
     def __search(self, terms):
         ids = []
         try:
-            ids = Database.get_default().search(terms)
+            accounts = AccountsManager.get_default().search(terms)
+            ids = [account.id for account in accounts]
         except Exception as e:
             print("AuthenticatorSearchProvider::__search():", e)
         return ids

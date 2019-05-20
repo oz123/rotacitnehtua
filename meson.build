@@ -60,6 +60,7 @@ conf.set('PYTHON_DIR', join_paths(get_option('prefix'), python.sysconfig_path('p
 conf.set('PYTHON_EXEC_DIR', join_paths(get_option('prefix'), python.sysconfig_path('stdlib')))
 conf.set('VERSION', meson.project_version())
 conf.set('PROFILE', profile)
+conf.set('PRFOILE_SUFFIX', profile_suffix)
 conf.set('NAME_SUFFIX', name_suffix)
 conf.set('libexecdir', LIBEXEC_DIR)
 conf.set('PYTHON', python3.path())
