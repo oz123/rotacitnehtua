@@ -28,7 +28,7 @@
   </screenshots>
   <url type="homepage">https://gitlab.gnome.org/World/Authenticator</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/Authenticator/issues</url>
-  <url type="translate">https://hosted.weblate.org/projects/authenticator/translation/</url>
+  <url type="translate">https://l10n.gnome.org/module/authenticator/</url>
   <url type="donation">https://liberapay.com/bielmoussaoui</url>
   <content_rating type="oars-1.0" />
   <releases>

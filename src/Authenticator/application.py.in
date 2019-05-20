@@ -196,8 +196,8 @@ class Application(Gtk.Application):
         self.set_property("is-locked", True)
 
     def __on_donate(self, *_):
-        paypal_url = "https://www.paypal.me/BilalELMoussaoui"
-        Gio.app_info_launch_default_for_uri(paypal_url)
+        librepay_url = "https://liberapay.com/bielmoussaoui"
+        Gio.app_info_launch_default_for_uri(librepay_url)
 
     @staticmethod
     def __on_about(*_):

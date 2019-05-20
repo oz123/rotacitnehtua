@@ -4,7 +4,7 @@ The application is built using Python3, Gtk 3, GLib and other GNOME technologies
 
 ## If you're a translator
 
-You can translate Authenticator here: https://hosted.weblate.org/engage/authenticator/
+You can translate Authenticator here: https://l10n.gnome.org/module/authenticator/
 
 ## If you're a developer
 
