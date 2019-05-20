@@ -50,6 +50,18 @@ class AccountsManager(GObject.GObject):
             if provider == _provider:
                 accounts.append(account)
 
+    def search(self, terms):
+        from .database import Database
+        from .account import Account
+
+        accounts = Database.get_default().search_accounts(terms)
+        _accounts = []
+        for account in accounts:
+            account = Account(*account)
+            if account.otp:
+                _accounts.append(account)
+        return _accounts
+
     @property
     def accounts(self):
         return self._accounts

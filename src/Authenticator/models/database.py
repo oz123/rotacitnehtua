@@ -179,10 +179,21 @@ class Database:
         filters = " ".join(terms)
         if filters:
             filters = "%" + filters + "%"
-        query = "SELECT id FROM accounts WHERE username LIKE ?"
+        query = """
+                    SELECT A.* FROM accounts A
+                    JOIN providers P
+                    ON A.provider = P.id
+                    WHERE
+                    A.username LIKE ?
+                    OR
+                    P.name LIKE ?
+                    GROUP BY provider
+                    ORDER BY  A.username ASC
+                """
         try:
-            data = self.conn.cursor().execute(query, (filters,))
-            return [str(account[0]) for account in data.fetchall()]
+            data = self.conn.cursor().execute(query, (filters, filters, ))
+            accounts = data.fetchall()
+            return [Account(*account) for account in accounts]
         except Exception as error:
             Logger.error("[SQL]: Couldn't search for an account")
             Logger.error(str(error))
