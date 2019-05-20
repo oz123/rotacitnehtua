@@ -129,16 +129,19 @@ class SettingsWindow(Gtk.Window):
         def on_night_light_switch(switch, _):
             # Set the application to use Light theme 
             if switch.get_active() and self.dark_theme_switch.get_active():
+
                 self.dark_theme_switch.set_active(False)
 
         self.night_light_switch.connect("notify::active", on_night_light_switch)
 
         def on_dark_theme_switch(switch, _):
             # Set the application to use Light theme 
+
             if settings.night_light and switch.get_active():
-                switch.set_active(False)
-            else:
+                switch.set_state(False)
+            elif not settings.night_light:
                 settings.dark_theme = switch.get_active()
+
         self.dark_theme_switch.connect("notify::active", on_dark_theme_switch)
 
     def __on_enable_password(self, *_):
