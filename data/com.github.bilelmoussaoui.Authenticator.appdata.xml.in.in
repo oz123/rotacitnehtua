@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Bilal Elmoussaoui 2019 <bilal.elmoussaoui@gnome.org> -->
 <component type="desktop-application">
   <id>@appid@</id>
   <metadata_license>CC0</metadata_license>
@@ -19,11 +20,10 @@
     </ul>
   </description>
   <screenshots>
-    <screenshot type="default">
-      <screenshot>
+      <screenshot type="default">
         <image width="465" height="617">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot1.png</image>
         <caption>Main Window - empty state</caption>
-      <screenshot>
+      </screenshot>
       <screenshot>
         <image width="464" height="612">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot2.png</image>
         <caption>Add a new account</caption>
@@ -143,7 +143,7 @@
       <kudo>HiDpiIcon</kudo>
   </kudos>
   <developer_name>Bilal Elmoussaoui</developer_name>
-  <update_contact>bil.elmoussaoui@gmail.com</update_contact>
+  <update_contact>bilal.elmoussaoui@gnome.org</update_contact>
   <translation type="gettext">@gettext-package@</translation>
   <launchable type="desktop-id">@appid@.desktop</launchable>
 </component>
