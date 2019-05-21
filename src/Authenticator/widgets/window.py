@@ -101,6 +101,12 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             toggled = not self.search_btn.props.active
             self.search_btn.set_property("active", toggled)
 
+    def refresh_view(self, *_):
+        if AccountsManager.get_default().props.empty:
+            self.props.view = WindowView.EMPTY
+        else:
+            self.props.view = WindowView.NORMAL
+
     def save_state(self):
         """
             Save window position and maximized state.
@@ -108,7 +114,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         settings = Settings.get_default()
         settings.window_position = self.get_position()
         settings.window_maximized = self.is_maximized()
-
+    
     def restore_state(self):
         """
             Restore the window's state.
@@ -146,11 +152,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                                       "active",
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
-    def refresh_view(self, *_):
-        if AccountsManager.get_default().props.empty:
-            self.props.view = WindowView.EMPTY
-        else:
-            self.props.view = WindowView.NORMAL
 
     def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
