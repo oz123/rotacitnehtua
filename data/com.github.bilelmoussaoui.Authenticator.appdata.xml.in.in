@@ -20,12 +20,22 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image width="630" height="699">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot1.png</image>
-      <image width="452" height="699">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot2.png</image>
-      <image width="652" height="652">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot3.png</image>
-      <image width="652" height="652">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot4.png</image>
-      <image width="652" height="652">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot5.png</image>
-    </screenshot>
+      <screenshot>
+        <image width="364" height="561">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot1.png</image>
+        <caption>Main Window - empty state</caption>
+      <screenshot>
+      <screenshot>
+        <image width="364" height="561">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot2.png</image>
+        <caption>Add a new account</caption>
+      </screenshot>
+      <screenshot>
+        <image width="364" height="561">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot3.png</image>
+        <caption>Main Window - Accounts List</caption>
+      </screenshot>
+      <screenshot>
+        <image width="372" height="561">https://gitlab.gnome.org/World/Authenticator/raw/master/data/screenshots/screenshot4.png</image>
+        <caption>Settings Window</caption>
+      </screenshot>
   </screenshots>
   <url type="homepage">https://gitlab.gnome.org/World/Authenticator</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/Authenticator/issues</url>
