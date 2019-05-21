@@ -15,6 +15,7 @@
         <li>Keep your PIN tokens secure by locking the application with a password</li>
         <li>Automtically fetch an image for services using their favicon</li>
         <li>The possibility to add new services</li>
+        <li>Dark theme and night light</li>
     </ul>
   </description>
   <screenshots>
