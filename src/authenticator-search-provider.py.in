@@ -29,7 +29,7 @@ require_version('Gdk', '3.0')
 require_version('Secret', '1')
 from gi.repository import Gio, GLib
 
-from Authenticator.models import AccountsManager, Account
+from Authenticator.models import AccountsManager, Account, Clipboard
 
 class Server:
     def __init__(self, con, path):
@@ -140,8 +140,10 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
                                        None)
         Server.__init__(self, self.__bus, self.__PATH_BUS)
 
-    def ActivateResult(self, *_):
-        self.LaunchSearch()
+    def ActivateResult(self, account_id, *_):
+        account = Account.get_by_id(int(account_id))
+        if account and account.otp:
+            Clipboard.set(account.otp.pin)
 
     def GetInitialResultSet(self, terms):
         return self.__search(terms)
