@@ -1,8 +1,7 @@
 project('com.github.bilelmoussaoui.Authenticator', 'c',
 	version: '3.31',
   meson_version: '>= 0.48',
-  license: 'GPL+-3.0',
-  default_options: ['prefix=/usr']
+  license: 'GPL+-3.0'
 )
 python = import('python3')
 gnome  = import('gnome')
