@@ -43,10 +43,10 @@
   <url type="donation">https://liberapay.com/bielmoussaoui</url>
   <content_rating type="oars-1.0" />
   <releases>
-    <release version="3.31" date="2019-05-19" type="development">
+    <release version="3.32" date="2019-05-22">
         <description>
             <p>
-                New 3.31 beta is out! Here's an overview of what changed
+                Authenticator 3.32 is out! Here's an overview of what changed
                 Please backup your accounts before updating to the latest version and restore the data after update.
             </p>
             <ul>
@@ -56,7 +56,9 @@
                 <li>The possiblity to enable/disable a password without having to reset everything</li>
                 <li>You can now add new providers and set images for providers that we didn't find an icon for</li>
                 <li>Mobile ready</li>
-                <li>New icon by Tobias</li>
+                <li>New icon by Tobias Bernard</li>
+                <li>Click to copy the PIN on GNOME Shell Search provider results</li>
+                <li>Hide the results from Shell Search Provider if the application is locked</li>
                 <li>Bunch of fixed bugs</li>
             </ul>
         </description>
