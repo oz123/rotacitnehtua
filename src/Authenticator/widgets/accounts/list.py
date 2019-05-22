@@ -55,7 +55,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         accounts_manager.connect("counter_updated",
                                   self._on_counter_updated)
         # Add different accounts to the main view
-        for provider, accounts in accounts_manager.accounts:
+        for provider, accounts in accounts_manager.accounts_per_provider:
             for account in accounts:
                 self.append(account)
 

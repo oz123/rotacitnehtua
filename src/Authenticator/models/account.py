@@ -134,6 +134,6 @@ class Account(GObject.GObject):
                 "algorithm": "SHA1",
                 "thumbnail": "Default",
                 "last_used": 0,
-                "tags": [self.provider]
+                "tags": [self.provider.name]
             }
         return None

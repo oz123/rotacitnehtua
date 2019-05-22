@@ -32,7 +32,7 @@ class AccountsManager(GObject.GObject):
 
     def __init__(self):
         GObject.GObject.__init__(self)
-        self._accounts = []
+        self._accounts_per_provider = []
         self._alive = True
         self.__fill_accounts()
 
@@ -48,20 +48,20 @@ class AccountsManager(GObject.GObject):
 
     def add(self, provider, account):
         added = False
-        for _provider, accounts in self._accounts:
+        for _provider, accounts in self._accounts_per_provider:
             if provider == _provider:
                 accounts.append(account)
                 added = True
                 break
         if not added:
-            self._accounts.append((provider, [account]))
-        self.props.empty = len(self._accounts) == 0
+            self._accounts_per_provider.append((provider, [account]))
+        self.props.empty = len(self._accounts_per_provider) == 0
 
     
     def delete(self, account):
         provider_index = 0
         _accounts = None
-        for provider, accounts in self._accounts:
+        for provider, accounts in self._accounts_per_provider:
             if account in accounts:
                 _accounts = accounts
                 break
@@ -69,8 +69,8 @@ class AccountsManager(GObject.GObject):
         if provider:
             _accounts.remove(account)
             if not len(_accounts):
-                del self._accounts[provider_index]
-        self.props.empty = len(self._accounts) == 0
+                del self._accounts_per_provider[provider_index]
+        self.props.empty = len(self._accounts_per_provider) == 0
 
 
     def search(self, terms):
@@ -86,24 +86,32 @@ class AccountsManager(GObject.GObject):
         return _accounts
 
     @property
+    def accounts_per_provider(self):
+        return self._accounts_per_provider
+
+
+    @property
     def accounts(self):
-        return self._accounts
+        accounts = []
+        for _, _accounts in self._accounts_per_provider:
+            accounts.extend(_accounts)
+        return accounts
 
     @property
     def accounts_count(self):
         count = 0
-        for _, accounts in self._accounts:
+        for _, accounts in self._accounts_per_provider:
             count += len(accounts)
         return count
 
     def clear(self):
-        self._accounts = []
+        self._accounts_per_provider = []
 
     def kill(self):
         self._alive = False
 
     def update_childes(self, signal, data=None):
-        for _, accounts in self._accounts:
+        for _, accounts in self._accounts_per_provider:
             for account in accounts:
                 if data:
                     account.emit(signal, data)
@@ -134,5 +142,5 @@ class AccountsManager(GObject.GObject):
                 account = Account(*account)
                 if account.otp:
                     _accounts.append(account)
-            self._accounts.append((provider, _accounts))
-        self.props.empty = len(self._accounts) == 0
+            self._accounts_per_provider.append((provider, _accounts))
+        self.props.empty = len(self._accounts_per_provider) == 0
