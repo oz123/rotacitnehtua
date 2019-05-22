@@ -241,9 +241,11 @@ class PasswordWidget(Gtk.Box):
     @Gtk.Template.Callback('update_password_clicked')
     def __save_password(self, *__):
         if self.change_password_btn.get_sensitive():
+            keyring = Keyring.get_default()
+
             password = self.password_entry.get_text()
-            had_password = Keyring.has_password()
-            Keyring.set_password(password)
+            had_password = keyring.has_password()
+            keyring.set_password(password)
             self.reset_widgets()
             self.set_current_password_visibility(True)
             self.emit("password-updated", had_password)

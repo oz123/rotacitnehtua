@@ -37,7 +37,7 @@ class Account(GObject.GObject):
         self.username = username
         self.provider = provider
         self._token_id = token_id
-        token = Keyring.get_by_id(self._token_id)
+        token = Keyring.get_default().get_by_id(self._token_id)
         self.connect("otp_out_of_date", self._on_otp_out_of_date)
         if token:
             self.otp = OTP(token)
@@ -61,7 +61,7 @@ class Account(GObject.GObject):
         token_id = sha256(token.encode('utf-8')).hexdigest()
         # Save the account
         obj = Database.get_default().insert_account(username, token_id, provider)
-        Keyring.insert(token_id, provider, username, token)
+        Keyring.get_default().insert(token_id, provider, username, token)
         return Account(obj.id, username, token_id, provider)
 
     @staticmethod
@@ -108,7 +108,7 @@ class Account(GObject.GObject):
         Remove the account.
         """
         Database.get_default().delete_account(self.id)
-        Keyring.remove(self._token_id)
+        Keyring.get_default().remove(self._token_id)
         self.emit("removed")
         Logger.debug("Account '{}' with id {} was removed".format(self.username,
                                                                   self.id))
@@ -123,7 +123,7 @@ class Account(GObject.GObject):
             self.emit("otp_updated", self.otp.pin)
 
     def to_json(self):
-        token = Keyring.get_by_id(self._token_id)
+        token = Keyring.get_default().get_by_id(self._token_id)
         if token:
             return {
                 "secret": token,

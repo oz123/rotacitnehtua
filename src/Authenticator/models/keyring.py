@@ -45,7 +45,7 @@ class Keyring(GObject.GObject):
                                                        {
                                                            "state": Secret.SchemaAttributeType.STRING
                                                        })
-
+        self.props.can_be_locked = self.is_password_enabled() and self.has_password()
 
     @staticmethod
     def get_default():
@@ -53,8 +53,7 @@ class Keyring(GObject.GObject):
             Keyring.instance = Keyring()
         return Keyring.instance
 
-    @staticmethod
-    def get_by_id(secret_id):
+    def get_by_id(self, secret_id):
         """
         Return the OTP token based on a secret ID.
 
@@ -62,27 +61,26 @@ class Keyring(GObject.GObject):
         :type secret_id: str
         :return: the secret OTP token.
         """
-        schema = Keyring.get_default().schema
+        schema = self.schema
         password = Secret.password_lookup_sync(
             schema, {"id": str(secret_id)}, None)
         return password
 
-    @staticmethod
-    def insert(secret_id, provider, username, token):
+    def insert(self, token_id, provider, username, token):
         """
         Save a secret OTP token.
 
-        :param secret_id: The secret ID associated to the OTP token
+        :param token_id: The secret ID associated to the OTP token
         :param provider: the provider name
         :param username: the username
         :param token: the secret OTP token.
 
 
         """
-        schema = Keyring.get_default().schema
+        schema = self.schema
 
         data = {
-            "id": str(secret_id),
+            "id": str(token_id),
             "name": str(username),
         }
         Secret.password_store_sync(
@@ -95,41 +93,37 @@ class Keyring(GObject.GObject):
             None
         )
 
-    @staticmethod
-    def remove(secret_id):
+    def remove(self, token_id):
         """
         Remove a specific secret OTP token.
 
         :param secret_id: the secret ID associated to the OTP token
         :return bool: Either the token was removed successfully or not
         """
-        schema = Keyring.get_default().schema
+        schema = self.schema
         success = Secret.password_clear_sync(
-            schema, {"id": str(secret_id)}, None)
+            schema, {"id": str(token_id)}, None)
         return success
 
-    @staticmethod
-    def clear():
+    def clear(self):
         """
            Clear all existing accounts.
 
            :return bool: Either the token was removed successfully or not
        """
-        schema = Keyring.get_default().schema
+        schema = self.schema
         success = Secret.password_clear_sync(schema, {}, None)
         return success
 
-    @staticmethod
-    def get_password():
-        schema = Keyring.get_default().password_schema
+    def get_password(self):
+        schema = self.password_schema
         password = Secret.password_lookup_sync(schema, {}, None)
         return password
 
-    @staticmethod
-    def set_password(password):
-        schema = Keyring.get_default().password_schema
+    def set_password(self, password):
+        schema = self.password_schema
         # Clear old password
-        Keyring.remove_password()
+        self.remove_password()
         # Store the new one
         Secret.password_store_sync(
             schema,
@@ -139,18 +133,15 @@ class Keyring(GObject.GObject):
             password,
             None
         )
-        Keyring.set_password_state(True)
+        self.set_password_state(True)
 
-    @staticmethod
-    def is_password_enabled():
-        schema = Keyring.get_default().password_state_schema
+    def is_password_enabled(self):
+        schema = self.password_state_schema
         state = Secret.password_lookup_sync(schema, {}, None)
         return state == 'true' if state else False
 
-    @staticmethod
-    def set_password_state(state):
-        keyring = Keyring.get_default()
-        schema = keyring.password_state_schema
+    def set_password_state(self, state):
+        schema = self.password_state_schema
         if not state:
             Secret.password_clear_sync(schema, {}, None)
         else:
@@ -162,15 +153,12 @@ class Keyring(GObject.GObject):
                 "true",
                 None
             )
-        keyring.props.can_be_locked = state and keyring.has_password()
+        self.props.can_be_locked = state and self.has_password()
 
+    def has_password(self):
+        return self.get_password() is not None
 
-    @staticmethod
-    def has_password():
-        return Keyring.get_password() is not None
-
-    @staticmethod
-    def remove_password():
-        schema = Keyring.get_default().password_schema
+    def remove_password(self):
+        schema = self.password_schema
         Secret.password_clear_sync(schema, {}, None)
-        Keyring.set_password_state(False)
+        self.set_password_state(False)

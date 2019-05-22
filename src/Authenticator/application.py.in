@@ -60,7 +60,6 @@ class Application(Gtk.Application):
         self.__setup_actions()
 
         keyring = Keyring.get_default()
-        keyring.can_be_locked = keyring.is_password_enabled() and keyring.has_password()
         self.is_locked = keyring.can_be_locked
 
         Application.__setup_css()

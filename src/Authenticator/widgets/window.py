@@ -184,7 +184,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
         from Authenticator.models import Keyring
         typed_password = self.password_entry.get_text()
-        if typed_password == Keyring.get_password():
+        if typed_password == Keyring.get_default().get_password():
             self.get_application().set_property("is-locked", False)
             # Reset password entry
             self.password_entry.get_style_context().remove_class("error")

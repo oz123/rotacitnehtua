@@ -29,7 +29,7 @@ require_version('Gdk', '3.0')
 require_version('Secret', '1')
 from gi.repository import Gio, GLib
 
-from Authenticator.models import AccountsManager, Account, Clipboard
+from Authenticator.models import AccountsManager, Account, Clipboard, Keyring
 
 class Server:
     def __init__(self, con, path):
@@ -178,11 +178,13 @@ class AuthenticatorSearchProvider(Server, Gio.Application):
 
     def __search(self, terms):
         ids = []
-        try:
-            accounts = AccountsManager.get_default().search(terms)
-            ids = [str(account.id) for account in accounts]
-        except Exception as e:
-            print("AuthenticatorSearchProvider::__search():", e)
+        # Don't allow search if the app is locked with a password.
+        if not Keyring.get_default().is_password_enabled():
+            try:
+                accounts = AccountsManager.get_default().search(terms)
+                ids = [str(account.id) for account in accounts]
+            except Exception as e:
+                print("AuthenticatorSearchProvider::__search():", e)
         return ids
 
 
