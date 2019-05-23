@@ -253,9 +253,9 @@ class PasswordWidget(Gtk.Box):
     @Gtk.Template.Callback('reset_password_clicked')
     def __reset_password(self, *args):
         dialog = Gtk.MessageDialog(self.parent, 0, Gtk.MessageType.QUESTION,
-            Gtk.ButtonsType.YES_NO, "Do you want to remove the authentication password?")
+            Gtk.ButtonsType.YES_NO, _("Do you want to remove the authentication password?"))
         dialog.format_secondary_text(
-            "Authentication password enforces the privacy of your accounts.")
+            _("Authentication password enforces the privacy of your accounts."))
         response = dialog.run()
         if response == Gtk.ResponseType.YES:
             Keyring.get_default().remove_password()
