@@ -84,3 +84,4 @@ target/
 *.gitignore~
 *.build~
 *.ui.in#
+*.json~

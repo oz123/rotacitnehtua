@@ -8,6 +8,6 @@ Terminal=false
 Categories=GNOME;GTK;Security;Utility;
 Keywords=Gnome;GTK;Verification;2FA;Authentication;TwoFactor;
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=@appid@
+Icon=@APP_ID@
 StartupNotify=true
-StartupWMClass=com.github.bilelmoussaoui.Authenticator
+StartupWMClass=@APP_ID@

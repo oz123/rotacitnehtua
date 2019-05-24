@@ -1,11 +1,33 @@
 project('com.github.bilelmoussaoui.Authenticator', 'c',
 	version: '3.32',
-  meson_version: '>= 0.48',
+  meson_version: '>= 0.50',
   license: 'GPL+-3.0'
 )
-python = import('python3')
 gnome  = import('gnome')
 i18n   = import('i18n')
+
+# This doesn't work yet. It's doesn't find the python3 from the sandboxed env first
+# python = import('python')
+# python3 = python.find_installation('python3')
+python = import('python3')
+python3 = python.find_python()
+if not python3.found()
+    error('No valid python3 binary found')
+else
+    message('Found python3 binary')
+endif
+
+
+
+dependency('glib-2.0')
+dependency('gobject-2.0')
+dependency('gobject-introspection-1.0')
+dependency('gtk+-3.0', version: '>=3.16')
+dependency('libsecret-1')
+dependency('zbar', version: '>= 0.20.1')
+find_program('glib-compile-schemas', required: true)
+find_program('gtk-update-icon-cache', required: false)
+find_program('update-desktop-database', required: false)
 
 gettext_package = 'Authenticator'
 profile = get_option('profile')
@@ -24,48 +46,14 @@ endif
 
 
 application_id = 'com.github.bilelmoussaoui.Authenticator@0@'.format(profile_suffix)
+localedir = get_option('prefix') / get_option('localedir')
+pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
+libexecdir = get_option('prefix') / get_option('libexecdir')
+pythondir = get_option('prefix') / python.sysconfig_path('purelib')
 
-message('Looking for dependencies')
-dependency('glib-2.0')
-dependency('gobject-2.0')
-dependency('gobject-introspection-1.0')
-dependency('gtk+-3.0', version: '>=3.16')
-dependency('libsecret-1')
-dependency('zbar', version: '>= 0.20.1')
-
-find_program('glib-compile-schemas', required: true)
-find_program('gtk-update-icon-cache', required: false)
-find_program('update-desktop-database', required: false)
-
-python3 = python.find_python()
-if not python3.found()
-    error('No valid python3 binary found')
-else
-    message('Found python3 binary')
-endif
-
-LOCALE_DIR = join_paths(get_option('prefix'), get_option('localedir'))
-PKGDATA_DIR = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
-LIBEXEC_DIR = join_paths(get_option('prefix'), get_option('libexecdir'))
-
-
-# Configuration params
-conf = configuration_data()
-conf.set('APP_ID', application_id)
-conf.set('GETTEXT_PACKAGE', gettext_package)
-conf.set('PKGDATA_DIR', PKGDATA_DIR)
-conf.set('LOCALE_DIR', LOCALE_DIR)
-conf.set('PYTHON_DIR', join_paths(get_option('prefix'), python.sysconfig_path('purelib')))
-conf.set('PYTHON_EXEC_DIR', join_paths(get_option('prefix'), python.sysconfig_path('stdlib')))
-conf.set('VERSION', meson.project_version())
-conf.set('PROFILE', profile)
-conf.set('PRFOILE_SUFFIX', profile_suffix)
-conf.set('NAME_SUFFIX', name_suffix)
-conf.set('libexecdir', LIBEXEC_DIR)
-conf.set('PYTHON', python3.path())
+podir = meson.source_root() / 'po'
 
 subdir('data')
 subdir('po')
 subdir('src')
-
 meson.add_install_script('build-aux/meson_post_install.py')

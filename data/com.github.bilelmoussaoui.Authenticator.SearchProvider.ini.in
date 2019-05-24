@@ -1,5 +1,5 @@
 [Shell Search Provider]
-DesktopId=@appid@.desktop
-BusName=@appid@.SearchProvider
-ObjectPath=/com/github/bilelmoussaoui/Authenticator@profile@/SearchProvider
+DesktopId=@APP_ID@.desktop
+BusName=@APP_ID@.SearchProvider
+ObjectPath=/com/github/bilelmoussaoui/Authenticator@PROFILE_SUFFIX@/SearchProvider
 Version=2

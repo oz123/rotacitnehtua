@@ -32,7 +32,6 @@ require_version("Handy", "0.0")
 require_version('Secret', '1')
 from gi.repository import Gio, Handy
 
-sys.path.insert(1, '@PYTHON_EXEC_DIR@')
 sys.path.insert(1, '@PYTHON_DIR@')
 
 def prepare_locale():
@@ -48,8 +47,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="Authenticator")
     parser.add_argument("--debug", "-d", action="store_true",
                         help=_("Start in debug mode"))
-    parser.add_argument("--version", "-v", action="store_true",
-                        help=_("Authenticator version number"))
     args = parser.parse_args()
 
     resource = Gio.resource_load(path.join('@PKGDATA_DIR@', '@APP_ID@.gresource'))
@@ -63,15 +60,12 @@ if __name__ == "__main__":
         faulthandler.enable()
 
     Logger.set_level(level)
-    if args.version:
-        sys.exit("Version : @VERSION@")
-    else:
-        try:
-            Handy.init(None)
-            from Authenticator.application import Application
-            app = Application.get_default()
-            app.props.profile = '@@'
-            exit_status = app.run(None)
-            sys.exit(exit_status)
-        except KeyboardInterrupt:
-            exit()
+    try:
+        Handy.init(None)
+        from Authenticator.application import Application
+        app = Application.get_default()
+        app.props.profile = '@PROFILE@'
+        exit_status = app.run(None)
+        sys.exit(exit_status)
+    except KeyboardInterrupt:
+        exit()
