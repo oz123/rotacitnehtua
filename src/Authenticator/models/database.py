@@ -138,9 +138,9 @@ class Database:
             :param id_: int the provider id
             :return: Provider: The provider data
         """
-        query = "SELECT * FROM providers WHERE name LIKE ?"
+        query = "SELECT * FROM providers WHERE name LIKE ? "
         try:
-            data = self.conn.cursor().execute(query, (provider_name,))
+            data = self.conn.cursor().execute(query, ("%" + provider_name + "%",))
             provider = data.fetchone()
             return Provider(*provider) if provider else None
         except Exception as error:
