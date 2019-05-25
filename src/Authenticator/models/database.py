@@ -18,11 +18,10 @@
 """
 import sqlite3
 from os import path, makedirs
-from gi.repository import GLib, Gio
+from gi.repository import GLib
 from collections import namedtuple
 from shutil import move
 from Authenticator.models import Logger
-import json
 
 
 Provider = namedtuple('Provider', ['id', 'name', 'website', 'doc_url', 'image'])
@@ -43,7 +42,6 @@ class Database:
         if database_created:
             self.__apply_migrations()
         self.conn = sqlite3.connect(self.db_file)
-        self.__fill_providers()
 
     @staticmethod
     def get_default():
@@ -324,17 +322,3 @@ class Database:
         except Exception as error:
             Logger.error("[SQL] Couldn't update row by id")
             Logger.error(error)
-
-    def __fill_providers(self):
-        # Fill providers table with data we ship in resources
-        uri = 'resource:///com/github/bilelmoussaoui/Authenticator/data.json'
-        g_file = Gio.File.new_for_uri(uri)
-        content = str(g_file.load_contents(None)[1].decode("utf-8"))
-        data = json.loads(content)
-        providers = []
-        for provider_name, provider_info in data.items():
-            providers.append((provider_name, provider_info['url'],
-                              provider_info['doc'], provider_info['img'],))
-        query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
-        self.conn.executemany(query, providers)
-        self.conn.commit()
