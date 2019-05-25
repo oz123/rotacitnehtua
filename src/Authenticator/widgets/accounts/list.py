@@ -16,14 +16,12 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-import asyncio
 from gettext import gettext as _
-from gi.repository import Gtk, GObject, Handy
+from gi.repository import Gtk, GObject
 
 from Authenticator.widgets.provider_image import ProviderImage
 from Authenticator.widgets.accounts.row import AccountRow
-from Authenticator.models import Account, AccountsManager, FaviconManager
-
+from Authenticator.models import Account, AccountsManager
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/accounts_widget.ui')
@@ -49,11 +47,10 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self._to_delete = []
         self.__init_widgets()
 
-
     def __init_widgets(self):
         accounts_manager = AccountsManager.get_default()
         accounts_manager.connect("counter_updated",
-                                  self._on_counter_updated)
+                                 self._on_counter_updated)
         # Add different accounts to the main view
         for provider, accounts in accounts_manager.accounts_per_provider:
             for account in accounts:
@@ -64,7 +61,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         if not accounts_list:
             accounts_list = AccountsList()
             accounts_list.connect("account-deleted", self._on_account_deleted)
-            self._providers.append({"provider": provider, 
+            self._providers.append({"provider": provider,
                                     "accounts_list": accounts_list})
             provider_widget = ProviderWidget(accounts_list, provider)
             self.accounts_container.pack_start(provider_widget, False, False, 0)
@@ -121,7 +118,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         self._on_account_deleted(current_account_list, None)
         self._reorder()
         self._clean_unneeded_providers_widgets()
-            
+
     def _on_account_deleted(self, accounts_list, account=None):
         if account:
             AccountsManager.get_default().delete(account)
@@ -158,7 +155,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
 class ProviderWidget(Gtk.Box):
 
-    def __init__(self, accounts_list:Gtk.ListBox, provider):
+    def __init__(self, accounts_list: Gtk.ListBox, provider):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         self.get_style_context().add_class("provider-widget")
         self.provider = provider
@@ -181,7 +178,6 @@ class ProviderWidget(Gtk.Box):
 
         self.pack_start(provider_container, False, False, 6)
         self.pack_start(self.accounts_list, False, False, 6)
-
 
 
 class AccountsList(Gtk.ListBox, GObject.GObject):
@@ -211,4 +207,3 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         account = account_row.account
         account.remove()
         self.emit("account-deleted", account)
-

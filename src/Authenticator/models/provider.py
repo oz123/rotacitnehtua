@@ -21,6 +21,7 @@ from gi.repository import Gtk
 
 from Authenticator.models import Database, FaviconManager
 
+
 class Provider:
 
     instance = None
@@ -33,19 +34,12 @@ class Provider:
         self.image = image
 
     @staticmethod
-    def get_default():
-        if ProviderManager.instance is None:
-            ProviderManager.instance = ProviderManager()
-        return ProviderManager.instance
-
-    @staticmethod
     def create(name, website, doc_url, image):
         provider = Database.get_default().insert_provider(name, website, doc_url, image)
         return Provider(*provider)
 
     @staticmethod
     def get_by_id(id_):
-        print(id_)
         provider = Database.get_default().provider_by_id(id_)
         if provider:
             return Provider(*provider)
@@ -57,7 +51,7 @@ class Provider:
         if provider:
             return Provider(*provider)
         return None
-    
+
     @staticmethod
     def all():
         providers = Database.get_default().get_providers()
@@ -82,4 +76,3 @@ class Provider:
         self.name = provider_data.get("name", self.name)
         self.image = provider_data.get("image", self.image)
         Database.get_default().update_provider(provider_data, self.provider_id)
-

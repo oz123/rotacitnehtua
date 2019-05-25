@@ -33,4 +33,4 @@ flake8:
   stage: check
   script:
     - dnf install -y python3-flake8
-    - flake8 --ignore E402,W503 --show-source src/
+    - flake8 --ignore E402,W503,E501 --show-source src/ --exclude __init__.py

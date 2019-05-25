@@ -1,5 +1,25 @@
+"""
+ Copyright © 2017 Bilal Elmoussaoui <bil.elmoussaoui@gmail.com>
+
+ This file is part of Authenticator.
+
+ Authenticator is free software: you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as published
+ by the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ Authenticator is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
+"""
+
 from gi.repository import Gtk, GObject, GLib
 from gettext import gettext as _
+
 
 class Notification(Gtk.Revealer):
 
@@ -47,10 +67,10 @@ class Notification(Gtk.Revealer):
         self._action_btn = Gtk.Button()
         self._action_btn.set_label(_("Undo"))
         self._action_btn.connect("clicked", self.__on_action_btn_clicked)
-        
+
         self._notification_lbl = Gtk.Label()
         self._notification_lbl.set_text(self.message)
-    
+
         notification_container.pack_start(self._notification_lbl, False, False, 6)
         notification_container.pack_end(self._close_btn, False, False, 6)
         notification_container.pack_end(self._action_btn, False, False, 6)
@@ -66,7 +86,7 @@ class Notification(Gtk.Revealer):
         self.props.timeout = kwargs.get("timeout", self.props.timeout)
         self.action_callback = kwargs.get("action_callback")
         GLib.timeout_add_seconds(self.timeout, self.__delete_notification, None)
-    
+
     def __delete_notification(self, *args):
         self.set_reveal_child(False)
         self.message = ""
@@ -75,7 +95,7 @@ class Notification(Gtk.Revealer):
         if self.action_callback:
             self.action_callback()
         self.__delete_notification()
-    
+
     def __bind_signals(self):
         self._close_btn.bind_property("visible", self, "show-close-btn", GObject.BindingFlags.BIDIRECTIONAL)
         self._action_btn.bind_property("visible", self, "show-action-btn", GObject.BindingFlags.BIDIRECTIONAL)

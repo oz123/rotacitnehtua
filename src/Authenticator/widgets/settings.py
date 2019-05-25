@@ -18,10 +18,10 @@
 """
 from gettext import gettext as _
 
-from gi.repository import Gio, GLib, Gtk, GObject, Handy
-from .window import Window
+from gi.repository import Gio, Gtk, GObject, Handy
 from .notification import Notification
 from ..models import Settings, Keyring
+
 
 class SettingRow(Handy.ActionRow):
 
@@ -35,8 +35,10 @@ class SettingRow(Handy.ActionRow):
         self.set_subtitle(subtitle)
         self.add_action(widget)
 
+
 class SettingExpanderRow(Handy.ExpanderRow):
     toggled = GObject.Property(type=bool, default=False)
+
     def __init__(self, title, subtitle):
         Handy.ExpanderRow.__init__(self)
 
@@ -49,7 +51,6 @@ class SettingExpanderRow(Handy.ExpanderRow):
         # Hackish solution until libhandy have a property for that
         expander_toggled_btn = self.get_children()[0].get_children()[3]
         expander_toggled_btn.bind_property("active", self, "toggled", GObject.BindingFlags.BIDIRECTIONAL)
-
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/settings.ui')
@@ -86,12 +87,12 @@ class SettingsWindow(Gtk.Window):
 
         self.night_light_switch.set_valign(Gtk.Align.CENTER)
         night_light_row = SettingRow(_('Night Light'),
-                                    _('Automatically enable dark mode at night.'),
-                                    self.night_light_switch)
+                                     _('Automatically enable dark mode at night.'),
+                                     self.night_light_switch)
 
         self.lock_switch_row = SettingExpanderRow(_('Lock the application'),
-                                            _('Lock the application with a password')
-                                            )
+                                                  _('Lock the application with a password')
+                                                  )
         self.lock_switch_row.props.enable_expansion = Keyring.get_default().is_password_enabled()
         self.lock_switch_row.connect("notify::enable-expansion", self.__on_enable_password)
         self.lock_switch_row.connect("notify::toggled", self.__on_lock_switch_toggled)
@@ -119,15 +120,14 @@ class SettingsWindow(Gtk.Window):
         self.dark_theme_switch.set_active(settings.dark_theme and not settings.night_light)
 
         self.night_light_switch.set_active(settings.night_light)
-        settings.bind("night-light", self.night_light_switch, 
-                        "active", Gio.SettingsBindFlags.DEFAULT)
+        settings.bind("night-light", self.night_light_switch,
+                      "active", Gio.SettingsBindFlags.DEFAULT)
 
         self._password_widget.connect("password-updated", self.__on_password_updated)
         self._password_widget.connect("password-deleted", self.__on_password_deleted)
-        
 
         def on_night_light_switch(switch, _):
-            # Set the application to use Light theme 
+            # Set the application to use Light theme
             if switch.get_active() and self.dark_theme_switch.get_active():
 
                 self.dark_theme_switch.set_active(False)
@@ -135,7 +135,7 @@ class SettingsWindow(Gtk.Window):
         self.night_light_switch.connect("notify::active", on_night_light_switch)
 
         def on_dark_theme_switch(switch, _):
-            # Set the application to use Light theme 
+            # Set the application to use Light theme
 
             if settings.night_light and switch.get_active():
                 switch.set_state(False)
@@ -151,7 +151,7 @@ class SettingsWindow(Gtk.Window):
             self._password_widget.set_current_password_visibility(False)
         else:
             self._password_widget.set_current_password_visibility(True)
-    
+
     def __on_password_updated(self, __, had_password):
         if not had_password:
             self.notification.send(_("Authentication password is now enabled."))
@@ -163,6 +163,7 @@ class SettingsWindow(Gtk.Window):
         self.notification.send(_("The authentication password was deleted."))
         self.lock_switch_row.toggled = False
         self.lock_switch_row.set_enable_expansion(False)
+
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/password_widget.ui')
 class PasswordWidget(Gtk.Box):
@@ -196,7 +197,7 @@ class PasswordWidget(Gtk.Box):
         self.confirm_password_entry.get_style_context().remove_class("error")
         self.current_password_entry.get_style_context().remove_class("error")
         self.change_password_btn.set_sensitive(False)
-    
+
     def set_current_password_visibility(self, visibilty):
         if not visibilty:
             self.current_password_box.hide()
@@ -249,11 +250,12 @@ class PasswordWidget(Gtk.Box):
             self.reset_widgets()
             self.set_current_password_visibility(True)
             self.emit("password-updated", had_password)
-    
+
     @Gtk.Template.Callback('reset_password_clicked')
     def __reset_password(self, *args):
         dialog = Gtk.MessageDialog(self.parent, 0, Gtk.MessageType.QUESTION,
-            Gtk.ButtonsType.YES_NO, _("Do you want to remove the authentication password?"))
+                                   Gtk.ButtonsType.YES_NO,
+                                   _("Do you want to remove the authentication password?"))
         dialog.format_secondary_text(
             _("Authentication password enforces the privacy of your accounts."))
         response = dialog.run()

@@ -16,7 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from time import sleep
 from gi.repository import GObject, GLib
 
 
@@ -57,7 +56,6 @@ class AccountsManager(GObject.GObject):
             self._accounts_per_provider.append((provider, [account]))
         self.props.empty = len(self._accounts_per_provider) == 0
 
-    
     def delete(self, account):
         provider_index = 0
         _accounts = None
@@ -65,13 +63,12 @@ class AccountsManager(GObject.GObject):
             if account in accounts:
                 _accounts = accounts
                 break
-            provider_index += 1 
+            provider_index += 1
         if provider:
             _accounts.remove(account)
             if not len(_accounts):
                 del self._accounts_per_provider[provider_index]
         self.props.empty = len(self._accounts_per_provider) == 0
-
 
     def search(self, terms):
         from .database import Database
@@ -88,7 +85,6 @@ class AccountsManager(GObject.GObject):
     @property
     def accounts_per_provider(self):
         return self._accounts_per_provider
-
 
     @property
     def accounts(self):

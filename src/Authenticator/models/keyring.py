@@ -37,14 +37,10 @@ class Keyring(GObject.GObject):
                                         })
         self.password_schema = Secret.Schema.new(Keyring.PasswordID,
                                                  Secret.SchemaFlags.NONE,
-                                                 {
-                                                    "password": Secret.SchemaAttributeType.STRING
-                                                 })
+                                                 {"password": Secret.SchemaAttributeType.STRING})
         self.password_state_schema = Secret.Schema.new(Keyring.PasswordState,
                                                        Secret.SchemaFlags.NONE,
-                                                       {
-                                                           "state": Secret.SchemaAttributeType.STRING
-                                                       })
+                                                       {"state": Secret.SchemaAttributeType.STRING})
         self.props.can_be_locked = self.is_password_enabled() and self.has_password()
 
     @staticmethod

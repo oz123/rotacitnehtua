@@ -16,13 +16,11 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-import asyncio
 from gettext import gettext as _
-from gi.repository import Gdk, Gtk, GObject, GLib, Gio
-
+from gi.repository import Gdk, Gtk, GObject, Gio
 from Authenticator.widgets.notification import Notification
 from Authenticator.widgets.provider_image import ProviderImage
-from Authenticator.models import OTP, Provider, FaviconManager
+from Authenticator.models import OTP, Provider
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
@@ -81,8 +79,9 @@ class AddAccountWindow(Gtk.Window):
         AccountsWidget.get_default().append(account)
         self._on_quit()
 
+
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_config.ui')
-class AccountConfig(Gtk.Box, GObject.GObject):
+class AccountConfig(Gtk.Box):
     __gsignals__ = {
         'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
     }
@@ -106,7 +105,6 @@ class AccountConfig(Gtk.Box, GObject.GObject):
     def __init__(self, **kwargs):
         super(AccountConfig, self).__init__()
         self.init_template('AccountConfig')
-        GObject.GObject.__init__(self)
 
         self.props.is_edit = kwargs.get("edit", False)
         self._account = kwargs.get("account", None)
