@@ -16,16 +16,17 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gettext import gettext as _
 from gi.repository import Gtk, GObject
-
-
 from Authenticator.widgets.accounts.add import AccountConfig
 
+
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
-class EditAccountWindow(Gtk.Window, GObject.GObject):
+class EditAccountWindow(Gtk.Window):
     __gsignals__ = {
-        'updated': (GObject.SignalFlags.RUN_LAST, None, (str, GObject.TYPE_PYOBJECT, )),
+        'updated': (GObject.SignalFlags.RUN_LAST,
+                    None,
+                    (str, GObject.TYPE_PYOBJECT, )
+                    ),
     }
 
     __gtype_name__ = 'EditAccountWindow'
@@ -35,10 +36,8 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
     def __init__(self, account):
         super(EditAccountWindow, self).__init__()
         self.init_template('EditAccountWindow')
-        GObject.GObject.__init__(self)
 
         self._account = account
-
         self.__init_widgets()
 
     def __init_widgets(self):

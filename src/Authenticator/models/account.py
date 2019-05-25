@@ -17,7 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from hashlib import sha256
-from gettext import  gettext as _
+from gettext import gettext as _
 from gi.repository import GObject
 
 from Authenticator.models import Clipboard, Database, Keyring, Logger, OTP, Provider
@@ -68,12 +68,12 @@ class Account(GObject.GObject):
     def create_from_json(json_obj):
         tags = json_obj["tags"]
         if not tags:
-            provider = _("Default")
+            provider_name = _("Default")
         else:
-            provider = tags[0]
-        provider = Provider.get_by_name(provider)
+            provider_name = tags[0]
+        provider = Provider.get_by_name(provider_name)
         if not provider:
-            provider = Provider.create(name, None, None, None)
+            provider = Provider.create(provider_name, None, None, None)
         return Account.create(json_obj["label"], json_obj["secret"], provider.provider_id)
 
     @staticmethod

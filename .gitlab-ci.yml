@@ -1,4 +1,8 @@
 include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+stages:
+  - check
+  - test
+  - deploy
 
 variables:
     BUNDLE: "authenticator-dev.flatpak"
@@ -22,3 +26,11 @@ review:
 stop_review:
     stage: deploy
     extends: '.stop_review'
+
+
+
+flake8:
+  stage: check
+  script:
+    - dnf install -y python3-flake8
+    - flake8 --ignore E402,W503,E501 --show-source src/ --exclude __init__.py

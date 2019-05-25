@@ -20,7 +20,6 @@
 from gi.repository import Gtk, GObject, GdkPixbuf, GLib, Gio
 from os import path
 from tempfile import NamedTemporaryFile
-from gettext import gettext as _
 from threading import Thread
 
 from Authenticator.models import FaviconManager, Provider
@@ -39,6 +38,7 @@ class ProviderImage(Gtk.Stack):
     __gtype_name__ = 'ProviderImage'
     __gsignals__ = {
         'changed': (GObject.SignalFlags.RUN_LAST, None, (str, str, )),
+        'image-downloaded': (GObject.SignalFlags.RUN_FIRST, None, (str, ))
     }
 
     image_eventbox = Gtk.Template.Child()
@@ -51,7 +51,7 @@ class ProviderImage(Gtk.Stack):
     def __init__(self, provider=None, image_size=48):
         super(ProviderImage, self).__init__()
         self.init_template('ProviderImage')
-        self.provider = provider if provider else Provider(*[None]*5)
+        self.provider = provider if provider else Provider()
         self.image_size = image_size
         self.provider_image.set_pixel_size(image_size)
         self.image_eventbox.connect("enter-notify-event", self.__display_insert_image)
@@ -64,12 +64,14 @@ class ProviderImage(Gtk.Stack):
     def __display_insert_image(self, *_):
         self.insert_image.set_visible(True)
         self.insert_image.set_no_show_all(False)
+
         def hide_insert_image(*_):
             self.insert_image.set_visible(False)
             self.insert_image.set_no_show_all(True)
-            if self._timeout_id != 0:
+            if self._timeout_id > 0:
                 GLib.Source.remove(self._timeout_id)
                 self._timeout_id = 0
+
         self._timeout_id = GLib.timeout_add_seconds(1, hide_insert_image)
 
     @property
@@ -89,7 +91,7 @@ class ProviderImage(Gtk.Stack):
 
                 if pixbuf and (pixbuf.props.width != self.image_size or pixbuf.props.height != self.image_size):
                     pixbuf = pixbuf.scale_simple(self.image_size, self.image_size,
-                                                GdkPixbuf.InterpType.BILINEAR)
+                                                 GdkPixbuf.InterpType.BILINEAR)
                 if updated and self.provider:
                     self.provider.update(image=image)
                 self.provider_image.set_from_pixbuf(pixbuf)
@@ -128,11 +130,10 @@ class ProviderImage(Gtk.Stack):
 
         if provider_image and provider_website:
             favicon_manager = FaviconManager()
-            t = Thread(target=lambda:
-                                favicon_manager.grab_favicon(provider_image,
-                                                            provider_website,
-                                                            self.__on_favicon_downloaded)
-                        )
+            t = Thread(target=lambda: favicon_manager.grab_favicon(provider_image,
+                                                                   provider_website,
+                                                                   self.__on_favicon_downloaded)
+                       )
             t.daemon = True
             t.start()
         else:
@@ -157,9 +158,9 @@ class ProviderImage(Gtk.Stack):
         return destination_file
 
     def __on_favicon_downloaded(self, img_path):
-        self.provider_spinner.stop()
-        if img_path:
-            self.set_image(img_path)
-        self.set_visible_child_name("provider_image")
+        self.emit("image-downloaded", img_path)
 
-    
+    def do_image_downloaded(self, img_path):
+        self.provider_spinner.stop()
+        self.set_visible_child_name("provider_image")
+        self.set_image(img_path)

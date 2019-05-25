@@ -17,7 +17,6 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 import sqlite3
-from collections import OrderedDict
 from os import path, makedirs
 from gi.repository import GLib, Gio
 from collections import namedtuple
@@ -145,7 +144,6 @@ class Database:
             Logger.error(str(error))
         return None
 
-
     def delete_account(self, id_):
         """
             Remove an account by ID.
@@ -173,7 +171,6 @@ class Database:
     def update_provider(self, provider_data, id_):
         # Update a provider by id
         self.__update_by_id("providers", provider_data, id_)
-
 
     def search_accounts(self, terms):
         if terms:
@@ -230,7 +227,6 @@ class Database:
             Logger.error("[SQL] Couldn't fetch providers list")
             Logger.error(str(error))
         return None
-
 
     @property
     def accounts(self):
@@ -342,7 +338,7 @@ class Database:
         providers = []
         for provider_name, provider_info in data.items():
             providers.append((provider_name, provider_info['url'],
-                                    provider_info['doc'], provider_info['img'],))
+                              provider_info['doc'], provider_info['img'],))
         query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
         self.conn.executemany(query, providers)
         self.conn.commit()

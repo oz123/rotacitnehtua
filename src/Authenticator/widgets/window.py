@@ -16,9 +16,9 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gi.repository import Gtk, GObject, Gio, GLib
+from gi.repository import Gtk, GObject, Gio
 
-from Authenticator.models import Database, Logger, Settings, AccountsManager
+from Authenticator.models import Logger, Settings, AccountsManager
 from Authenticator.widgets.accounts.add import AddAccountWindow
 from Authenticator.widgets.accounts.list import AccountsWidget
 
@@ -26,7 +26,8 @@ from Authenticator.widgets.accounts.list import AccountsWidget
 class WindowView:
     NORMAL = 0
     LOCKED = 1
-    EMPTY  = 2
+    EMPTY = 2
+
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/window.ui')
 class Window(Gtk.ApplicationWindow, GObject.GObject):
@@ -58,7 +59,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.restore_state()
         # Start the Account Manager
         AccountsManager.get_default()
-        
+
         self.__init_widgets()
 
     @staticmethod
@@ -82,8 +83,10 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     def set_menu(self, menu):
         popover = Gtk.Popover.new_from_model(self.primary_menu_btn, menu)
+
         def primary_menu_btn_handler(_, popover):
             popover.set_visible(not popover.get_visible())
+
         self.primary_menu_btn.connect('clicked', primary_menu_btn_handler, popover)
 
     def toggle_search(self, *_):
@@ -112,7 +115,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         settings = Settings.get_default()
         settings.window_position = self.get_position()
         settings.window_maximized = self.is_maximized()
-    
+
     def restore_state(self):
         """
             Restore the window's state.
@@ -150,7 +153,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                                       "active",
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
-
     def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
         action.connect("activate", callback)
@@ -172,8 +174,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                 visible_child = "normal_state"
                 visible_headerbar = "main_headerbar"
                 # Connect on type search bar
-                self.key_press_signal = self.connect("key-press-event", lambda x,
-                                                    y: self.search_bar.handle_event(y))
+                self.key_press_signal = self.connect("key-press-event",
+                                                     lambda x, y: self.search_bar.handle_event(y))
         self.main_stack.set_visible_child_name(visible_child)
         self.headerbar_stack.set_visible_child_name(visible_headerbar)
 
@@ -201,10 +203,10 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             """
             data = data.lower()
             if len(data) > 0:
+                username = row.account.username.lower()
+                provider_name = row.account.provider.name.lower()
                 return (
-                    data in row.account.username.lower()
-                    or
-                    data in row.account.provider.name.lower()
+                    data in username or data in provider_name
                 )
             else:
                 return True
@@ -223,4 +225,3 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             self.accounts_stack.set_visible_child_name("empty_results")
         else:
             self.accounts_stack.set_visible_child_name("accounts")
-

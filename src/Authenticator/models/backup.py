@@ -19,7 +19,8 @@
 import json
 from gi.repository import Gio
 
-from Authenticator.models import Account, AccountsManager, Logger, Keyring
+from Authenticator.models import Account, AccountsManager, Logger
+
 
 class Backup:
 

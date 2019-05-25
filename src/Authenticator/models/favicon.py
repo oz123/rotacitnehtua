@@ -18,12 +18,11 @@
 """
 from os import path, mkdir
 from bs4 import BeautifulSoup
-from gi.repository import Gio, GLib
+from gi.repository import GLib
 from urllib.parse import urlparse
 import base64
 import requests
 import urllib3
-from threading import Thread
 
 from .logger import Logger
 
@@ -35,9 +34,10 @@ LINK_RELS = [
     'fluid-icon'
 ]
 
+
 def send_request(url, **kwargs):
     try:
-        r = requests.get(url, headers= {'DNT': '1'}, **kwargs)
+        r = requests.get(url, headers={'DNT': '1'}, **kwargs)
         Logger.debug("Favicon: Downloading html page")
         if r.status_code == 200:
             Logger.debug("Favicon: Page downloaded successufly")
@@ -47,6 +47,7 @@ def send_request(url, **kwargs):
     except (requests.exceptions.ConnectionError, urllib3.exceptions.MaxRetryError):
         Logger.error("Favicon: Canno't connect to the server to download html page.")
     return None
+
 
 class FaviconManager:
 
@@ -92,7 +93,7 @@ class FaviconManager:
                 with open(img_path, 'wb') as favicon_obj:
                     favicon_obj.write(favicon)
                 Logger.debug("Favicon: favicon saved.")
-                callback(img_path, data)
+                callback(img_path)
             else:
                 self.__save_favicon(favicon_url, img_path, callback)
             return True
@@ -122,9 +123,9 @@ class FaviconManager:
             if largest_icon:
                 favicon_url = largest_icon.attrs['href']
                 if not favicon_url.startswith("http") \
-                    and not favicon_url.startswith("www") \
-                    and not favicon_url.startswith("https") \
-                    and not favicon_url.startswith("//"):
+                   and not favicon_url.startswith("www") \
+                   and not favicon_url.startswith("https") \
+                   and not favicon_url.startswith("//"):
                     favicon_url = url.rstrip('/') + '/' + favicon_url.lstrip('/')
                 elif favicon_url.startswith("//"):
                     url_obj = urlparse(url)

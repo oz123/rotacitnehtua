@@ -20,6 +20,7 @@ from gettext import gettext as _
 from gi.repository import Gtk, GObject, GLib
 from Authenticator.widgets.accounts.edit import EditAccountWindow
 
+
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_row.ui')
 class AccountRow(Gtk.ListBoxRow, GObject.GObject):
     """
@@ -45,6 +46,8 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
     delete_btn = Gtk.Template.Child()
     copy_btn_stack = Gtk.Template.Child()
 
+    _timeout_id = 0
+
     def __init__(self, account):
         """
         :param account: Account
@@ -64,7 +67,6 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             :return: Account Object
         """
         return self._account
-
 
     def __init_widgets(self):
         # Set up account name text label
@@ -90,8 +92,13 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         self.emit("pin-copied",
                   _("The PIN of {} was copied to the clipboard").format(self.account.username))
 
-        GLib.timeout_add_seconds(2, lambda *_: self.copy_btn_stack.set_visible_child_name("copy_image"), None)
+        def btn_clicked_timeout_callback():
+            self.copy_btn_stack.set_visible_child_name("copy_image")
+            if self._timeout_id > 0:
+                GLib.Source.remove(self._timeout_id)
+                self._timeout_id = 0
 
+        self._timeout_id = GLib.timeout_add_seconds(2, btn_clicked_timeout_callback, None)
 
     @Gtk.Template.Callback('edit_btn_clicked')
     def _on_edit(self, *_):
