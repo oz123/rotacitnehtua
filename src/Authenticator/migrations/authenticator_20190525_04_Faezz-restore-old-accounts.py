@@ -14,14 +14,14 @@ def do_step(conn):
     providers_db = conn.execute("SELECT id, name FROM providers").fetchall()
     providers = {}
     for provider_id, provider_name in providers_db:
-        providers[provider_name] = provider_id
+        providers[provider_name.lower()] = provider_id
     cursor = conn.cursor()
     for account_id, username, provider_name, secret_id in accounts:
-        if provider_name not in providers.keys():
+        if provider_name.lower() not in providers.keys():
             cursor.execute("INSERT INTO providers (name) VALUES (?)", (provider_name, ))
             provider_id = cursor.lastrowid
         else:
-            provider_id = providers[provider_name]
+            provider_id = providers[provider_name.lower()]
         _accounts.append((account_id, username, provider_id, secret_id))
 
     cursor.execute(" ALTER TABLE accounts RENAME TO tmp;")
