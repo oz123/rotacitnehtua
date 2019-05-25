@@ -18,7 +18,7 @@
 """
 import asyncio
 from gettext import gettext as _
-from gi.repository import Gtk, GObject, GLib, Gio
+from gi.repository import Gdk, Gtk, GObject, GLib, Gio
 
 from Authenticator.widgets.notification import Notification
 from Authenticator.widgets.provider_image import ProviderImage
@@ -37,6 +37,7 @@ class AddAccountWindow(Gtk.Window):
     def __init__(self):
         super(AddAccountWindow, self).__init__()
         self.init_template('AddAccountWindow')
+        self.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK)
         self.__init_widgets()
 
     def __init_widgets(self):
@@ -119,14 +120,19 @@ class AccountConfig(Gtk.Box, GObject.GObject):
         """
         provider_name = self.provider_entry.get_text()
         provider = Provider.get_by_name(provider_name)
+
+        # Create a new provider if we don't find one
         if not provider:
             provider_image = self.provider_image.image
             provider = Provider.create(provider_name, None, None, provider_image)
+        # Update tthe provider image if it changed
+        elif provider and self.provider_image.image != provider.image:
+            provider.update(image=self.provider_image.image)
+
         account = {
             "username": self.account_name_entry.get_text(),
             "provider": provider
         }
-
         if not self.props.is_edit:
             # remove spaces
             token = self.token_entry.get_text()

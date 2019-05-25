@@ -3,9 +3,9 @@ ui_config.set('APP_ID', application_id)
 ui_config.set('VERSION', meson.project_version())
 
 ui_preconfigured_files = files(
-  'ui/about_dialog.ui.in',
-  'ui/settings.ui.in',
-  'ui/window.ui.in',
+  'resources/gtk/ui/about_dialog.ui.in',
+  'resources/gtk/ui/settings.ui.in',
+  'resources/gtk/ui/window.ui.in',
 )
 ui_dependencies = []
 foreach ui_file: ui_preconfigured_files

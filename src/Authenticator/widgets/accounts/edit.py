@@ -19,12 +19,13 @@
 from gettext import gettext as _
 from gi.repository import Gtk, GObject
 
+
 from Authenticator.widgets.accounts.add import AccountConfig
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
 class EditAccountWindow(Gtk.Window, GObject.GObject):
     __gsignals__ = {
-        'updated': (GObject.SignalFlags.RUN_LAST, None, (str, str, str, )),
+        'updated': (GObject.SignalFlags.RUN_LAST, None, (str, GObject.TYPE_PYOBJECT, )),
     }
 
     __gtype_name__ = 'EditAccountWindow'
@@ -61,6 +62,9 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         """
             Save Button clicked signal handler.
         """
+        from .list import AccountsWidget
+        ac_widget = AccountsWidget.get_default()
+
         new_account = self.account_config.account
         username = new_account["username"]
         provider = new_account["provider"]
@@ -69,9 +73,9 @@ class EditAccountWindow(Gtk.Window, GObject.GObject):
         self.emit("updated", username, provider)
         # Update the providers list
         if provider.provider_id != old_provider.provider_id:
-            from .list import AccountsWidget
-            ac_widget = AccountsWidget.get_default()
             ac_widget.update_provider(self._account, provider)
+
+        ac_widget.update_provider_image(provider)
         self._on_quit()
 
     @Gtk.Template.Callback('close_btn_clicked')

@@ -106,7 +106,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         edit_window.show_all()
         edit_window.present()
 
-    def _on_update(self, __, account_name, provider, image_path=None):
+    def _on_update(self, __, account_name, provider):
         """
             On account update signal handler.
             Updates the account name and provider
@@ -118,7 +118,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             :type provider: str
         """
         self.account_name_label.set_text(account_name)
-        self.account.update(account_name, provider, image_path)
+        self.account.update(account_name, provider)
         self.emit("account-updated",
                   _("The account was updated successfully"))
 
