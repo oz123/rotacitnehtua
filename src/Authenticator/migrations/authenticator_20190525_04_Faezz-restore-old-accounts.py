@@ -32,8 +32,11 @@ def do_step(conn):
                     "provider" INTEGER NOT NULL
                     )''')
     cursor.execute("DROP TABLE tmp;")
+    added_tokens = []
     for account_id, username, provider_id, token_id in _accounts:
-        cursor.execute("INSERT INTO accounts (username, provider, token_id) VALUES (?, ?, ?)", (username, provider_id, token_id))
+        if token_id not in added_tokens:
+            cursor.execute("INSERT INTO accounts (username, provider, token_id) VALUES (?, ?, ?)", (username, provider_id, token_id))
+            added_tokens.append(token_id)
 
 
 steps = [
