@@ -1,5 +1,5 @@
 project('com.github.bilelmoussaoui.Authenticator', 'c',
-	version: '3.32',
+	version: '3.32.1',
   meson_version: '>= 0.50',
   license: 'GPL+-3.0'
 )

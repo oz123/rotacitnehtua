@@ -43,6 +43,19 @@
   <url type="donation">https://liberapay.com/bielmoussaoui</url>
   <content_rating type="oars-1.0" />
   <releases>
+    <release version="3.32.1" date="2019-05-25">
+        <description>
+            <p>
+               HOTFIX: if you had an issue with your accounts being lost after the latest update, please update to this one.
+            </p>
+            <ul>
+                <li>Database migrations: ensure users won't lose their data in the future</li>
+                <li>Fix edit account issue</li>
+                <li>Improve the provider image widget</li>
+                <li>Translations updates</li>
+            </ul>
+        </description>
+    </release>
     <release version="3.32" date="2019-05-22">
         <description>
             <p>
