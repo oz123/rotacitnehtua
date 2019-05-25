@@ -60,7 +60,7 @@ class ProviderImage(Gtk.Stack):
             self.set_image(self.provider.image)
 
         self.set_visible_child_name("provider_image")
-    
+
     def emit(self, *args):
         GLib.idle_add(GObject.GObject.emit, self, *args)
 
