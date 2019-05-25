@@ -25,3 +25,5 @@ from .window import Window, WindowView
 from .accounts.add import AddAccountWindow
 from .accounts.edit import EditAccountWindow
 from .accounts.list import AccountsWidget
+
+from .settings import SettingsWindow
