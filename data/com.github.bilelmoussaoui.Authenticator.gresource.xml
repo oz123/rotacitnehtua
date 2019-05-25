@@ -4,8 +4,6 @@
     <file alias="style.css">resources/gtk/style.css</file>
     <file>data.json</file>
     <file alias="qrscanner-symbolic.svg">icons/hicolor/symbolic/actions/qrscanner-symbolic.svg</file>
-    <file alias="provider-missing.svg">resources/provider-missing.svg</file>
-
     <!-- Accounts logo fallback -->
     <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
     <file alias="authenticator.svg">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>

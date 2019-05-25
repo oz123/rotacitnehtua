@@ -41,10 +41,10 @@ class ProviderImage(Gtk.Stack):
         'image-downloaded': (GObject.SignalFlags.RUN_FIRST, None, (str, ))
     }
 
-    image_eventbox = Gtk.Template.Child()
     provider_image = Gtk.Template.Child()
     provider_spinner = Gtk.Template.Child()
     insert_image = Gtk.Template.Child()
+    not_found_box = Gtk.Template.Child()
 
     _timeout_id = 0
 
@@ -53,29 +53,18 @@ class ProviderImage(Gtk.Stack):
         self.init_template('ProviderImage')
         self.provider = provider if provider else Provider()
         self.image_size = image_size
+        self.not_found_box.props.width_request = image_size
+        self.not_found_box.props.height_request = image_size
         self.provider_image.set_pixel_size(image_size)
-        self.image_eventbox.connect("enter-notify-event", self.__display_insert_image)
         self.connect("changed", self.__on_provider_changed)
         if self.provider.image:
             self.set_image(self.provider.image)
-
-        self.set_visible_child_name("provider_image")
+            self.set_visible_child_name("provider_image")
+        else:
+            self.set_visible_child_name("provider_not_found")
 
     def emit(self, *args):
         GLib.idle_add(GObject.GObject.emit, self, *args)
-
-    def __display_insert_image(self, *_):
-        self.insert_image.set_visible(True)
-        self.insert_image.set_no_show_all(False)
-
-        def hide_insert_image(*_):
-            self.insert_image.set_visible(False)
-            self.insert_image.set_no_show_all(True)
-            if self._timeout_id > 0:
-                GLib.Source.remove(self._timeout_id)
-                self._timeout_id = 0
-
-        self._timeout_id = GLib.timeout_add_seconds(1, hide_insert_image)
 
     @property
     def image(self):
@@ -98,9 +87,12 @@ class ProviderImage(Gtk.Stack):
                 if updated and self.provider:
                     self.provider.update(image=image)
                 self.provider_image.set_from_pixbuf(pixbuf)
+                self.set_visible_child_name("provider_image")
                 return True
         except GLib.Error:
             pass
+
+        self.set_visible_child_name("provider_not_found")
         return False
 
     # Callbacks
@@ -165,5 +157,8 @@ class ProviderImage(Gtk.Stack):
 
     def do_image_downloaded(self, img_path):
         self.provider_spinner.stop()
-        self.set_visible_child_name("provider_image")
-        self.set_image(img_path)
+        if img_path:
+            self.set_image(img_path)
+            self.set_visible_child_name("provider_image")
+        else:
+            self.set_visible_child_name("provider_not_found")

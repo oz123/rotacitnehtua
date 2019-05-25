@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="ProviderImage" parent="GtkStack">
@@ -18,30 +18,37 @@
       </packing>
     </child>
     <child>
-      <object class="GtkOverlay" id="image_overlay">
+      <object class="GtkImage" id="provider_image">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="pixel_size">128</property>
+        <property name="icon_size">6</property>
+      </object>
+      <packing>
+        <property name="name">provider_image</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="not_found_box">
+        <property name="width_request">48</property>
+        <property name="height_request">48</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkImage" id="provider_image">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="pixel_size">128</property>
-            <property name="resource">/com/github/bilelmoussaoui/Authenticator/provider-missing.svg</property>
-            <property name="icon_size">6</property>
-          </object>
-          <packing>
-            <property name="index">-1</property>
-          </packing>
-        </child>
-        <child type="overlay">
           <object class="GtkEventBox" id="image_eventbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
             <signal name="button-press-event" handler="select_image_clicked" swapped="no"/>
             <child>
               <object class="GtkImage" id="insert_image">
+                <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="no_show_all">True</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="icon_name">insert-image-symbolic</property>
@@ -52,11 +59,19 @@
               </object>
             </child>
           </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
         </child>
+        <style>
+          <class name="insert-image-box"/>
+        </style>
       </object>
       <packing>
-        <property name="name">provider_image</property>
-        <property name="position">1</property>
+        <property name="name">provider_not_found</property>
+        <property name="position">2</property>
       </packing>
     </child>
   </template>
