@@ -3,3 +3,4 @@ Pillow==5.0.0
 pyotp==2.2.7
 pyzbar==0.1.8
 requests==2.21.0
+yoyo-migrations==6.1.0

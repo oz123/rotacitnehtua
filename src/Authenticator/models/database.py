@@ -20,6 +20,7 @@ import sqlite3
 from os import path, makedirs
 from gi.repository import GLib, Gio
 from collections import namedtuple
+from shutil import move
 from Authenticator.models import Logger
 import json
 
@@ -37,11 +38,12 @@ class Database:
     db_version = 7
 
     def __init__(self):
+        self.migrations_dir = path.join(path.dirname(__file__), '../migrations')
         database_created = self.__create_database_file()
-        self.conn = sqlite3.connect(self.db_file)
         if database_created:
-            self.__create_tables()
-            self.__fill_providers()
+            self.__apply_migrations()
+        self.conn = sqlite3.connect(self.db_file)
+        self.__fill_providers()
 
     @staticmethod
     def get_default():
@@ -51,9 +53,13 @@ class Database:
         return Database.instance
 
     @property
-    def db_file(self):
+    def db_dir(self):
         return path.join(GLib.get_user_config_dir(),
-                         'Authenticator',
+                         'Authenticator')
+
+    @property
+    def db_file(self):
+        return path.join(self.db_dir,
                          'database-{}.db'.format(str(Database.db_version))
                          )
 
@@ -249,41 +255,31 @@ class Database:
         """
         Create an empty database file for the first start of the application.
         """
-        makedirs(path.dirname(self.db_file), exist_ok=True)
-        if not path.exists(self.db_file):
-            with open(self.db_file, 'w') as file_obj:
-                file_obj.write('')
-            return True
-        return False
+        created = False
+        for i in range(3, self.db_version + 1):
+            db_file = path.join(self.db_dir, "database-{}.db".format(i))
+            if path.exists(db_file):
+                move(db_file, self.db_file)
+                created = True
+                break
+        if not created:
+            makedirs(path.dirname(self.db_file), exist_ok=True)
+            if not path.exists(self.db_file):
+                with open(self.db_file, 'w') as file_obj:
+                    file_obj.write('')
+                created = True
+        return created
 
-    def __create_tables(self):
+    def __apply_migrations(self):
         """
         Create the needed tables to run the application.
         """
-        accounts_table = '''
-        CREATE TABLE "accounts" (
-            "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
-            "username" VARCHAR NOT NULL,
-            "token_id" VARCHAR NOT NULL UNIQUE,
-            "provider" INTEGER NOT NULL
-        );
-        '''
-        providers_table = '''
-        CREATE TABLE "providers" (
-            "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
-            "name" VARCHAR NOT NULL,
-            "website" VARCHAR NULL,
-            "doc_url" VARCHAR NULL,
-            "image" VARCHAR NULL
-        )
-        '''
-        try:
-            self.conn.execute(accounts_table)
-            self.conn.execute(providers_table)
-            self.conn.commit()
-        except Exception as error:
-            Logger.error("[SQL] Impossible to create table 'accounts'")
-            Logger.error(str(error))
+        from yoyo import read_migrations
+        from yoyo import get_backend
+        backend = get_backend('sqlite:///' + self.db_file)
+        migrations = read_migrations(self.migrations_dir)
+        with backend.lock():
+            backend.apply_migrations(backend.to_apply(migrations))
 
     def __count(self, table_name):
         query = "SELECT COUNT(id) AS count FROM " + table_name
