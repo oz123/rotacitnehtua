@@ -13,7 +13,8 @@ steps = [
             "username" VARCHAR NOT NULL,
             "provider" VARCHAR NOT NULL,
             "secret_id" VARCHAR NOT NULL UNIQUE
-         ''',
+        
+         )''',
          'DROP TABLE "accounts"',
          ignore_errors='apply')
 ]
