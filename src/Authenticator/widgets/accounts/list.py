@@ -69,7 +69,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
     def _get_by_provider(self, provider):
         for provider_info in self._providers:
-            if provider == provider_info['provider']:
+            if provider.provider_id == provider_info['provider'].provider_id:
                 return provider_info
         return {
             'provider': None,
