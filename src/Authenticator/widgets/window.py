@@ -19,7 +19,8 @@
 from gi.repository import Gtk, GObject, Gio, GLib
 
 from Authenticator.models import Database, Logger, Settings, AccountsManager
-from Authenticator.widgets.accounts import AccountsWidget, AddAccountWindow
+from Authenticator.widgets.accounts.add import AddAccountWindow
+from Authenticator.widgets.accounts.list import AccountsWidget
 
 
 class WindowView:
@@ -45,9 +46,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     accounts_stack = Gtk.Template.Child()
 
     search_bar = Gtk.Template.Child()
-
-    accounts_viewport = Gtk.Template.Child()
-
     password_entry = Gtk.Template.Child()
 
     def __init__(self):
@@ -143,10 +141,10 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         accounts_widget = AccountsWidget.get_default()
         accounts_widget.connect("account-removed", self.refresh_view)
         accounts_widget.connect("account-added", self.refresh_view)
+        self.accounts_stack.add_named(accounts_widget, "accounts")
+        self.accounts_stack.set_visible_child_name("accounts")
 
         AccountsManager.get_default().connect("notify::empty", self.refresh_view)
-
-        self.accounts_viewport.add(accounts_widget)
 
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
                                       "active",

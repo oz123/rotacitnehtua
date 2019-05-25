@@ -97,6 +97,12 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
     def accounts_lists(self):
         return [provider['accounts_list'] for provider in self._providers]
 
+    def update_provider_image(self, provider):
+        for child in self.accounts_container.get_children():
+            if child.provider.provider_id == provider.provider_id:
+                child.provider_image.set_image(provider.image)
+                break
+
     def update_provider(self, account, new_provider):
         current_account_list = None
         account_row = None
@@ -112,12 +118,13 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
             current_account_list.remove(account_row)
             account_row.account.provider = new_provider
             self.append(account_row.account)
-        self._on_account_deleted(current_account_list)
+        self._on_account_deleted(current_account_list, None)
         self._reorder()
         self._clean_unneeded_providers_widgets()
             
-    def _on_account_deleted(self, accounts_list, account):
-        AccountsManager.get_default().delete(account)
+    def _on_account_deleted(self, accounts_list, account=None):
+        if account:
+            AccountsManager.get_default().delete(account)
         if len(accounts_list.get_children()) == 0:
             self._to_delete.append(accounts_list)
         self._reorder()
@@ -159,15 +166,17 @@ class ProviderWidget(Gtk.Box):
         self._build_widgets()
 
     def _build_widgets(self):
+        self.set_valign(Gtk.Align.START)
+
         provider_container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         provider_lbl = Gtk.Label()
         provider_lbl.set_text(self.provider.name)
         provider_lbl.set_halign(Gtk.Align.START)
         provider_lbl.get_style_context().add_class("provider-label")
 
-        self.provider_img = ProviderImage(self.provider, 48)
+        self.provider_image = ProviderImage(self.provider, 48)
 
-        provider_container.pack_start(self.provider_img, False, False, 6)
+        provider_container.pack_start(self.provider_image, False, False, 6)
         provider_container.pack_start(provider_lbl, False, False, 6)
 
         self.pack_start(provider_container, False, False, 6)

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/bilelmoussaoui/Authenticator">
-    <file alias="style.css">style.css</file>
+    <file alias="style.css">resources/gtk/style.css</file>
     <file>data.json</file>
     <file alias="qrscanner-symbolic.svg">icons/hicolor/symbolic/actions/qrscanner-symbolic.svg</file>
+    <file alias="provider-missing.svg">resources/provider-missing.svg</file>
 
     <!-- Accounts logo fallback -->
     <file alias="authenticator-symbolic.svg">icons/hicolor/symbolic/apps/com.github.bilelmoussaoui.Authenticator-symbolic.svg</file>
     <file alias="authenticator.svg">icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg</file>
 
     <!-- UI Files -->
-    <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">ui/shortcuts.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="shortcuts.ui">resources/gtk/ui/shortcuts.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="about_dialog.ui">about_dialog.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="account_config.ui">ui/account_config.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="account_add.ui">ui/account_add.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="account_edit.ui">ui/account_edit.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="account_row.ui">ui/account_row.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="accounts_widget.ui">ui/accounts_widget.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="provider_image.ui">ui/provider_image.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="password_widget.ui">ui/password_widget.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_config.ui">resources/gtk/ui/account_config.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_add.ui">resources/gtk/ui/account_add.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_edit.ui">resources/gtk/ui/account_edit.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="account_row.ui">resources/gtk/ui/account_row.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="accounts_widget.ui">resources/gtk/ui/accounts_widget.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="provider_image.ui">resources/gtk/ui/provider_image.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="password_widget.ui">resources/gtk/ui/password_widget.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="window.ui">window.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="settings.ui">settings.ui</file>
   </gresource>

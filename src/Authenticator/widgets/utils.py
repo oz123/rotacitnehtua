@@ -20,20 +20,6 @@ from gettext import gettext as _
 from gi.repository import Gtk
 
 
-def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
-    file_chooser = Gtk.FileChooserNative()
-    file_chooser.set_action(action)
-    file_chooser.set_transient_for(parent)
-    filter_json = Gtk.FileFilter()
-    filter_json.set_name(mimetype["name"])
-    filter_json.add_mime_type(mimetype["type"])
-    file_chooser.add_filter(filter_json)
-    response = file_chooser.run()
-    uri = None
-    if response == Gtk.ResponseType.ACCEPT:
-        uri = file_chooser.get_uri()
-    file_chooser.destroy()
-    return uri
 
 
 def import_json(parent):
@@ -57,3 +43,19 @@ def open_directory(parent):
         folder_name = file_chooser.get_filename()
     file_chooser.destroy()
     return folder_name
+
+def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
+    file_chooser = Gtk.FileChooserNative()
+    file_chooser.set_action(action)
+    file_chooser.set_transient_for(parent)
+    filter_json = Gtk.FileFilter()
+    filter_json.set_name(mimetype["name"])
+    filter_json.add_mime_type(mimetype["type"])
+    file_chooser.add_filter(filter_json)
+    response = file_chooser.run()
+    uri = None
+    if response == Gtk.ResponseType.ACCEPT:
+        uri = file_chooser.get_uri()
+    file_chooser.destroy()
+    return uri
+

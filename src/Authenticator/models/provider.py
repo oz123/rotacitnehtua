@@ -39,7 +39,13 @@ class Provider:
         return ProviderManager.instance
 
     @staticmethod
+    def create(name, website, doc_url, image):
+        provider = Database.get_default().insert_provider(name, website, doc_url, image)
+        return Provider(*provider)
+
+    @staticmethod
     def get_by_id(id_):
+        print(id_)
         provider = Database.get_default().provider_by_id(id_)
         if provider:
             return Provider(*provider)
@@ -72,13 +78,8 @@ class Provider:
                 return icon_info.get_filename()
         return None
 
-
-    @staticmethod
-    def create(name, website, doc_url, image):
-        provider = Database.get_default().insert_provider(name, website, doc_url, image)
-        return Provider(*provider)
-
     def update(self, **provider_data):
         self.name = provider_data.get("name", self.name)
+        self.image = provider_data.get("image", self.image)
         Database.get_default().update_provider(provider_data, self.provider_id)
 

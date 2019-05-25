@@ -86,8 +86,11 @@ class Account(GObject.GObject):
         return self._provider
 
     @provider.setter
-    def provider(self, provider_id):
-        self._provider = Provider.get_by_id(provider_id)
+    def provider(self, provider):
+        if isinstance(provider, int):
+            self._provider = Provider.get_by_id(provider)
+        else:
+            self._provider = provider
 
     def update(self, username, provider):
         """
@@ -99,7 +102,7 @@ class Account(GObject.GObject):
         self.provider = provider
         account = {
             "username": username,
-            "provider": provider,
+            "provider": provider.provider_id,
         }
         Database.get_default().update_account(account, self.id)
 
