@@ -13,9 +13,14 @@ def do_step(conn):
     content = str(g_file.load_contents(None)[1].decode("utf-8"))
     data = json.loads(content)
     providers = []
+
+    providers_db = conn.execute("SELECT name FROM providers").fetchall()
+    providers_db = [provider[0].lower() for provider in providers_db]
+
     for provider_name, provider_info in data.items():
-        providers.append((provider_name, provider_info['url'],
-                          provider_info['doc'], provider_info['img'],))
+        if not provider_name.lower() in providers_db:
+            providers.append((provider_name, provider_info['url'],
+                              provider_info['doc'], provider_info['img'],))
     query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
     conn.executemany(query, providers)
     conn.commit()

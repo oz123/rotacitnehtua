@@ -3,25 +3,36 @@ Restore old accounts
 """
 
 from yoyo import step
+from collections import OrderedDict
 
 __depends__ = {'authenticator_20190525_03_R7miN-add-default-providers'}
 
 
 def do_step(conn):
-    accounts = conn.execute("SELECT * FROM accounts").fetchall()
+    # atler columns from secret id to token_id before
+    # to fix the issue on older db
+    try:
+        accounts = conn.execute("SELECT id, username, token_id, provider FROM accounts").fetchall()
+    except Exception:
+        accounts = conn.execute("SELECT id, username, secret_id, provider FROM accounts").fetchall()
     _accounts = []
 
     providers_db = conn.execute("SELECT id, name FROM providers").fetchall()
-    providers = {}
+    providers = OrderedDict()
     for provider_id, provider_name in providers_db:
-        providers[provider_name.lower()] = provider_id
+        providers[provider_id] = provider_name.lower()
     cursor = conn.cursor()
-    for account_id, username, provider_name, secret_id in accounts:
-        if provider_name.lower() not in providers.keys():
-            cursor.execute("INSERT INTO providers (name) VALUES (?)", (provider_name, ))
-            provider_id = cursor.lastrowid
+
+    for account_id, username, secret_id, provider in accounts:
+        if isinstance(provider, str):
+            if provider.lower() not in providers.values():
+                cursor.execute("INSERT INTO providers (name) VALUES (?)", (provider, ))
+                provider_id = cursor.lastrowid
+            else:
+                provider_index = list(providers.values()).index(provider.lower())
+                provider_id = list(providers.keys())[provider_index]
         else:
-            provider_id = providers[provider_name.lower()]
+            provider_id = provider
         _accounts.append((account_id, username, provider_id, secret_id))
 
     cursor.execute(" ALTER TABLE accounts RENAME TO tmp;")
