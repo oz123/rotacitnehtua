@@ -242,6 +242,10 @@ class Application(Gtk.Application):
     def __on_settings(*_):
         from .widgets import SettingsWindow
         settings_window = SettingsWindow()
+        main_window = Window.get_default()
+        settings_window.set_transient_for(main_window)
+        settings_window.set_size_request(*main_window.get_size())
+        settings_window.resize(*main_window.get_size())
         settings_window.present()
         settings_window.show_all()
 

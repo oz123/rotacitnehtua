@@ -3,19 +3,11 @@
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <requires lib="libhandy" version="0.0"/>
-  <object class="GtkImage" id="previous_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="icon_name">go-previous-symbolic</property>
-  </object>
   <template class="SettingsWindow" parent="GtkWindow">
     <property name="can_focus">False</property>
-    <property name="type">popup</property>
     <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="default_width">350</property>
-    <property name="default_height">500</property>
-    <property name="gravity">center</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="type_hint">dialog</property>
     <child type="titlebar">
       <object class="GtkStack" id="headerbar_stack">
         <property name="visible">True</property>
@@ -41,8 +33,14 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="image">previous_img</property>
                 <signal name="clicked" handler="back_btn_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="previous_img">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">go-previous-symbolic</property>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -80,29 +78,14 @@
           <object class="HdyColumn">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_top">24</property>
-            <property name="maximum_width">700</property>
+            <property name="maximum_width">600</property>
+            <property name="linear_growth_width">600</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="border_width">12</property>
                 <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Behaviour</property>
-                    <style>
-                      <class name="settings-category-title"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
                 <child>
                   <object class="GtkListBox" id="behaviour_listbox">
                     <property name="visible">True</property>
