@@ -78,6 +78,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         if not self.get_application().is_locked:
             add_window = AddAccountWindow()
             add_window.set_transient_for(self)
+            add_window.set_size_request(*self.get_size())
+            add_window.resize(*self.get_size())
             add_window.show_all()
             add_window.present()
 

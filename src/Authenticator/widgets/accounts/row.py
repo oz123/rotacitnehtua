@@ -107,8 +107,11 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             Opens a new Window to edit the current account.
         """
         from ..window import Window
+        main_window = Window.get_default()
         edit_window = EditAccountWindow(self._account)
-        edit_window.set_transient_for(Window.get_default())
+        edit_window.set_transient_for(main_window)
+        edit_window.set_size_request(*main_window.get_size())
+        edit_window.resize(*main_window.get_size())
         edit_window.connect("updated", self._on_update)
         edit_window.show_all()
         edit_window.present()

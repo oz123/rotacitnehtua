@@ -2,18 +2,11 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-  <object class="GtkImage" id="scan_img">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="icon_name">qrscanner-symbolic</property>
-  </object>
   <template class="AddAccountWindow" parent="GtkWindow">
     <property name="can_focus">False</property>
-    <property name="type">popup</property>
     <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="default_width">350</property>
-    <property name="default_height">500</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="type_hint">dialog</property>
     <child type="titlebar">
       <object class="GtkHeaderBar">
         <property name="visible">True</property>
@@ -21,11 +14,17 @@
         <property name="title" translatable="yes">Add a new account</property>
         <child>
           <object class="GtkButton" id="close_btn">
-            <property name="label" translatable="yes">Close</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <signal name="clicked" handler="close_btn_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage" id="return_image">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="icon_name">go-previous-symbolic</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -51,8 +50,14 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="tooltip_text" translatable="yes">Scan QR Code</property>
-            <property name="image">scan_img</property>
             <signal name="clicked" handler="scan_btn_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage" id="scan_img">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="icon_name">qrscanner-symbolic</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="pack_type">end</property>
