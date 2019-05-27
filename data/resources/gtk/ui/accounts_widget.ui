@@ -35,7 +35,8 @@
               <object class="HdyColumn">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="maximum_width">700</property>
+                <property name="maximum_width">600</property>
+                <property name="linear-growth-width">600</property>
                 <child>
                   <object class="GtkBox" id="accounts_container">
                     <property name="visible">True</property>
