@@ -29,7 +29,7 @@ class Backup:
 
     @staticmethod
     def import_accounts(accounts):
-        from ..widgets.accounts import AccountsWidget
+        from Authenticator.widgets import AccountsWidget
         accounts_widget = AccountsWidget.get_default()
         accounts_manager = AccountsManager.get_default()
         for account in accounts:
