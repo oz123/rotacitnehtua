@@ -68,7 +68,7 @@ class AddAccountWindow(Gtk.Window):
     @Gtk.Template.Callback('add_btn_clicked')
     def _on_add(self, *_):
         from .list import AccountsWidget
-        from ...models import AccountsManager, Account
+        from Authenticator.models import AccountsManager, Account
         account_obj = self.account_config.account
         # Create a new account
         account = Account.create(account_obj["username"],
@@ -227,7 +227,7 @@ class AccountConfig(Gtk.Box):
         """
             Scans a QRCode and fills the entries with the correct data.
         """
-        from ...models import QRReader, GNOMEScreenshot
+        from Authenticator.models import QRReader, GNOMEScreenshot
         filename = GNOMEScreenshot.area()
         if filename:
             qr_reader = QRReader(filename)

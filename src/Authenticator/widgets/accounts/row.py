@@ -106,7 +106,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
             Edit Button clicked signal handler.
             Opens a new Window to edit the current account.
         """
-        from ..window import Window
+        from Authenticator.widgets import Window
         main_window = Window.get_default()
         edit_window = EditAccountWindow(self._account)
         edit_window.set_transient_for(main_window)
