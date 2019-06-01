@@ -1,675 +1,367 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Hungarian translation for authenticator.
+# Copyright (C) 2019 Free Software Foundation, Inc.
+# This file is distributed under the same license as the authenticator package.
 #
+# Balázs Úr <ur.balazs at fsf dot hu>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-20 05:14+0200\n"
-"PO-Revision-Date: 2018-03-22 19:06+0000\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/authenticator/"
-"translation/hu/>\n"
+"Project-Id-Version: authenticator master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Authenticator/issues\n"
+"POT-Creation-Date: 2019-05-28 03:18+0000\n"
+"PO-Revision-Date: 2019-06-01 18:17+0200\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Lokalize 18.12.3\n"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:6
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
 #: src/Authenticator/application.py.in:37
 msgid "Authenticator"
 msgstr "Hitelesítő"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:8
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
-#, fuzzy
 msgid "Two-factor authentication code generator"
-msgstr "Kétlépcsős hitelesítő kódok előállítója."
+msgstr "Kétlépcsős hitelesítőkód-előállító"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:9
-#, fuzzy
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid ""
 "Simple application that generates a two-factor authentication code, created "
 "for GNOME."
 msgstr ""
 "Egyszerű alkalmazása a GNOME asztali környezethez, amely kétlépcsős "
-"hitelesítő kódot állít elő"
+"hitelesítő kódot állít elő."
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:11
 msgid "Features:"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:12
-msgid "QR code scanner"
-msgstr ""
+msgstr "Funkciók:"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:13
-msgid "Beautiful UI"
-msgstr ""
+msgid "QR code scanner"
+msgstr "QR-kód beolvasó"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:14
-msgid "Huge database of more than 560 supported services"
-msgstr ""
+msgid "Beautiful UI"
+msgstr "Gyönyörű felhasználói felület"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:15
-#, fuzzy
-msgid "Keep your PIN tokens secure by locking the application with a password"
-msgstr "Az alkalmazás zárolása"
+msgid "Huge database of more than 560 supported services"
+msgstr "Hatalmas adatbázis több mint 560 támogatott szolgáltatással"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:16
-msgid "Automtically fetch an image for services using their favicon"
+msgid "Keep your PIN tokens secure by locking the application with a password"
 msgstr ""
+"Tartsa a PIN tokenjeit biztonságban és zárolja az alkalmazást jelszóval"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:17
-msgid "The possibility to add new services"
+msgid "Automtically fetch an image for services using their favicon"
 msgstr ""
+"Kép automatikus lekérése a szolgáltatásokhoz a böngészőikonjuk használatával"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:18
+msgid "The possibility to add new services"
+msgstr "A lehetőség új szolgáltatások hozzáadásához"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:19
+msgid "Dark theme and night light"
+msgstr "Sötét téma és nappali fény"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:25
+msgid "Main Window - empty state"
+msgstr "Főablak – üres állapot"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:29
+#: data/resources/gtk/ui/account_add.ui:14
+msgid "Add a new account"
+msgstr "Új fiók hozzáadása"
+
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:33
+msgid "Main Window - Accounts List"
+msgstr "Főablak – Fiókok listája"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:37
-msgid ""
-"New 3.31 beta is out! Here's an overview of what changed Please backup your "
-"accounts before updating to the latest version and restore the data after "
-"update."
-msgstr ""
+msgid "Settings Window"
+msgstr "Beállítások ablak"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:42
-msgid "New settings window"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:43
-msgid "Download provider images using their favicon if possible"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:44
-msgid "Night Light feature: not working yet!"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:45
-msgid ""
-"The possiblity to enable/disable a password without having to reset "
-"everything"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:46
-msgid ""
-"You can now add new providers and set images for providers that we didn't "
-"find an icon for"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:47
-msgid "Mobile ready"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:48
-msgid "New icon by Tobias"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:49
-msgid "Bunch of fixed bugs"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:55
-msgid ""
-"Since I have moved the application to GOME Gitlab's World group, a Flatpak "
-"build for each new commit is available to download from the site's website."
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:59
-msgid "Backup and restore from a basic JSON file"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:60
-msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
-msgid "Add andOTP support (free and open Android 2FA application)"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:62
-msgid "New Settings Widow with 3 sections: appearance, behavior and backup"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:63
-msgid "Fix Flatpak Build with the latest GNOME Runtime"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:64
-msgid "Move the project to GOME Gitlab's World group"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:71
-msgid "GNOME Shell Search provider"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:72
-msgid "Codes expire simultaneously #91"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:79
-msgid "Revamped main window to more closely follow the GNOME HIG"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:80
-msgid "Revamped add a new account window to make it easier to use"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:81
-msgid ""
-"Possibility to add an account from a provider not listed in the shipped "
-"database"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:82
-msgid "Possibilty to edit an account"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:83
-msgid "One Time Password now visible by default"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:90
-msgid "Fix python-dbus by using GDbus instead"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
-msgid "Fix the QRScanner on GNOME Shell"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:98
-msgid "Add a new entry for the account's username"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:99
-msgid "Updated database of supported accounts"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:106
-msgid "HOTFIX: App not running in DE other than GNOME"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:113
-#, fuzzy
-msgid "Rename project to Authenticator"
-msgstr "A Hitelesítő névjegye"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:114
-msgid "Cleaner code base"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:115
-msgid "Faster startup"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:116
-#, fuzzy
-msgid "Remove unneeded features"
-msgstr "Kijelölt fiókok eltávolítása"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:117
-msgid "Switch to pyzbar instead of zbarlight"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:118
-msgid "Flatpak package"
-msgstr ""
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:134
+#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:160
 msgid "Bilal Elmoussaoui"
-msgstr ""
+msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
-#, fuzzy
 msgid "Two-factor authentication"
 msgstr "Kétlépcsős hitelesítés"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
-msgid "Gnome;GTK;Verification;"
-msgstr "GNOME;GTK;Ellenőrzés;"
-
-#: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:11
-msgid "@appid@"
-msgstr ""
+msgid "Gnome;GTK;Verification;2FA;Authentication;TwoFactor;"
+msgstr "GNOME;GTK;Ellenőrzés;2FA;Hitelesítés;Kétlépcsős;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
 msgid "Default window position"
-msgstr ""
+msgstr "Alapértelmezett ablakhelyzet"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
-#: src/Authenticator/widgets/settings.py:83
+#: src/Authenticator/widgets/settings.py:84
 msgid "Dark Theme"
-msgstr ""
+msgstr "Sötét téma"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
-#: src/Authenticator/widgets/settings.py:84
+#: src/Authenticator/widgets/settings.py:85
 msgid "Whether the application should use a dark theme."
-msgstr ""
+msgstr "Az alkalmazás használjon-e sötét témát."
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
-#: src/Authenticator/widgets/settings.py:88
+#: src/Authenticator/widgets/settings.py:89
 msgid "Night Light"
-msgstr ""
+msgstr "Nappali fény"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:17
-#: src/Authenticator/widgets/settings.py:89
+#: src/Authenticator/widgets/settings.py:90
 msgid "Automatically enable dark mode at night."
-msgstr ""
+msgstr "Sötét mód automatikus engedélyezése éjszaka."
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
 msgid "Default window maximized behaviour"
-msgstr ""
+msgstr "Alapértelmezett ablak maximalizált viselkedés"
 
-#: data/ui/about_dialog.ui.in:10
-#, fuzzy
+#: data/resources/gtk/ui/about_dialog.ui.in:10
 msgid "Two-factor authentication code generator."
-msgstr "Kétlépcsős hitelesítő kódok előállítója."
+msgstr "Kétlépcsős hitelesítőkód-előállító."
 
-#: data/ui/about_dialog.ui.in:13
+#: data/resources/gtk/ui/about_dialog.ui.in:13
 msgid "translator-credits"
-msgstr "Úr Balázs <urbalazs@gmail.com>, 2018."
+msgstr "Úr Balázs <ur.balazs@fsf.hu>, 2018, 2019."
 
-#: data/ui/account_add.ui:22
-msgid "Add a new account"
-msgstr "Új fiók hozzáadása"
-
-#: data/ui/account_add.ui:25 data/ui/account_edit.ui:19
-msgid "Close"
-msgstr "Bezárás"
-
-#: data/ui/account_add.ui:34
+#: data/resources/gtk/ui/account_add.ui:32
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: data/ui/account_add.ui:54
-#, fuzzy
+#: data/resources/gtk/ui/account_add.ui:52
 msgid "Scan QR Code"
 msgstr "QR-kód beolvasása"
 
-#: data/ui/account_config.ui:85
+#: data/resources/gtk/ui/account_config.ui:85
 msgid "Enable 2FA for this account"
-msgstr ""
+msgstr "2FA engedélyezése ehhez a fiókhoz"
 
-#: data/ui/account_config.ui:86
+#: data/resources/gtk/ui/account_config.ui:86
 msgid "2FA Token"
-msgstr ""
+msgstr "2FA token"
 
-#: data/ui/account_config.ui:100
-#, fuzzy
+#: data/resources/gtk/ui/account_config.ui:100
 msgid "Account Name"
 msgstr "Fiók neve"
 
-#: data/ui/account_config.ui:123
+#: data/resources/gtk/ui/account_config.ui:123
 msgid "Provider"
-msgstr ""
+msgstr "Szolgáltató"
 
-#: data/ui/account_edit.ui:28 data/ui/settings.ui.in:50
+#: data/resources/gtk/ui/account_edit.ui:31
+#: data/resources/gtk/ui/settings.ui.in:48
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
-#: data/ui/account_row.ui:23
+#: data/resources/gtk/ui/account_row.ui:23
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
-#: data/ui/account_row.ui:41
+#: data/resources/gtk/ui/account_row.ui:41
 msgid "Delete"
 msgstr "Törlés"
 
-#: data/ui/account_row.ui:97
+#: data/resources/gtk/ui/account_row.ui:97
 msgid "Copy PIN to clipboard"
-msgstr ""
+msgstr "PIN-kód másolása a vágólapra"
 
-#: data/ui/password_widget.ui:46
-#, fuzzy
+#: data/resources/gtk/ui/password_widget.ui:46
 msgid "Current Password:"
-msgstr "Új jelszó ismétlése"
+msgstr "Jelenlegi jelszó:"
 
-#: data/ui/password_widget.ui:90
-#, fuzzy
+#: data/resources/gtk/ui/password_widget.ui:90
 msgid "New Password:"
-msgstr "Új jelszó"
+msgstr "Új jelszó:"
 
-#: data/ui/password_widget.ui:135
-#, fuzzy
+#: data/resources/gtk/ui/password_widget.ui:135
 msgid "Confirm New Password:"
-msgstr "Új jelszó"
+msgstr "Új jelszó megerősítése:"
 
-#: data/ui/password_widget.ui:183 src/Authenticator/widgets/settings.py:208
-#, fuzzy
+#: data/resources/gtk/ui/password_widget.ui:183
+#: src/Authenticator/widgets/settings.py:209
 msgid "Change Password"
-msgstr "Régi jelszó"
+msgstr "Jelszó megváltoztatása"
 
-#: data/ui/password_widget.ui:204
-#, fuzzy
+#: data/resources/gtk/ui/password_widget.ui:204
 msgid "Delete Password"
-msgstr "Új jelszó ismétlése"
-
-#: data/ui/provider_image.ui:41
-msgid "We couldn't find an image for this provider"
-msgstr ""
+msgstr "Jelszó törlése"
 
 #. Night mode action
-#: data/ui/settings.ui.in:28 src/Authenticator/application.py.in:112
+#: data/resources/gtk/ui/settings.ui.in:20
+#: src/Authenticator/application.py.in:114
 msgid "Preferences"
-msgstr ""
+msgstr "Beállítások"
 
-#: data/ui/settings.ui.in:95
-#, fuzzy
-msgid "Behaviour"
-msgstr "Viselkedés"
-
-#: data/ui/shortcuts.ui:13
+#: data/resources/gtk/ui/shortcuts.ui:13
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Általános"
 
-#: data/ui/shortcuts.ui:17
-#, fuzzy
+#: data/resources/gtk/ui/shortcuts.ui:17
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "Gyorsbillentyűk"
+msgstr "Gyorsbillentyűk megjelenítése"
 
-#: data/ui/shortcuts.ui:24
+#: data/resources/gtk/ui/shortcuts.ui:24
 msgctxt "shortcut window"
 msgid "Preferences"
-msgstr ""
+msgstr "Beállítások"
 
-#: data/ui/shortcuts.ui:31
-#, fuzzy
+#: data/resources/gtk/ui/shortcuts.ui:31
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: data/ui/shortcuts.ui:40
-#, fuzzy
+#: data/resources/gtk/ui/shortcuts.ui:40
 msgctxt "shortcut window"
 msgid "Accounts"
-msgstr "Fiók"
+msgstr "Fiókok"
 
-#: data/ui/shortcuts.ui:44
-#, fuzzy
+#: data/resources/gtk/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: data/ui/shortcuts.ui:51
+#: data/resources/gtk/ui/shortcuts.ui:51
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Keresés"
 
-#: data/ui/window.ui.in:182
-#, fuzzy
+#: data/resources/gtk/ui/window.ui.in:186
 msgid "There are no accounts yet…"
 msgstr "Még nincsenek fiókok…"
 
-#: data/ui/window.ui.in:211
-#, fuzzy
+#: data/resources/gtk/ui/window.ui.in:215
 msgid "Add a new account from the menu"
-msgstr "Új fiók hozzáadása"
+msgstr "Új fiók hozzáadása a menüből"
 
-#: data/ui/window.ui.in:227
-#, fuzzy
+#: data/resources/gtk/ui/window.ui.in:231
 msgid "Scan a QR Code"
 msgstr "QR-kód beolvasása"
 
-#: data/ui/window.ui.in:373
+#: data/resources/gtk/ui/window.ui.in:363
 msgid "No results found"
-msgstr ""
+msgstr "Nincsenek találatok"
 
-#: data/ui/window.ui.in:437
-#, fuzzy
+#: data/resources/gtk/ui/window.ui.in:427
 msgid "Authenticator is locked"
-msgstr "Hitelesítő"
+msgstr "A Hitelesítő zárolva van"
 
-#: data/ui/window.ui.in:476
+#: data/resources/gtk/ui/window.ui.in:466
 msgid "Unlock"
 msgstr "Feloldás"
 
-#: src/authenticator.py.in:50
+#: src/authenticator.py.in:49
 msgid "Start in debug mode"
 msgstr "Indítás hibakeresési módban"
 
-#: src/authenticator.py.in:52
-msgid "Authenticator version number"
-msgstr "Hitelesítő verziószáma"
-
-#: src/Authenticator/application.py.in:92
-#: src/Authenticator/widgets/settings.py:92
-#, fuzzy
+#: src/Authenticator/application.py.in:94
+#: src/Authenticator/widgets/settings.py:93
 msgid "Lock the application"
 msgstr "Az alkalmazás zárolása"
 
-#: src/Authenticator/application.py.in:100
+#: src/Authenticator/application.py.in:102
 msgid "from a plain-text JSON file"
-msgstr ""
-
-#: src/Authenticator/application.py.in:101
-msgid "in a plain-text JSON file"
-msgstr ""
+msgstr "egyszerű szöveges JSON-fájlból"
 
 #: src/Authenticator/application.py.in:103
+msgid "in a plain-text JSON file"
+msgstr "egyszerű szöveges JSON-fájlba"
+
+#: src/Authenticator/application.py.in:105
 msgid "Restore"
-msgstr ""
+msgstr "Visszaállítás"
 
-#: src/Authenticator/application.py.in:104
-#, fuzzy
+#: src/Authenticator/application.py.in:106
 msgid "Backup"
-msgstr "Vissza"
+msgstr "Biztonsági mentés"
 
-#: src/Authenticator/application.py.in:113
+#: src/Authenticator/application.py.in:115
 msgid "Donate"
-msgstr ""
+msgstr "Adományozás"
 
-#: src/Authenticator/application.py.in:114
-#, fuzzy
+#: src/Authenticator/application.py.in:116
 msgid "Keyboard Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: src/Authenticator/application.py.in:115
-#, fuzzy
+#: src/Authenticator/application.py.in:117
 msgid "About Authenticator"
-msgstr "Hitelesítő"
+msgstr "A Hitelesítő névjegye"
 
 #: src/Authenticator/models/account.py:71
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
-#: src/Authenticator/widgets/accounts/add.py:58
+#: src/Authenticator/widgets/accounts/add.py:57
 msgid "Invalid QR code"
 msgstr "Érvénytelen QR-kód"
 
-#: src/Authenticator/widgets/accounts/list.py:143
+#: src/Authenticator/widgets/accounts/list.py:153
 msgid "The One-Time Passwords expires in {} seconds"
-msgstr ""
+msgstr "Az egyszer használatos jelszavak {} másodperc múlva lejárnak"
 
-#: src/Authenticator/widgets/accounts/row.py:80
+#: src/Authenticator/widgets/accounts/row.py:82
 msgid "Couldn't generate the secret code"
 msgstr "Nem sikerült előállítani a titkos kódot"
 
-#: src/Authenticator/widgets/accounts/row.py:91
+#: src/Authenticator/widgets/accounts/row.py:93
 msgid "The PIN of {} was copied to the clipboard"
-msgstr ""
+msgstr "A(z) {} PIN-kódja a vágólapra lett másolva"
 
-#: src/Authenticator/widgets/accounts/row.py:123
+#: src/Authenticator/widgets/accounts/row.py:133
 msgid "The account was updated successfully"
-msgstr ""
+msgstr "A fiók sikeresen frissítve lett"
 
-#: src/Authenticator/widgets/notification.py:43
-#, fuzzy
-msgid "Close the notification"
-msgstr "Az alkalmazás zárolása"
-
-#: src/Authenticator/widgets/notification.py:48
 #: src/Authenticator/widgets/notification.py:63
+msgid "Close the notification"
+msgstr "Az értesítés bezárása"
+
+#: src/Authenticator/widgets/notification.py:68
+#: src/Authenticator/widgets/notification.py:83
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: src/Authenticator/widgets/settings.py:93
-#, fuzzy
+#: src/Authenticator/widgets/settings.py:94
 msgid "Lock the application with a password"
-msgstr "Az alkalmazás zárolása"
+msgstr "Az alkalmazás zárolása egy jelszóval"
 
 #: src/Authenticator/widgets/settings.py:157
-#, fuzzy
 msgid "Authentication password is now enabled."
-msgstr "Hitelesítő"
+msgstr "A hitelesítési jelszó most már engedélyezve van."
 
 #: src/Authenticator/widgets/settings.py:159
-#, fuzzy
 msgid "The authentication password was updated."
-msgstr "Hitelesítő"
+msgstr "A hitelesítési jelszó frissítve lett."
 
 #: src/Authenticator/widgets/settings.py:163
-#, fuzzy
 msgid "The authentication password was deleted."
-msgstr "Hitelesítő"
+msgstr "A hitelesítési jelszó törölve lett."
 
-#: src/Authenticator/widgets/settings.py:204
-#, fuzzy
+#: src/Authenticator/widgets/settings.py:205
 msgid "Save Password"
-msgstr "Régi jelszó"
+msgstr "Jelszó mentése"
 
-#: src/Authenticator/widgets/utils.py:40 src/Authenticator/widgets/utils.py:45
+#: src/Authenticator/widgets/settings.py:258
+msgid "Do you want to remove the authentication password?"
+msgstr "El szeretné távolítani a hitelesítési jelszót?"
+
+#: src/Authenticator/widgets/settings.py:260
+msgid "Authentication password enforces the privacy of your accounts."
+msgstr "A hitelesítési jelszó megerősíti a fiókjai védelmét."
+
+#: src/Authenticator/widgets/utils.py:24 src/Authenticator/widgets/utils.py:29
 msgid "JSON files"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Night mode"
-#~ msgstr "Éjszakai mód"
-
-#~ msgid "Settings"
-#~ msgstr "Beállítások"
-
-#, fuzzy
-#~ msgid "Authenticator Password"
-#~ msgstr "Hitelesítő"
-
-#~ msgid "Cancel"
-#~ msgstr "Mégse"
-
-#, fuzzy
-#~ msgid "Select"
-#~ msgstr "Kijelölés mód"
-
-#, fuzzy
-#~ msgid "Secret token"
-#~ msgstr "Titkos jelsor"
-
-#~ msgid "Copy"
-#~ msgstr "Másolás"
-
-#~ msgid "Search"
-#~ msgstr "Keresés"
-
-#~ msgid "Selection mode"
-#~ msgstr "Kijelölés mód"
-
-#~ msgid "Click on items to select them"
-#~ msgstr "Kattintson az elemekre a kijelölésükhöz"
-
-#, fuzzy
-#~ msgid "Old Password"
-#~ msgstr "Régi jelszó"
-
-#, fuzzy
-#~ msgctxt "shortcut window"
-#~ msgid "Select"
-#~ msgstr "Kijelölés mód"
-
-#, fuzzy
-#~ msgid "Authenticator@NAME_SUFFIX@"
-#~ msgstr "Hitelesítő"
-
-#~ msgid "About"
-#~ msgstr "Névjegy"
-
-#~ msgid "com.github.bilelmoussaoui.Authenticator"
-#~ msgstr "com.github.bilelmoussaoui.Authenticator"
-
-#, fuzzy
-#~ msgid "Backup Password"
-#~ msgstr "Jelszó módosítása"
-
-#~ msgid "Next"
-#~ msgstr "Következő"
-
-#~ msgid "Two Factor Authentication code generator"
-#~ msgstr "Kétlépcsős hitelesítő kód előállító"
-
-#~ msgid "Two-Factor Authentication code generator"
-#~ msgstr "Kétlépcsős hitelesítő kód előállító"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add a new account"
-#~ msgstr "Új fiók hozzáadása"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Selection mode"
-#~ msgstr "Kijelölés mód"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Account list"
-#~ msgstr "Fióklista"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select next/previous account"
-#~ msgstr "Következő vagy előző fiók kiválasztása"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add Account"
-#~ msgstr "Fiók hozzáadása"
-
-#~ msgid ""
-#~ "This program comes with absolutely no warranty. See the <a href=\"http://"
-#~ "www.gnu.org/licenses/gpl-3.0.html\">GNU General Public License, version 3 "
-#~ "or later</a> for details."
-#~ msgstr ""
-#~ "Ez a program mindenféle garancia nélkül érkezik. A részletekért nézze meg "
-#~ "a <a href=\"http://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public "
-#~ "License 3. vagy újabb verzióját</a>."
-
-#~ msgid "Github"
-#~ msgstr "GitHub"
-
-#~ msgid "Lock the Application"
-#~ msgstr "Az alkalmazás zárolása"
-
-#~ msgid "Apply"
-#~ msgstr "Alkalmaz"
-
-#~ msgid "Select an application"
-#~ msgstr "Alkalmazás kiválasztása"
-
-#~ msgid "Enter your password"
-#~ msgstr "Adja meg a jelszavát"
-
-#~ msgid "Remove the account"
-#~ msgstr "A fiók eltávolítása"
-
-#~ msgid "Copy the generated code"
-#~ msgstr "Az előállított kód másolása"
-
-#~ msgid "Edit the account"
-#~ msgstr "A fiók szerkesztése"
-
-#~ msgid "Save the new account name"
-#~ msgstr "Az új fióknév mentése"
-
-#~ msgid "Expires in %s seconds"
-#~ msgstr "Lejár %s másodperc múlva"
-
-#~ msgid "Error during the generation of code"
-#~ msgstr "Hiba kód előállítása közben"
-
-#~ msgid "Do you really want to remove \"%s\"?"
-#~ msgstr "Valóban el szeretné távolítani a következőt: „%s”?"
-
-#~ msgid "Password protection"
-#~ msgstr "Jelszavas védelem"
-
-#~ msgid "Auto-lock the application (m):"
-#~ msgstr "Az alkalmazás automatikus zárolása (m):"
+msgstr "JSON-fájlok"
