@@ -14,7 +14,7 @@
         <li>Beautiful UI</li>
         <li>Huge database of more than 560 supported services</li>
         <li>Keep your PIN tokens secure by locking the application with a password</li>
-        <li>Automtically fetch an image for services using their favicon</li>
+        <li>Automatically fetch an image for services using their favicon</li>
         <li>The possibility to add new services</li>
         <li>Dark theme and night light</li>
     </ul>
@@ -66,7 +66,7 @@
                 <li>New settings window</li>
                 <li>Download provider images using their favicon if possible</li>
                 <li>Night Light feature: not working yet!</li>
-                <li>The possiblity to enable/disable a password without having to reset everything</li>
+                <li>The possibility to enable/disable a password without having to reset everything</li>
                 <li>You can now add new providers and set images for providers that we didn't find an icon for</li>
                 <li>Mobile ready</li>
                 <li>New icon by Tobias Bernard</li>
@@ -79,15 +79,15 @@
     <release version="0.2.5" date="2018-09-11">
       <description>
         <p>
-          Since I have moved the application to GOME Gitlab's World group, a Flatpak build for each new commit is available to download from the site's website.
+          Since I have moved the application to GNOME Gitlab's World group, a Flatpak build for each new commit is available to download from the site's website.
         </p>
         <ul>
           <li>Backup and restore from a basic JSON file</li>
           <li>Backup and restore from an encrypted-GPG JSON file</li>
           <li>Add andOTP support (free and open Android 2FA application)</li>
-          <li>New Settings Widow with 3 sections: appearance, behavior and backup</li>
+          <li>New Settings window with 3 sections: appearance, behavior and backup</li>
           <li>Fix Flatpak Build with the latest GNOME Runtime</li>
-          <li>Move the project to GOME Gitlab's World group</li>
+          <li>Move the project to GNOME Gitlab's World group</li>
         </ul>
       </description>
     </release>
@@ -105,7 +105,7 @@
                 <li>Revamped main window to more closely follow the GNOME HIG</li>
                 <li>Revamped add a new account window to make it easier to use</li>
                 <li>Possibility to add an account from a provider not listed in the shipped database</li>
-                <li>Possibilty to edit an account</li>
+                <li>Possibility to edit an account</li>
                 <li>One Time Password now visible by default</li>
             </ul>
         </description>
