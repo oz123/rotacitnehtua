@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: authenticator master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Authenticator/issues\n"
-"POT-Creation-Date: 2019-05-28 03:18+0000\n"
-"PO-Revision-Date: 2019-06-01 18:17+0200\n"
+"POT-Creation-Date: 2019-06-02 17:57+0000\n"
+"PO-Revision-Date: 2019-06-03 20:24+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -59,7 +59,8 @@ msgstr ""
 "Tartsa a PIN tokenjeit biztonságban és zárolja az alkalmazást jelszóval"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:17
-msgid "Automtically fetch an image for services using their favicon"
+#| msgid "Automtically fetch an image for services using their favicon"
+msgid "Automatically fetch an image for services using their favicon"
 msgstr ""
 "Kép automatikus lekérése a szolgáltatásokhoz a böngészőikonjuk használatával"
 
@@ -310,7 +311,8 @@ msgid "Invalid QR code"
 msgstr "Érvénytelen QR-kód"
 
 #: src/Authenticator/widgets/accounts/list.py:153
-msgid "The One-Time Passwords expires in {} seconds"
+#| msgid "The One-Time Passwords expires in {} seconds"
+msgid "The One-Time Passwords expire in {} seconds"
 msgstr "Az egyszer használatos jelszavak {} másodperc múlva lejárnak"
 
 #: src/Authenticator/widgets/accounts/row.py:82
