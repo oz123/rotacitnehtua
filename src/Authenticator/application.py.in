@@ -26,7 +26,6 @@ from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 class Application(Gtk.Application):
     """Authenticator application object."""
     instance = None
-    IS_DEVEL = False
     is_locked = GObject.Property(type=bool, default=False)
     profile = GObject.Property(type=str, default='default')
 
@@ -36,12 +35,11 @@ class Application(Gtk.Application):
                                  flags=Gio.ApplicationFlags.FLAGS_NONE)
         GLib.set_application_name(_("Authenticator") + " @NAME_SUFFIX@")
         GLib.set_prgname("Authenticator")
-        self.connect("notify::is-locked", self.__is_locked_changed)
+        self.connect("notify::is-locked", self._is_locked_changed)
         self.alive = True
-        self.proxy = None
+        self._night_light_proxy = None
 
         self._menu = Gio.Menu()
-
 
     @staticmethod
     def get_default():
@@ -56,8 +54,8 @@ class Application(Gtk.Application):
 
         Gtk.Application.do_startup(self)
 
-        self.__generate_menu()
-        self.__setup_actions()
+        self._generate_menu()
+        self._setup_actions()
 
         keyring = Keyring.get_default()
         self.is_locked = keyring.can_be_locked
@@ -65,15 +63,26 @@ class Application(Gtk.Application):
         Application.__setup_css()
 
         # Restore default state
-        self.__on_dark_theme_changed()
-        self.__on_night_light_changed()
+        self._on_dark_theme_changed()
+        self._on_night_light_changed()
         # Bind signals
-        settings.connect("changed::dark-theme", self.__on_dark_theme_changed)
-        settings.connect("changed::night-light", self.__on_night_light_changed)
+        settings.connect("changed::dark-theme", self._on_dark_theme_changed)
+        settings.connect("changed::night-light", self._on_night_light_changed)
 
+    def do_activate(self, *_):
+        """On activate signal override."""
+        window = Window.get_default()
+        window.set_menu(self._menu)
+        window.set_application(self)
+        window.connect("delete-event", lambda x, y: self._on_quit())
+        if self.props.profile != 'default':
+            window.get_style_context().add_class('devel')
+        self.add_window(window)
+        window.show_all()
+        window.present()
 
     @staticmethod
-    def __setup_css():
+    def _setup_css():
         """Setup the CSS and load it."""
         uri = 'resource:///com/github/bilelmoussaoui/Authenticator/style.css'
         provider_file = Gio.File.new_for_uri(uri)
@@ -86,7 +95,7 @@ class Application(Gtk.Application):
         Gtk.IconTheme.get_default().add_resource_path("/com/github/bilelmoussaoui/Authenticator")
         Logger.debug("Loading CSS")
 
-    def __generate_menu(self):
+    def _generate_menu(self):
         """Generate application menu."""
         # Lock/Unlock
 
@@ -118,17 +127,17 @@ class Application(Gtk.Application):
         help_section = Gio.MenuItem.new_section(None, main_content)
         self._menu.append_item(help_section)
 
-    def __setup_actions(self):
-        self.__add_action("about", self.__on_about)
-        self.__add_action("shortcuts", self.__on_shortcuts)
-        self.__add_action("donate", self.__on_donate)
-        self.__add_action("quit", self.__on_quit)
-        self.__add_action("settings", self.__on_settings, "is_locked")
-        self.__add_action("import_json", self.__on_import_json, "is_locked")
-        self.__add_action("export_json", self.__on_export_json, "is_locked")
-        self.lock_action = self.__add_action("lock", self.__on_lock)
+    def _setup_actions(self):
+        self._add_action("about", self._on_about)
+        self._add_action("shortcuts", self._on_shortcuts)
+        self._add_action("donate", self._on_donate)
+        self._add_action("quit", self._on_quit)
+        self._add_action("settings", self._on_settings, "is_locked")
+        self._add_action("import_json", self._on_import_json, "is_locked")
+        self._add_action("export_json", self._on_export_json, "is_locked")
+        self.lock_action = self._add_action("lock", self._on_lock)
         Keyring.get_default().connect("notify::can-be-locked",
-                                        self.__sync_lock_action)
+                                        self._sync_lock_action)
 
         # Keyboard shortcuts. This includes actions defined in window.py.in
         self.set_accels_for_action("app.shortcuts", ["<Ctrl>question"])
@@ -137,7 +146,7 @@ class Application(Gtk.Application):
         self.set_accels_for_action("win.add-account", ["<Ctrl>N"])
         self.set_accels_for_action("win.toggle-searchbar", ["<Ctrl>F"])
 
-    def __add_action(self, key, callback, prop=None):
+    def _add_action(self, key, callback, prop=None):
         action = Gio.SimpleAction.new(key, None)
         action.connect("activate", callback)
         if prop:
@@ -145,66 +154,56 @@ class Application(Gtk.Application):
         self.add_action(action)
         return action
 
-    def do_activate(self, *_):
-        """On activate signal override."""
-        window = Window.get_default()
-        window.set_menu(self._menu)
-        window.set_application(self)
-        window.connect("delete-event", lambda x, y: self.__on_quit())
-        if self.props.profile != 'default':
-            window.get_style_context().add_class('devel')
-        self.add_window(window)
-        window.show_all()
-        window.present()
-
-    def __on_dark_theme_changed(self, *args):
+    def _on_dark_theme_changed(self, *args):
         Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
-                                                Settings.get_default().dark_theme)    
+                                                Settings.get_default().dark_theme)
 
-    def __on_night_light_changed(self, *_):
-        if Settings.get_default().night_light and not self.proxy:
+    def _on_night_light_changed(self, *_):
+        if Settings.get_default().night_light and not self._night_light_proxy:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
-            self.proxy = Gio.DBusProxy.new_sync(bus,
-                                            Gio.DBusProxyFlags.NONE,
-                                            None,
-                                            "org.gnome.SettingsDaemon.Color",
-                                            "/org/gnome/SettingsDaemon/Color",
-                                            "org.gnome.SettingsDaemon.Color",
-                                            None)
-            def property_changed(proxy, gvariant, *_):
+            self._night_light_proxy = Gio.DBusProxy.new_sync(bus,
+                                                             Gio.DBusProxyFlags.NONE,
+                                                             None,
+                                                             "org.gnome.SettingsDaemon.Color",
+                                                             "/org/gnome/SettingsDaemon/Color",
+                                                             "org.gnome.SettingsDaemon.Color",
+                                                             None)
+            # Watch for changes
+            def property_changed(_, gvariant, *_):
                 data = gvariant.unpack()
                 if 'NightLightActive' in data.keys():
                   Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                           data['NightLightActive'])
-            system_value = self.proxy.get_cached_property('NightLightActive')
-            self.proxy.connect("g-properties-changed", property_changed)
+
+            cached_value = self._night_light_proxy.get_cached_property('NightLightActive')
+            self._night_light_proxy.connect("g-properties-changed", property_changed)
             Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
-                                                    system_value)
+                                                    cached_value)
             return True
         else:
-            self.proxy = None
-            self.__on_dark_theme_changed()
+            self._night_light_proxy = None
+            self._on_dark_theme_changed()
 
-    def __sync_lock_action(self, *_):
+    def _sync_lock_action(self, *_):
         keyring = Keyring.get_default()
         self.lock_action.props.enabled = keyring.can_be_locked and not self.is_locked
 
-    def __is_locked_changed(self, *_):
+    def _is_locked_changed(self, *_):
         if self.is_locked:
             Window.get_default().view = WindowView.LOCKED
         else:
             Window.get_default().refresh_view()
-        self.__sync_lock_action()
+        self._sync_lock_action()
 
-    def __on_lock(self, *_):
+    def _on_lock(self, *_):
         self.set_property("is-locked", True)
 
-    def __on_donate(self, *_):
+    def _on_donate(self, *_):
         librepay_url = "https://liberapay.com/bielmoussaoui"
         Gio.app_info_launch_default_for_uri(librepay_url)
 
     @staticmethod
-    def __on_about(*_):
+    def _on_about(*_):
         """
             Shows about dialog
         """
@@ -215,7 +214,7 @@ class Application(Gtk.Application):
         dialog.run()
         dialog.destroy()
 
-    def __on_shortcuts(self, *_):
+    def _on_shortcuts(self, *_):
         builder = Gtk.Builder()
         builder.add_from_resource("/com/github/bilelmoussaoui/Authenticator/shortcuts.ui")
         dialog = builder.get_object("shortcuts")
@@ -223,21 +222,21 @@ class Application(Gtk.Application):
         dialog.show()
 
     @staticmethod
-    def __on_import_json(*_):
+    def _on_import_json(*_):
         from .models import BackupJSON
         filename = import_json(Window.get_default())
         if filename:
             BackupJSON.import_file(filename)
 
     @staticmethod
-    def __on_export_json(*_):
+    def _on_export_json(*_):
         from .models import BackupJSON
         filename = export_json(Window.get_default())
         if filename:
             BackupJSON.export_file(filename)
 
     @staticmethod
-    def __on_settings(*_):
+    def _on_settings(*_):
         from .widgets import SettingsWindow
         settings_window = SettingsWindow()
         main_window = Window.get_default()
@@ -247,7 +246,7 @@ class Application(Gtk.Application):
         settings_window.present()
         settings_window.show_all()
 
-    def __on_quit(self, *_):
+    def _on_quit(self, *_):
         """
         Close the application, stops all threads
         and clear clipboard for safety reasons
