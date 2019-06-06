@@ -92,7 +92,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         self.emit("pin-copied",
                   _("The PIN of {} was copied to the clipboard").format(self.account.username))
 
-        def btn_clicked_timeout_callback():
+        def btn_clicked_timeout_callback(*_):
             self.copy_btn_stack.set_visible_child_name("copy_image")
             if self._timeout_id > 0:
                 GLib.Source.remove(self._timeout_id)

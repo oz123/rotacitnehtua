@@ -406,8 +406,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="hexpand">True</property>
-                <property name="resource">/com/github/bilelmoussaoui/Authenticator/authenticator.svg
-                                </property>
+                <property name="resource">/com/github/bilelmoussaoui/Authenticator/authenticator.svg</property>
                 <property name="icon_size">6</property>
               </object>
               <packing>

@@ -144,7 +144,9 @@ class AccountConfig(Gtk.Box):
         if self._account is not None:
             self.provider_image = ProviderImage(self._account.provider,
                                                 96)
+            self.token_entry.props.secondary_icon_activatable = self._account.provider.doc_url is not None
         else:
+            self.token_entry.props.secondary_icon_activatable = False
             self.provider_image = ProviderImage(None, 96)
 
         self.main_box.pack_start(self.provider_image, False, False, 0)
@@ -186,7 +188,7 @@ class AccountConfig(Gtk.Box):
             provider = Provider.get_by_name(provider_name)
         # if we find a provider already saved on the database
         if provider:
-            self.token_entry.props.secondary_icon_activatable = provider.website is not None
+            self.token_entry.props.secondary_icon_activatable = provider.doc_url is not None
             self.provider_image.emit("provider-changed", provider)
             self.provider_website_entry.hide()
             self.provider_website_entry.set_no_show_all(True)
