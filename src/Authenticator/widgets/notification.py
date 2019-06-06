@@ -30,6 +30,7 @@ class Notification(Gtk.Revealer):
     action_callback = None
 
     _action_signal = None
+    _source = 0
 
     def __init__(self):
         Gtk.Revealer.__init__(self)
@@ -46,7 +47,21 @@ class Notification(Gtk.Revealer):
         self._message = new_message
         self._notification_lbl.set_text(new_message)
 
-    def __build_widget(self):
+    def send(self, message, **kwargs):
+        self.message = message
+
+        self._action_btn.set_label(kwargs.get("action_label", _("Undo")))
+
+        self.props.show_action_btn = kwargs.get("show_action_btn", False)
+        self.props.show_close_btn = kwargs.get("show_close_btn", False)
+        self.props.timeout = kwargs.get("timeout", self.props.timeout)
+        self.action_callback = kwargs.get("action_callback")
+
+        self.set_reveal_child(True)
+        self._source_id = GLib.timeout_add_seconds(self.timeout,
+                                                   self.__delete_notification, None)
+
+    def _build_widget(self):
         self.set_transition_type(Gtk.RevealerTransitionType.SLIDE_DOWN)
         self.set_transition_duration(400)
         self.set_reveal_child(False)
@@ -77,25 +92,17 @@ class Notification(Gtk.Revealer):
 
         self.add(notification_container)
 
-    def send(self, message, **kwargs):
-        self.message = message
-        self.set_reveal_child(True)
-        self._action_btn.set_label(kwargs.get("action_label", _("Undo")))
-        self.props.show_action_btn = kwargs.get("show_action_btn", False)
-        self.props.show_close_btn = kwargs.get("show_close_btn", False)
-        self.props.timeout = kwargs.get("timeout", self.props.timeout)
-        self.action_callback = kwargs.get("action_callback")
-        GLib.timeout_add_seconds(self.timeout, self.__delete_notification, None)
-
-    def __delete_notification(self, *args):
+    def _delete_notification(self, *args):
         self.set_reveal_child(False)
         self.message = ""
+        if self._source_id > 0:
+            GLib.Source.remove(self._source_id)
 
-    def __on_action_btn_clicked(self, *args):
+    def _on_action_btn_clicked(self, *args):
         if self.action_callback:
             self.action_callback()
         self.__delete_notification()
 
-    def __bind_signals(self):
+    def _bind_signals(self):
         self._close_btn.bind_property("visible", self, "show-close-btn", GObject.BindingFlags.BIDIRECTIONAL)
         self._action_btn.bind_property("visible", self, "show-action-btn", GObject.BindingFlags.BIDIRECTIONAL)

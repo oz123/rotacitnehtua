@@ -21,6 +21,7 @@ from gi.repository import Gtk
 
 __all__ = ['import_json', 'export_json']
 
+
 def import_json(parent):
     mimetype = {'type': "application/json", 'name': _("JSON files")}
     return __open_file_chooser(parent, mimetype)
