@@ -17,9 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
-
 from gi.repository import Gio, Gtk, GObject, Handy
-
 from Authenticator.models import Settings, Keyring
 
 __all__ = ['SettingsWindow']
@@ -105,13 +103,7 @@ class SettingsWindow(Handy.PreferencesWindow):
         else:
             self._password_widget.set_current_password_visibility(True)
 
-    def __on_password_updated(self, __, had_password):
-        """
-        if not had_password:
-            self.notification.send(_("Authentication password is now enabled."))
-        else:
-            self.notification.send(_("The authentication password was updated."))
-        """
+    def __on_password_updated(self, *_):
         self.lock_row_toggle_btn.props.active = False
 
     def __on_password_deleted(self, *__):
@@ -124,7 +116,7 @@ class SettingsWindow(Handy.PreferencesWindow):
 class PasswordWidget(Gtk.Box):
     __gtype_name__ = 'PasswordWidget'
     __gsignals__ = {
-        'password-updated': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
+        'password-updated': (GObject.SignalFlags.RUN_LAST, None, ()),
         'password-deleted': (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
@@ -198,21 +190,21 @@ class PasswordWidget(Gtk.Box):
     def __save_password(self, *__):
         if self.change_password_btn.get_sensitive():
             keyring = Keyring.get_default()
-
             password = self.password_entry.get_text()
-            had_password = keyring.has_password()
             keyring.set_password(password)
             self.reset_widgets()
             self.set_current_password_visibility(True)
-            self.emit("password-updated", had_password)
+            self.emit("password-updated")
 
     @Gtk.Template.Callback('reset_password_clicked')
     def __reset_password(self, *args):
-        dialog = Gtk.MessageDialog(self.parent, 0, Gtk.MessageType.QUESTION,
-                                   Gtk.ButtonsType.YES_NO,
-                                   _("Do you want to remove the authentication password?"))
-        dialog.format_secondary_text(
-            _("Authentication password enforces the privacy of your accounts."))
+        dialog = Gtk.MessageDialog(buttons=Gtk.ButtonsType.YES_NO)
+        dialog.props.message_type = Gtk.MessageType.QUESTION
+        dialog.props.text = _("Do you want to remove the authentication password?")
+        dialog.props.secondary_text = _("Authentication password enforces the privacy of your accounts.")
+
+        dialog.set_transient_for(self.parent)
+
         response = dialog.run()
         if response == Gtk.ResponseType.YES:
             Keyring.get_default().remove_password()
