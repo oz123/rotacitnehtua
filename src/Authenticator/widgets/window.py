@@ -47,6 +47,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
     accounts_stack = Gtk.Template.Child()
 
     search_bar = Gtk.Template.Child()
+    search_entry = Gtk.Template.Child()
     password_entry = Gtk.Template.Child()
 
     def __init__(self):
@@ -151,6 +152,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
         AccountsManager.get_default().connect("notify::empty", self.refresh_view)
 
+        self.search_bar.connect_entry(self.search_entry)
         self.search_bar.bind_property("search-mode-enabled", self.search_btn,
                                       "active",
                                       GObject.BindingFlags.BIDIRECTIONAL)
