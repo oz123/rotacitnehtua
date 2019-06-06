@@ -152,7 +152,7 @@ class Application(Gtk.Application):
         window.set_application(self)
         window.connect("delete-event", lambda x, y: self.__on_quit())
         if self.props.profile != 'default':
-            window.get_style_context().add_class(self.props.profile)
+            window.get_style_context().add_class('devel')
         self.add_window(window)
         window.show_all()
         window.present()
@@ -171,21 +171,19 @@ class Application(Gtk.Application):
                                             "/org/gnome/SettingsDaemon/Color",
                                             "org.gnome.SettingsDaemon.Color",
                                             None)
+            def property_changed(proxy, gvariant, *_):
+                data = gvariant.unpack()
+                if 'NightLightActive' in data.keys():
+                  Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
+                                                          data['NightLightActive'])
             system_value = self.proxy.get_cached_property('NightLightActive')
-            self.proxy.connect("g-properties-changed", self.__night_light_changed)
+            self.proxy.connect("g-properties-changed", property_changed)
             Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                     system_value)
-
             return True
         else:
             self.proxy = None
             self.__on_dark_theme_changed()
-
-    def __night_light_changed(self, proxy, gvariant, *_):
-        data = gvariant.unpack()
-        if 'NightLightActive' in data.keys():
-          Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
-                                                    data['NightLightActive'])
 
     def __sync_lock_action(self, *_):
         keyring = Keyring.get_default()
