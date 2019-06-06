@@ -37,8 +37,8 @@ class Application(Gtk.Application):
         GLib.set_prgname("Authenticator")
         self.connect("notify::is-locked", self._is_locked_changed)
         self.alive = True
+        self._night_light_signal_id = 0
         self._night_light_proxy = None
-
         self._menu = Gio.Menu()
 
     @staticmethod
@@ -60,7 +60,7 @@ class Application(Gtk.Application):
         keyring = Keyring.get_default()
         self.is_locked = keyring.can_be_locked
 
-        Application.__setup_css()
+        Application._setup_css()
 
         # Restore default state
         self._on_dark_theme_changed()
@@ -159,7 +159,7 @@ class Application(Gtk.Application):
                                                 Settings.get_default().dark_theme)
 
     def _on_night_light_changed(self, *_):
-        if Settings.get_default().night_light and not self._night_light_proxy:
+        if Settings.get_default().night_light and self._night_light_proxy:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
             self._night_light_proxy = Gio.DBusProxy.new_sync(bus,
                                                              Gio.DBusProxyFlags.NONE,
@@ -169,19 +169,22 @@ class Application(Gtk.Application):
                                                              "org.gnome.SettingsDaemon.Color",
                                                              None)
             # Watch for changes
-            def property_changed(_, gvariant, *_):
+            def property_changed(proxy, gvariant, *_):
                 data = gvariant.unpack()
                 if 'NightLightActive' in data.keys():
                   Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                           data['NightLightActive'])
 
             cached_value = self._night_light_proxy.get_cached_property('NightLightActive')
-            self._night_light_proxy.connect("g-properties-changed", property_changed)
+
+            self._night_light_signal_id = self._night_light_proxy.connect("g-properties-changed",
+                                                                   property_changed)
             Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme",
                                                     cached_value)
             return True
         else:
-            self._night_light_proxy = None
+            if self._night_light_proxy and self._night_light_signal_id > 0:
+                self._night_light_proxy.disconnect(self._night_light_signal_id)
             self._on_dark_theme_changed()
 
     def _sync_lock_action(self, *_):

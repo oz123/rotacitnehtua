@@ -2,7 +2,6 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
-
   <object class="GtkPopoverMenu" id="more_actions_popover">
     <property name="can_focus">False</property>
     <child>
@@ -54,6 +53,7 @@
     </child>
   </object>
   <template class="AccountRow" parent="GtkListBoxRow">
+    <property name="name">account_row</property>
     <property name="visible">True</property>
     <property name="can_focus">True</property>
     <property name="valign">center</property>
@@ -100,30 +100,31 @@
             <signal name="clicked" handler="copy_btn_clicked" swapped="no"/>
             <child>
               <object class="GtkStack" id="copy_btn_stack">
-                  <property name="visible">True</property>
-                  <property name="can_focus">False</property>
-                  <property name="halign">center</property>
-                  <property name="valign">center</property>
-                  <child>
-                       <object class="GtkImage" id="copy_img">
-                          <property name="visible">True</property>
-                          <property name="can_focus">False</property>
-                          <property name="icon_name">edit-copy-symbolic</property>
-                        </object>
-                         <packing>
-                        <property name="name">copy_image</property>
-                      </packing>
-                  </child>
-                  <child>
-                        <object class="GtkImage" id="ok_image">
-                          <property name="visible">True</property>
-                          <property name="can_focus">False</property>
-                          <property name="icon_name">emblem-ok-symbolic</property>
-                        </object>
-                      <packing>
-                        <property name="name">ok_image</property>
-                      </packing>
-                  </child>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkImage" id="copy_img">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">edit-copy-symbolic</property>
+                  </object>
+                  <packing>
+                    <property name="name">copy_image</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage" id="ok_image">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">emblem-ok-symbolic</property>
+                  </object>
+                  <packing>
+                    <property name="name">ok_image</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
             </child>
             <style>
@@ -133,8 +134,8 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
             <property name="pack_type">end</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -144,7 +145,7 @@
             <property name="halign">start</property>
             <property name="valign">center</property>
             <style>
-              <class name="pin-label"/>
+              <class name="account-pin"/>
             </style>
           </object>
           <packing>
@@ -162,9 +163,6 @@
             <property name="halign">start</property>
             <property name="valign">center</property>
             <property name="ellipsize">end</property>
-            <style>
-              <class name="account-name-label"/>
-            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -179,5 +177,4 @@
       <class name="account-row"/>
     </style>
   </template>
-
 </interface>

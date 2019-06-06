@@ -35,8 +35,8 @@ class Notification(Gtk.Revealer):
     def __init__(self):
         Gtk.Revealer.__init__(self)
         self._message = ""
-        self.__build_widget()
-        self.__bind_signals()
+        self._build_widget()
+        self._bind_signals()
 
     @property
     def message(self):
@@ -59,7 +59,7 @@ class Notification(Gtk.Revealer):
 
         self.set_reveal_child(True)
         self._source_id = GLib.timeout_add_seconds(self.timeout,
-                                                   self.__delete_notification, None)
+                                                   self._delete_notification, None)
 
     def _build_widget(self):
         self.set_transition_type(Gtk.RevealerTransitionType.SLIDE_DOWN)
@@ -72,7 +72,7 @@ class Notification(Gtk.Revealer):
         notification_container.get_style_context().add_class("app-notification")
 
         self._close_btn = Gtk.Button()
-        self._close_btn.connect("clicked", self.__delete_notification)
+        self._close_btn.connect("clicked", self._delete_notification)
         close_img = Gtk.Image.new_from_icon_name("window-close-symbolic", Gtk.IconSize.BUTTON)
         self._close_btn.get_style_context().add_class("flat")
         self._close_btn.set_tooltip_text(_("Close the notification"))
@@ -81,7 +81,7 @@ class Notification(Gtk.Revealer):
 
         self._action_btn = Gtk.Button()
         self._action_btn.set_label(_("Undo"))
-        self._action_btn.connect("clicked", self.__on_action_btn_clicked)
+        self._action_btn.connect("clicked", self._on_action_btn_clicked)
 
         self._notification_lbl = Gtk.Label()
         self._notification_lbl.set_text(self.message)
@@ -101,7 +101,7 @@ class Notification(Gtk.Revealer):
     def _on_action_btn_clicked(self, *args):
         if self.action_callback:
             self.action_callback()
-        self.__delete_notification()
+        self._delete_notification()
 
     def _bind_signals(self):
         self._close_btn.bind_property("visible", self, "show-close-btn", GObject.BindingFlags.BIDIRECTIONAL)

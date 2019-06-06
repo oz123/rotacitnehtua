@@ -1,53 +1,13 @@
-window hdycolumn box list row{
-  background-color: mix(@theme_base_color,@theme_bg_color,0.3);
-	padding: 2px 8px;
-  margin:0;
-	border: 1px solid mix(@theme_base_color,@theme_fg_color,0.3);
-	border-bottom: 0px;
+@define-color border_color mix(@theme_base_color,@theme_fg_color, 0.3);
+
+separator {
+  background-color: @border_color;
 }
-window hdycolumn box list row:last-child{
-	border-bottom: 1px solid mix(@theme_base_color,@theme_fg_color,0.3);
-}
-
-window hdycolumn box list row separator {
-  background-color: mix(@theme_base_color,@theme_fg_color,0.3);
-}
-
-
-label.head-title{
-	font-size: 20px;
-	font-weight:bold;
-	color: @theme_fg_color;
-}
-
-/* AccountsList */
-.accounts-list{
-  background-color: @theme_bg_color;
-}
-.provider-label{
-
-  font-weight: bold;
-}
-
-/* AccountRow */
-.account-row .account-name-label{
-
-  padding: 3px 6px;
-}
-.account-row .pin-label{
-
-}
-
 .insert-image-box{
 	border: 1px solid mix(@theme_fg_color, @theme_bg_color, 0.7);
 }
 
-.application-name {
-  color: @theme_fg_color;
-  font-style: italic;
-}
-
-.account-name {
+.account-name{
   font-weight: bold;
 }
 
@@ -60,14 +20,41 @@ label.head-title{
 .progress-bar trough {
   border-radius: 0px
 }
-/* Account List */
-.provider-widget{
-	margin: 6px;
+
+label.head-title{
+	font-size: 20px;
+	font-weight:bold;
+	color: @theme_fg_color;
 }
-.account-row {
-	padding: 6px;
+
+
+
+
+/* Accounts Widget */
+.provider-name{
+  margin: 6px;
+  font-weight: bold;
+  font-size: 18px;
 }
-.provider-label {
-	font-size: 18px;
-	font-weight: bold;
+/* Accounts List */
+.accounts-list,
+.settings-list{
+  margin-left:6px;
+  margin-right:6px;
+  border-color: @border_color;
+  border-style: solid;
+  border-top-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+/* Account Row */
+.account-row{
+  padding: 6px;
+}
+.account-name{
+  font-size: 16px;
+}
+.account-pin {
+  font-size: 14px;
 }

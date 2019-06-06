@@ -169,7 +169,7 @@ class ProviderWidget(Gtk.Box):
         provider_lbl = Gtk.Label()
         provider_lbl.set_text(self.provider.name)
         provider_lbl.set_halign(Gtk.Align.START)
-        provider_lbl.get_style_context().add_class("provider-label")
+        provider_lbl.get_style_context().add_class("provider-name")
 
         self.provider_image = ProviderImage(self.provider, 48)
 
@@ -200,6 +200,7 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         row = AccountRow(account)
         row.delete_btn.connect("clicked", self.__on_delete_child, row)
         self.add(row)
+        self.add(Gtk.Separator())
         self.emit("account-added", account)
 
     def __on_delete_child(self, _, account_row):
