@@ -33,6 +33,7 @@ gettext_package = 'Authenticator'
 profile = get_option('profile')
 profile_suffix = ''
 name_suffix = ''
+version_suffix = ''
 if profile != 'default'
   gettext_package += profile
   if profile == 'beta'
@@ -41,6 +42,12 @@ if profile != 'default'
   else
     name_suffix = ' (Development)'
     profile_suffix = 'Devel'
+  endif
+  vcs_tag = run_command('git', 'rev-parse', '--short', 'HEAD').stdout().strip()
+  if vcs_tag == ''
+    version_suffix = '-devel'
+  else
+    version_suffix = '-@0@'.format (vcs_tag)
   endif
 endif
 

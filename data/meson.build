@@ -1,6 +1,6 @@
 ui_config = configuration_data()
 ui_config.set('APP_ID', application_id)
-ui_config.set('VERSION', meson.project_version())
+ui_config.set('VERSION', meson.project_version() + version_suffix)
 
 ui_preconfigured_files = files(
   'resources/gtk/ui/about_dialog.ui.in',
