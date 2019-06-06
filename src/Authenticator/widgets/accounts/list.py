@@ -83,7 +83,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
             AccountsWidget.instance = AccountsWidget()
         return AccountsWidget.instance
 
-    def append(self, account, send_signals=True):
+    def append(self, account):
         accounts_list = self.__add_provider(account.provider)
         accounts_list.add_row(account)
 
@@ -195,12 +195,13 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         Gtk.ListBox.__init__(self)
         self.set_selection_mode(Gtk.SelectionMode.NONE)
         self.get_style_context().add_class("accounts-list")
+        self.get_style_context().add_class("frame")
+        self.set_header_func(self._update_header_func)
 
     def add_row(self, account: Account):
         row = AccountRow(account)
         row.delete_btn.connect("clicked", self.__on_delete_child, row)
         self.add(row)
-        self.add(Gtk.Separator())
         self.emit("account-added", account)
 
     def __on_delete_child(self, _, account_row):
@@ -208,3 +209,13 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         account = account_row.account
         account.remove()
         self.emit("account-deleted", account)
+
+    def _update_header_func(self, row, before):
+        def on_realize_sep(separator):
+            separator.set_size_request(before.get_allocated_width(), -1)
+
+        if before:
+            separator = Gtk.Separator()
+            separator.connect("realize", on_realize_sep)
+            row.set_header(separator)
+            separator.show()
