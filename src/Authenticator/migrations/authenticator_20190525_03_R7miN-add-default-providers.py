@@ -20,8 +20,8 @@ def do_step(conn):
     for provider_name, provider_info in data.items():
         if not provider_name.lower() in providers_db:
             providers.append((provider_name, provider_info['url'],
-                              provider_info['doc'], provider_info['img'],))
-    query = "INSERT INTO providers (name, website, doc_url, image) VALUES (?, ?, ?, ?)"
+                              provider_info['doc'],))
+    query = "INSERT INTO providers (name, website, doc_url) VALUES (?, ?, ?)"
     conn.executemany(query, providers)
     conn.commit()
 

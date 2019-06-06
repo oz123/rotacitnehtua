@@ -62,9 +62,6 @@
         <property name="border_width">36</property>
         <property name="orientation">vertical</property>
         <child>
-          <placeholder/>
-        </child>
-        <child>
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -76,23 +73,6 @@
             <property name="column_spacing">6</property>
             <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkEntry" id="token_entry">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hexpand">True</property>
-                <property name="visibility">False</property>
-                <property name="secondary_icon_name">dialog-information-symbolic</property>
-                <property name="secondary_icon_tooltip_text" translatable="yes">Enable 2FA for this account</property>
-                <property name="placeholder_text" translatable="yes">2FA Token</property>
-                <property name="input_purpose">pin</property>
-                <signal name="changed" handler="account_edited" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">2</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkEntry" id="account_name_entry">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -103,7 +83,7 @@
               </object>
               <packing>
                 <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
+                <property name="top_attach">2</property>
               </packing>
             </child>
             <child>
@@ -128,6 +108,38 @@
               <packing>
                 <property name="left_attach">0</property>
                 <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="token_entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="visibility">False</property>
+                <property name="secondary_icon_name">dialog-information-symbolic</property>
+                <property name="secondary_icon_tooltip_text" translatable="yes">Enable 2FA for this account</property>
+                <property name="placeholder_text" translatable="yes">2FA Token</property>
+                <property name="input_purpose">pin</property>
+                <signal name="changed" handler="account_edited" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="provider_website_entry">
+                <property name="can_focus">True</property>
+                <property name="no_show_all">True</property>
+                <property name="hexpand">True</property>
+                <property name="placeholder_text" translatable="yes">Provider Website</property>
+                <property name="input_purpose">url</property>
+                <property name="enable_emoji_completion">True</property>
+                <signal name="key-release-event" handler="on_provider_website_changed" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
               </packing>
             </child>
           </object>

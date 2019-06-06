@@ -18,7 +18,6 @@
 """
 from .clipboard import Clipboard
 
-from .favicon import FaviconManager
 from .keyring import Keyring
 from .logger import Logger
 from .otp import OTP
