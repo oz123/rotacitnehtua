@@ -19,7 +19,7 @@
 from os import path
 from gi.repository import Gtk
 
-from Authenticator.models import Database, FaviconManager
+from Authenticator.models import Database
 
 
 class Provider:
@@ -62,7 +62,8 @@ class Provider:
 
     @property
     def image_path(self):
-        cached_icon = path.join(FaviconManager.CACHE_DIR, self.image)
+        from Authenticator.widgets import ProviderImage
+        cached_icon = path.join(ProviderImage.CACHE_DIR, self.image)
         if path.exists(cached_icon):
             return cached_icon
         else:

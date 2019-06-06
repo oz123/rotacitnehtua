@@ -19,7 +19,7 @@
 from gettext import gettext as _
 from gi.repository import Gdk, Gtk, GObject, Gio
 from Authenticator.widgets.notification import Notification
-from Authenticator.widgets.provider_image import ProviderImage
+from Authenticator.widgets.provider_image import ProviderImage, ProviderImageState
 from Authenticator.models import OTP, Provider
 
 
@@ -94,6 +94,7 @@ class AccountConfig(Gtk.Box):
 
     account_name_entry = Gtk.Template.Child()
     token_entry = Gtk.Template.Child()
+    provider_website_entry = Gtk.Template.Child()
     provider_combobox = Gtk.Template.Child()
     provider_entry = Gtk.Template.Child()
     providers_store = Gtk.Template.Child()
@@ -122,8 +123,10 @@ class AccountConfig(Gtk.Box):
         # Create a new provider if we don't find one
         if not provider:
             provider_image = self.provider_image.image
-            provider = Provider.create(provider_name, None, None, provider_image)
-        # Update tthe provider image if it changed
+            provider_website = self.provider_website_entry.get_text()
+            provider = Provider.create(provider_name, provider_website, None,
+                                       provider_image)
+        # Update the provider image if it changed
         elif provider and self.provider_image.image != provider.image:
             provider.update(image=self.provider_image.image)
 
@@ -181,13 +184,16 @@ class AccountConfig(Gtk.Box):
         else:
             provider_name = self.provider_entry.get_text()
             provider = Provider.get_by_name(provider_name)
-
-        self.token_entry.props.secondary_icon_activatable = provider is not None
-        self._validate()
+        # if we find a provider already saved on the database
         if provider:
-            self.provider_image.emit('changed', provider.website, provider.image)
+            self.token_entry.props.secondary_icon_activatable = provider.website is not None
+            self.provider_image.emit("provider-changed", provider)
+            self.provider_website_entry.hide()
+            self.provider_website_entry.set_no_show_all(True)
         else:
-            self.provider_image.emit("changed", None, None)
+            self.provider_website_entry.show()
+            self.provider_website_entry.set_no_show_all(False)
+            self.provider_image.set_state(ProviderImageState.NOT_FOUND)
 
     def _fill_data(self):
         providers = Provider.all()
@@ -221,7 +227,14 @@ class AccountConfig(Gtk.Box):
         else:
             self.token_entry.get_style_context().remove_class("error")
             valid_token = True
+
         self.emit("changed", all([valid_name, valid_provider, valid_token]))
+
+    @Gtk.Template.Callback('on_provider_website_changed')
+    def on_provider_website_changed(self, entry, event):
+        if entry.get_visible():
+            website = entry.get_text().strip()
+            self.provider_image.fetch_favicon_from_url(website)
 
     def scan_qr(self):
         """

@@ -14,15 +14,47 @@
         <property name="can_focus">False</property>
       </object>
       <packing>
-        <property name="name">provider_spinner</property>
+        <property name="name">provider_loading</property>
       </packing>
     </child>
     <child>
-      <object class="GtkImage" id="provider_image">
+      <object class="GtkEventBox" id="image_eventbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="pixel_size">128</property>
-        <property name="icon_size">6</property>
+        <signal name="button-press-event" handler="select_image_clicked" swapped="no"/>
+        <child>
+          <object class="GtkOverlay">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkImage" id="provider_image">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixel_size">128</property>
+                <property name="icon_size">6</property>
+              </object>
+              <packing>
+                <property name="index">-1</property>
+              </packing>
+            </child>
+            <child type="overlay">
+              <object class="GtkImage" id="insert_image">
+                <property name="can_focus">False</property>
+                <property name="no_show_all">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="icon_name">insert-image-symbolic</property>
+                <property name="icon_size">5</property>
+                <style>
+                  <class name="insert-image"/>
+                </style>
+              </object>
+              <packing>
+                <property name="pass_through">True</property>
+              </packing>
+            </child>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="name">provider_image</property>
@@ -39,14 +71,14 @@
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkEventBox" id="image_eventbox">
+          <object class="GtkEventBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <signal name="button-press-event" handler="select_image_clicked" swapped="no"/>
             <child>
-              <object class="GtkImage" id="insert_image">
+              <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
