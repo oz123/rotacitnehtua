@@ -19,6 +19,7 @@
 from gettext import gettext as _
 from gi.repository import Gtk
 
+__all__ = ['import_json', 'export_json']
 
 def import_json(parent):
     mimetype = {'type': "application/json", 'name': _("JSON files")}
@@ -28,19 +29,6 @@ def import_json(parent):
 def export_json(parent):
     mimetype = {'type': "application/json", 'name': _("JSON files")}
     return __open_file_chooser(parent, mimetype, Gtk.FileChooserAction.SAVE)
-
-
-def open_directory(parent):
-    file_chooser = Gtk.FileChooserNative()
-    file_chooser.set_action(Gtk.FileChooserAction.SELECT_FOLDER)
-    file_chooser.set_transient_for(parent)
-    file_chooser.set_show_hidden(True)
-    response = file_chooser.run()
-    folder_name = None
-    if response == Gtk.ResponseType.ACCEPT:
-        folder_name = file_chooser.get_filename()
-    file_chooser.destroy()
-    return folder_name
 
 
 def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
