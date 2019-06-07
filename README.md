@@ -25,6 +25,8 @@ To build the development version of Authenticator and hack on the code
 see the [general guide](https://wiki.gnome.org/Newcomers/BuildProject)
 for building GNOME apps with Flatpak and GNOME Builder.
 
+You are expected to follow our [Code of Conduct](/code-of-conduct.md) when participating in project
+spaces.
 
 ## Credits
 
