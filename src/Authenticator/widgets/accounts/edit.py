@@ -17,21 +17,22 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gi.repository import Gtk, GObject
-from Authenticator.widgets.accounts.add import AccountConfig
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_edit.ui')
 class EditAccountWindow(Gtk.Window):
-    __gsignals__ = {
-        'updated': (GObject.SignalFlags.RUN_LAST,
-                    None,
-                    (str, GObject.TYPE_PYOBJECT, )
-                    ),
-    }
-
     __gtype_name__ = 'EditAccountWindow'
-
-    save_btn = Gtk.Template.Child()
+    # Signals
+    __gsignals__ = {
+        'updated': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (str, GObject.TYPE_PYOBJECT, )
+        ),
+    }
+    # Widgets
+    save_btn: Gtk.Button = Gtk.Template.Child()
+    back_btn: Gtk.Button = Gtk.Template.Child()
 
     def __init__(self, account):
         super(EditAccountWindow, self).__init__()
@@ -41,12 +42,16 @@ class EditAccountWindow(Gtk.Window):
         self.__init_widgets()
 
     def __init_widgets(self):
+        from .add import AccountConfig
+
         self.account_config = AccountConfig(edit=True, account=self._account)
         self.account_config.connect("changed", self._on_account_config_changed)
 
+        self.back_btn.connect("clicked", lambda *_: self.destroy())
+
         self.add(self.account_config)
 
-    def _on_account_config_changed(self, _, state):
+    def _on_account_config_changed(self, _, state: bool):
         """
         Set the sensitivity of the AddButton
             depends on the AccountConfig.
@@ -75,11 +80,4 @@ class EditAccountWindow(Gtk.Window):
             ac_widget.update_provider(self._account, provider)
 
         ac_widget.update_provider_image(provider)
-        self._on_quit()
-
-    @Gtk.Template.Callback('close_btn_clicked')
-    def _on_quit(self, *_):
-        """
-            Close the window.
-        """
         self.destroy()

@@ -16,8 +16,6 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from .clipboard import Clipboard
-
 from .keyring import Keyring
 from .logger import Logger
 from .otp import OTP

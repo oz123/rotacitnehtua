@@ -22,17 +22,18 @@ from gi.repository import Gtk
 __all__ = ['import_json', 'export_json']
 
 
-def import_json(parent):
+def import_json(parent: Gtk.Window) -> str:
     mimetype = {'type': "application/json", 'name': _("JSON files")}
     return __open_file_chooser(parent, mimetype)
 
 
-def export_json(parent):
+def export_json(parent: Gtk.Window) -> str:
     mimetype = {'type': "application/json", 'name': _("JSON files")}
     return __open_file_chooser(parent, mimetype, Gtk.FileChooserAction.SAVE)
 
 
-def __open_file_chooser(parent, mimetype, action=Gtk.FileChooserAction.OPEN):
+def __open_file_chooser(parent: Gtk.Window, mimetype: dict,
+                        action=Gtk.FileChooserAction.OPEN) -> str:
     file_chooser = Gtk.FileChooserNative()
     file_chooser.set_action(action)
     file_chooser.set_transient_for(parent)

@@ -24,9 +24,15 @@ from Authenticator.models import Database
 
 class Provider:
 
-    instance = None
+    instance: 'Provider' = None
 
-    def __init__(self, provider_id=None, name=None, website=None, doc_url=None, image=None):
+    def __init__(self,
+                 provider_id: int = None,
+                 name: str = None,
+                 website: str = None,
+                 doc_url: str = None,
+                 image: str = None):
+
         self.provider_id = provider_id
         self.name = name
         self.website = website
@@ -34,26 +40,22 @@ class Provider:
         self.image = image
 
     @staticmethod
-    def create(name, website, doc_url, image):
+    def create(name: str, website: str, doc_url: str, image: str) -> 'Provider':
         provider = Database.get_default().insert_provider(name, website, doc_url, image)
         return Provider(*provider)
 
     @staticmethod
-    def get_by_id(id_):
+    def get_by_id(id_) -> 'Provider':
         provider = Database.get_default().provider_by_id(id_)
-        if provider:
-            return Provider(*provider)
-        return None
+        return Provider(*provider) if provider else None
 
     @staticmethod
-    def get_by_name(name):
+    def get_by_name(name) -> 'Provider':
         provider = Database.get_default().provider_by_name(name)
-        if provider:
-            return Provider(*provider)
-        return None
+        return Provider(*provider) if provider else None
 
     @staticmethod
-    def all():
+    def all() -> ['Provider']:
         providers = Database.get_default().get_providers()
         return [
             Provider(*provider)
@@ -61,7 +63,7 @@ class Provider:
         ]
 
     @property
-    def image_path(self):
+    def image_path(self) -> str:
         from Authenticator.widgets import ProviderImage
         cached_icon = path.join(ProviderImage.CACHE_DIR, self.image)
         if path.exists(cached_icon):

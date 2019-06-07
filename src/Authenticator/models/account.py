@@ -16,22 +16,35 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from hashlib import sha256
 from gettext import gettext as _
-from gi.repository import GObject
-
-from Authenticator.models import Clipboard, Database, Keyring, Logger, OTP, Provider
+from gi.repository import GObject, Gtk, Gdk
+from hashlib import sha256
+from typing import Union
+from Authenticator.models import Database, Keyring, Logger, OTP, Provider
 
 
 class Account(GObject.GObject):
-    __gsignals__ = {
-        'otp_out_of_date': (GObject.SignalFlags.RUN_LAST, None, ()),
-        'otp_updated': (GObject.SignalFlags.RUN_LAST, None, (str,)),
-        'removed': (GObject.SignalFlags.RUN_LAST, None, ()),
-    }
-    _provider = None
 
-    def __init__(self, _id, username, token_id, provider):
+    __gsignals__ = {
+        'otp_out_of_date': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            ()
+        ),
+        'otp_updated': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (str, )
+        ),
+        'removed': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            ()
+        ),
+    }
+    _provider: Provider = None
+
+    def __init__(self, _id: str, username: str, token_id: str, provider: int):
         GObject.GObject.__init__(self)
         self.id = _id
         self.username = username
@@ -49,7 +62,7 @@ class Account(GObject.GObject):
                          "the keyring keys were reset manually")
 
     @staticmethod
-    def create(username, token, provider):
+    def create(username: str, token: str, provider: int) -> 'Account':
         """
         Create a new Account.
         :param username: the account's username
@@ -65,7 +78,7 @@ class Account(GObject.GObject):
         return Account(obj.id, username, token_id, provider)
 
     @staticmethod
-    def create_from_json(json_obj):
+    def create_from_json(json_obj: dict) -> 'Account':
         tags = json_obj["tags"]
         if not tags:
             provider_name = _("Default")
@@ -77,22 +90,22 @@ class Account(GObject.GObject):
         return Account.create(json_obj["label"], json_obj["secret"], provider.provider_id)
 
     @staticmethod
-    def get_by_id(id_):
+    def get_by_id(id_: int) -> 'Account':
         obj = Database.get_default().account_by_id(id_)
         return Account(obj.id, obj.username, obj.token_id, obj.provider)
 
     @property
-    def provider(self):
+    def provider(self) -> 'Provider':
         return self._provider
 
     @provider.setter
-    def provider(self, provider):
+    def provider(self, provider: Union[int, 'Provider']) -> 'Provider':
         if isinstance(provider, int):
             self._provider = Provider.get_by_id(provider)
         else:
             self._provider = provider
 
-    def update(self, username, provider):
+    def update(self, username: str, provider: Provider):
         """
         Update the account name and/or provider.
         :param username: the account's username
@@ -118,7 +131,9 @@ class Account(GObject.GObject):
 
     def copy_pin(self):
         """Copy the OTP to the clipboard."""
-        Clipboard.set(self.otp.pin)
+
+        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        clipboard.set_text(self.otp.pin, -1)
 
     def _on_otp_out_of_date(self, *_):
         if self._code_generated:
@@ -139,4 +154,4 @@ class Account(GObject.GObject):
                 "last_used": 0,
                 "tags": [self.provider.name]
             }
-        return None
+        return {}

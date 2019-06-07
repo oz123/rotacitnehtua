@@ -27,40 +27,34 @@ from Authenticator.models import Logger, OTP
 
 class QRReader:
 
-    def __init__(self, filename):
-        self.filename = filename
-        self._codes = None
-        self.provider = None
-        self.username = None
-
-    def read(self):
-        decoded_data = decode(Image.open(self.filename))
-        if path.isfile(self.filename):
-            remove(self.filename)
+    @staticmethod
+    def from_file(filename: str):
+        decoded_data = decode(Image.open(filename))
+        if path.isfile(filename):
+            remove(filename)
         try:
             # See https://github.com/google/google-authenticator/wiki/Key-Uri-Format
             # for a description of the URL format
             url = urlparse(decoded_data[0].data.decode())
             query_params = parse_qsl(url.query)
-            self._codes = dict(query_params)
+            url_data = dict(query_params)
 
+            username = None
             label = unquote(url.path.lstrip("/"))
             if ":" in label:
-                self.provider, self.username = label.split(":", maxsplit=1)
+                provider, username = label.split(":", maxsplit=1)
             else:
-                self.provider = label
+                provider = label
             # provider information could also be in the query params
-            self.provider = self._codes.get("issuer", self.provider)
+            provider = url_data.get("issuer", provider)
 
-            return self._codes.get("secret")
+            token = url_data.get("secret")
+            assert OTP.is_valid(token)
+
+            return {
+                'username': username,
+                'provider': provider,
+                'token': token
+            }
         except (KeyError, IndexError):
             Logger.error("Invalid QR image")
-            return None
-
-    def is_valid(self):
-        """
-            Validate if the QR code is a valid tfa
-        """
-        if isinstance(self._codes, dict):
-            return OTP.is_valid(self._codes.get("secret"))
-        return False

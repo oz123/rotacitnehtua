@@ -25,7 +25,6 @@ __all__ = ['SettingsWindow']
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/settings.ui')
 class SettingsWindow(Handy.PreferencesWindow):
-
     __gtype_name__ = 'SettingsWindow'
 
     dark_theme_switch: Gtk.Switch = Gtk.Template.Child()
@@ -55,7 +54,7 @@ class SettingsWindow(Handy.PreferencesWindow):
             keyring.set_password_state(self.lock_row.props.expanded)
             self.lock_row_toggle_btn.props.active = False
 
-    def __on_lock_switch_toggled(self, toggle_btn, *_):
+    def __on_lock_switch_toggled(self, toggle_btn: Gtk.ToggleButton, *_):
         toggled = toggle_btn.props.active
         expansion_enabled = self.lock_row.props.enable_expansion
         if not Keyring.get_default().has_password() and not toggled and expansion_enabled:
@@ -88,7 +87,7 @@ class SettingsWindow(Handy.PreferencesWindow):
         self._password_widget.connect("password-updated", self.__on_password_updated)
         self._password_widget.connect("password-deleted", self.__on_password_deleted)
 
-        def on_night_light_switch(switch, _):
+        def on_night_light_switch(switch: Gtk.Switch, _):
             # Set the application to use Light theme
             if switch.get_active() and self.dark_theme_switch.get_active():
 
@@ -96,7 +95,7 @@ class SettingsWindow(Handy.PreferencesWindow):
 
         self.night_light_switch.connect("notify::active", on_night_light_switch)
 
-        def on_dark_theme_switch(switch, _):
+        def on_dark_theme_switch(switch: Gtk.Switch, _):
             # Set the application to use Light theme
 
             if settings.night_light and switch.get_active():
@@ -127,18 +126,26 @@ class SettingsWindow(Handy.PreferencesWindow):
 class PasswordWidget(Gtk.Box):
     __gtype_name__ = 'PasswordWidget'
     __gsignals__ = {
-        'password-updated': (GObject.SignalFlags.RUN_LAST, None, ()),
-        'password-deleted': (GObject.SignalFlags.RUN_LAST, None, ()),
+        'password-updated': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            ()
+        ),
+        'password-deleted': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            ()
+        ),
     }
 
-    delete_password_btn = Gtk.Template.Child()
-    change_password_btn = Gtk.Template.Child()
+    delete_password_btn: Gtk.Button = Gtk.Template.Child()
+    change_password_btn: Gtk.Button = Gtk.Template.Child()
 
-    password_entry = Gtk.Template.Child()
-    confirm_password_entry = Gtk.Template.Child()
-    current_password_entry = Gtk.Template.Child()
+    password_entry: Gtk.Entry = Gtk.Template.Child()
+    confirm_password_entry: Gtk.Entry = Gtk.Template.Child()
+    current_password_entry: Gtk.Entry = Gtk.Template.Child()
 
-    current_password_box = Gtk.Template.Child()
+    current_password_box: Gtk.Box = Gtk.Template.Child()
 
     def __init__(self):
         super(PasswordWidget, self).__init__()
@@ -156,7 +163,7 @@ class PasswordWidget(Gtk.Box):
         self.current_password_entry.get_style_context().remove_class("error")
         self.change_password_btn.set_sensitive(False)
 
-    def set_current_password_visibility(self, visibilty):
+    def set_current_password_visibility(self, visibilty: bool):
         if not visibilty:
             self.current_password_box.hide()
             self.delete_password_btn.hide()
@@ -168,6 +175,7 @@ class PasswordWidget(Gtk.Box):
 
     @Gtk.Template.Callback('password_entry_changed')
     def __validate_password(self, *_):
+        keyring = Keyring.get_default()
         password = self.password_entry.get_text()
         repeat_password = self.confirm_password_entry.get_text()
         if not password:
@@ -185,9 +193,9 @@ class PasswordWidget(Gtk.Box):
             valid_repeat_password = True
         to_validate = [valid_password, valid_repeat_password]
 
-        if Keyring.get_default().has_password():
+        if keyring.has_password():
             old_password = self.current_password_entry.get_text()
-            if old_password != Keyring.get_default().get_password():
+            if old_password != keyring.get_password():
                 self.current_password_entry.get_style_context().add_class("error")
                 valid_old_password = False
             else:

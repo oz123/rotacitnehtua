@@ -20,12 +20,12 @@ from gi.repository import GObject, Secret
 
 
 class Keyring(GObject.GObject):
-    ID = "com.github.bilelmoussaoui.Authenticator"
-    PasswordID = "com.github.bilelmoussaoui.Authenticator.Login"
-    PasswordState = "com.github.bilelmoussaoui.Authenticator.State"
-    instance = None
+    ID: str = "com.github.bilelmoussaoui.Authenticator"
+    PasswordID: str = "com.github.bilelmoussaoui.Authenticator.Login"
+    PasswordState: str = "com.github.bilelmoussaoui.Authenticator.State"
+    instance: 'Keyring' = None
 
-    can_be_locked = GObject.Property(type=bool, default=False)
+    can_be_locked: GObject.Property = GObject.Property(type=bool, default=False)
 
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -49,20 +49,20 @@ class Keyring(GObject.GObject):
             Keyring.instance = Keyring()
         return Keyring.instance
 
-    def get_by_id(self, secret_id):
+    def get_by_id(self, token_id: str) -> str:
         """
         Return the OTP token based on a secret ID.
 
-        :param secret_id: the secret ID associated to an OTP token
-        :type secret_id: str
+        :param token_id: the secret ID associated to an OTP token
+        :type token_id: str
         :return: the secret OTP token.
         """
         schema = self.schema
-        password = Secret.password_lookup_sync(
-            schema, {"id": str(secret_id)}, None)
-        return password
+        token = Secret.password_lookup_sync(schema, {"id": str(token_id)},
+                                            None)
+        return token
 
-    def insert(self, token_id, provider, username, token):
+    def insert(self, token_id: str, provider: str, username: str, token: str):
         """
         Save a secret OTP token.
 
@@ -83,13 +83,13 @@ class Keyring(GObject.GObject):
             schema,
             data,
             Secret.COLLECTION_DEFAULT,
-            "{provider} OTP ({username})".format(
-                provider=provider, username=username),
+            "{provider} OTP ({username})".format(provider=provider,
+                                                 username=username),
             token,
             None
         )
 
-    def remove(self, token_id):
+    def remove(self, token_id: str) -> bool:
         """
         Remove a specific secret OTP token.
 
@@ -97,11 +97,11 @@ class Keyring(GObject.GObject):
         :return bool: Either the token was removed successfully or not
         """
         schema = self.schema
-        success = Secret.password_clear_sync(
-            schema, {"id": str(token_id)}, None)
+        success = Secret.password_clear_sync(schema, {"id": str(token_id)},
+                                             None)
         return success
 
-    def clear(self):
+    def clear(self) -> bool:
         """
            Clear all existing accounts.
 
@@ -111,12 +111,12 @@ class Keyring(GObject.GObject):
         success = Secret.password_clear_sync(schema, {}, None)
         return success
 
-    def get_password(self):
+    def get_password(self) -> str:
         schema = self.password_schema
         password = Secret.password_lookup_sync(schema, {}, None)
         return password
 
-    def set_password(self, password):
+    def set_password(self, password: str):
         schema = self.password_schema
         # Clear old password
         self.remove_password()
@@ -131,12 +131,12 @@ class Keyring(GObject.GObject):
         )
         self.set_password_state(True)
 
-    def is_password_enabled(self):
+    def is_password_enabled(self) -> bool:
         schema = self.password_state_schema
         state = Secret.password_lookup_sync(schema, {}, None)
         return state == 'true' if state else False
 
-    def set_password_state(self, state):
+    def set_password_state(self, state: bool):
         schema = self.password_state_schema
         if not state:
             Secret.password_clear_sync(schema, {}, None)
@@ -151,7 +151,7 @@ class Keyring(GObject.GObject):
             )
         self.props.can_be_locked = state and self.has_password()
 
-    def has_password(self):
+    def has_password(self) -> bool:
         return self.get_password() is not None
 
     def remove_password(self):

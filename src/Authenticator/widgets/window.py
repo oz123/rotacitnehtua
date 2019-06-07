@@ -16,7 +16,7 @@
  You should have received a copy of the GNU General Public License
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
-from gi.repository import Gtk, GObject, Gio
+from gi.repository import Gtk, GObject, Gio, Handy
 
 from Authenticator.models import Logger, Settings, AccountsManager
 from Authenticator.widgets.accounts.add import AddAccountWindow
@@ -30,25 +30,25 @@ class WindowView:
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/window.ui')
-class Window(Gtk.ApplicationWindow, GObject.GObject):
+class Window(Gtk.ApplicationWindow):
     """Main Window object."""
     __gtype_name__ = 'Window'
 
     # Default Window instance
-    instance = None
+    instance: 'Window' = None
 
     view = GObject.Property(type=int, default=0)
 
-    search_btn = Gtk.Template.Child()
-    primary_menu_btn = Gtk.Template.Child()
+    search_btn: Gtk.ToggleButton = Gtk.Template.Child()
+    primary_menu_btn: Gtk.MenuButton = Gtk.Template.Child()
 
-    main_stack = Gtk.Template.Child()
-    headerbar_stack = Gtk.Template.Child()
-    accounts_stack = Gtk.Template.Child()
+    main_stack: Gtk.Stack = Gtk.Template.Child()
+    headerbar_stack: Gtk.Stack = Gtk.Template.Child()
+    accounts_stack: Gtk.Stack = Gtk.Template.Child()
 
-    search_bar = Gtk.Template.Child()
-    search_entry = Gtk.Template.Child()
-    password_entry = Gtk.Template.Child()
+    search_bar: Handy.SearchBar = Gtk.Template.Child()
+    search_entry: Gtk.SearchEntry = Gtk.Template.Child()
+    password_entry: Gtk.Entry = Gtk.Template.Child()
 
     def __init__(self):
         super(Window, self).__init__()
@@ -64,7 +64,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
         self.__init_widgets()
 
     @staticmethod
-    def get_default():
+    def get_default() -> 'Window':
         """Return the default instance of Window."""
         if Window.instance is None:
             Window.instance = Window()
@@ -84,7 +84,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             add_window.show_all()
             add_window.present()
 
-    def set_menu(self, menu):
+    def set_menu(self, menu: Gio.Menu):
         popover = Gtk.Popover.new_from_model(self.primary_menu_btn, menu)
 
         def primary_menu_btn_handler(_, popover):
@@ -157,7 +157,8 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
                                       "active",
                                       GObject.BindingFlags.BIDIRECTIONAL)
 
-    def __add_action(self, key, callback, prop_bind=None, bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
+    def __add_action(self, key: str, callback, prop_bind: str = None,
+                     bind_flag=GObject.BindingFlags.INVERT_BOOLEAN):
         action = Gio.SimpleAction.new(key, None)
         action.connect("activate", callback)
         if prop_bind:
@@ -185,7 +186,6 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
 
     @Gtk.Template.Callback('unlock_btn_clicked')
     def __unlock_btn_clicked(self, *_):
-
         from Authenticator.models import Keyring
         typed_password = self.password_entry.get_text()
         if typed_password == Keyring.get_default().get_password():
@@ -197,7 +197,7 @@ class Window(Gtk.ApplicationWindow, GObject.GObject):
             self.password_entry.get_style_context().add_class("error")
 
     @Gtk.Template.Callback('search_changed')
-    def __search_changed(self, entry):
+    def __search_changed(self, entry: Gtk.SearchEntry):
         """
             Handles search-changed signal.
         """

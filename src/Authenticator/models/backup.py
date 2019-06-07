@@ -20,6 +20,7 @@ import json
 from gi.repository import Gio
 
 from Authenticator.models import Account, AccountsManager, Logger
+from Authenticator.widgets import AccountsWidget
 
 
 class Backup:
@@ -28,8 +29,7 @@ class Backup:
         pass
 
     @staticmethod
-    def import_accounts(accounts):
-        from Authenticator.widgets import AccountsWidget
+    def import_accounts(accounts: [dict]):
         accounts_widget = AccountsWidget.get_default()
         accounts_manager = AccountsManager.get_default()
         for account in accounts:
@@ -42,13 +42,12 @@ class Backup:
                 Logger.error(str(e))
 
     @staticmethod
-    def export_accounts():
+    def export_accounts() -> [dict]:
         accounts = AccountsManager.get_default().accounts
         exported_accounts = []
         for account in accounts:
             json_account = account.to_json()
-            if json_account:
-                exported_accounts.append(json_account)
+            exported_accounts.append(json_account)
         return exported_accounts
 
 
@@ -58,7 +57,7 @@ class BackupJSON:
         pass
 
     @staticmethod
-    def export_file(uri):
+    def export_file(uri: str):
         accounts = Backup.export_accounts()
         gfile = Gio.File.new_for_uri(uri)
         stream = gfile.replace(None,
@@ -70,7 +69,7 @@ class BackupJSON:
         stream.close()
 
     @staticmethod
-    def import_file(uri):
+    def import_file(uri: str):
         gfile = Gio.File.new_for_uri(uri)
         accounts = gfile.load_contents()[1].decode("utf-8")
         Backup.import_accounts(json.loads(accounts))

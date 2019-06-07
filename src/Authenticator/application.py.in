@@ -20,7 +20,7 @@ from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
 from Authenticator.widgets import Window, WindowView
-from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
+from Authenticator.models import Database, Settings, Logger, Keyring
 
 
 class Application(Gtk.Application):
@@ -281,7 +281,8 @@ class Application(Gtk.Application):
         Close the application, stops all threads
         and clear clipboard for safety reasons
         """
-        Clipboard.clear()
+        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        clipboard.clear()
         Window.get_default().close()
         self.quit()
 

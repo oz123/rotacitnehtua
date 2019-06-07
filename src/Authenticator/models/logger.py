@@ -21,14 +21,14 @@ import logging
 
 class Logger:
     """Logging handler."""
-    DEBUG = logging.DEBUG
-    ERROR = logging.ERROR
+    DEBUG: int = logging.DEBUG
+    ERROR: int = logging.ERROR
     # Default instance of Logger
-    instance = None
+    instance: 'Logger' = None
     # Message format
-    FORMAT = "[%(levelname)-s] %(asctime)s %(message)s"
+    FORMAT: str = "[%(levelname)-s] %(asctime)s %(message)s"
     # Date format
-    DATE = "%Y-%m-%d %H:%M:%S"
+    DATE: str = "%Y-%m-%d %H:%M:%S"
 
     def __init__(self):
         pass
@@ -45,7 +45,7 @@ class Logger:
         return logger
 
     @staticmethod
-    def get_default():
+    def get_default() -> 'Logger':
         """Return the default instance of Logger."""
         if Logger.instance is None:
             # Init the Logger
@@ -53,26 +53,26 @@ class Logger:
         return Logger.instance
 
     @staticmethod
-    def set_level(level):
+    def set_level(level: int):
         """Set the logging level."""
         Logger.get_default().setLevel(level)
 
     @staticmethod
-    def warning(msg):
+    def warning(msg: str):
         """Log a warning message."""
         Logger.get_default().warning(msg)
 
     @staticmethod
-    def debug(msg):
+    def debug(msg: str):
         """Log a debug message."""
         Logger.get_default().debug(msg)
 
     @staticmethod
-    def info(msg):
+    def info(msg: str):
         """Log an info message."""
         Logger.get_default().info(msg)
 
     @staticmethod
-    def error(msg):
+    def error(msg: str):
         """Log an error message."""
         Logger.get_default().error(msg)

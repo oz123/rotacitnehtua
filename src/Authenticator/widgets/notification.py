@@ -68,8 +68,9 @@ class Notification(Gtk.Revealer):
         self.set_valign(Gtk.Align.START)
         self.set_halign(Gtk.Align.CENTER)
 
+        frame = Gtk.Frame()
+        frame.get_style_context().add_class("app-notification")
         notification_container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        notification_container.get_style_context().add_class("app-notification")
 
         self._close_btn = Gtk.Button()
         self._close_btn.connect("clicked", self._delete_notification)
@@ -90,7 +91,8 @@ class Notification(Gtk.Revealer):
         notification_container.pack_end(self._close_btn, False, False, 6)
         notification_container.pack_end(self._action_btn, False, False, 6)
 
-        self.add(notification_container)
+        frame.add(notification_container)
+        self.add(frame)
 
     def _delete_notification(self, *args):
         self.set_reveal_child(False)

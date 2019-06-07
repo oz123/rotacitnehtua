@@ -21,46 +21,22 @@
       </attributes>
     </child>
   </object>
-  <template class="AccountConfig" parent="GtkBox">
+  <template class="AccountConfig" parent="GtkOverlay">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="orientation">vertical</property>
     <child>
-      <object class="GtkRevealer" id="notification">
+      <object class="GtkBox" id="main_container">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <child>
-          <object class="GtkOverlay">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkLabel" id="notification_label">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <style>
-                  <class name="app-notification"/>
-                </style>
-              </object>
-              <packing>
-                <property name="index">-1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkBox" id="main_box">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="border_width">36</property>
+        <property name="halign">center</property>
+        <property name="valign">start</property>
+        <property name="margin_top">42</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
+        <child>
+          <placeholder/>
+        </child>
         <child>
           <object class="GtkGrid">
             <property name="visible">True</property>
@@ -99,7 +75,6 @@
                 <child internal-child="entry">
                   <object class="GtkEntry" id="provider_entry">
                     <property name="can_focus">True</property>
-                    <property name="has_focus">True</property>
                     <property name="placeholder_text" translatable="yes">Provider</property>
                     <property name="completion">provider_completion</property>
                   </object>
@@ -118,6 +93,7 @@
                 <property name="visibility">False</property>
                 <property name="secondary_icon_name">dialog-information-symbolic</property>
                 <property name="secondary_icon_tooltip_text" translatable="yes">Enable 2FA for this account</property>
+                <property name="secondary_icon_tooltip_markup" translatable="yes">Enable 2FA for this account</property>
                 <property name="placeholder_text" translatable="yes">2FA Token</property>
                 <property name="input_purpose">pin</property>
                 <signal name="changed" handler="account_edited" swapped="no"/>
@@ -144,17 +120,15 @@
             </child>
           </object>
           <packing>
-            <property name="expand">True</property>
+            <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="padding">6</property>
-            <property name="position">2</property>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
+        <property name="index">-1</property>
       </packing>
     </child>
   </template>

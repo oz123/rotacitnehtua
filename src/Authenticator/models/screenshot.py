@@ -34,7 +34,7 @@ class GNOMEScreenshot:
         pass
 
     @staticmethod
-    def area(filename=None):
+    def area(filename: str = None) -> str:
         """
             Take a screen shot of an area and save it to a specific filename
             Using GNOME Shell Screenshot Interface.
@@ -61,6 +61,4 @@ class GNOMEScreenshot:
         screenshot = screen_proxy.call_sync('ScreenshotArea', args,
                                             Gio.DBusCallFlags.NONE, -1, None)
         success, filename = screenshot.unpack()
-        if success:
-            return filename
-        return None
+        return filename if success else None

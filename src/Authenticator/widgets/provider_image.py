@@ -52,8 +52,8 @@ class ProviderImage(Gtk.Stack):
         It shows the Spinner when the provider image is being downloaded,
         once the download was successful, we show that image
     """
-
     __gtype_name__ = 'ProviderImage'
+
     __gsignals__ = {
         'provider-changed': (
             GObject.SignalFlags.RUN_LAST,
@@ -142,12 +142,13 @@ class ProviderImage(Gtk.Stack):
         dialog.set_transient_for(self.get_toplevel())
 
         # Allow to select images only
-        images_filter = Gtk.FileFilter()
+
         mimes = ('image/jpeg', 'image/png', 'image/svg+xml')
         for mime_type in mimes:
-            images_filter.set_name(mime_type)
-            images_filter.add_mime_type(mime_type)
-        dialog.add_filter(images_filter)
+            img_filter = Gtk.FileFilter()
+            img_filter.set_name(mime_type)
+            img_filter.add_mime_type(mime_type)
+            dialog.add_filter(img_filter)
 
         if dialog.run() == Gtk.ResponseType.ACCEPT:
             file_uri = dialog.get_uri()
