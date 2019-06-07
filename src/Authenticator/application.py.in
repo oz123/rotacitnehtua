@@ -251,14 +251,16 @@ class Application(Gtk.Application):
 
     @staticmethod
     def _on_import_json(*_):
-        from Authenticator.models import BackupJSON, import_json
+        from Authenticator.models import BackupJSON
+        from Authenticator.widgets import import_json
         filename = import_json(Window.get_default())
         if filename:
             BackupJSON.import_file(filename)
 
     @staticmethod
     def _on_export_json(*_):
-        from Authenticator.models import BackupJSON, export_json
+        from Authenticator.models import BackupJSON
+        from Authenticator.widgets import export_json
         filename = export_json(Window.get_default())
         if filename:
             BackupJSON.export_file(filename)
