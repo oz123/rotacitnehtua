@@ -2,6 +2,12 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
+  <object class="GtkAdjustment" id="auto_lock_adjustment">
+    <property name="lower">0</property>
+    <property name="upper">60</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <requires lib="libhandy" version="0.0"/>
   <template class="SettingsWindow" parent="HdyPreferencesWindow">
     <property name="default_height">400</property>
@@ -72,7 +78,27 @@
                 </object>
               </child>
 
+              <child>
+                <object class="HdyActionRow" id="lock_timeout_row">
+                    <property name="title" translatable="yes">Auto lock timeout</property>
+                    <property name="subtitle" translatable="yes">Automatically enable dark mode at night.</property>
+                    <property name="visible">true</property>
+                    <child type="action">
+                         <object class="GtkSpinButton" id="lock_timeout_spinbtn">
+                              <property name="visible">True</property>
+                              <property name="can_focus">True</property>
+                              <property name="input_purpose">digits</property>
+                              <property name="valign">center</property>
+                              <property name="halign">center</property>
+                              <property name="adjustment">auto_lock_adjustment</property>
+                              <property name="climb_rate">1</property>
+                              <property name="numeric">True</property>
+                              <property name="update_policy">if-valid</property>
+                          </object>
 
+                    </child>
+                </object>
+              </child>
 
 
             </object>

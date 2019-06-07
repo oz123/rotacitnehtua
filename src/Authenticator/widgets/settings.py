@@ -33,6 +33,9 @@ class SettingsWindow(Handy.PreferencesWindow):
 
     lock_row: Handy.ExpanderRow = Gtk.Template.Child()
 
+    lock_timeout_row: Handy.ActionRow = Gtk.Template.Child()
+    lock_timeout_spinbtn: Gtk.SpinButton = Gtk.Template.Child()
+
     def __init__(self):
         super(SettingsWindow, self).__init__()
         self.init_template('SettingsWindow')
@@ -46,10 +49,11 @@ class SettingsWindow(Handy.PreferencesWindow):
         self._password_widget.parent = self
         self.lock_row.add(self._password_widget)
 
-    def __on_lock_switch_state_changed(self, *_):
+    def _on_lock_row_expanded(self, *_):
         keyring = Keyring.get_default()
         if keyring.has_password():
             keyring.set_password_state(self.lock_row.props.expanded)
+            self.lock_row_toggle_btn.props.active = False
 
     def __on_lock_switch_toggled(self, toggle_btn, *_):
         toggled = toggle_btn.props.active
@@ -65,14 +69,21 @@ class SettingsWindow(Handy.PreferencesWindow):
         settings.bind("night-light", self.night_light_switch,
                       "active", Gio.SettingsBindFlags.DEFAULT)
 
+        keyring = Keyring.get_default()
         # Hackish solution to get the expander from HdyExpanderRow
-        self.lock_row.props.enable_expansion = Keyring.get_default().has_password()
+        self.lock_row.props.enable_expansion = keyring.has_password()
         self.lock_row_toggle_btn = self.lock_row.get_children()[0].get_children()[3]
 
         self.lock_row.props.enable_expansion = Keyring.get_default().is_password_enabled()
         self.lock_row.connect("notify::enable-expansion", self.__on_enable_password)
         self.lock_row_toggle_btn.connect("notify::active", self.__on_lock_switch_toggled)
-        self.lock_row.connect("notify::expanded", self.__on_lock_switch_state_changed)
+        self.lock_row.connect("notify::expanded", self._on_lock_row_expanded)
+
+        keyring.bind_property("can-be-locked", self.lock_timeout_row, "sensitive",
+                              GObject.BindingFlags.DEFAULT | GObject.BindingFlags.SYNC_CREATE)
+        self.lock_timeout_spinbtn.props.value = settings.auto_lock_timeout
+        settings.bind("auto-lock-timeout", self.lock_timeout_spinbtn, "value",
+                      Gio.SettingsBindFlags.DEFAULT)
 
         self._password_widget.connect("password-updated", self.__on_password_updated)
         self._password_widget.connect("password-deleted", self.__on_password_deleted)

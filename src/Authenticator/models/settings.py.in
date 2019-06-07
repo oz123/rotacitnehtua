@@ -93,3 +93,11 @@ class Settings(Gio.Settings):
             :type is_maximized: bool
         """
         self.set_boolean("is-maximized", is_maximized)
+
+    @property
+    def auto_lock_timeout(self) -> int:
+        return self.get_int('auto-lock-timeout')
+
+    @auto_lock_timeout.setter
+    def auto_lock_timeout(self, auto_lock_timeout: int):
+        return self.set_int('auto-lock-timeout', auto_lock_timeout)

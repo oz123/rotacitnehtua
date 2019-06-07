@@ -19,7 +19,7 @@
 from gettext import gettext as _
 from gi.repository import Gtk, GLib, Gio, Gdk, GObject
 
-from Authenticator.widgets import Window, WindowView, import_json, export_json
+from Authenticator.widgets import Window, WindowView
 from Authenticator.models import Database, Settings, Clipboard, Logger, Keyring
 
 
@@ -39,6 +39,7 @@ class Application(Gtk.Application):
         self.alive = True
         self._night_light_signal_id = 0
         self._night_light_proxy = None
+        self._auto_lock_timeout_id = 0
         self._menu = Gio.Menu()
 
     @staticmethod
@@ -68,6 +69,8 @@ class Application(Gtk.Application):
         # Bind signals
         settings.connect("changed::dark-theme", self._on_dark_theme_changed)
         settings.connect("changed::night-light", self._on_night_light_changed)
+        settings.connect("changed::auto-lock-timeout", self._do_auto_lock)
+        keyring.connect("notify::can-be-locked", self._do_auto_lock)
 
     def do_activate(self, *_):
         """On activate signal override."""
@@ -186,6 +189,8 @@ class Application(Gtk.Application):
             if self._night_light_proxy and self._night_light_signal_id > 0:
                 self._night_light_proxy.disconnect(self._night_light_signal_id)
                 self._night_light_proxy = None
+                self._night_light_id = 0
+
             self._on_dark_theme_changed()
 
     def _sync_lock_action(self, *_):
@@ -195,12 +200,31 @@ class Application(Gtk.Application):
     def _is_locked_changed(self, *_):
         if self.is_locked:
             Window.get_default().view = WindowView.LOCKED
+            if self._auto_lock_timeout_id > 0:
+                GLib.Source.remove(self._auto_lock_timeout_id)
+                self._auto_lock_timeout_id = 0
         else:
+            self._do_auto_lock()
             Window.get_default().refresh_view()
+
         self._sync_lock_action()
 
     def _on_lock(self, *_):
         self.set_property("is-locked", True)
+
+    def _do_auto_lock(self, *_):
+        settings = Settings.get_default()
+        keyring = Keyring.get_default()
+
+        # If the user has a timer set already, remove it first
+        if self._auto_lock_timeout_id > 0:
+            GLib.Source.remove(self._auto_lock_timeout_id)
+            self._auto_lock_timeout_id = 0
+
+        if keyring.can_be_locked and settings.auto_lock_timeout > 0:
+            lockout_seconds = settings.auto_lock_timeout * 60
+            self._auto_lock_timeout_id = GLib.timeout_add_seconds(lockout_seconds,
+                                                                  self._on_lock)
 
     def _on_donate(self, *_):
         librepay_url = "https://liberapay.com/bielmoussaoui"
@@ -227,21 +251,21 @@ class Application(Gtk.Application):
 
     @staticmethod
     def _on_import_json(*_):
-        from .models import BackupJSON
+        from Authenticator.models import BackupJSON, import_json
         filename = import_json(Window.get_default())
         if filename:
             BackupJSON.import_file(filename)
 
     @staticmethod
     def _on_export_json(*_):
-        from .models import BackupJSON
+        from Authenticator.models import BackupJSON, export_json
         filename = export_json(Window.get_default())
         if filename:
             BackupJSON.export_file(filename)
 
     @staticmethod
     def _on_settings(*_):
-        from .widgets import SettingsWindow
+        from Authenticator.widgets import SettingsWindow
         settings_window = SettingsWindow()
         main_window = Window.get_default()
         settings_window.set_transient_for(main_window)
