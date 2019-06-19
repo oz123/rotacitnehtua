@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Authenticator/issues\n"
-"POT-Creation-Date: 2019-05-25 22:31+0000\n"
-"PO-Revision-Date: 2019-05-27 10:28+0200\n"
+"POT-Creation-Date: 2019-06-15 10:53+0000\n"
+"PO-Revision-Date: 2019-06-19 12:06+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:7
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:3
-#: src/Authenticator/application.py.in:37
+#: src/Authenticator/application.py.in:36
 msgid "Authenticator"
 msgstr "Authenticator"
 
@@ -62,7 +62,8 @@ msgstr ""
 "contraseña"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:17
-msgid "Automtically fetch an image for services using their favicon"
+#| msgid "Automtically fetch an image for services using their favicon"
+msgid "Automatically fetch an image for services using their favicon"
 msgstr "Obtener automáticamente una imagen para servicios que usan el favicon"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:18
@@ -78,7 +79,7 @@ msgid "Main Window - empty state"
 msgstr "Ventana principal - estado vacío"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:29
-#: data/resources/gtk/ui/account_add.ui:21
+#: data/resources/gtk/ui/account_add.ui:14
 msgid "Add a new account"
 msgstr "Añadir una cuenta nueva"
 
@@ -108,26 +109,38 @@ msgid "Default window position"
 msgstr "Posición predeterminada de la ventana"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:11
-#: src/Authenticator/widgets/settings.py:84
+#: data/resources/gtk/ui/settings.ui.in:28
 msgid "Dark Theme"
 msgstr "Tema oscuro"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:12
-#: src/Authenticator/widgets/settings.py:85
+#: data/resources/gtk/ui/settings.ui.in:29
+#: data/resources/gtk/ui/settings.ui.in:76
 msgid "Whether the application should use a dark theme."
 msgstr "Indica si la aplicación usa un tema oscuro."
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:16
-#: src/Authenticator/widgets/settings.py:89
+#: data/resources/gtk/ui/settings.ui.in:83
+msgid "Auto lock timeout"
+msgstr "Tiempo de espera del bloqueo automático"
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:17
+#| msgid "Lock the application with a password"
+msgid "Lock the application on idle after X minutes"
+msgstr "Bloquear la aplicación tras X minutos de inactividad"
+
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
+#: data/resources/gtk/ui/settings.ui.in:43
 msgid "Night Light"
 msgstr "Luz nocturna"
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:17
-#: src/Authenticator/widgets/settings.py:90
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:22
+#: data/resources/gtk/ui/settings.ui.in:44
+#: data/resources/gtk/ui/settings.ui.in:84
 msgid "Automatically enable dark mode at night."
 msgstr "Activar el modo oscuro automáticamente durante la noche."
 
-#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:21
+#: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:26
 msgid "Default window maximized behaviour"
 msgstr "Comportamiento predeterminado al maximizar la ventana"
 
@@ -142,45 +155,44 @@ msgstr ""
 "advocatux <advocatux@airpost.net>, 2018\n"
 "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2018"
 
-#: data/resources/gtk/ui/account_add.ui:24
-#: data/resources/gtk/ui/account_edit.ui:18
-msgid "Close"
-msgstr "Cerrar"
-
-#: data/resources/gtk/ui/account_add.ui:33
+#: data/resources/gtk/ui/account_add.ui:32
 msgid "Add"
 msgstr "Añadir"
 
-#: data/resources/gtk/ui/account_add.ui:53
+#: data/resources/gtk/ui/account_add.ui:52
 msgid "Scan QR Code"
 msgstr "Escanear código QR"
 
-#: data/resources/gtk/ui/account_config.ui:85
-msgid "Enable 2FA for this account"
-msgstr "Activar 2FA en esta cuenta"
-
-#: data/resources/gtk/ui/account_config.ui:86
-msgid "2FA Token"
-msgstr "Testigo 2FA"
-
-#: data/resources/gtk/ui/account_config.ui:100
+#: data/resources/gtk/ui/account_config.ui:80
 msgid "Account Name"
 msgstr "Nombre de la cuenta"
 
-#: data/resources/gtk/ui/account_config.ui:123
+#: data/resources/gtk/ui/account_config.ui:103
 msgid "Provider"
 msgstr "Proveedor"
 
-#: data/resources/gtk/ui/account_edit.ui:27
-#: data/resources/gtk/ui/settings.ui.in:50
+#: data/resources/gtk/ui/account_config.ui:120
+msgid "Enable 2FA for this account"
+msgstr "Activar 2FA en esta cuenta"
+
+#: data/resources/gtk/ui/account_config.ui:121
+msgid "2FA Token"
+msgstr "Testigo 2FA"
+
+#: data/resources/gtk/ui/account_config.ui:135
+#| msgid "Provider"
+msgid "Provider Website"
+msgstr "Página web del proveedor"
+
+#: data/resources/gtk/ui/account_edit.ui:31
 msgid "Save"
 msgstr "Guardar"
 
-#: data/resources/gtk/ui/account_row.ui:23
+#: data/resources/gtk/ui/account_row.ui:22
 msgid "Edit"
 msgstr "Editar"
 
-#: data/resources/gtk/ui/account_row.ui:41
+#: data/resources/gtk/ui/account_row.ui:40
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -192,32 +204,31 @@ msgstr "Copiar PIN al portapapeles"
 msgid "Current Password:"
 msgstr "Contraseña actual:"
 
-#: data/resources/gtk/ui/password_widget.ui:90
+#: data/resources/gtk/ui/password_widget.ui:91
 msgid "New Password:"
 msgstr "Contraseña nueva:"
 
-#: data/resources/gtk/ui/password_widget.ui:135
+#: data/resources/gtk/ui/password_widget.ui:136
 msgid "Confirm New Password:"
 msgstr "Confirme la contraseña nueva:"
 
-#: data/resources/gtk/ui/password_widget.ui:183
-#: src/Authenticator/widgets/settings.py:209
+#: data/resources/gtk/ui/password_widget.ui:184
+#: src/Authenticator/widgets/settings.py:167
 msgid "Change Password"
 msgstr "Cambiar la contraseña"
 
-#: data/resources/gtk/ui/password_widget.ui:204
+#: data/resources/gtk/ui/password_widget.ui:205
 msgid "Delete Password"
 msgstr "Eliminar la contraseña"
 
-#. Night mode action
-#: data/resources/gtk/ui/settings.ui.in:28
-#: src/Authenticator/application.py.in:114
-msgid "Preferences"
-msgstr "Preferencias"
+#: data/resources/gtk/ui/settings.ui.in:24
+msgid "Appearance"
+msgstr "Aspecto"
 
-#: data/resources/gtk/ui/settings.ui.in:95
-msgid "Behaviour"
-msgstr "Comportamiento"
+#: data/resources/gtk/ui/settings.ui.in:75
+#: src/Authenticator/application.py.in:106
+msgid "Lock the application"
+msgstr "Bloquear la aplicación"
 
 #: data/resources/gtk/ui/shortcuts.ui:13
 msgctxt "shortcut window"
@@ -254,27 +265,27 @@ msgctxt "shortcut window"
 msgid "Search"
 msgstr "Buscar"
 
-#: data/resources/gtk/ui/window.ui.in:64
+#: data/resources/gtk/ui/window.ui.in:185
 msgid "There are no accounts yet…"
 msgstr "No hay ninguna cuenta aún…"
 
-#: data/resources/gtk/ui/window.ui.in:93
+#: data/resources/gtk/ui/window.ui.in:214
 msgid "Add a new account from the menu"
 msgstr "Añadir una cuenta nueva desde el menú"
 
-#: data/resources/gtk/ui/window.ui.in:109
+#: data/resources/gtk/ui/window.ui.in:230
 msgid "Scan a QR Code"
 msgstr "Escanear un código QR"
 
-#: data/resources/gtk/ui/window.ui.in:232
+#: data/resources/gtk/ui/window.ui.in:362
 msgid "No results found"
 msgstr "No se encontraron resultados"
 
-#: data/resources/gtk/ui/window.ui.in:295
+#: data/resources/gtk/ui/window.ui.in:425
 msgid "Authenticator is locked"
 msgstr "Authenticator está bloqueado"
 
-#: data/resources/gtk/ui/window.ui.in:334
+#: data/resources/gtk/ui/window.ui.in:464
 msgid "Unlock"
 msgstr "Desbloquear"
 
@@ -282,36 +293,36 @@ msgstr "Desbloquear"
 msgid "Start in debug mode"
 msgstr "Iniciar en el modo de depuración"
 
-#: src/Authenticator/application.py.in:94
-#: src/Authenticator/widgets/settings.py:93
-msgid "Lock the application"
-msgstr "Bloquear la aplicación"
-
-#: src/Authenticator/application.py.in:102
+#: src/Authenticator/application.py.in:114
 msgid "from a plain-text JSON file"
 msgstr "desde un archivo JSON de texto sencillo"
 
-#: src/Authenticator/application.py.in:103
+#: src/Authenticator/application.py.in:115
 msgid "in a plain-text JSON file"
 msgstr "en un archivo JSON de texto sencillo"
 
-#: src/Authenticator/application.py.in:105
+#: src/Authenticator/application.py.in:117
 msgid "Restore"
 msgstr "Restaurar"
 
-#: src/Authenticator/application.py.in:106
+#: src/Authenticator/application.py.in:118
 msgid "Backup"
 msgstr "Copia de seguridad"
 
-#: src/Authenticator/application.py.in:115
+#. Night mode action
+#: src/Authenticator/application.py.in:126
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: src/Authenticator/application.py.in:127
 msgid "Donate"
 msgstr "Donar"
 
-#: src/Authenticator/application.py.in:116
+#: src/Authenticator/application.py.in:128
 msgid "Keyboard Shortcuts"
 msgstr "Atajos de teclado"
 
-#: src/Authenticator/application.py.in:117
+#: src/Authenticator/application.py.in:129
 msgid "About Authenticator"
 msgstr "Acerca de Authenticator"
 
@@ -324,7 +335,8 @@ msgid "Invalid QR code"
 msgstr "Código QR no válido"
 
 #: src/Authenticator/widgets/accounts/list.py:153
-msgid "The One-Time Passwords expires in {} seconds"
+#| msgid "The One-Time Passwords expires in {} seconds"
+msgid "The One-Time Passwords expire in {} seconds"
 msgstr "Las contraseñas de un solo uso caducan en {} segundos"
 
 #: src/Authenticator/widgets/accounts/row.py:82
@@ -335,50 +347,49 @@ msgstr "No se pudo generar el código secreto"
 msgid "The PIN of {} was copied to the clipboard"
 msgstr "El PIN de {} se copió desde el portapapeles"
 
-#: src/Authenticator/widgets/accounts/row.py:130
+#: src/Authenticator/widgets/accounts/row.py:133
 msgid "The account was updated successfully"
 msgstr "La cuenta se actualizó correctamente"
 
-#: src/Authenticator/widgets/notification.py:63
-msgid "Close the notification"
-msgstr "Cerrar la notificación"
-
-#: src/Authenticator/widgets/notification.py:68
+#: src/Authenticator/widgets/notification.py:53
 #: src/Authenticator/widgets/notification.py:83
 msgid "Undo"
 msgstr "Deshacer"
 
-#: src/Authenticator/widgets/settings.py:94
-msgid "Lock the application with a password"
-msgstr "Bloquear la aplicación con una contraseña"
-
-#: src/Authenticator/widgets/settings.py:157
-msgid "Authentication password is now enabled."
-msgstr "Se ha activado la contraseña de autenticación."
-
-#: src/Authenticator/widgets/settings.py:159
-msgid "The authentication password was updated."
-msgstr "Se actualizó la contraseña de autenticación."
+#: src/Authenticator/widgets/notification.py:78
+msgid "Close the notification"
+msgstr "Cerrar la notificación"
 
 #: src/Authenticator/widgets/settings.py:163
-msgid "The authentication password was deleted."
-msgstr "Se eliminó la contraseña de autenticación."
-
-#: src/Authenticator/widgets/settings.py:205
 msgid "Save Password"
 msgstr "Guardar la contraseña"
 
-#: src/Authenticator/widgets/settings.py:258
+#: src/Authenticator/widgets/settings.py:214
 msgid "Do you want to remove the authentication password?"
 msgstr "¿Quiere eliminar la contraseña de autenticación?"
 
-#: src/Authenticator/widgets/settings.py:260
+#: src/Authenticator/widgets/settings.py:215
 msgid "Authentication password enforces the privacy of your accounts."
 msgstr "La contraseña de autenticación refuerza la privacidad de sus cuentas."
 
-#: src/Authenticator/widgets/utils.py:24 src/Authenticator/widgets/utils.py:29
+#: src/Authenticator/widgets/utils.py:26 src/Authenticator/widgets/utils.py:31
 msgid "JSON files"
 msgstr "Archivos JSON"
+
+#~ msgid "Close"
+#~ msgstr "Cerrar"
+
+#~ msgid "Behaviour"
+#~ msgstr "Comportamiento"
+
+#~ msgid "Authentication password is now enabled."
+#~ msgstr "Se ha activado la contraseña de autenticación."
+
+#~ msgid "The authentication password was updated."
+#~ msgstr "Se actualizó la contraseña de autenticación."
+
+#~ msgid "The authentication password was deleted."
+#~ msgstr "Se eliminó la contraseña de autenticación."
 
 #~ msgid "We couldn't find an image for this provider"
 #~ msgstr "No pudimos encontrar una imagen para este proveedor"
@@ -545,9 +556,6 @@ msgstr "Archivos JSON"
 
 #~ msgid "Old Password"
 #~ msgstr "Contraseña antigua"
-
-#~ msgid "Appearance"
-#~ msgstr "Aspecto"
 
 #~ msgid "Clear the database"
 #~ msgstr "Vaciar la base de datos"
