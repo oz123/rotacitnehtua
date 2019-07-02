@@ -56,7 +56,10 @@
                     "--without-xv",
                     "--without-imagemagick",
                     "--disable-video",
-                    "--without-python",
+                    "--without-java",
+                    "--with-python2=no",
+                    "--with-doc=no",
+                    "--with-introspection=no",
                     "--enable-codes=qrcode"
                 ],
                 "sources": [{
