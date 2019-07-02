@@ -21,6 +21,8 @@ from os import path, makedirs
 from gi.repository import GLib
 from collections import namedtuple
 from shutil import move
+from typing import Iterable
+
 from Authenticator.models import Logger
 
 
@@ -34,7 +36,7 @@ class Database:
     # Default instance
     instance = None
     # Database version number
-    db_version = 7
+    db_version: int = 7
 
     def __init__(self):
         self.migrations_dir = path.join(path.dirname(__file__), '../migrations')
@@ -51,17 +53,17 @@ class Database:
         return Database.instance
 
     @property
-    def db_dir(self):
+    def db_dir(self) -> str:
         return path.join(GLib.get_user_config_dir(),
                          'Authenticator')
 
     @property
-    def db_file(self):
+    def db_file(self) -> str:
         return path.join(self.db_dir,
                          'database-{}.db'.format(str(Database.db_version))
                          )
 
-    def insert_account(self, username, token_id, provider):
+    def insert_account(self, username: str, token_id: str, provider: str):
         """
         Insert a new account to the database
         :param username: Account name
@@ -78,7 +80,8 @@ class Database:
             Logger.error("[SQL] Couldn't add a new account")
             Logger.error(str(error))
 
-    def insert_provider(self, name, website, doc_url=None, image=None):
+    def insert_provider(self, name: str, website: str,
+                        doc_url: str = None, image: str = None):
         """
         Insert a new provider to the database
         :param name: The provider name
@@ -96,7 +99,7 @@ class Database:
             Logger.error("[SQL] Couldn't add a new account")
             Logger.error(str(error))
 
-    def account_by_id(self, id_):
+    def account_by_id(self, id_: int) -> Account:
         """
             Get an account by the ID
             :param id_: int the account id
@@ -111,13 +114,13 @@ class Database:
             Logger.error(str(error))
         return None
 
-    def accounts_by_provider(self, provider_id):
+    def accounts_by_provider(self, provider_id: int) -> Iterable[Account]:
         query = "SElECT * FROM accounts WHERE provider=?"
         query_d = self.conn.execute(query, (provider_id, ))
         accounts = query_d.fetchall()
         return [Account(*account) for account in accounts]
 
-    def provider_by_id(self, id_):
+    def provider_by_id(self, id_: int) -> Provider:
         """
             Get a provider by the ID
             :param id_: int the provider id
@@ -132,7 +135,7 @@ class Database:
             Logger.error(str(error))
         return None
 
-    def provider_by_name(self, provider_name):
+    def provider_by_name(self, provider_name: str) -> Provider:
         """
             Get a provider by the ID
             :param id_: int the provider id
@@ -148,7 +151,7 @@ class Database:
             Logger.error(str(error))
         return None
 
-    def delete_account(self, id_):
+    def delete_account(self, id_: int):
         """
             Remove an account by ID.
 
@@ -157,7 +160,7 @@ class Database:
         """
         self.__delete("accounts", id_)
 
-    def delete_provider(self, id_):
+    def delete_provider(self, id_: int):
         """
             Remove a provider by ID.
 
@@ -166,17 +169,17 @@ class Database:
         """
         self.__delete("providers", id_)
 
-    def update_account(self, account_data, id_):
+    def update_account(self, account_data: dict, id_: int):
         """
         Update an account by id
         """
         self.__update_by_id("accounts", account_data, id_)
 
-    def update_provider(self, provider_data, id_):
+    def update_provider(self, provider_data: dict, id_: int):
         # Update a provider by id
         self.__update_by_id("providers", provider_data, id_)
 
-    def search_accounts(self, terms):
+    def search_accounts(self, terms: Iterable[str]) -> Iterable[Account]:
         if terms:
             filters = " ".join(terms)
             if filters:
@@ -218,7 +221,7 @@ class Database:
         """
         return self.__count("providers")
 
-    def get_providers(self, **kwargs):
+    def get_providers(self, **kwargs) -> Iterable[Provider]:
         only_used = kwargs.get("only_used",)
         query = "SELECT * FROM providers"
         if only_used:
@@ -233,7 +236,7 @@ class Database:
         return None
 
     @property
-    def accounts(self):
+    def accounts(self) -> [Account]:
         """
             Retrieve the list of accounts.
 
@@ -279,7 +282,7 @@ class Database:
         with backend.lock():
             backend.apply_migrations(backend.to_apply(migrations))
 
-    def __count(self, table_name):
+    def __count(self, table_name: str) -> int:
         query = "SELECT COUNT(id) AS count FROM " + table_name
         try:
             data = self.conn.cursor().execute(query)
@@ -289,7 +292,7 @@ class Database:
             Logger.error(str(error))
         return None
 
-    def __delete(self, table_name, id_):
+    def __delete(self, table_name: str, id_: int):
         """
             Remove a row by ID.
 
@@ -304,7 +307,7 @@ class Database:
             Logger.error("[SQL] Couldn't remove the row '{}'".format(id_))
             Logger.error(str(error))
 
-    def __update_by_id(self, table_name, data, id_):
+    def __update_by_id(self, table_name: str, data: dict, id_: int):
         query = "UPDATE {} SET ".format(table_name)
         resources = []
         i = 0

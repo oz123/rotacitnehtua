@@ -18,11 +18,11 @@
 """
 from gettext import gettext as _
 from gi.repository import Gtk, GObject, GLib
-from Authenticator.widgets.accounts.edit import EditAccountWindow
+from .edit import EditAccountWindow
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_row.ui')
-class AccountRow(Gtk.ListBoxRow, GObject.GObject):
+class AccountRow(Gtk.ListBoxRow):
     """
         AccountRow Widget.
 
@@ -35,18 +35,26 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
     __gtype_name__ = 'AccountRow'
 
     __gsignals__ = {
-        'pin-copied': (GObject.SignalFlags.RUN_LAST, None, (str,)),
-        'account-updated': (GObject.SignalFlags.RUN_LAST, None, (str,)),
+        'pin-copied': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (str,)
+        ),
+        'account-updated': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (str,)
+        ),
     }
 
-    account_name_label = Gtk.Template.Child()
-    pin_label = Gtk.Template.Child()
+    account_name_label: Gtk.Label = Gtk.Template.Child()
+    pin_label: Gtk.Label = Gtk.Template.Child()
 
-    more_actions_btn = Gtk.Template.Child()
-    delete_btn = Gtk.Template.Child()
-    copy_btn_stack = Gtk.Template.Child()
+    more_actions_btn: Gtk.Button = Gtk.Template.Child()
+    delete_btn: Gtk.Button = Gtk.Template.Child()
+    copy_btn_stack: Gtk.Stack = Gtk.Template.Child()
 
-    _timeout_id = 0
+    _timeout_id: int = 0
 
     def __init__(self, account):
         """
@@ -89,8 +97,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         """
         self.copy_btn_stack.set_visible_child_name("ok_image")
         self._account.copy_pin()
-        self.emit("pin-copied",
-                  _("The PIN of {} was copied to the clipboard").format(self.account.username))
+        self.emit("pin-copied", _("The PIN of {} was copied to the clipboard").format(self.account.username))
 
         def btn_clicked_timeout_callback(*_):
             self.copy_btn_stack.set_visible_child_name("copy_image")
@@ -98,7 +105,9 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
                 GLib.Source.remove(self._timeout_id)
                 self._timeout_id = 0
 
-        self._timeout_id = GLib.timeout_add_seconds(2, btn_clicked_timeout_callback, None)
+        self._timeout_id = GLib.timeout_add_seconds(2,
+                                                    btn_clicked_timeout_callback,
+                                                    None)
 
     @Gtk.Template.Callback('edit_btn_clicked')
     def _on_edit(self, *_):
@@ -116,7 +125,7 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         edit_window.show_all()
         edit_window.present()
 
-    def _on_update(self, __, account_name, provider):
+    def _on_update(self, __, account_name: str, provider):
         """
             On account update signal handler.
             Updates the account name and provider
@@ -129,10 +138,9 @@ class AccountRow(Gtk.ListBoxRow, GObject.GObject):
         """
         self.account_name_label.set_text(account_name)
         self.account.update(account_name, provider)
-        self.emit("account-updated",
-                  _("The account was updated successfully"))
+        self.emit("account-updated", _("The account was updated successfully"))
 
-    def _on_pin_updated(self, _, pin):
+    def _on_pin_updated(self, _, pin: str):
         """
             Updates the pin label each time a new OTP is generated.
             otp_updated signal handler.

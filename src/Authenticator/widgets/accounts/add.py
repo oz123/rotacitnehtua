@@ -17,20 +17,24 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gettext import gettext as _
-from gi.repository import Gdk, Gtk, GObject, Gio
+from gi.repository import Gdk, Gtk, GObject, Gio, Handy
+
+from .list import AccountsWidget
 from Authenticator.widgets.notification import Notification
 from Authenticator.widgets.provider_image import ProviderImage, ProviderImageState
-from Authenticator.models import OTP, Provider
+from Authenticator.models import AccountsManager, Account, OTP, Provider, QRReader, GNOMEScreenshot
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_add.ui')
 class AddAccountWindow(Gtk.Window):
     """Add Account Window."""
-
     __gtype_name__ = "AddAccountWindow"
+    # Widgets
+    add_btn: Gtk.Button = Gtk.Template.Child()
+    scan_btn: Gtk.Button = Gtk.Template.Child()
+    back_btn: Gtk.Button = Gtk.Template.Child()
 
-    add_btn = Gtk.Template.Child()
-    overlay = Gtk.Template.Child()
+    column: Handy.Column = Gtk.Template.Child()
 
     def __init__(self):
         super(AddAccountWindow, self).__init__()
@@ -40,35 +44,19 @@ class AddAccountWindow(Gtk.Window):
 
     def __init_widgets(self):
         """Create the Add Account widgets."""
-        self.notification = Notification()
-        self.overlay.add_overlay(self.notification)
-
         self.account_config = AccountConfig()
         self.account_config.connect("changed", self._on_account_config_changed)
 
-        self.overlay.add(self.account_config)
+        self.scan_btn.connect("clicked", self.account_config.scan_qr)
+        self.back_btn.connect("clicked", lambda *_: self.destroy())
+        self.column.add(self.account_config)
 
-    @Gtk.Template.Callback('scan_btn_clicked')
-    def _on_scan(self, *__):
-        """
-            QR Scan button clicked signal handler.
-        """
-        if self.account_config and not self.account_config.scan_qr():
-            self.notification.send(_("Invalid QR code"),
-                                   timeout=3)
-
-    def _on_account_config_changed(self, _, state):
+    def _on_account_config_changed(self, _, state: bool):
         """Set the sensitivity of the AddButton depends on the AccountConfig."""
         self.add_btn.set_sensitive(state)
 
-    @Gtk.Template.Callback('close_btn_clicked')
-    def _on_quit(self, *_):
-        self.destroy()
-
     @Gtk.Template.Callback('add_btn_clicked')
     def _on_add(self, *_):
-        from .list import AccountsWidget
-        from Authenticator.models import AccountsManager, Account
         account_obj = self.account_config.account
         # Create a new account
         account = Account.create(account_obj["username"],
@@ -77,31 +65,33 @@ class AddAccountWindow(Gtk.Window):
         # Add it to the AccountsManager
         AccountsManager.get_default().add(account_obj["provider"], account)
         AccountsWidget.get_default().append(account)
-        self._on_quit()
+        self.destroy()
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/account_config.ui')
-class AccountConfig(Gtk.Box):
-    __gsignals__ = {
-        'changed': (GObject.SignalFlags.RUN_LAST, None, (bool,)),
-    }
-
+class AccountConfig(Gtk.Overlay):
     __gtype_name__ = 'AccountConfig'
+    # Signals
+    __gsignals__ = {
+        'changed': (
+            GObject.SignalFlags.RUN_LAST,
+            None, (bool,)
+        ),
+    }
+    # Properties
     is_edit = GObject.Property(type=bool, default=False)
+    # Widgets
+    main_container: Gtk.Box = Gtk.Template.Child()
 
-    main_box = Gtk.Template.Child()
-    proivder_image = None
+    proivder_image: ProviderImage
 
-    account_name_entry = Gtk.Template.Child()
-    token_entry = Gtk.Template.Child()
-    provider_website_entry = Gtk.Template.Child()
     provider_combobox = Gtk.Template.Child()
-    provider_entry = Gtk.Template.Child()
     providers_store = Gtk.Template.Child()
+    provider_entry: Gtk.Entry = Gtk.Template.Child()
 
-    provider_completion = Gtk.Template.Child()
-    notification = Gtk.Template.Child()
-    notification_label = Gtk.Template.Child()
+    account_name_entry: Gtk.Entry = Gtk.Template.Child()
+    provider_website_entry: Gtk.Entry = Gtk.Template.Child()
+    token_entry: Gtk.Entry = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super(AccountConfig, self).__init__()
@@ -109,7 +99,7 @@ class AccountConfig(Gtk.Box):
 
         self.props.is_edit = kwargs.get("edit", False)
         self._account = kwargs.get("account", None)
-
+        self._notification = Notification()
         self.__init_widgets()
 
     @property
@@ -141,6 +131,7 @@ class AccountConfig(Gtk.Box):
         return account
 
     def __init_widgets(self):
+        self.add_overlay(self._notification)
         if self._account is not None:
             self.provider_image = ProviderImage(self._account.provider,
                                                 96)
@@ -149,8 +140,8 @@ class AccountConfig(Gtk.Box):
             self.token_entry.props.secondary_icon_activatable = False
             self.provider_image = ProviderImage(None, 96)
 
-        self.main_box.pack_start(self.provider_image, False, False, 0)
-        self.main_box.reorder_child(self.provider_image, 0)
+        self.main_container.pack_start(self.provider_image, False, False, 0)
+        self.main_container.reorder_child(self.provider_image, 0)
         self.provider_image.set_halign(Gtk.Align.CENTER)
 
         # Set up auto completion
@@ -234,23 +225,24 @@ class AccountConfig(Gtk.Box):
 
     @Gtk.Template.Callback('on_provider_website_changed')
     def on_provider_website_changed(self, entry, event):
+        '''Update the website favicon once the URL is updated'''
         if entry.get_visible():
             website = entry.get_text().strip()
             self.provider_image.fetch_favicon_from_url(website)
 
-    def scan_qr(self):
-        """
-            Scans a QRCode and fills the entries with the correct data.
-        """
-        from Authenticator.models import QRReader, GNOMEScreenshot
-        filename = GNOMEScreenshot.area()
-        if filename:
-            qr_reader = QRReader(filename)
-            token = qr_reader.read()
-            if qr_reader.is_valid():
-                self.token_entry.set_text(token)
-                if qr_reader.provider is not None:
-                    self.provider_entry.set_text(qr_reader.provider)
-                if qr_reader.username is not None:
-                    self.account_name_entry.set_text(qr_reader.username)
-            return qr_reader.is_valid()
+    def scan_qr(self, *args):
+        '''Scans a QRCode and fills the entries with the correct data.'''
+        try:
+            filename = GNOMEScreenshot.area()
+            assert filename
+            account = QRReader.from_file(filename)
+            assert account is dict
+            self.token_entry.set_text(account.get('token',
+                                                  self.token_entry.get_text()))
+            self.provider_entry.set_text(account.get('provider',
+                                                     self.provider_entry.get_text()))
+            self.account_name_entry.set_text(account.get('username',
+                                                         self.account_name_entry.get_text()))
+        except AssertionError:
+            self._notification.send(_("Invalid QR code"),
+                                    timeout=3)

@@ -17,13 +17,7 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 import binascii
-
-from Authenticator.models import Logger
-
-try:
-    from pyotp import TOTP
-except ImportError:
-    Logger.error("Impossible to import TOTP, please install PyOTP first")
+from pyotp import TOTP
 
 
 class OTP(TOTP):
@@ -31,7 +25,7 @@ class OTP(TOTP):
         OTP (One-time password) handler using PyOTP.
     """
 
-    def __init__(self, token):
+    def __init__(self, token: str):
         """
         :param token: the OTP token.
         """
@@ -40,7 +34,7 @@ class OTP(TOTP):
         self.update()
 
     @staticmethod
-    def is_valid(token):
+    def is_valid(token: str) -> bool:
         """
         Validate a OTP token.
 

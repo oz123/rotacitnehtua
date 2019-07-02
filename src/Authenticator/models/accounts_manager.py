@@ -17,14 +17,24 @@
  along with Authenticator. If not, see <http://www.gnu.org/licenses/>.
 """
 from gi.repository import GObject, GLib
+from typing import Iterable
+
+from .account import Account
+from .database import Database
+from .provider import Provider
 
 
 class AccountsManager(GObject.GObject):
     __gsignals__ = {
-        'counter_updated': (GObject.SignalFlags.RUN_LAST, None, (int,)),
+        'counter_updated': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (int,)
+        ),
     }
-    instance = None
-    empty = GObject.Property(type=bool, default=False)
+
+    instance: 'AccountsManager' = None
+    empty: GObject.Property = GObject.Property(type=bool, default=False)
 
     # A list that contains a tuple (provider, accounts)
     __accounts = []
@@ -34,18 +44,18 @@ class AccountsManager(GObject.GObject):
         self._accounts_per_provider = []
         self._alive = True
         self.__fill_accounts()
-
+        self._timeout_id = 0
         self.counter_max = 30
         self.counter = self.counter_max
-        GLib.timeout_add_seconds(1, self.__update_counter, None)
+        self._start_progress_countdown()
 
     @staticmethod
-    def get_default():
+    def get_default() -> 'AccountsManager':
         if AccountsManager.instance is None:
             AccountsManager.instance = AccountsManager()
         return AccountsManager.instance
 
-    def add(self, provider, account):
+    def add(self, provider: 'Provider', account: 'Account'):
         added = False
         for _provider, accounts in self._accounts_per_provider:
             if provider == _provider:
@@ -54,9 +64,11 @@ class AccountsManager(GObject.GObject):
                 break
         if not added:
             self._accounts_per_provider.append((provider, [account]))
-        self.props.empty = len(self._accounts_per_provider) == 0
+        self.props.empty = False
+        if self._timeout_id == 0:
+            self._start_progress_countdown()
 
-    def delete(self, account):
+    def delete(self, account: 'Account'):
         provider_index = 0
         _accounts = None
         for provider, accounts in self._accounts_per_provider:
@@ -69,11 +81,10 @@ class AccountsManager(GObject.GObject):
             if not len(_accounts):
                 del self._accounts_per_provider[provider_index]
         self.props.empty = len(self._accounts_per_provider) == 0
+        if self.props.empty:
+            self._stop_progress_countdown()
 
-    def search(self, terms):
-        from .database import Database
-        from .account import Account
-
+    def search(self, terms: Iterable[str]):
         accounts = Database.get_default().search_accounts(terms)
         _accounts = []
         for account in accounts:
@@ -100,19 +111,14 @@ class AccountsManager(GObject.GObject):
             count += len(accounts)
         return count
 
-    def clear(self):
-        self._accounts_per_provider = []
-
     def kill(self):
         self._alive = False
+        self._stop_progress_countdown()
 
-    def update_childes(self, signal, data=None):
+    def update_childes(self, signal: str):
         for _, accounts in self._accounts_per_provider:
             for account in accounts:
-                if data:
-                    account.emit(signal, data)
-                else:
-                    account.emit(signal)
+                account.emit(signal)
 
     def __update_counter(self, *args):
         if self._alive:
@@ -125,10 +131,6 @@ class AccountsManager(GObject.GObject):
         return False
 
     def __fill_accounts(self):
-        from .database import Database
-        from .account import Account
-        from .provider import Provider
-
         providers = Database.get_default().get_providers(only_used=True)
         for provider in providers:
             accounts = Database.get_default().accounts_by_provider(provider.id)
@@ -140,3 +142,14 @@ class AccountsManager(GObject.GObject):
                     _accounts.append(account)
             self._accounts_per_provider.append((provider, _accounts))
         self.props.empty = len(self._accounts_per_provider) == 0
+
+    def _start_progress_countdown(self):
+        self._stop_progress_countdown()
+        self._timeout_id = GLib.timeout_add_seconds(1, self.__update_counter,
+                                                    None)
+
+    def _stop_progress_countdown(self):
+        if self._timeout_id > 0:
+            GLib.Source.remove(self._timeout_id)
+            self._timeout_id = 0
+        self.counter = self.counter_max

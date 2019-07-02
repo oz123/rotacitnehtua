@@ -20,27 +20,26 @@ from gettext import gettext as _
 from gi.repository import Gtk, GObject
 
 from Authenticator.widgets.provider_image import ProviderImage
-from Authenticator.widgets.accounts.row import AccountRow
-from Authenticator.models import Account, AccountsManager
+from .row import AccountRow
+from Authenticator.models import Account, AccountsManager, Provider
 
 
 @Gtk.Template(resource_path='/com/github/bilelmoussaoui/Authenticator/accounts_widget.ui')
-class AccountsWidget(Gtk.Box, GObject.GObject):
-    instance = None
+class AccountsWidget(Gtk.Box):
+    __gtype_name__ = 'AccountsWidget'
 
     __gsignals__ = {
         'account-removed': (GObject.SignalFlags.RUN_LAST, None, ()),
         'account-added': (GObject.SignalFlags.RUN_LAST, None, ()),
     }
 
-    __gtype_name__ = 'AccountsWidget'
+    instance: 'AccountsWidget' = None
 
     accounts_container = Gtk.Template.Child()
     otp_progress_bar = Gtk.Template.Child()
 
     def __init__(self):
         super(AccountsWidget, self).__init__()
-        GObject.GObject.__init__(self)
         self.init_template('AccountsWidget')
 
         self._providers = []
@@ -77,7 +76,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
         }
 
     @staticmethod
-    def get_default():
+    def get_default() -> 'AccountsWidget':
         """Return the default instance of AccountsWidget."""
         if AccountsWidget.instance is None:
             AccountsWidget.instance = AccountsWidget()
@@ -155,7 +154,7 @@ class AccountsWidget(Gtk.Box, GObject.GObject):
 
 class ProviderWidget(Gtk.Box):
 
-    def __init__(self, accounts_list: Gtk.ListBox, provider):
+    def __init__(self, accounts_list: Gtk.ListBox, provider: Provider):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         self.get_style_context().add_class("provider-widget")
         self.provider = provider
@@ -180,18 +179,23 @@ class ProviderWidget(Gtk.Box):
         self.pack_start(self.accounts_list, False, False, 6)
 
 
-class AccountsList(Gtk.ListBox, GObject.GObject):
+class AccountsList(Gtk.ListBox):
     """Accounts List."""
 
     __gsignals__ = {
-        'account-deleted': (GObject.SignalFlags.RUN_LAST, None, (Account, )),
-        'account-added': (GObject.SignalFlags.RUN_LAST, None, (Account, ))
+        'account-deleted': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (Account, )
+        ),
+        'account-added': (
+            GObject.SignalFlags.RUN_LAST,
+            None,
+            (Account, )
+        )
     }
-    # Default instance of accounts list
-    instance = None
 
     def __init__(self):
-        GObject.GObject.__init__(self)
         Gtk.ListBox.__init__(self)
         self.set_selection_mode(Gtk.SelectionMode.NONE)
         self.get_style_context().add_class("accounts-list")
@@ -210,11 +214,11 @@ class AccountsList(Gtk.ListBox, GObject.GObject):
         account.remove()
         self.emit("account-deleted", account)
 
-    def _update_header_func(self, row, before):
+    def _update_header_func(self, row, row_before):
         def on_realize_sep(separator):
-            separator.set_size_request(before.get_allocated_width(), -1)
+            separator.set_size_request(row_before.get_allocated_width(), -1)
 
-        if before:
+        if row_before:
             separator = Gtk.Separator()
             separator.connect("realize", on_realize_sep)
             row.set_header(separator)

@@ -9,7 +9,11 @@
     <property name="can_focus">False</property>
     <property name="default_width">350</property>
     <property name="default_height">500</property>
-    <child type="titlebar">
+    <property name="icon_name">@APP_ID@</property>
+    <style>
+      <class name="theme"/>
+    </style>
+     <child type="titlebar">
       <object class="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
