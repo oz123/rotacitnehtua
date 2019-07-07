@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Authenticator/issues\n"
-"POT-Creation-Date: 2019-06-13 20:36+0000\n"
-"PO-Revision-Date: 2019-06-13 20:51-0300\n"
+"POT-Creation-Date: 2019-07-02 16:11+0000\n"
+"PO-Revision-Date: 2019-07-07 17:10-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -26,8 +26,10 @@ msgstr "Autenticador"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:8
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
-msgid "Two-factor authentication code generator"
-msgstr "Gerador de código de autenticação de dois fatores"
+#: data/resources/gtk/ui/about_dialog.ui.in:10
+#| msgid "Two-factor authentication"
+msgid "A Two-Factor Authentication application"
+msgstr "Um aplicativo de autenticação de dois fatores"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid ""
@@ -74,7 +76,7 @@ msgid "Main Window - empty state"
 msgstr "Janela principal - estado vazio"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:29
-#: data/resources/gtk/ui/account_add.ui:14
+#: data/resources/gtk/ui/account_add.ui:15
 msgid "Add a new account"
 msgstr "Adicionar uma nova conta"
 
@@ -86,217 +88,19 @@ msgstr "Janela principal - lista de contas"
 msgid "Settings Window"
 msgstr "Janela de configurações"
 
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:48
-msgid ""
-"HOTFIX: if you had an issue with your accounts being lost after the latest "
-"update, please update to this one."
-msgstr ""
-"HOTFIX: se você teve um problema com suas contas perdidas após a atualização "
-"mais recente, atualize para esta."
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:52
-msgid "Database migrations: ensure users won't lose their data in the future"
-msgstr ""
-"Migrações de banco de dados: garanta que os usuários não perderão seus dados "
-"no futuro"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:53
-msgid "Fix edit account issue"
-msgstr "Correção de problema na edição de contas"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:54
-msgid "Improve the provider image widget"
-msgstr "Melhoria do widget de imagem do provedor"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:55
-msgid "Translations updates"
-msgstr "Atualizações de traduções"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:61
-msgid ""
-"Authenticator 3.32 is out! Here's an overview of what changed Please backup "
-"your accounts before updating to the latest version and restore the data "
-"after update."
-msgstr ""
-"O autenticador 3.32 está fora! Aqui está uma visão geral do que mudou. Por "
-"favor, faça backup de suas contas antes de atualizar para a versão mais "
-"recente e restaurar os dados após a atualização."
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:66
-#| msgid "Settings Window"
-msgid "New settings window"
-msgstr "Nova janela de configurações"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:67
-msgid "Download provider images using their favicon if possible"
-msgstr "Baixa imagens dos provedores usando seu favicon, se possível"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:68
-msgid "Night Light feature: not working yet!"
-msgstr "Recurso de luz noturna: não está funcionando ainda!"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:69
-msgid ""
-"The possibility to enable/disable a password without having to reset "
-"everything"
-msgstr ""
-"A possibilidade de habilitar/desabilitar uma senha sem ter que redefinir tudo"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:70
-msgid ""
-"You can now add new providers and set images for providers that we didn't "
-"find an icon for"
-msgstr ""
-"Agora você pode adicionar novos provedores e definir imagens para provedores "
-"para os quais não encontramos um ícone"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:71
-msgid "Mobile ready"
-msgstr "Pronto para mobilidade"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:72
-msgid "New icon by Tobias Bernard"
-msgstr "Novo ícone por Tobias Bernard"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:73
-msgid "Click to copy the PIN on GNOME Shell Search provider results"
-msgstr ""
-"Clique para copiar o PIN nos resultados do provedor de Pesquisa do GNOME "
-"Shell"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:74
-msgid ""
-"Hide the results from Shell Search Provider if the application is locked"
-msgstr ""
-"Oculte os resultados do Provedor de Pesquisa do Shell se o aplicativo "
-"estiver bloqueado"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:75
-msgid "Bunch of fixed bugs"
-msgstr "Várias correções de erros"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:81
-msgid ""
-"Since I have moved the application to GNOME Gitlab's World group, a Flatpak "
-"build for each new commit is available to download from the site's website."
-msgstr ""
-"Desde que eu mudei o aplicativo para o grupo World do GNOME GitLab, uma "
-"versão Flatpak para cada novo commit está disponível para download no site "
-"do site."
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:85
-msgid "Backup and restore from a basic JSON file"
-msgstr "Backup e restauração de um arquivo JSON básico"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:86
-msgid "Backup and restore from an encrypted-GPG JSON file"
-msgstr "Backup e restauração de um arquivo JSON criptografado com GPG"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:87
-msgid "Add andOTP support (free and open Android 2FA application)"
-msgstr "Adição de suporte a andOTP (aplicativo Android 2FA livre e aberto)"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:88
-msgid "New Settings window with 3 sections: appearance, behavior and backup"
-msgstr ""
-"Nova janela de Configurações com 3 seções: aparência, comportamento e backup"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:89
-msgid "Fix Flatpak Build with the latest GNOME Runtime"
-msgstr "Correção de Flatpak Build com o GNOME Runtime mais recente"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:90
-msgid "Move the project to GNOME Gitlab's World group"
-msgstr "Movido o projeto para o grupo World do GNOME GitLab"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:97
-msgid "GNOME Shell Search provider"
-msgstr "Provedor de Pesquisa do GNOME Shell"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:98
-msgid "Codes expire simultaneously #91"
-msgstr "Código expira simultaneamente #91"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:105
-msgid "Revamped main window to more closely follow the GNOME HIG"
-msgstr "Renovada a janela principal para seguir mais de perto o GNOME HIG"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:106
-msgid "Revamped add a new account window to make it easier to use"
-msgstr "Renovada a adição de uma nova janela de conta para facilitar o uso"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:107
-msgid ""
-"Possibility to add an account from a provider not listed in the shipped "
-"database"
-msgstr ""
-"Possibilidade de adicionar uma conta de um provedor não listado no banco de "
-"dados enviado"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:108
-msgid "Possibility to edit an account"
-msgstr "Possibilidade de editar uma conta"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:109
-msgid "One Time Password now visible by default"
-msgstr "Senha de uso único (OTP) agora visível por padrão"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:116
-msgid "Fix python-dbus by using GDbus instead"
-msgstr "Correção do python-dbus usando o GDbus"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:123
-msgid "Fix the QRScanner on GNOME Shell"
-msgstr "Correção do QRScanner no GNOME Shell"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:124
-#| msgid "Add a new account from the menu"
-msgid "Add a new entry for the account's username"
-msgstr "Adição de uma nova entrada para o nome de usuário da conta"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:125
-msgid "Updated database of supported accounts"
-msgstr "Banco de dados atualizado de contas suportadas"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:132
-msgid "HOTFIX: App not running in DE other than GNOME"
-msgstr "HOTFIX: Aplicativo não sendo executado em DE diferente do GNOME"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:139
-msgid "Rename project to Authenticator"
-msgstr "Projeto renomeado para Autenticador"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:140
-msgid "Cleaner code base"
-msgstr "Base de código mais limpo"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:141
-msgid "Faster startup"
-msgstr "Inicialização mais rápida"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:142
-msgid "Remove unneeded features"
-msgstr "Remoção de recursos desnecessários"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:143
-msgid "Switch to pyzbar instead of zbarlight"
-msgstr "Troca para pyzbar em vez de zbarlight"
-
-#: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:144
-msgid "Flatpak package"
-msgstr "Pacote Flatpak"
-
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:160
 msgid "Bilal Elmoussaoui"
 msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
-msgid "Two-factor authentication"
+#| msgid "Two-factor authentication"
+msgid "Two-factor Authentication"
 msgstr "Autenticação de dois fatores"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
 msgid "Gnome;GTK;Verification;2FA;Authentication;TwoFactor;"
-msgstr "Gnome;GTK;Verificação;2FA;Autenticação;TwoFactor;"
+msgstr ""
+"Gnome;GTK;Verificação;2FA;Autenticação;Authentication;TwoFactor;Dois Fatores;"
 
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:6
 #: data/com.github.bilelmoussaoui.Authenticator.gschema.xml.in:7
@@ -338,41 +142,38 @@ msgstr "Habilita automaticamente o modo escuro à noite."
 msgid "Default window maximized behaviour"
 msgstr "Comportamento padrão da janela maximizada"
 
-#: data/resources/gtk/ui/about_dialog.ui.in:10
-msgid "Two-factor authentication code generator."
-msgstr "Gerador de código de autenticação de dois fatores."
-
 #: data/resources/gtk/ui/about_dialog.ui.in:13
 msgid "translator-credits"
 msgstr ""
 "Fúlvio Alves <fga.fulvio@gmail.com>\n"
 "Rafael Fontenelle <rafaelff@gnome.org>"
 
-#: data/resources/gtk/ui/account_add.ui:32
+#: data/resources/gtk/ui/account_add.ui:33
 msgid "Add"
 msgstr "Adicionar"
 
-#: data/resources/gtk/ui/account_add.ui:52
+#: data/resources/gtk/ui/account_add.ui:53
 msgid "Scan QR Code"
 msgstr "Escanear código QR"
 
-#: data/resources/gtk/ui/account_config.ui:80
+#: data/resources/gtk/ui/account_config.ui:56
 msgid "Account Name"
 msgstr "Nome da conta"
 
-#: data/resources/gtk/ui/account_config.ui:103
+#: data/resources/gtk/ui/account_config.ui:78
 msgid "Provider"
 msgstr "Provedor"
 
-#: data/resources/gtk/ui/account_config.ui:120
+#: data/resources/gtk/ui/account_config.ui:95
+#: data/resources/gtk/ui/account_config.ui:96
 msgid "Enable 2FA for this account"
 msgstr "Habilita 2FA para essa conta"
 
-#: data/resources/gtk/ui/account_config.ui:121
+#: data/resources/gtk/ui/account_config.ui:97
 msgid "2FA Token"
 msgstr "Token 2FA"
 
-#: data/resources/gtk/ui/account_config.ui:135
+#: data/resources/gtk/ui/account_config.ui:111
 msgid "Provider Website"
 msgstr "Site do provedor"
 
@@ -405,7 +206,7 @@ msgid "Confirm New Password:"
 msgstr "Confirmar nova senha:"
 
 #: data/resources/gtk/ui/password_widget.ui:184
-#: src/Authenticator/widgets/settings.py:167
+#: src/Authenticator/widgets/settings.py:174
 msgid "Change Password"
 msgstr "Alterar senha"
 
@@ -457,27 +258,27 @@ msgctxt "shortcut window"
 msgid "Search"
 msgstr "Pesquisa"
 
-#: data/resources/gtk/ui/window.ui.in:185
+#: data/resources/gtk/ui/window.ui.in:189
 msgid "There are no accounts yet…"
 msgstr "Ainda não há contas…"
 
-#: data/resources/gtk/ui/window.ui.in:214
+#: data/resources/gtk/ui/window.ui.in:218
 msgid "Add a new account from the menu"
 msgstr "Adicione uma nova conta pelo menu"
 
-#: data/resources/gtk/ui/window.ui.in:230
+#: data/resources/gtk/ui/window.ui.in:234
 msgid "Scan a QR Code"
 msgstr "Escaneie um código QR"
 
-#: data/resources/gtk/ui/window.ui.in:362
+#: data/resources/gtk/ui/window.ui.in:366
 msgid "No results found"
 msgstr "Nenhum resultado encontrado"
 
-#: data/resources/gtk/ui/window.ui.in:425
+#: data/resources/gtk/ui/window.ui.in:429
 msgid "Authenticator is locked"
 msgstr "O Autenticador está bloqueado"
 
-#: data/resources/gtk/ui/window.ui.in:464
+#: data/resources/gtk/ui/window.ui.in:468
 msgid "Unlock"
 msgstr "Desbloquear"
 
@@ -518,54 +319,223 @@ msgstr "Atalhos de teclado"
 msgid "About Authenticator"
 msgstr "Sobre o Autenticador"
 
-#: src/Authenticator/models/account.py:71
+#: src/Authenticator/models/account.py:84
 msgid "Default"
 msgstr "Padrão"
 
-#: src/Authenticator/widgets/accounts/add.py:57
+#: src/Authenticator/widgets/accounts/add.py:247
 msgid "Invalid QR code"
 msgstr "Código QR inválido"
 
-#: src/Authenticator/widgets/accounts/list.py:153
+#: src/Authenticator/widgets/accounts/list.py:152
 msgid "The One-Time Passwords expire in {} seconds"
 msgstr "As senhas de uso único (OTP) expiram em {} segundos"
 
-#: src/Authenticator/widgets/accounts/row.py:82
+#: src/Authenticator/widgets/accounts/row.py:90
 msgid "Couldn't generate the secret code"
 msgstr "Não foi possível gerar o código secreto"
 
-#: src/Authenticator/widgets/accounts/row.py:93
+#: src/Authenticator/widgets/accounts/row.py:100
 msgid "The PIN of {} was copied to the clipboard"
 msgstr "O PIN de {} foi copiado para a área de transferência"
 
-#: src/Authenticator/widgets/accounts/row.py:133
+#: src/Authenticator/widgets/accounts/row.py:141
 msgid "The account was updated successfully"
 msgstr "A conta foi atualizada com sucesso"
 
 #: src/Authenticator/widgets/notification.py:53
-#: src/Authenticator/widgets/notification.py:83
+#: src/Authenticator/widgets/notification.py:84
 msgid "Undo"
 msgstr "Desfazer"
 
-#: src/Authenticator/widgets/notification.py:78
+#: src/Authenticator/widgets/notification.py:79
 msgid "Close the notification"
 msgstr "Fechar a notificação"
 
-#: src/Authenticator/widgets/settings.py:163
+#: src/Authenticator/widgets/settings.py:170
 msgid "Save Password"
 msgstr "Salvar senha"
 
-#: src/Authenticator/widgets/settings.py:214
+#: src/Authenticator/widgets/settings.py:222
 msgid "Do you want to remove the authentication password?"
 msgstr "Deseja remover a senha de autenticação?"
 
-#: src/Authenticator/widgets/settings.py:215
+#: src/Authenticator/widgets/settings.py:223
 msgid "Authentication password enforces the privacy of your accounts."
 msgstr "A senha de autenticação reforça a privacidade de suas contas."
 
 #: src/Authenticator/widgets/utils.py:26 src/Authenticator/widgets/utils.py:31
 msgid "JSON files"
 msgstr "Arquivos JSON"
+
+#~ msgid "Two-factor authentication code generator"
+#~ msgstr "Gerador de código de autenticação de dois fatores"
+
+#~ msgid ""
+#~ "HOTFIX: if you had an issue with your accounts being lost after the "
+#~ "latest update, please update to this one."
+#~ msgstr ""
+#~ "HOTFIX: se você teve um problema com suas contas perdidas após a "
+#~ "atualização mais recente, atualize para esta."
+
+#~ msgid ""
+#~ "Database migrations: ensure users won't lose their data in the future"
+#~ msgstr ""
+#~ "Migrações de banco de dados: garanta que os usuários não perderão seus "
+#~ "dados no futuro"
+
+#~ msgid "Fix edit account issue"
+#~ msgstr "Correção de problema na edição de contas"
+
+#~ msgid "Improve the provider image widget"
+#~ msgstr "Melhoria do widget de imagem do provedor"
+
+#~ msgid "Translations updates"
+#~ msgstr "Atualizações de traduções"
+
+#~ msgid ""
+#~ "Authenticator 3.32 is out! Here's an overview of what changed Please "
+#~ "backup your accounts before updating to the latest version and restore "
+#~ "the data after update."
+#~ msgstr ""
+#~ "O autenticador 3.32 está fora! Aqui está uma visão geral do que mudou. "
+#~ "Por favor, faça backup de suas contas antes de atualizar para a versão "
+#~ "mais recente e restaurar os dados após a atualização."
+
+#~| msgid "Settings Window"
+#~ msgid "New settings window"
+#~ msgstr "Nova janela de configurações"
+
+#~ msgid "Download provider images using their favicon if possible"
+#~ msgstr "Baixa imagens dos provedores usando seu favicon, se possível"
+
+#~ msgid "Night Light feature: not working yet!"
+#~ msgstr "Recurso de luz noturna: não está funcionando ainda!"
+
+#~ msgid ""
+#~ "The possibility to enable/disable a password without having to reset "
+#~ "everything"
+#~ msgstr ""
+#~ "A possibilidade de habilitar/desabilitar uma senha sem ter que redefinir "
+#~ "tudo"
+
+#~ msgid ""
+#~ "You can now add new providers and set images for providers that we didn't "
+#~ "find an icon for"
+#~ msgstr ""
+#~ "Agora você pode adicionar novos provedores e definir imagens para "
+#~ "provedores para os quais não encontramos um ícone"
+
+#~ msgid "Mobile ready"
+#~ msgstr "Pronto para mobilidade"
+
+#~ msgid "New icon by Tobias Bernard"
+#~ msgstr "Novo ícone por Tobias Bernard"
+
+#~ msgid "Click to copy the PIN on GNOME Shell Search provider results"
+#~ msgstr ""
+#~ "Clique para copiar o PIN nos resultados do provedor de Pesquisa do GNOME "
+#~ "Shell"
+
+#~ msgid ""
+#~ "Hide the results from Shell Search Provider if the application is locked"
+#~ msgstr ""
+#~ "Oculte os resultados do Provedor de Pesquisa do Shell se o aplicativo "
+#~ "estiver bloqueado"
+
+#~ msgid "Bunch of fixed bugs"
+#~ msgstr "Várias correções de erros"
+
+#~ msgid ""
+#~ "Since I have moved the application to GNOME Gitlab's World group, a "
+#~ "Flatpak build for each new commit is available to download from the "
+#~ "site's website."
+#~ msgstr ""
+#~ "Desde que eu mudei o aplicativo para o grupo World do GNOME GitLab, uma "
+#~ "versão Flatpak para cada novo commit está disponível para download no "
+#~ "site do site."
+
+#~ msgid "Backup and restore from a basic JSON file"
+#~ msgstr "Backup e restauração de um arquivo JSON básico"
+
+#~ msgid "Backup and restore from an encrypted-GPG JSON file"
+#~ msgstr "Backup e restauração de um arquivo JSON criptografado com GPG"
+
+#~ msgid "Add andOTP support (free and open Android 2FA application)"
+#~ msgstr "Adição de suporte a andOTP (aplicativo Android 2FA livre e aberto)"
+
+#~ msgid "New Settings window with 3 sections: appearance, behavior and backup"
+#~ msgstr ""
+#~ "Nova janela de Configurações com 3 seções: aparência, comportamento e "
+#~ "backup"
+
+#~ msgid "Fix Flatpak Build with the latest GNOME Runtime"
+#~ msgstr "Correção de Flatpak Build com o GNOME Runtime mais recente"
+
+#~ msgid "Move the project to GNOME Gitlab's World group"
+#~ msgstr "Movido o projeto para o grupo World do GNOME GitLab"
+
+#~ msgid "GNOME Shell Search provider"
+#~ msgstr "Provedor de Pesquisa do GNOME Shell"
+
+#~ msgid "Codes expire simultaneously #91"
+#~ msgstr "Código expira simultaneamente #91"
+
+#~ msgid "Revamped main window to more closely follow the GNOME HIG"
+#~ msgstr "Renovada a janela principal para seguir mais de perto o GNOME HIG"
+
+#~ msgid "Revamped add a new account window to make it easier to use"
+#~ msgstr "Renovada a adição de uma nova janela de conta para facilitar o uso"
+
+#~ msgid ""
+#~ "Possibility to add an account from a provider not listed in the shipped "
+#~ "database"
+#~ msgstr ""
+#~ "Possibilidade de adicionar uma conta de um provedor não listado no banco "
+#~ "de dados enviado"
+
+#~ msgid "Possibility to edit an account"
+#~ msgstr "Possibilidade de editar uma conta"
+
+#~ msgid "One Time Password now visible by default"
+#~ msgstr "Senha de uso único (OTP) agora visível por padrão"
+
+#~ msgid "Fix python-dbus by using GDbus instead"
+#~ msgstr "Correção do python-dbus usando o GDbus"
+
+#~ msgid "Fix the QRScanner on GNOME Shell"
+#~ msgstr "Correção do QRScanner no GNOME Shell"
+
+#~| msgid "Add a new account from the menu"
+#~ msgid "Add a new entry for the account's username"
+#~ msgstr "Adição de uma nova entrada para o nome de usuário da conta"
+
+#~ msgid "Updated database of supported accounts"
+#~ msgstr "Banco de dados atualizado de contas suportadas"
+
+#~ msgid "HOTFIX: App not running in DE other than GNOME"
+#~ msgstr "HOTFIX: Aplicativo não sendo executado em DE diferente do GNOME"
+
+#~ msgid "Rename project to Authenticator"
+#~ msgstr "Projeto renomeado para Autenticador"
+
+#~ msgid "Cleaner code base"
+#~ msgstr "Base de código mais limpo"
+
+#~ msgid "Faster startup"
+#~ msgstr "Inicialização mais rápida"
+
+#~ msgid "Remove unneeded features"
+#~ msgstr "Remoção de recursos desnecessários"
+
+#~ msgid "Switch to pyzbar instead of zbarlight"
+#~ msgstr "Troca para pyzbar em vez de zbarlight"
+
+#~ msgid "Flatpak package"
+#~ msgstr "Pacote Flatpak"
+
+#~ msgid "Two-factor authentication code generator."
+#~ msgstr "Gerador de código de autenticação de dois fatores."
 
 #~ msgid "Close"
 #~ msgstr "Fechar"
