@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Authenticator\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/Authenticator/issues\n"
-"POT-Creation-Date: 2019-06-07 00:46+0000\n"
-"PO-Revision-Date: 2019-06-09 17:21+0200\n"
+"POT-Creation-Date: 2019-07-02 16:11+0000\n"
+"PO-Revision-Date: 2019-07-07 13:33+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -28,8 +28,9 @@ msgstr "Authenticator"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:8
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:5
-msgid "Two-factor authentication code generator"
-msgstr "Generator kodów uwierzytelniania dwuetapowego"
+#: data/resources/gtk/ui/about_dialog.ui.in:10
+msgid "A Two-Factor Authentication application"
+msgstr "Program do uwierzytelniania dwuetapowego"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:10
 msgid ""
@@ -76,7 +77,7 @@ msgid "Main Window - empty state"
 msgstr "Główne okno — puste"
 
 #: data/com.github.bilelmoussaoui.Authenticator.appdata.xml.in.in:29
-#: data/resources/gtk/ui/account_add.ui:14
+#: data/resources/gtk/ui/account_add.ui:15
 msgid "Add a new account"
 msgstr "Dodawanie nowego konta"
 
@@ -93,7 +94,7 @@ msgid "Bilal Elmoussaoui"
 msgstr "Bilal Elmoussaoui"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:4
-msgid "Two-factor authentication"
+msgid "Two-factor Authentication"
 msgstr "Uwierzytelnianie dwuetapowe"
 
 #: data/com.github.bilelmoussaoui.Authenticator.desktop.in.in:10
@@ -142,10 +143,6 @@ msgstr "Automatyczne włączanie ciemnego trybu w nocy."
 msgid "Default window maximized behaviour"
 msgstr "Domyślne zachowanie zmaksymalizowanego okna"
 
-#: data/resources/gtk/ui/about_dialog.ui.in:10
-msgid "Two-factor authentication code generator."
-msgstr "Generator kodów uwierzytelniania dwuetapowego."
-
 #: data/resources/gtk/ui/about_dialog.ui.in:13
 msgid "translator-credits"
 msgstr ""
@@ -153,31 +150,32 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2019\n"
 "Aviary.pl <community-poland@mozilla.org>, 2019"
 
-#: data/resources/gtk/ui/account_add.ui:32
+#: data/resources/gtk/ui/account_add.ui:33
 msgid "Add"
 msgstr "Dodaj"
 
-#: data/resources/gtk/ui/account_add.ui:52
+#: data/resources/gtk/ui/account_add.ui:53
 msgid "Scan QR Code"
 msgstr "Skanuj kod QR"
 
-#: data/resources/gtk/ui/account_config.ui:80
+#: data/resources/gtk/ui/account_config.ui:56
 msgid "Account Name"
 msgstr "Nazwa konta"
 
-#: data/resources/gtk/ui/account_config.ui:103
+#: data/resources/gtk/ui/account_config.ui:78
 msgid "Provider"
 msgstr "Dostawca"
 
-#: data/resources/gtk/ui/account_config.ui:120
+#: data/resources/gtk/ui/account_config.ui:95
+#: data/resources/gtk/ui/account_config.ui:96
 msgid "Enable 2FA for this account"
 msgstr "Włącz uwierzytelnianie dwuetapowe dla tego konta"
 
-#: data/resources/gtk/ui/account_config.ui:121
+#: data/resources/gtk/ui/account_config.ui:97
 msgid "2FA Token"
 msgstr "Token uwierzytelniania dwuetapowego"
 
-#: data/resources/gtk/ui/account_config.ui:135
+#: data/resources/gtk/ui/account_config.ui:111
 msgid "Provider Website"
 msgstr "Strona dostawcy"
 
@@ -210,7 +208,7 @@ msgid "Confirm New Password:"
 msgstr "Potwierdzenie nowego hasła:"
 
 #: data/resources/gtk/ui/password_widget.ui:184
-#: src/Authenticator/widgets/settings.py:167
+#: src/Authenticator/widgets/settings.py:174
 msgid "Change Password"
 msgstr "Zmień hasło"
 
@@ -262,27 +260,27 @@ msgctxt "shortcut window"
 msgid "Search"
 msgstr "Wyszukiwanie"
 
-#: data/resources/gtk/ui/window.ui.in:185
+#: data/resources/gtk/ui/window.ui.in:189
 msgid "There are no accounts yet…"
 msgstr "Nie ma jeszcze żadnych kont…"
 
-#: data/resources/gtk/ui/window.ui.in:214
+#: data/resources/gtk/ui/window.ui.in:218
 msgid "Add a new account from the menu"
 msgstr "Dodaj nowe konto z menu"
 
-#: data/resources/gtk/ui/window.ui.in:230
+#: data/resources/gtk/ui/window.ui.in:234
 msgid "Scan a QR Code"
 msgstr "Skanuj kod QR"
 
-#: data/resources/gtk/ui/window.ui.in:362
+#: data/resources/gtk/ui/window.ui.in:366
 msgid "No results found"
 msgstr "Brak wyników"
 
-#: data/resources/gtk/ui/window.ui.in:425
+#: data/resources/gtk/ui/window.ui.in:429
 msgid "Authenticator is locked"
 msgstr "Program jest zablokowany"
 
-#: data/resources/gtk/ui/window.ui.in:464
+#: data/resources/gtk/ui/window.ui.in:468
 msgid "Unlock"
 msgstr "Odblokuj"
 
@@ -323,48 +321,48 @@ msgstr "Skróty klawiszowe"
 msgid "About Authenticator"
 msgstr "O programie"
 
-#: src/Authenticator/models/account.py:71
+#: src/Authenticator/models/account.py:84
 msgid "Default"
 msgstr "Domyślne"
 
-#: src/Authenticator/widgets/accounts/add.py:57
+#: src/Authenticator/widgets/accounts/add.py:247
 msgid "Invalid QR code"
 msgstr "Nieprawidłowy kod QR"
 
-#: src/Authenticator/widgets/accounts/list.py:153
+#: src/Authenticator/widgets/accounts/list.py:152
 msgid "The One-Time Passwords expire in {} seconds"
 msgstr "Hasła jednorazowe wygasają za {} s"
 
-#: src/Authenticator/widgets/accounts/row.py:82
+#: src/Authenticator/widgets/accounts/row.py:90
 msgid "Couldn't generate the secret code"
 msgstr "Nie można wygenerować tajnego kodu"
 
-#: src/Authenticator/widgets/accounts/row.py:93
+#: src/Authenticator/widgets/accounts/row.py:100
 msgid "The PIN of {} was copied to the clipboard"
 msgstr "Skopiowano PIN „{}” do schowka"
 
-#: src/Authenticator/widgets/accounts/row.py:133
+#: src/Authenticator/widgets/accounts/row.py:141
 msgid "The account was updated successfully"
 msgstr "Pomyślnie zaktualizowano konto"
 
 #: src/Authenticator/widgets/notification.py:53
-#: src/Authenticator/widgets/notification.py:83
+#: src/Authenticator/widgets/notification.py:84
 msgid "Undo"
 msgstr "Cofnij"
 
-#: src/Authenticator/widgets/notification.py:78
+#: src/Authenticator/widgets/notification.py:79
 msgid "Close the notification"
 msgstr "Zamknij powiadomienie"
 
-#: src/Authenticator/widgets/settings.py:163
+#: src/Authenticator/widgets/settings.py:170
 msgid "Save Password"
 msgstr "Zapisz hasło"
 
-#: src/Authenticator/widgets/settings.py:214
+#: src/Authenticator/widgets/settings.py:222
 msgid "Do you want to remove the authentication password?"
 msgstr "Usunąć hasło uwierzytelniania?"
 
-#: src/Authenticator/widgets/settings.py:215
+#: src/Authenticator/widgets/settings.py:223
 msgid "Authentication password enforces the privacy of your accounts."
 msgstr "Hasło uwierzytelniania zapewnia prywatność kont."
 
