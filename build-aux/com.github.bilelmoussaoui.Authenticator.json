@@ -16,7 +16,6 @@
         "--socket=wayland",
         "--share=network",
         "--talk-name=org.freedesktop.secrets",
-        "--talk-name=org.freedesktop.Flatpak",
         "--talk-name=org.gnome.Shell.Screenshot",
         "--talk-name=org.gnome.SettingsDaemon.Color",
         "--filesystem=xdg-run/dconf",
