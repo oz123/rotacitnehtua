@@ -1,11 +1,13 @@
-<a href="https://flathub.org/apps/details/com.github.bilelmoussaoui.Authenticator">
-<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
-</a>
-
-
 # Authenticator
-<img src="https://gitlab.gnome.org/World/Authenticator/raw/master/data/icons/hicolor/scalable/apps/com.github.bilelmoussaoui.Authenticator.svg" width="128" height="128" />
-<p>Two-factor authentication application built for GNOME.</p>
+<p>Two-factor authentication application built for GNOME using Python.</p>
+## Why this fork?
+
+The original maintainer has decided to take an OKayish app and re-write in rust.
+I have nothing against this. He works on his spare time and I appreciate his choice
+to work on this project and rewrite with rust. However, I feel this brings **me**
+no real benefit. This only exist here to scratch my itch: have a working authenticator
+on my Linux phone. The new rust version will not work with Wayland + Phosh, and I feel
+like fixing this in Python will be easier than mastering rust. I might be wrong.
 
 ## Screenshots
 
